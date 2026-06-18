@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\ad.png" />
+    <None Include="wwwroot\Images\admin.png" />
+    <None Include="wwwroot\Images\ap.png" />
+    <None Include="wwwroot\Images\applicant.png" />
+    <None Include="wwwroot\Images\logo.png" />
+    <None Include="wwwroot\Images\lp.png" />
+  </ItemGroup>
+
+</Project>

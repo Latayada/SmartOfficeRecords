@@ -1,0 +1,543 @@
+﻿@{
+    ViewBag.Title = "Applicant Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+    <html>
+    <head>
+
+        <meta charset="utf-8" />
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+
+        <title>Applicant Register</title>
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+              rel="stylesheet" />
+
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+              rel="stylesheet">
+
+        <style>
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            body {
+                background: #f3f4f6;
+                min-height: 100vh;
+                overflow: hidden;
+            }
+
+            .main-container {
+                width: 100%;
+                height: 100vh;
+                display: flex;
+            }
+
+            .register-wrapper {
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                overflow: hidden;
+                background: white;
+            }
+
+            /* LEFT */
+            .left-side {
+                width: 40%;
+                height: 100vh;
+                background: #168a3b;
+                position: relative;
+            }
+
+            .top-content {
+                text-align: center;
+                padding-top: 70px;
+                position: relative;
+                z-index: 2;
+            }
+
+                .top-content img {
+                    width: 130px;
+                    margin-bottom: 25px;
+                }
+
+                .top-content h1 {
+                    color: white;
+                    font-size: 44px;
+                    font-weight: 700;
+                    line-height: 1.3;
+                }
+
+            .bottom-image {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+
+                .bottom-image img {
+                    width: 100%;
+                    height: 52vh;
+                    object-fit: cover;
+                }
+
+        .right-side {
+            width: 60%;
+            height: 100vh;
+            background: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 18px 30px;
+        }
+
+        /* CARD */
+        .register-card {
+            width: 100%;
+            max-width: 620px;
+            background: white;
+            border: 1px solid #dbe2ea;
+            border-radius: 10px;
+            padding: 28px 38px;
+        }
+
+            /* HEADER */
+            .register-card h2 {
+                text-align: center;
+                 text-align: center;
+                font-size: 24px;
+                font-weight: 700;
+                margin-bottom: 2px;
+            }
+
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+
+        /* GRID */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 18px;
+        }
+
+        /* INPUT */
+        .input-group-custom {
+            position: relative;
+        }
+
+        .left-icon {
+            position: absolute;
+            left: 15px;
+            top: 14px;
+            color: #9ca3af;
+            font-size: 16px;
+        }
+
+        .right-icon {
+            position: absolute;
+            right: 15px;
+            top: 14px;
+            cursor: pointer;
+            color: #6b7280;
+        }
+
+        .form-control-custom {
+            width: 100%;
+            height: 46px;
+            border: 1px solid #cfd4dc;
+            border-radius: 6px;
+            padding-left: 42px;
+            padding-right: 42px;
+            font-size: 15px;
+            outline: none;
+        }
+
+            .form-control-custom:focus {
+                border-color: #16a34a;
+                box-shadow: 0 0 0 2px rgba(22,163,74,0.10);
+            }
+
+        /* UPLOAD BOX */
+        .upload-box {
+            margin-top: 16px;
+            border: 2px dashed #d1d5db;
+            border-radius: 8px;
+            background: #fafafa;
+            padding: 16px;
+            text-align: center;
+        }
+            .upload-box i {
+                font-size: 42px;
+                color: #3b82f6;
+                margin-bottom: 10px;
+            }
+
+            .upload-box p {
+                font-size: 13px;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+
+            .upload-box input[type=file] {
+                width: 220px;
+                margin: auto;
+                font-size: 13px;
+            }
+
+        .upload-info {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        /* BUTTON */
+        .btn-register {
+            width: 68%;
+            height: 50px;
+            border: none;
+            border-radius: 6px;
+            background: #16a34a;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            display: block;
+            margin: 18px auto 0;
+        }
+
+            .btn-register:hover {
+                background: #15803d;
+            }
+
+        /* LOGIN */
+        .login-link {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 15px;
+        }
+
+            .login-link a {
+                color: #16a34a;
+                font-weight: 600;
+                text-decoration: none;
+            }
+
+        /* RESPONSIVE */
+        @@media(max-width: 991px) {
+
+            .register-wrapper {
+                flex-direction: column;
+            }
+
+            .left-side,
+            .right-side {
+                width: 100%;
+            }
+
+            .left-side {
+                height: 400px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .register-card {
+                width: 100%;
+                max-width: 640px;
+                background: white;
+                border: 1px solid #dbe2ea;
+                border-radius: 8px;
+                padding: 24px 32px;
+            }
+
+            .btn-register {
+                width: 100%;
+            }
+        }
+
+            .error-message {
+                color: red;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            .success-message {
+                color: green;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="main-container">
+
+            <div class="register-wrapper">
+
+                <!-- LEFT -->
+                <div class="left-side">
+
+                    <div class="top-content">
+
+                        <img src="~/Images/logo.png"
+                             alt="Logo" />
+
+                        <h1>
+                            SMART OFFICE
+                            <br />
+                            RECORDS SYSTEM
+                        </h1>
+
+                    </div>
+
+                    <div class="bottom-image">
+
+                        <img src="~/Images/applicant.png"
+                             alt="Applicant Image" />
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT -->
+                <div class="right-side">
+
+                    <div class="register-card">
+
+                        <h2>Create an Account!</h2>
+
+                        <p class="subtitle">
+                            Fill in the details to get started.
+                        </p>
+
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="error-message">
+                                @ViewBag.Error
+                            </div>
+                        }
+
+                        @if (ViewBag.Success != null)
+                        {
+                            <div class="success-message">
+                                @ViewBag.Success
+                            </div>
+                        }
+
+                        @using (Html.BeginForm(
+                                            "ApplicantRegister",
+                                            "Applicant",
+                                            FormMethod.Post,
+                                            new { enctype = "multipart/form-data" }))
+                        {
+
+                            <div class="form-grid">
+
+                                <div class="input-group-custom">
+                                    <i class="bi bi-person left-icon"></i>
+
+                                    <input type="text"
+                                           name="Fullname"
+                                           class="form-control-custom"
+                                           placeholder="Full name"
+                                           required />
+                                </div>
+
+                                <div class="input-group-custom">
+                                    <i class="bi bi-person left-icon"></i>
+
+                                    <input type="text"
+                                           name="Username"
+                                           class="form-control-custom"
+                                           placeholder="Username"
+                                           required />
+                                </div>
+
+                                <div class="input-group-custom">
+                                    <i class="bi bi-envelope left-icon"></i>
+
+                                    <input type="email"
+                                           name="Email"
+                                           class="form-control-custom"
+                                           placeholder="Email Address"
+                                           required />
+                                </div>
+
+                            <div class="input-group-custom">
+                                <i class="bi bi-person left-icon"></i>
+
+                                <input type="text"
+                                       name="InvitedBy"
+                                       class="form-control-custom"
+                                       placeholder="Invited by" />
+                            </div>
+
+                                <div class="input-group-custom">
+                                    <i class="bi bi-telephone left-icon"></i>
+
+                                    <input type="text"
+                                           name="ContactNumber"
+                                           class="form-control-custom"
+                                           placeholder="Contact Number"
+                                           required />
+                                </div>
+
+                                <div class="input-group-custom">
+
+                                    <i class="bi bi-lock left-icon"></i>
+
+                                    <input type="password"
+                                           id="password"
+                                           name="Password"
+                                           class="form-control-custom"
+                                           placeholder="Password"
+                                           required />
+
+                                    <i class="bi bi-eye right-icon"
+                                       id="togglePassword"></i>
+
+                                </div>
+
+                                <div class="input-group-custom">
+                                    <i class="bi bi-calendar-event left-icon"></i>
+
+                                    <input type="date"
+                                           name="Birthdate"
+                                           class="form-control-custom"
+                                           required />
+                                </div>
+
+                                <div class="input-group-custom">
+
+                                    <i class="bi bi-lock left-icon"></i>
+
+                                    <input type="password"
+                                           id="confirmPassword"
+                                           name="ConfirmPassword"
+                                           class="form-control-custom"
+                                           placeholder="Confirm Password"
+                                           required />
+
+                                    <i class="bi bi-eye right-icon"
+                                       id="toggleConfirmPassword"></i>
+
+                                </div>
+
+                            </div>
+
+                        <!-- IMAGE -->
+                        <div class="upload-box">
+
+                            <i class="bi bi-cloud-arrow-up-fill"></i>
+
+                            <p>
+                                Drag and drop image here
+                            </p>
+
+                            <input type="file"
+                                   name="ProfileImage"
+                                   accept=".jpg,.jpeg,.png" />
+
+                            <div class="upload-info">
+                                JPG, JPEG OR PNG, Max size 4MB.
+                            </div>
+
+                        </div>
+
+                            <!-- BUTTON -->
+                            <button type="submit"
+                                    class="btn-register">
+
+                                Register
+
+                            </button>
+                        }
+
+                        <!-- LOGIN -->
+                        <div class="login-link">
+
+                            Already have an account?
+
+                            <a href="@Url.Action("ApplicantLogin", "Applicant")">
+                                Login!
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>
+
+            // PASSWORD
+            const togglePassword =
+                document.querySelector("#togglePassword");
+
+            const password =
+                document.querySelector("#password");
+
+            togglePassword.addEventListener("click", function () {
+
+                const type =
+                    password.getAttribute("type") === "password"
+                        ? "text"
+                        : "password";
+
+                password.setAttribute("type", type);
+
+                this.classList.toggle("bi-eye");
+                this.classList.toggle("bi-eye-slash");
+
+            });
+
+            // CONFIRM PASSWORD
+            const toggleConfirmPassword =
+                document.querySelector("#toggleConfirmPassword");
+
+            const confirmPassword =
+                document.querySelector("#confirmPassword");
+
+            toggleConfirmPassword.addEventListener("click", function () {
+
+                const type =
+                    confirmPassword.getAttribute("type") === "password"
+                        ? "text"
+                        : "password";
+
+                confirmPassword.setAttribute("type", type);
+
+                this.classList.toggle("bi-eye");
+                this.classList.toggle("bi-eye-slash");
+
+            });
+
+        </script>
+
+    </body>
+
+ </html>
