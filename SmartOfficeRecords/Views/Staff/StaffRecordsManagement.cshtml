@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Staff Dashboard";
+    ViewBag.Title = "Staff Records Management";
     Layout = null;
 }
 
@@ -10,13 +10,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Staff Dashboard</title>
+    <title>Staff Records Management</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -37,8 +38,8 @@
         }
 
         /* ==========================
-                       DASHBOARD DESIGN
-                   ===========================*/
+                  DASHBOARD DESIGN
+           ===========================*/
 
         .dashboard-container {
             display: flex;
@@ -46,8 +47,9 @@
         }
 
         /* ==========================
-                        SIDEBAR DESIGN
-                  ===========================*/
+                                SIDEBAR DESIGN
+                          ===========================*/
+
         .sidebar {
             width: 190px;
             background-color: #2980B9;
@@ -55,33 +57,11 @@
             display: flex;
             flex-direction: column;
             transition: all .3s ease;
-            height: 100vh;
-            overflow-y: auto; 
-            overflow-x: hidden; 
         }
-
-        .sidebar {
-            scrollbar-width: thin;
-            scrollbar-color: rgba(255,255,255,.3) transparent;
-        }
-
-            /* Chrome / Edge */
-            .sidebar::-webkit-scrollbar {
-                width: 6px;
-            }
-
-            .sidebar::-webkit-scrollbar-thumb {
-                background: rgba(255,255,255,.25);
-                border-radius: 10px;
-            }
-
-            .sidebar::-webkit-scrollbar-track {
-                background: transparent;
-            }
 
             /* ==========================
-                        COLLAPSED SIDEBAR
-                   ===========================*/
+                                COLLAPSED SIDEBAR
+                           ===========================*/
             .sidebar.collapsed {
                 width: 90px;
             }
@@ -158,10 +138,9 @@
                         align-items: center;
                     }
 
-
         /* ================
-                       SETTINGS DROPDOWN
-                   ====================== */
+               SETTINGS DROPDOWN
+           ====================== */
 
         .sidebar-dropdown {
             margin-bottom: 10px;
@@ -224,8 +203,8 @@
         }
 
         /* ==========================
-                          LOGO DESIGN
-                   ===========================*/
+                                  LOGO DESIGN
+                           ===========================*/
         .logo-section {
             text-align: center;
             padding: 25px 15px;
@@ -269,8 +248,8 @@
             font-weight: 600;
         }
         /* ==========================
-                         MENU DESIGN
-                   ===========================*/
+                                 MENU DESIGN
+                           ===========================*/
 
         .menu {
             padding: 20px 12px;
@@ -295,18 +274,15 @@
                     background: #4FC3F7;
                 }
 
-        /* ==========================
-                            MAIN CONTENT
-                    ===========================*/
-
+        /* MAIN */
         .main-content {
             flex: 1;
             background: #f4f6f9;
         }
 
         /* ==========================
-                            TOP BAR
-                   ===========================*/
+                   TOP BAR
+           ===========================*/
         .topbar {
             height: 60px;
             border-bottom: 1px solid #d9dce3;
@@ -320,7 +296,7 @@
         .menu-toggle {
             background: none;
             border: none;
-            color: #2980B9;
+            color: #243f99;
             font-size: 22px;
             cursor: pointer;
             margin-right: 10px;
@@ -399,111 +375,135 @@
             padding: 30px;
         }
 
-        /* CARDS */
-        .cards-container {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .dashboard-card {
-            width: 227px;
-            height: 100px;
-            background: white;
-            border: 1px solid #e5e5e5;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            gap: 15px;
-        }
-
-        .card-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 22px;
-        }
-
-        .purple {
-            background: #7e22ce;
-        }
-
-        .orange {
-            background: #f59e0b;
-        }
-
-        .green {
-            background: #10b981;
-        }
-
-        .blue {
-            background: #3b82f6;
-        }
-
-        .red {
-            background: #ef4444;
-        }
-
-        .card-info h2 {
-            margin: 0;
-            font-size: 34px;
+        .page-title {
+            font-size: 20px;
             font-weight: 700;
+            color: #243f99;
+            margin-bottom: 25px;
         }
 
-        .card-info span {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        /* GRAPH SECTION */
-        .graph-section {
-            margin-top: 35px;
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            height: 420px;
-        }
-
-        .graph-header {
+        /* ACTION BAR */
+        .action-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-            .graph-header h4 {
-                font-size: 22px;
-                font-weight: 700;
-            }
-
-        .filter-btn {
-            border: 1px solid #d1d5db;
-            background: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
+        .search-filter {
+            display: flex;
+            gap: 15px;
+            flex: 1;
         }
 
-        .graph-placeholder {
-            width: 100%;
-            height: 280px;
-            border-left: 2px solid black;
-            border-bottom: 2px solid black;
+        .search-box {
+            flex: 1;
             position: relative;
         }
 
-        .days {
-            position: absolute;
-            bottom: -35px;
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
+            .search-box i {
+                position: absolute;
+                top: 14px;
+                left: 14px;
+                color: #9ca3af;
+                font-size: 16px;
+            }
+
+            .search-box input {
+                width: 100%;
+                height: 50px;
+                border: 1px solid #d1d5db;
+                border-radius: 8px;
+                padding-left: 42px;
+                font-size: 15px;
+                outline: none;
+            }
+
+        .status-filter {
+            width: 220px;
+            height: 50px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 0 15px;
+            font-size: 15px;
+            font-weight: 500;
+            outline: none;
+        }
+
+        .create-btn {
+            background: #3b82f6;
+            border: none;
+            color: white;
+            height: 50px;
+            padding: 0 24px;
+            border-radius: 8px;
             font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+            .create-btn:hover {
+                background: #2563eb;
+                color: white;
+            }
+
+        /* TABLE */
+        .table-container {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        .table {
+            margin-bottom: 0;
+        }
+
+            .table thead {
+                background: #f3f4f6;
+            }
+
+                .table thead th {
+                    padding: 18px;
+                    font-size: 15px;
+                    font-weight: 700;
+                    color: #111827;
+                }
+
+            .table tbody td {
+                padding: 18px;
+                font-size: 14px;
+                color: #374151;
+            }
+
+        /* PAGINATION */
+        .pagination-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .page-number {
+            width: 34px;
+            height: 34px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .active-page {
+            background: #3b82f6;
+            color: white;
         }
 
     </style>
@@ -531,7 +531,7 @@
 
             <div class="menu">
 
-                <a href="@Url.Action("Dashboard", "Staff")" class="active">
+                <a href="@Url.Action("Dashboard", "Staff")">
                     <i class="bi bi-speedometer2"></i>
                     <span>Dashboard</span>
                 </a>
@@ -541,7 +541,7 @@
                     <span>Request</span>
                 </a>
 
-                <a href="@Url.Action("StaffRecordsManagement", "Staff")">
+                <a href="@Url.Action("StaffRecordManagement", "Staff")" class="active">
                     <i class="bi bi-folder2-open"></i>
                     <span>Records</span>
                 </a>
@@ -550,6 +550,7 @@
                     <i class="bi bi-clipboard-data"></i>
                     <span>Reports</span>
                 </a>
+
 
                 <!-- SETTINGS DROPDOWN -->
                 <div class="sidebar-dropdown">
@@ -562,15 +563,16 @@
 
                     <div class="dropdown-submenu">
 
-                        <a href="@Url.Action("Settings", "Admin")">
+                        <a href="@Url.Action("Settings", "Staff")">
                             <i class="bi bi-sliders"></i>
                             <span>General Settings</span>
                         </a>
 
-                        <a href="@Url.Action("SAccountSettings", "Admin")">
+                        <a href="#">
                             <i class="bi bi-person-gear"></i>
                             <span>Account & Security</span>
                         </a>
+
                     </div>
 
                 </div>
@@ -579,7 +581,7 @@
 
             <div class="logout">
 
-                <a href="@Url.Action("Login", "Admin")">
+                <a href="@Url.Action("Login", "Staff")">
                     <i class="bi bi-box-arrow-right"></i>
                     <span>Logout</span>
                 </a>
@@ -591,9 +593,7 @@
         <!-- MAIN -->
         <div class="main-content">
 
-            <!-- TOPBAR -->
             <div class="topbar">
-
                 <div class="topbar-left">
                     <button class="menu-toggle" id="menuToggle">
                         <i class="bi bi-list"></i>
@@ -618,129 +618,97 @@
                     </div>
 
                 </div>
-
             </div>
 
-            <!-- CONTENT -->
             <div class="content-area">
 
-                <!-- CARDS -->
-                <div class="cards-container">
+                <div class="page-title">Records</div>
 
-                    <div class="dashboard-card">
+                <!-- ACTION BAR -->
+                <div class="action-bar">
 
-                        <div class="card-icon purple">
-                            <i class="bi bi-send-fill"></i>
+                    <div class="search-filter">
+
+                        <div class="search-box">
+                            <i class="bi bi-search"></i>
+                            <input type="text" placeholder="Search records..." />
                         </div>
 
-                        <div class="card-info">
-                            <h2>0</h2>
-                            <span style="color:#7e22ce;">
-                                Total Request
-                            </span>
-                        </div>
+                        <select class="status-filter">
+                            <option>All Categories</option>
+                            <option>PDF</option>
+                            <option>Images</option>
+                            <option>Documents</option>
+                        </select>
 
                     </div>
 
-                    <div class="dashboard-card">
+                    <a href="@Url.Action("UploadFiles", "Staff")"
+                       class="create-btn">
 
-                        <div class="card-icon orange">
-                            <i class="bi bi-clock"></i>
-                        </div>
+                        <i class="bi bi-plus-lg"></i>
+                        Upload Record
 
-                        <div class="card-info">
-                            <h2>0</h2>
-                            <span style="color:#f59e0b;">
-                                Pendings
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <div class="card-icon green">
-                            <i class="bi bi-check-circle"></i>
-                        </div>
-
-                        <div class="card-info">
-                            <h2>0</h2>
-                            <span style="color:#10b981;">
-                                Approved
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <div class="card-icon blue">
-                            <i class="bi bi-file-earmark-text"></i>
-                        </div>
-
-                        <div class="card-info">
-                            <h2>0</h2>
-                            <span style="color:#3b82f6;">
-                                Completed
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <div class="card-icon red">
-                            <i class="bi bi-x-circle"></i>
-                        </div>
-
-                        <div class="card-info">
-                            <h2>0</h2>
-                            <span style="color:#ef4444;">
-                                Rejected
-                            </span>
-                        </div>
-
-                    </div>
+                    </a>
 
                 </div>
 
-                <!-- GRAPH -->
-                <div class="graph-section">
+                <!-- TABLE -->
+                <div class="table-container">
 
-                    <div class="graph-header">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>FILE NAME</th>
+                                <th>CATEGORY</th>
+                                <th>UPLOADED BY</th>
+                                <th>DATE UPLOADED</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
 
-                        <h4>Request Overview</h4>
+                        <tbody>
 
-                        <button class="filter-btn">
-                            This Week
-                            <i class="bi bi-caret-down-fill"></i>
-                        </button>
+                            <tr>
+                                <td>Johndoe.pdf</td>
+                                <td>PDF</td>
+                                <td>John Doe</td>
+                                <td>Apr 24, 2026</td>
+                                <td><i class="bi bi-download"></i></td>
+                            </tr>
 
-                    </div>
+                            <tr>
+                                <td>Apriljane.pdf</td>
+                                <td>PDF</td>
+                                <td>April Jane</td>
+                                <td>Apr 24, 2026</td>
+                                <td><i class="bi bi-download"></i></td>
+                            </tr>
 
-                    <div class="graph-placeholder">
+                        </tbody>
+                    </table>
 
-                        <div class="days">
+                </div>
 
-                            <span>Mon</span>
-                            <span>Tue</span>
-                            <span>Wed</span>
-                            <span>Thu</span>
-                            <span>Fri</span>
-                            <span>Sat</span>
-                            <span>Sun</span>
+                <!-- PAGINATION -->
+                <div class="pagination-section">
 
-                        </div>
+                    <i class="bi bi-chevron-left"></i>
 
-                    </div>
+                    <div class="page-number active-page">1</div>
+                    <div class="page-number">2</div>
+                    <div class="page-number">3</div>
+                    <div class="page-number">4</div>
+
+                    <i class="bi bi-chevron-right"></i>
 
                 </div>
 
             </div>
+
         </div>
 
     </div>
-
     <script>
         const dropdown = document.querySelector('.sidebar-dropdown');
             const toggle = document.querySelector('.dropdown-toggle-menu');
