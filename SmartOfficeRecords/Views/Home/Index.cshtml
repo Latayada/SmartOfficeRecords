@@ -33,276 +33,182 @@
             }
 
             /* BODY */
-            body {
-                margin: 0;
-                padding: 0;
-                background-image: url('/Content/Images/lp.png');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                min-height: 100vh;
-            }
-
-            /* MAIN CONTAINER */
-            .main-container {
-                width: 100%;
-                min-height: 100vh;
-                background: rgba(255,255,255,0.90);
-                overflow: hidden;
-            }
-
-            /* NAVBAR */
-            .navbar-custom {
-                width: 100%;
-                height: 85px;
-                padding-left: 30px;
-                padding-right: 30px;
-                border-bottom: 1px solid #e5e5e5;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            /* LOGO */
-            .logo-section {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-
-                .logo-section img {
-                    width: 52px;
-                    height: 52px;
-                    object-fit: contain;
-                }
-
-            .logo-text h2 {
-                font-size: 18px;
-                font-weight: 700;
-                color: #2563eb;
-                margin: 0;
-                line-height: 1.1;
-            }
-
-            .logo-text span {
-                font-size: 11px;
-                font-weight: 700;
-                color: #111827;
-                letter-spacing: 0.5px;
-            }
-
-            /* NAVIGATION */
-            .nav-links a {
-                text-decoration: none;
-                margin-left: 40px;
-                font-size: 15px;
-                font-weight: 600;
-                color: #2563eb;
-                position: relative;
-                transition: 0.3s ease;
-            }
-
-                /* ONLY TEXT HOVER EFFECT */
-                .nav-links a:hover {
-                    color: #1e3fae;
-                    transform: translateY(-2px);
-                }
-
-            /* KEEP HOME UNDERLINE ONLY */
-            .nav-links .active::after {
-                content: '';
-                width: 100%;
-                height: 3px;
-                background: #2563eb;
-                position: absolute;
-                left: 0;
-                bottom: -8px;
-                border-radius: 5px;
-            }
-
-            /* REMOVE UNDERLINE EFFECT FROM OTHER LINKS */
-            .nav-links a:not(.active)::after {
-                display: none;
-            }
-
-            /* CONTENT WRAPPER */
-            .content-wrapper {
-                width: 100%;
-                height: calc(92vh - 85px);
-                display: flex;
-            }
-
-            /* LEFT SIDE */
-            .left-side {
-                width: 46%;
-                height: 100%;
-            }
-
-                .left-side img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-
-            /* RIGHT SIDE */
-            .right-side {
-                width: 54%;
-                height: 100%;
-                background-color: #f8f8f8;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                padding: 20px 30px;
-            }
-
-            /* HEADER */
-            .header-text {
-                text-align: center;
-                margin-bottom: 35px;
-            }
-
-                .header-text h1 {
-                    font-size: 30px;
-                    font-weight: 700;
-                    color: #111827;
-                    margin-bottom: 5px;
-                }
-
-                .header-text p {
-                    font-size: 16px;
-                    font-weight: 600;
-                    color: #374151;
-                }
-
-            /* CARD CONTAINER */
-            .cards-container {
-                display: flex;
-                gap: 28px;
-            }
-
-            /* LOGIN CARD */
-            .login-card {
-                width: 310px;
-                background-color: white;
-                border: 1px solid #dddddd;
-                border-radius: 8px;
-                overflow: visible;
-                transition: 0.3s ease;
-            }
-
-                /* HOVER EFFECT */
-                .login-card:hover {
-                    transform: translateY(-10px);
-                    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-                    cursor: pointer;
-                }
-
-            /* CARD IMAGE */
-            .card-image {
-                width: 100%;
-                height: 185px;
-            }
-
-                .card-image img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-
-            /* CARD BODY */
-            .card-body-custom {
-                padding: 22px;
-                text-align: center;
-            }
-
-            /* TITLES */
-            .admin-title {
-                color: #2563eb;
-                font-size: 18px;
-                font-weight: 700;
-                margin-bottom: 18px;
-            }
-
-            .applicant-title {
-                color: #16a34a;
-                font-size: 18px;
-                font-weight: 700;
-                margin-bottom: 18px;
-            }
-
-            /* PARAGRAPH */
-            .card-body-custom p {
-                font-size: 14px;
-                font-weight: 600;
-                color: #374151;
-                line-height: 1.7;
-                min-height: 80px;
-            }
-
-            /* ADMIN BUTTON */
-            .btn-admin {
-                width: 100%;
-                background-color: #2948c7;
-                color: white;
-                border: none;
-                padding: 13px;
-                border-radius: 6px;
-                font-size: 15px;
-                font-weight: 600;
-                margin-top: 12px;
-            }
-
-                .btn-admin:hover {
-                    background-color: #1e3fae;
-                    color: white;
-                }
-
-        /* Dropdown Container */
-        .dropdown {
+        html,
+        body {
             width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            background: #f3f4f6;
+        }
+
+        .landing-container {
+            width: 100vw;
+            height: 100vh;
+            background: #fff;
+            border: none;
+            margin: 0;
+        }
+
+        .landing-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-title {
+            margin-bottom: 10px;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        .top-header {
+            height: 70px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            padding: 0 25px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+            .logo-section img {
+                width: 40px;
+            }
+
+            .logo-section h4 {
+                color: #2563eb;
+                font-size: 26px;
+                font-weight: 700;
+                margin: 0;
+            }
+
+        .content-area {
+            height: calc(100vh - 70px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-text {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+            .header-text h1 {
+                font-size: 32px;
+                font-weight: 700;
+                margin-bottom: 5px;
+            }
+
+            .header-text p {
+                font-size: 16px;
+                color: #374151;
+                font-weight: 500;
+            }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .login-card {
+            width: 290px;
+            border: 1px solid #dbe2ea;
+            border-radius: 6px;
+            overflow: visible;
+            background: #fff;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+            .login-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            }
+
+            .login-card img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+
+            .login-card:hover img {
+                transform: scale(1.05);
+            }
+
+        .admin-card:hover {
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.25);
+        }
+
+        .applicant-card:hover {
+            box-shadow: 0 15px 35px rgba(22, 163, 74, 0.25);
+        }
+
+        .card-body-custom {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .admin-title {
+            color: #2563eb;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .applicant-title {
+            color: #16a34a;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .card-body-custom p {
+            min-height: 70px;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .btn-admin {
+            width: 100%;
+            background: #2948c7;
+            color: white;
+            border: none;
+            padding: 12px;
+        }
+
+            .btn-admin:hover {
+                background: #1e3fae;
+                color: white;
+            }
+
+        .btn-applicant {
+            width: 100%;
+            background: #16a34a;
+            color: white;
+            padding: 12px;
+            border: none;
+        }
+
+            .btn-applicant:hover {
+                background: #15803d;
+                color: white;
+            }
+
+        .dropdown {
             position: relative;
         }
 
-            /* Login Button */
-            .dropdown .btn-admin {
-                width: 100%;
-            }
-
-        /* Dropdown Menu */
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            margin-top: 5px;
-            padding: 6px 0;
-            border: none;
-            border-radius: 6px;
-            box-shadow: 0 8px 20px rgba(0,0,0,.15);
-            z-index: 9999;
-            display: none;
-            overflow: hidden;
-        }
-
-        /* Show on Hover */
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        /* Dropdown Items */
-        .dropdown-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 15px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-            .dropdown-item:hover {
-                background: #f3f4f6;
+            .dropdown:hover .dropdown-menu {
+                display: block;
             }
 
         /* Prevent Card from Cutting Dropdown */
@@ -353,89 +259,53 @@
 
     </head>
 
-    <body>
+<body>
 
-        <!-- MAIN -->
-        <div class="main-container">
+    <div class="landing-wrapper">
 
-            <!-- NAVBAR -->
-            <div class="navbar-custom">
+        <div class="landing-container">
 
-                <!-- LOGO -->
+            <!-- Header -->
+            <div class="top-header">
+
                 <div class="logo-section">
+                    <img src="~/Images/logo.png" alt="Logo">
 
-                    <img src="~/Images/logo.png" alt="Logo" />
-
-                    <div class="logo-text">
-
-                        <h2>SMART OFFICE</h2>
-                        <span>RECORDS SYSTEM</span>
-
-                    </div>
-
-                </div>
-
-                <!-- NAV LINKS -->
-                <div class="nav-links">
-
-                    <a href="#" class="active">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
-
+                    <h4>SMART OFFICE RECORDS SYSTEM</h4>
                 </div>
 
             </div>
 
-            <!-- CONTENT -->
-            <div class="content-wrapper">
+            <!-- Content -->
+            <div class="content-area">
 
-                <!-- LEFT SIDE -->
-                <div class="left-side">
+                <div class="header-text">
 
-                    <img src="~/Images/lp.png" alt="Landing Page Image" />
+                    <h1>Get Started</h1>
+
+                    <p>Choose your login type to continue.</p>
 
                 </div>
 
-                <!-- RIGHT SIDE -->
-                <div class="right-side">
+                <div class="cards-container">
 
-                    <!-- HEADER -->
-                    <div class="header-text">
+                    <!-- Admin Card -->
+                    <div class="login-card admin-card">
 
-                        <h1>Get Started</h1>
+                        <img src="~/Images/admin.png"
+                             class="card-img-top"
+                             alt="Admin">
 
-                        <p>
-                            Choose your login type to continue.
-                        </p>
+                        <div class="card-body-custom">
 
-                    </div>
+                            <h5 class="admin-title">
+                                Admin & Staff Login
+                            </h5>
 
-                    <!-- CARDS -->
-                    <div class="cards-container">
-
-                        <!-- ADMIN CARD -->
-                        <div class="login-card">
-
-                            <!-- IMAGE -->
-                            <div class="card-image">
-
-                                <img src="~/Images/admin.png"
-                                     alt="Admin Image" />
-
-                            </div>
-
-                            <!-- BODY -->
-                            <div class="card-body-custom">
-
-                                <h3 class="admin-title">
-                                    Admin and Staff
-                                </h3>
-
-                                <p>
-                                    Access the dashboard to manage users,
-                                    records, and system settings based on
-                                    your assigned permissions.
-                                </p>
+                            <p>
+                                Access the admin dashboard to manage users,
+                                records, and system settings.
+                            </p>
 
                             <div class="dropdown">
 
@@ -443,8 +313,7 @@
                                         type="button">
 
                                     <i class="bi bi-lock-fill"></i>
-
-                                    &nbsp; Login
+                                    Login
 
                                 </button>
 
@@ -474,44 +343,35 @@
 
                             </div>
 
-                            </div>
-
                         </div>
 
-                        <!-- APPLICANT CARD -->
-                        <div class="login-card">
+                    </div>
 
-                            <!-- IMAGE -->
-                            <div class="card-image">
+                    <!-- Applicant Card -->
+                    <div class="login-card applicant-card">
 
-                                <img src="~/Images/applicant.png"
-                                     alt="Applicant Image" />
+                        <img src="~/Images/applicant.png"
+                             class="card-img-top"
+                             alt="Applicant">
 
-                            </div>
+                        <div class="card-body-custom">
 
-                            <!-- BODY -->
-                            <div class="card-body-custom">
+                            <h5 class="applicant-title">
+                                Applicant Login
+                            </h5>
 
-                                <h3 class="applicant-title">
-                                    Applicant Login
-                                </h3>
+                            <p>
+                                Login to submit requests, track status,
+                                and manage your records.
+                            </p>
 
-                                <p>
-                                    Login to submit requests,
-                                    track status, and manage
-                                    your records.
-                                </p>
+                            <a href="/Applicant/ApplicantLogin"
+                               class="btn btn-applicant">
 
-                                <a href="/Applicant/ApplicantLogin"
-                                   class="btn btn-applicant">
+                                <i class="bi bi-person-fill"></i>
+                                Applicant
 
-                                    <i class="bi bi-person-fill"></i>
-
-                                    &nbsp; Applicant Login
-
-                                </a>
-
-                            </div>
+                            </a>
 
                         </div>
 
@@ -523,5 +383,7 @@
 
         </div>
 
-    </body>
+    </div>
+
+</body>
 </html>
