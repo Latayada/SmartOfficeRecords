@@ -82,5 +82,10 @@ namespace SmartOfficeRecords.Controllers
         {
             return View();
         }
+
+        public ActionResult ApplicantLand()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,585 @@
+﻿@{
+    ViewBag.Title = "Landing Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Office Records System</title>
+
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+
+
+    <!-- Icons -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Poppins;
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f6fa;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+
+
+        .landing-container {
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            background: white;
+        }
+
+
+        /* HEADER */
+        .top-header {
+            height: 80px;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+
+            .logo-section img {
+                width: 45px;
+            }
+
+
+        .logo-text {
+            line-height: 1.1;
+        }
+
+
+            .logo-text h4 {
+                margin: 0;
+                color: #2563eb;
+                font-size: 26px;
+                font-weight: 700;
+            }
+
+
+            .logo-text span {
+                font-size: 12px;
+                font-weight: 700;
+            }
+
+
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #2563eb;
+            margin-left: 40px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+
+            .nav-menu a.active {
+                border-bottom: 3px solid #2563eb;
+                padding-bottom: 6px;
+            }
+
+
+
+        /* HERO */
+
+        .hero {
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            text-align: center;
+            background: #f4f7fc;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+            .hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image: radial-gradient(circle,#dbe3f3 2px,transparent 2px);
+                background-size: 80px 80px;
+                opacity: .6;
+            }
+
+
+            .hero h1 {
+                font-size: 62px;
+                font-weight: 700;
+                color: #0f2154;
+            }
+
+
+
+            .hero p {
+                position: relative;
+                z-index: 2;
+                max-width: 800px;
+                margin: auto;
+                margin-top: 15px;
+                color: #4B5563;
+            }
+
+
+
+        .btn-start {
+            position: relative;
+            z-index: 2;
+            margin-top: 25px;
+            background: #2563eb;
+            padding: 12px 40px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+        }
+
+
+
+            .btn-start:hover {
+                color: white;
+                background: #1d4ed8;
+            }
+
+
+
+
+        /* CONTENT */
+
+
+        .middle-section {
+            padding: 30px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+
+
+        /* ABOUT */
+
+
+        .about-card {
+            width: 420px;
+            display: flex;
+            gap: 15px;
+            background: #eef2f7;
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+
+
+            .about-card img {
+                width: 170px;
+                height: 140px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+
+
+
+            .about-card h4 {
+                font-weight: 700;
+            }
+
+
+
+            .about-card p {
+                color: #555;
+                font-size: 14px;
+            }
+
+
+
+        /* CONTACT */
+
+
+
+        .contact-card {
+            width: 500px;
+            background: #eef2f7;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            gap: 25px;
+        }
+
+
+
+        .contact-left {
+            width: 60%;
+        }
+
+
+
+            .contact-left input,
+            .contact-left textarea {
+                width: 100%;
+                margin-bottom: 10px;
+                padding: 10px;
+                border-radius: 6px;
+                border: 1px solid #d1d5db;
+            }
+
+
+
+            .contact-left textarea {
+                height: 80px;
+                resize: none;
+            }
+
+
+
+
+        .contact-right {
+            width: 40%;
+            border-left: 1px solid #ccc;
+            padding-left: 20px;
+        }
+
+
+
+            .contact-right i {
+                font-size: 35px;
+                color: #64748b;
+            }
+
+
+
+            .contact-right h5 {
+                margin-top: 15px;
+                font-weight: 700;
+            }
+
+
+
+        /* FOOTER */
+        footer {
+            width: 100%;
+            background: #243244;
+            color: white;
+            padding: 50px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+            .footer-grid h5 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .footer-grid p {
+                margin: 4px 0;
+            }
+
+        footer hr {
+            border-color: rgba(255,255,255,.15);
+            margin-top: 25px;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 13px;
+            opacity: .7;
+        }
+
+        @@media(max-width:992px) {
+
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-card {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .contact-left,
+            .contact-right {
+                width: 100%;
+            }
+
+            .contact-right {
+                border: none;
+                padding-left: 0;
+            }
+
+            .about-card {
+                width: 100%;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="landing-container">
+
+        <!-- HEADER -->
+        <div class="top-header">
+
+            <div class="logo-section">
+
+                <img src="~/Images/logo.png">
+
+                <div class="logo-text">
+
+                    <h4>SMART OFFICE</h4>
+
+                    <span>RECORDS SYSTEM</span>
+
+                </div>
+
+            </div>
+
+            <div class="nav-menu">
+
+                <a href="#" class="active">Home</a>
+
+                <a href="#">About</a>
+
+                <a href="#">Contact</a>
+
+            </div>
+
+        </div>
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <h1>
+                Automate Your Interview Lifecycle
+            </h1>
+
+            <p>
+                Design and Development of a Web-based Office Service and Records Management
+                System with Monitoring and PDF Report Generation.
+            </p>
+
+            <a href="#"
+               class="btn-start">
+
+                Get Started
+
+            </a>
+
+        </section>
+
+        <!-- SECTION -->
+        <section class="middle-section">
+
+            <!-- ABOUT -->
+            <div class="about-card">
+
+                <img src="~/Images/team.jpg">
+
+                <div>
+
+                    <h4>About Us</h4>
+
+                    <p>
+
+                        Dedicated to efficient HR solutions
+                        and smarter record management
+                        since 2018.
+
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- CONTACT -->
+            <div class="contact-card">
+
+                <div class="contact-left">
+
+                    <h4>Contact</h4>
+
+                    <input type="text"
+                           placeholder="Name">
+
+                    <input type="email"
+                           placeholder="Email">
+
+                    <textarea placeholder="Message"></textarea>
+
+                </div>
+
+                <div class="contact-right">
+
+                    <i class="bi bi-chat-left-text"></i>
+
+                    <h5>
+
+                        Have questions?
+
+                    </h5>
+
+                    <p>
+
+                        Reach our support
+                        team anytime.
+
+                    </p>
+
+                    <strong>
+
+                        Call: (555)123-BOOK
+
+                    </strong>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <img src="~/Images/logo.png"
+                         width="45">
+                    <p>
+
+                        SMART OFFICE<br>
+
+                        RECORDS SYSTEM
+
+                    </p>
+
+                </div>
+
+                <div>
+
+                    Book your interview and
+                    manage candidates effortlessly.
+
+                </div>
+
+                <div>
+
+                    <h5>Company</h5>
+
+                    <p>About</p>
+
+                    <p>Careers</p>
+
+                </div>
+
+
+
+                <div>
+
+                    <h5>System</h5>
+
+                    <p>Features</p>
+
+                    <p>Pricing</p>
+
+                </div>
+
+                <div>
+
+                    <h5>Support</h5>
+
+                    <p>Help Center</p>
+
+                    <p>Contact</p>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <p class="copyright">
+
+                © 2026 Smart Office Systems.
+
+            </p>
+
+
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
