@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\Images\ad.png" />
-    <None Include="wwwroot\Images\staff.png" />
+    <None Include="wwwroot\Images\staffl.png" />
     <None Include="wwwroot\Images\ap.png" />
     <None Include="wwwroot\Images\applicant.png" />
     <None Include="wwwroot\Images\logo.png" />
