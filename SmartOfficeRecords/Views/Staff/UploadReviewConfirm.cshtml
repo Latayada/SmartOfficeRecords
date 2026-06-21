@@ -1,8 +1,7 @@
 ﻿@{
-    ViewBag.Title = "Upload Record Details";
+    ViewBag.Title = "Review and Confirm";
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,12 +31,10 @@
 
         body {
             background: #f4f5f7;
-            overflow-x: hidden;
         }
-
         /* ==========================
-           DASHBOARD LAYOUT
-        ========================== */
+                   DASHBOARD LAYOUT
+                ========================== */
 
         .dashboard-container {
             display: flex;
@@ -45,9 +42,8 @@
         }
 
         /* ==========================
-           SIDEBAR
-        ========================== */
-
+                   SIDEBAR
+                ========================== */
         .sidebar {
             width: 190px;
             background: #1f3b97;
@@ -80,8 +76,8 @@
             }
 
             /* ==========================
-                           COLLAPSED SIDEBAR
-                       ===========================*/
+                    COLLAPSED SIDEBAR
+               ===========================*/
             .sidebar.collapsed {
                 width: 90px;
             }
@@ -157,9 +153,8 @@
                         align-items: center;
                     }
 
-
-         /* ================
-               SETTINGS DROPDOWN
+        /* ================
+              SETTINGS DROPDOWN
            ====================== */
 
         .sidebar-dropdown {
@@ -216,15 +211,15 @@
         .sidebar-dropdown.open .small-arrow {
             transform: rotate(180deg);
         }
-
         /* Hide dropdown arrow when sidebar is collapsed */
         .sidebar.collapsed .small-arrow {
             display: none;
         }
 
+
         /* ==========================
-                          LOGO DESIGN
-                    ===========================*/
+                 LOGO DESIGN
+           ===========================*/
         .logo-section {
             text-align: center;
             padding: 25px 15px;
@@ -293,16 +288,6 @@
                 .menu a.active {
                     background: #3d7cff;
                 }
-
-
-        /* ==========================
-           MAIN CONTENT
-        ========================== */
-
-        .main-content {
-            flex: 1;
-            background: #fafafa;
-        }
 
         /* ==========================
                    TOP BAR
@@ -394,16 +379,77 @@
                 color: gray;
             }
 
-        /* ==========================
-           PAGE CONTENT
-        ========================== */
+        /* =================
+                MAIN
+           ================= */
+        .main-content {
+            flex: 1;
+            background: #fafafa;
+        }
 
+        /* =================
+                TOPBAR
+           ================= */
+        .topbar {
+            height: 60px;
+            border-bottom: 1px solid #d9dce3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background: #fff;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #243f99;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: auto;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .profile img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+
+        /* =================
+               CONTENT
+           ================= */
         .page-content {
             padding: 25px;
         }
 
+        .breadcrumb-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .records-breadcrumb {
+            color: #9a9a9a;
+            text-decoration: none;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #666;
+        }
         /* ==========================
-                   BREADCRUMB
+                    BREADCRUMB
            ========================== */
         .breadcrumb-title {
             font-size: 18px;
@@ -426,8 +472,8 @@
         }
 
         /* ==========================
-           STEPPER
-        ========================== */
+                   STEPPER
+           ========================== */
 
         .stepper {
             width: 80%;
@@ -485,99 +531,24 @@
             font-weight: 600;
         }
 
-        /* ==========================
-           DETAILS CARD
-        ========================== */
-
-        .details-card {
+        /* ================= 
+               REVIEW CARD
+           ================= */
+        .review-card {
             background: white;
-            border: 1px solid #e4e7ee;
-            border-radius: 8px;
+            width: 92%;
             margin: 0 25px;
+            border-radius: 8px;
             padding: 18px;
+            border: 1px solid #e4e7ee;
         }
 
-            .details-card h4 {
-                font-size: 16px;
-                font-weight: 700;
-                margin-bottom: 5px;
-            }
-
-        .details-subtitle {
-            color: #8d8d8d;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .details-form {
-            display: flex;
-            gap: 25px;
-            align-items: flex-start;
-        }
-
-        .left-section {
-            flex: 1;
-        }
-
-        .right-section {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .details-card label {
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .form-control,
-        .form-select {
-            height: 46px;
-            border: 1px solid #bfbfbf;
+        .uploaded-box,
+        .summary-box {
+            border: 1px solid #e6e6e6;
+            padding: 15px;
             border-radius: 6px;
-        }
-
-        textarea.form-control {
-            height: 214px;
-            resize: none;
-            padding-top: 12px;
-        }
-
-        .description-wrapper {
-            position: relative;
-            flex: 1;
-        }
-
-
-        .description-box {
-            width: 100%;
-            height: 244px !important;
-            resize: none;
-            padding: 12px;
-            padding-bottom: 35px;
-        }
-
-        .char-count {
-            position: absolute;
-            right: 12px;
-            bottom: 12px;
-            color: #808080;
-            font-size: 14px;
-            font-weight: 600;
-            pointer-events: none;
-        }
-
-        .optional {
-            color: #8c8c8c;
-            font-size: 13px;
-            font-weight: 500;
-            margin-left: 4px;
-        }
-
-        .required {
-            color: red;
+            margin-top: 12px;
         }
 
         /* Responsive */
@@ -594,8 +565,8 @@
         }
 
         /* ==========================
-                FOOTER BUTTONS
-        ========================== */
+                        FOOTER BUTTONS
+                ========================== */
 
         .footer-buttons {
             display: flex;
@@ -615,45 +586,29 @@
             font-weight: 500;
         }
 
-        .btn-next {
-            padding: 10px 28px;
-            border-radius: 4px;
+        /* 🔥 UPDATED BUTTON (WITH ICON LIKE YOUR IMAGE) */
+        .btn-upload {
+            padding: 10px 25px;
             background: #356AE6;
             color: white;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-            .btn-next:hover {
-                color: white;
-                background: #2a58c8;
+            .btn-upload i {
+                font-size: 16px;
             }
 
-        /* ==========================
-                RESPONSIVE
-        ========================== */
-
-        @@media(max - width: 992px)
-
-        {
-            .details-card
-
-        {
-            margin: 0;
-        }
-
-        .stepper {
-            width: 95%;
-        }
-
-        .footer-buttons {
-            flex-wrap: wrap;
-        }
-
+        .btn-upload:hover {
+            color: white;
+            background: #2a58c8;
         }
 
     </style>
-
 </head>
 
 <body>
@@ -677,29 +632,24 @@
 
             <div class="menu">
 
-                <a href="@Url.Action("Dashboard", "Admin")">
+                <a href="@Url.Action("Dashboard", "Staff")">
                     <i class="bi bi-speedometer2"></i>
                     <span>Dashboard</span>
                 </a>
 
-                <a href="@Url.Action("RequestManagement", "Admin")">
+                <a href="@Url.Action("RequestManagement", "Staff")">
                     <i class="bi bi-file-earmark-text"></i>
                     <span>Request</span>
                 </a>
 
-                <a href="@Url.Action("RecordsManagement", "Admin")" class="active">
+                <a href="@Url.Action("StaffRecordsManagement", "Staff")" class="active">
                     <i class="bi bi-folder2-open"></i>
                     <span>Records</span>
                 </a>
 
-                <a href="@Url.Action("ReportsManagement", "Admin")">
+                <a href="@Url.Action("ReportsManagement", "Staff")">
                     <i class="bi bi-clipboard-data"></i>
                     <span>Reports</span>
-                </a>
-
-                <a href="@Url.Action("UsersManagement", "Admin")">
-                    <i class="bi bi-people"></i>
-                    <span>Users</span>
                 </a>
 
                 <!-- SETTINGS DROPDOWN -->
@@ -713,12 +663,12 @@
 
                     <div class="dropdown-submenu">
 
-                        <a href="@Url.Action("Settings", "Admin")">
+                        <a href="@Url.Action("Settings", "Staff")">
                             <i class="bi bi-sliders"></i>
                             <span>General Settings</span>
                         </a>
 
-                        <a href="#">
+                        <a href="@Url.Action("AccountAndSecurity", "Staff")">
                             <i class="bi bi-person-gear"></i>
                             <span>Account & Security</span>
                         </a>
@@ -731,7 +681,7 @@
 
             <div class="logout">
 
-                <a href="@Url.Action("Login", "Admin")">
+                <a href="@Url.Action("StaffLogin", "Staff")">
                     <i class="bi bi-box-arrow-right"></i>
                     <span>Logout</span>
                 </a>
@@ -740,7 +690,7 @@
 
         </aside>
 
-        <!-- CONTENT -->
+        <!-- MAIN -->
         <main class="main-content">
 
             <!-- TOP BAR -->
@@ -763,8 +713,8 @@
                         <img src="~/Images/adminpic.jpg" alt="Profile" />
 
                         <div class="profile-info">
-                            <span class="role">Administrator</span>
-                            <h5>Juan Dela Cruz</h5>
+                            <span class="role">Staff</span>
+                            <h5>John Doeh</h5>
                         </div>
 
                     </div>
@@ -776,7 +726,7 @@
 
                 <div class="breadcrumb-title">
 
-                    <a href="@Url.Action("RecordsManagement", "Admin")"
+                    <a href="@Url.Action("StaffRecordsManagement", "Staff")"
                        class="records-breadcrumb">
 
                         Records
@@ -794,109 +744,62 @@
                 </div>
             </div>
 
-            <!--STEPPER-->
+            <!-- STEPPER -->
             <div class="stepper">
 
                 <div class="step completed">
-                    <div class="circle">
-                        <i class="bi bi-check-lg"></i>
-                    </div>
+                    <div class="circle">✓</div>
                     <small>Upload Files</small>
                 </div>
 
+                <div class="step completed">
+                    <div class="circle">✓</div>
+                    <small>Details</small>
+                </div>
+
                 <div class="step active">
-                    <div class="circle">2</div>
-                    <small>Add Details</small>
-                </div>
-
-                <div class="step">
                     <div class="circle">3</div>
-                    <small>Review and Confirm</small>
+                    <small>Review</small>
                 </div>
 
             </div>
 
-            <div class="details-card">
+            <!-- REVIEW CARD -->
+            <div class="review-card">
 
-                <h4>File Details</h4>
+                <h5>Review your Upload file</h5>
 
-                <p class="details-subtitle">
-                    Profile additional details / information.
-                </p>
+                <div class="uploaded-box">
+                    <h6>Uploaded files (0)</h6>
+                </div>
 
-                <div class="details-form">
+                <div class="summary-box">
+                    <h6>Details Summary</h6>
 
-                    <!-- LEFT SIDE -->
-                    <div class="left-section">
-
-                        <label>
-                            Full name <span class="required">*</span>
-                        </label>
-
-                        <input type="text"
-                               class="form-control"
-                               placeholder="Enter Full name" />
-
-                        <label class="mt-4">
-                            Category <span class="required">*</span>
-                        </label>
-
-                        <select class="form-select">
-                            <option>Select category</option>
-                            <option>Send-Off</option>
-                            <option>Endorse(Emax & TP)</option>
-                            <option>Endorse(Emax)</option>
-                            <option>Endorse(TP)</option>
-                        </select>
-
-                        <label class="mt-4">
-                            Date
-                        </label>
-
-                        <input type="date"
-                               class="form-control" />
-
-                    </div>
-
-                    <!-- RIGHT SIDE -->
-                    <div class="right-section">
-                        <label>
-                            Description
-
-                            <span class="optional">(Optional)</span>
-                        </label>
-
-                        <div class="description-wrapper">
-
-                            <textarea class="form-control description-box"
-                                      maxlength="100"
-                                      placeholder="Add description..."></textarea>
-
-                            <span class="char-count">
-                                0/100
-                            </span>
-
-                        </div>
-
-                    </div>
-
+                    <table class="table table-borderless">
+                        <tr><td>Full Name</td><td>Juan Dela Paz</td></tr>
+                        <tr><td>Category</td><td>Send-Off</td></tr>
+                        <tr><td>Date</td><td>May 08, 2026</td></tr>
+                        <tr><td>Description</td><td>Description</td></tr>
+                    </table>
                 </div>
 
             </div>
 
-            <!-- BUTTON FOOTERS-->
+            <!-- FOOTER BUTTONS -->
             <div class="footer-buttons">
+
 
                 <a href="#" class="btn-cancel">
                     Cancel
                 </a>
-
-                <a href="#" class="btn-back">
+                <a href="@Url.Action("UploadDetails", "Staff")" class="btn-back">
                     Back
                 </a>
-                <a href="#" class="btn-next">
-                    Next: Add Reviews
-                    <i class="bi bi-arrow-right"></i>
+
+                <a class="btn-upload">
+                    <i class="bi bi-cloud-arrow-up-fill"></i>
+                    Upload Records
                 </a>
 
             </div>

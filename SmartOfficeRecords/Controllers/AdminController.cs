@@ -74,21 +74,7 @@ namespace SmartOfficeRecords.Controllers
         }
 
       
-        // GET: Admin/RecordsManagement
-        public ActionResult UploadFiles()
-        {
-            return View();
-        }
-
-        public ActionResult UploadDetails()
-        {
-            return View();
-        }
-
-        public ActionResult UploadReviewConfirm()
-        {
-            return View();
-        }
+       
 
         //GET: Admin/UserManagement/AddNewUser
         public ActionResult AddNewUser()

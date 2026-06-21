@@ -51,7 +51,7 @@
 
         .sidebar {
             width: 190px;
-            background: #1f3b97;
+            background-color: #2980B9;
             color: white;
             display: flex;
             flex-direction: column;
@@ -132,7 +132,7 @@
 
                         /* Active menu */
                         .sidebar.collapsed .menu a.active {
-                            background: #4a86ff;
+                            background: #4FC3F7;
                             box-shadow: 0 4px 10px rgba(0,0,0,.15);
                         }
 
@@ -292,7 +292,7 @@
                 }
 
                 .menu a.active {
-                    background: #3d7cff;
+                    background: #4FC3F7;
                 }
 
 
@@ -322,7 +322,7 @@
         .menu-toggle {
             background: none;
             border: none;
-            color: #243f99;
+            color: #2980B9;
             font-size: 22px;
             cursor: pointer;
             margin-right: 10px;
@@ -337,13 +337,13 @@
 
             .topbar-left i {
                 font-size: 28px;
-                color: #243f99;
+                color: #2980B9;
                 cursor: pointer;
                 margin: 8px;
             }
 
             .topbar-left h3 {
-                color: #243f99;
+                color: #2980B9;
                 font-weight: 700;
                 margin: 0;
             }
@@ -388,7 +388,7 @@
                 margin: 0;
                 font-size: 14px;
                 font-weight: 600;
-                color: #243f99;
+                color: #5DADE2;
             }
 
             .profile-info span {
@@ -415,7 +415,7 @@
             }
 
             .breadcrumb-title strong {
-                color: #243f99;
+                color: #5DADE2;
             }
 
         .records-breadcrumb {
@@ -425,7 +425,7 @@
         }
 
             .records-breadcrumb:hover {
-                color: #243f99;
+                color: #5DADE2;
             }
 
         .subtitle {
@@ -474,9 +474,9 @@
         }
 
         .step.active .circle {
-            background: #3d7cff;
+            background: #5DADE2;
             color: white;
-            border-color: #3d7cff;
+            border-color: #2980B9;
         }
 
         .step small {
@@ -486,7 +486,7 @@
         }
 
         .step.active small {
-            color: #3d7cff;
+            color: #2980B9;
             font-weight: 600;
         }
 
@@ -646,29 +646,24 @@
 
             <div class="menu">
 
-                <a href="@Url.Action("Dashboard", "Admin")">
+                <a href="@Url.Action("StaffDashboard", "Staff")">
                     <i class="bi bi-speedometer2"></i>
                     <span>Dashboard</span>
                 </a>
 
-                <a href="@Url.Action("RequestManagement", "Admin")">
+                <a href="@Url.Action("RequestManagement", "Staff")">
                     <i class="bi bi-file-earmark-text"></i>
                     <span>Request</span>
                 </a>
 
-                <a href="@Url.Action("RecordsManagement", "Admin")" class="active">
+                <a href="@Url.Action("StaffRecordsManagement", "Staff")" class="active">
                     <i class="bi bi-folder2-open"></i>
                     <span>Records</span>
                 </a>
 
-                <a href="@Url.Action("ReportsManagement", "Admin")">
+                <a href="@Url.Action("ReportsManagement", "Staff")">
                     <i class="bi bi-clipboard-data"></i>
                     <span>Reports</span>
-                </a>
-
-                <a href="@Url.Action("UsersManagement", "Admin")">
-                    <i class="bi bi-people"></i>
-                    <span>Users</span>
                 </a>
 
                 <!-- SETTINGS DROPDOWN -->
@@ -687,7 +682,7 @@
                             <span>General Settings</span>
                         </a>
 
-                        <a href="#">
+                        <a href="@Url.Action("AccountAndSecurity", "Staff")">
                             <i class="bi bi-person-gear"></i>
                             <span>Account & Security</span>
                         </a>
@@ -700,7 +695,7 @@
 
             <div class="logout">
 
-                <a href="@Url.Action("Login", "Admin")">
+                <a href="@Url.Action("StaffLogin", "Staff")">
                     <i class="bi bi-box-arrow-right"></i>
                     <span>Logout</span>
                 </a>
@@ -732,8 +727,8 @@
                         <img src="~/Images/adminpic.jpg" alt="Profile" />
 
                         <div class="profile-info">
-                            <span class="role">Administrator</span>
-                            <h5>Juan Dela Cruz</h5>
+                            <span class="role">Staff</span>
+                            <h5>John Doeh</h5>
                         </div>
 
                     </div>
@@ -745,7 +740,7 @@
 
                 <div class="breadcrumb-title">
 
-                    <a href="@Url.Action("RecordsManagement", "Admin")"
+                    <a href="@Url.Action("StaffRecordsManagement", "Staff")"
                        class="records-breadcrumb">
 
                         Records
@@ -831,7 +826,7 @@
                         Cancel
                     </a>
 
-                    <a href="#" class="btn-next">
+                    <a href="@Url.Action("UploadDetails", "Staff")" class="btn-next">
                         Next: Add Details
                         <i class="bi bi-arrow-right"></i>
                     </a>
