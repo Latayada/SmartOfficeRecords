@@ -293,6 +293,7 @@
 
                 .menu a.active {
                     background: #3d7cff;
+                    box-shadow: 0 4px 10px rgba(0,0,0,.15);
                 }
 
         /* ==========================
@@ -319,7 +320,7 @@
         .menu-toggle {
             background: none;
             border: none;
-            color: #243f99;
+            color: #3d7cff;
             font-size: 22px;
             cursor: pointer;
             margin-right: 10px;
@@ -530,7 +531,7 @@
 
             <div class="menu">
 
-                <a href="@Url.Action("Dashboard", "Staff")" class="active">
+                <a href="@Url.Action("StaffDashboard", "Staff")" class="active">
                     <i class="bi bi-speedometer2"></i>
                     <span>Dashboard</span>
                 </a>
@@ -561,12 +562,12 @@
 
                     <div class="dropdown-submenu">
 
-                        <a href="@Url.Action("Settings", "Admin")">
+                        <a href="@Url.Action("Settings", "Staff")">
                             <i class="bi bi-sliders"></i>
                             <span>General Settings</span>
                         </a>
 
-                        <a href="@Url.Action("SAccountSettings", "Admin")">
+                        <a href="@Url.Action("SAccountSettings", "Staff")">
                             <i class="bi bi-person-gear"></i>
                             <span>Account & Security</span>
                         </a>
@@ -578,7 +579,7 @@
 
             <div class="logout">
 
-                <a href="@Url.Action("Login", "Admin")">
+                <a href="@Url.Action("StaffLogin", "Staff")">
                     <i class="bi bi-box-arrow-right"></i>
                     <span>Logout</span>
                 </a>

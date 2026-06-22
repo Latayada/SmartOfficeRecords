@@ -131,7 +131,7 @@
 
                         /* Active menu */
                         .sidebar.collapsed .menu a.active {
-                            background: #4a86ff;
+                            background: #22C55E;
                             box-shadow: 0 4px 10px rgba(0,0,0,.15);
                         }
 
@@ -224,8 +224,8 @@
         }
 
         /* ==========================
-                          LOGO DESIGN
-                   ===========================*/
+                   LOGO DESIGN
+           ===========================*/
         .logo-section {
             text-align: center;
             padding: 25px 15px;
@@ -269,8 +269,8 @@
             font-weight: 600;
         }
         /* ==========================
-                         MENU DESIGN
-                   ===========================*/
+                 MENU DESIGN
+           ===========================*/
 
         .menu {
             padding: 20px 12px;
@@ -292,7 +292,8 @@
                 }
 
                 .menu a.active {
-                    background: #3d7cff;
+                    background: #22C55E;
+                    box-shadow: 0 4px 10px rgba(0,0,0,.15);
                 }
 
         /* ==========================
@@ -320,7 +321,7 @@
         .menu-toggle {
             background: none;
             border: none;
-            color: #243f99;
+            color:#22C55E;
             font-size: 22px;
             cursor: pointer;
             margin-right: 10px;
@@ -335,13 +336,13 @@
 
             .topbar-left i {
                 font-size: 28px;
-                color: #243f99;
+                color: #22C55E;
                 cursor: pointer;
                 margin: 8px;
             }
 
             .topbar-left h3 {
-                color: #243f99;
+                color: #22C55E;
                 font-weight: 700;
                 margin: 0;
             }
@@ -386,7 +387,7 @@
                 margin: 0;
                 font-size: 14px;
                 font-weight: 600;
-                color: #243f99;
+                color: #22C55E;
             }
 
             .profile-info span {
@@ -531,7 +532,7 @@
 
             <div class="menu">
 
-                <a href="@Url.Action("ApplicantDashb", "Applicant")" class="active">
+                <a href="@Url.Action("ApplicantDash", "Applicant")" class="active">
                     <i class="bi bi-speedometer2"></i>
                     <span>Dashboard</span>
                 </a>
@@ -541,19 +542,14 @@
                     <span>Request</span>
                 </a>
 
-                <a href="@Url.Action("RecordsManagement", "Admin")">
+                <a href="@Url.Action("RecordsManagement", "Applicant")">
                     <i class="bi bi-folder2-open"></i>
                     <span>Records</span>
                 </a>
 
-                <a href="@Url.Action("ReportsManagement", "Admin")">
+                <a href="@Url.Action("ReportsManagement", "Applicant")">
                     <i class="bi bi-clipboard-data"></i>
                     <span>Reports</span>
-                </a>
-
-                <a href="@Url.Action("UsersManagement", "Admin")">
-                    <i class="bi bi-people"></i>
-                    <span>Users</span>
                 </a>
 
                 <!-- SETTINGS DROPDOWN -->
@@ -567,12 +563,12 @@
 
                     <div class="dropdown-submenu">
 
-                        <a href="@Url.Action("Settings", "Admin")">
+                        <a href="@Url.Action("Settings", "Applicant")">
                             <i class="bi bi-sliders"></i>
                             <span>General Settings</span>
                         </a>
 
-                        <a href="@Url.Action("SAccountSettings", "Admin")">
+                        <a href="@Url.Action("SAccountSettings", "Applicant")">
                             <i class="bi bi-person-gear"></i>
                             <span>Account & Security</span>
                         </a>

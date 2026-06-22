@@ -1,587 +1,427 @@
 ﻿@{
-    ViewBag.Title = "Landing Page";
+    ViewBag.Title = "Smart Office Records System";
     Layout = null;
 }
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
     <meta charset="utf-8" />
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Office Records System - Work Avenue</title>
 
-    <title>Smart Office Records System</title>
-
-
-    <!-- Bootstrap -->
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet" />
-
-
-    <!-- Icons -->
-
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-
-    <!-- Font -->
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
-
-
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --primary-green: #10b981;
+            --dark-green: #065f46;
+            --light-mint: #ecfdf5;
+            --surface-white: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+        }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Poppins;
+            font-family: 'Poppins', sans-serif;
         }
-
 
         body {
-            margin: 0;
-            padding: 0;
-            background: #f5f6fa;
+            background-color: #f8fafc;
+            color: var(--text-dark);
             min-height: 100vh;
-            overflow-x: hidden;
         }
-
-
-
-        .landing-container {
-            width: 100%;
-            min-height: 100vh;
-            margin: 0;
-            background: white;
-        }
-
 
         /* HEADER */
         .top-header {
             height: 80px;
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 40px;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e2e8f0;
         }
 
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-
-            .logo-section img {
-                width: 45px;
-            }
-
-
-        .logo-text {
+        .logo-text h4 {
+            color: var(--primary-green);
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
             line-height: 1.1;
+            letter-spacing: -0.5px;
         }
 
-
-            .logo-text h4 {
-                margin: 0;
-                color: #2563eb;
-                font-size: 26px;
-                font-weight: 700;
-            }
-
-
-            .logo-text span {
-                font-size: 12px;
-                font-weight: 700;
-            }
-
-
+        .logo-text span {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
 
         .nav-menu a {
             text-decoration: none;
-            color: #2563eb;
-            margin-left: 40px;
-            font-weight: 600;
+            color: #475569;
+            font-weight: 500;
             font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
         }
 
-
-            .nav-menu a.active {
-                border-bottom: 3px solid #2563eb;
-                padding-bottom: 6px;
+            .nav-menu a:hover {
+                color: var(--primary-green);
+                background: var(--light-mint);
             }
 
+            .nav-menu a.active {
+                color: var(--dark-green);
+                background: var(--light-mint);
+                font-weight: 600;
+            }
 
-
-        /* HERO */
-
+        /* HERO SECTION */
         .hero {
-            min-height: 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 60px 20px;
-            text-align: center;
-            background: #f4f7fc;
+            min-height: 540px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #e6fbf0 100%);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
         }
-
-
 
             .hero::before {
                 content: "";
                 position: absolute;
                 inset: 0;
-                background-image: radial-gradient(circle,#dbe3f3 2px,transparent 2px);
-                background-size: 80px 80px;
-                opacity: .6;
+                background-image: radial-gradient(circle, #bbf7d0 1.5px, transparent 1.5px);
+                background-size: 40px 40px;
+                opacity: 0.6;
+                z-index: 1;
             }
 
-
-            .hero h1 {
-                font-size: 62px;
-                font-weight: 700;
-                color: #0f2154;
-            }
-
-
-
-            .hero p {
-                position: relative;
-                z-index: 2;
-                max-width: 800px;
-                margin: auto;
-                margin-top: 15px;
-                color: #4B5563;
-            }
-
-
-
-        .btn-start {
+        .hero-content {
             position: relative;
             z-index: 2;
-            margin-top: 25px;
-            background: #2563eb;
-            padding: 12px 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.85rem;
+            font-weight: 700;
+            color: #064e3b;
+            line-height: 1.25;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: 1.5rem auto;
+            color: #334155;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* BUTTONS */
+        .btn-green {
+            background: var(--primary-green);
+            color: white;
+            padding: 14px 38px;
             border-radius: 8px;
             font-weight: 600;
-            color: white;
-            text-decoration: none;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
         }
 
-
-
-            .btn-start:hover {
+            .btn-green:hover {
+                background: #059669;
                 color: white;
-                background: #1d4ed8;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
             }
 
+        /* SECTION TEXT HEADER */
+        .section-title {
+            color: #064e3b;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
 
+        /* CARDS / CONTAINERS */
+        .custom-card {
+            background: var(--surface-white);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+            height: 100%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
+            .custom-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 24px -4px rgba(16, 185, 129, 0.08);
+            }
 
-        /* CONTENT */
-
-
-        .middle-section {
-            padding: 30px;
+        /* ICON CIRCLE */
+        .icon-circle {
+            width: 52px;
+            height: 52px;
+            background: var(--light-mint);
+            color: var(--primary-green);
+            border-radius: 12px;
             display: flex;
-            gap: 20px;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
+            font-size: 22px;
+            margin-bottom: 18px;
         }
 
+        /* WORKFLOW TIMELINE STEP */
+        .step-number {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            display: block;
+        }
 
-
-        /* ABOUT */
-
-
-        .about-card {
-            width: 420px;
-            display: flex;
-            gap: 15px;
-            background: #eef2f7;
-            padding: 15px;
+        .workflow-box {
+            background: white;
+            border: 1px solid #e2e8f0;
             border-radius: 12px;
+            transition: all 0.2s ease;
         }
 
-
-
-            .about-card img {
-                width: 170px;
-                height: 140px;
-                object-fit: cover;
-                border-radius: 8px;
+            .workflow-box.highlighted {
+                border-color: var(--primary-green);
+                background: linear-gradient(to bottom, #ffffff, #f0fdf4);
+                box-shadow: 0 4px 12px rgba(16, 185, 129, 0.05);
             }
-
-
-
-            .about-card h4 {
-                font-weight: 700;
-            }
-
-
-
-            .about-card p {
-                color: #555;
-                font-size: 14px;
-            }
-
-
-
-        /* CONTACT */
-
-
-
-        .contact-card {
-            width: 500px;
-            background: #eef2f7;
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            gap: 25px;
-        }
-
-
-
-        .contact-left {
-            width: 60%;
-        }
-
-
-
-            .contact-left input,
-            .contact-left textarea {
-                width: 100%;
-                margin-bottom: 10px;
-                padding: 10px;
-                border-radius: 6px;
-                border: 1px solid #d1d5db;
-            }
-
-
-
-            .contact-left textarea {
-                height: 80px;
-                resize: none;
-            }
-
-
-
-
-        .contact-right {
-            width: 40%;
-            border-left: 1px solid #ccc;
-            padding-left: 20px;
-        }
-
-
-
-            .contact-right i {
-                font-size: 35px;
-                color: #64748b;
-            }
-
-
-
-            .contact-right h5 {
-                margin-top: 15px;
-                font-weight: 700;
-            }
-
-
 
         /* FOOTER */
         footer {
-            width: 100%;
-            background: #243244;
-            color: white;
-            padding: 50px;
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 60px 0 30px 0;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
-            gap: 30px;
-        }
+            footer h5 {
+                color: white;
+                font-size: 14px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 20px;
+            }
 
-            .footer-grid h5 {
-                font-size: 18px;
+            footer p, footer a {
+                font-size: 13.5px;
+                color: #94a3b8;
+                text-decoration: none;
                 margin-bottom: 10px;
+                display: block;
+                transition: color 0.2s ease;
             }
 
-            .footer-grid p {
-                margin: 4px 0;
-            }
+                footer a:hover {
+                    color: var(--primary-green);
+                }
 
-        footer hr {
-            border-color: rgba(255,255,255,.15);
-            margin-top: 25px;
+        @@media (max-width: 991px) {
+            .hero h1
+
+        {
+            font-size: 2.25rem;
         }
 
-        .copyright {
-            text-align: center;
-            font-size: 13px;
-            opacity: .7;
         }
-
-        @@media(max-width:992px) {
-
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .contact-card {
-                width: 100%;
-                flex-direction: column;
-            }
-
-            .contact-left,
-            .contact-right {
-                width: 100%;
-            }
-
-            .contact-right {
-                border: none;
-                padding-left: 0;
-            }
-
-            .about-card {
-                width: 100%;
-            }
-
-            .nav-menu {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 35px;
-            }
-        }
-
     </style>
-
 </head>
 
 <body>
 
-    <div class="landing-container">
-
-        <!-- HEADER -->
-        <div class="top-header">
-
-            <div class="logo-section">
-
-                <img src="~/Images/logo.png">
-
+    <!-- HEADER -->
+    <div class="top-header">
+        <div class="container h-100 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-3">
+                <img src="~/Images/logo.png" alt="SORS Logo" style="width: 40px;">
                 <div class="logo-text">
-
                     <h4>SMART OFFICE</h4>
-
                     <span>RECORDS SYSTEM</span>
-
                 </div>
-
             </div>
 
-
-
-            <div class="nav-menu">
-
+            <div class="nav-menu d-none d-md-flex gap-2">
                 <a href="#" class="active">Home</a>
-
-                <a href="#">About</a>
-
-                <a href="#">Contact</a>
-
+                <a href="#architecture">System Modules</a>
+                <a href="#workflow">Applicant Steps</a>
             </div>
-
         </div>
-
-        <!-- HERO -->
-        <section class="hero">
-
-            <h1>
-                Automate Your Interview Lifecycle
-            </h1>
-
-            <p>
-                Design and Development of a Web-based Office Service and Records Management
-                System with Monitoring and PDF Report Generation.
-            </p>
-
-            <a href="@Url.Action("ApplicantLogin", "Applicant")"
-               class="btn-start">
-
-                Get Started
-
-            </a>
-
-        </section>
-
-        <!-- SECTION -->
-        <section class="middle-section">
-
-            <!-- ABOUT -->
-            <div class="about-card">
-
-                <img src="~/Images/team.jpg">
-
-                <div>
-
-                    <h4>About Us</h4>
-
-                    <p>
-
-                        Dedicated to efficient HR solutions
-                        and smarter record management
-                        since 2018.
-
-                    </p>
-
-                </div>
-            </div>
-
-            <!-- CONTACT -->
-            <div class="contact-card">
-
-                <div class="contact-left">
-
-                    <h4>Contact</h4>
-
-                    <input type="text"
-                           placeholder="Name">
-
-                    <input type="email"
-                           placeholder="Email">
-
-                    <textarea placeholder="Message"></textarea>
-
-                </div>
-
-                <div class="contact-right">
-
-                    <i class="bi bi-chat-left-text"></i>
-
-                    <h5>
-
-                        Have questions?
-
-                    </h5>
-
-                    <p>
-
-                        Reach our support
-                        team anytime.
-
-                    </p>
-
-                    <strong>
-
-                        Call: (555)123-BOOK
-
-                    </strong>
-
-
-                </div>
-
-
-
-            </div>
-
-
-
-        </section>
-
-        <!-- FOOTER -->
-        <footer>
-
-            <div class="footer-grid">
-
-                <div>
-
-                    <img src="~/Images/logo.png"
-                         width="45">
-                    <p>
-
-                        SMART OFFICE<br>
-
-                        RECORDS SYSTEM
-
-                    </p>
-
-                </div>
-
-                <div>
-
-                    Book your interview and
-                    manage candidates effortlessly.
-
-                </div>
-
-                <div>
-
-                    <h5>Company</h5>
-
-                    <p>About</p>
-
-                    <p>Careers</p>
-
-                </div>
-
-
-
-                <div>
-
-                    <h5>System</h5>
-
-                    <p>Features</p>
-
-                    <p>Pricing</p>
-
-                </div>
-
-                <div>
-
-                    <h5>Support</h5>
-
-                    <p>Help Center</p>
-
-                    <p>Contact</p>
-
-                </div>
-
-            </div>
-
-            <hr>
-
-            <p class="copyright">
-
-                © 2026 Smart Office Systems.
-
-            </p>
-
-
-        </footer>
-
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- HERO SECTION -->
+    <section class="hero text-center">
+        <div class="container hero-content">
+            <h1 class="px-3">Streamlined Interview Booking & Records Portal</h1>
+            <p class="px-4">
+                Welcome to the <strong>Smart Office Records System</strong> for Work Avenue and Business Solutions, Inc.
+                Applicants must create and validate an account before they are eligible to schedule and lock in their official interview dates[cite: 1].
+            </p>
+            <div class="gap-3 d-flex justify-content-center flex-wrap mt-3">
+                <a href="@Url.Action("Register", "Account")" class="btn btn-green">
+                    <i class="bi bi-person-plus-fill me-2"></i>Step 1: Register Account
+                </a>
+                <a href="@Url.Action("Login", "Account")" class="btn btn-outline-success px-4 py-3 fw-bold bg-white" style="border-radius: 8px;">
+                    Step 2: Sign In & Book
+                </a>
+            </div>
+        </div>
+    </section>
 
+    <!-- APPLICANT HIERARCHICAL WORKFLOW -->
+    <section id="workflow" class="py-5 bg-light border-top border-bottom">
+        <div class="container py-3">
+            <div class="text-center mb-5">
+                <h2 class="section-title">The Booking & Interview Pipeline</h2>
+                <p class="text-secondary mx-auto" style="max-width: 600px;">
+                    Please follow the sequential timeline to complete your application entry successfully[cite: 1].
+                </p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Step 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="p-4 workflow-box highlighted text-center h-100">
+                        <span class="step-number"><i class="bi bi-1-circle-fill me-1"></i> Required First</span>
+                        <h5 class="fw-bold text-dark small mb-2">Account Registration</h5>
+                        <p class="text-muted mb-0" style="font-size: 12px;">
+                            Create your unique profile using verified personal details and upload a valid identity card for administrative validation[cite: 1].
+                        </p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="p-4 workflow-box text-center h-100">
+                        <span class="step-number"><i class="bi bi-2-circle-fill me-1"></i> Booking Access</span>
+                        <h5 class="fw-bold text-dark small mb-2">Schedule Your Interview</h5>
+                        <p class="text-muted mb-0" style="font-size: 12px;">
+                            Once logged in, open the scheduling module to select an available service time and request an official interview date slot.
+                        </p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="p-4 workflow-box text-center h-100">
+                        <span class="step-number"><i class="bi bi-3-circle-fill me-1"></i> Front Desk Check</span>
+                        <h5 class="fw-bold text-dark small mb-2">Document Verification</h5>
+                        <p class="text-muted mb-0" style="font-size: 12px;">
+                            Arrive at the office to lodge required physical duplicates (resumes, valid IDs) to match your digital system record[cite: 1].
+                        </p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="p-4 workflow-box text-center h-100">
+                        <span class="step-number"><i class="bi bi-4-circle-fill me-1"></i> Live Update</span>
+                        <h5 class="fw-bold text-dark small mb-2">Monitoring & PDF Logs</h5>
+                        <p class="text-muted mb-0" style="font-size: 12px;">
+                            Track queue progress via real-time monitoring dashboards and download an official summary report in PDF format upon completion[cite: 1].
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE FUNCTIONAL MODULES SECTION -->
+    <section id="architecture" class="container py-5 my-4">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Core System Boundaries</h2>
+            <p class="text-secondary mx-auto" style="max-width: 650px;">
+                Engineered specifically to solve structural operational challenges within the Philippine Service Industry[cite: 1].
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Security Module -->
+            <div class="col-md-4">
+                <div class="custom-card">
+                    <div class="icon-circle">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">User Account Validation</h5>
+                    <p class="text-secondary small lh-base mb-0">Protects office integrity boundaries by enforcing role-based authorization parameters and account identity matching upon submission[cite: 1].</p>
+                </div>
+            </div>
+            <!-- Document Tracking Module -->
+            <div class="col-md-4">
+                <div class="custom-card">
+                    <div class="icon-circle">
+                        <i class="bi bi-calendar3"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Monitoring Feature</h5>
+                    <p class="text-secondary small lh-base mb-0">Tracks and updates the status of individual requests and interview sequences dynamically on structural dashboards[cite: 1].</p>
+                </div>
+            </div>
+            <!-- Report Generation Module -->
+            <div class="col-md-4">
+                <div class="custom-card">
+                    <div class="icon-circle">
+                        <i class="bi bi-filetype-pdf"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">PDF Report Export</h5>
+                    <p class="text-secondary small lh-base mb-0">Instantly extracts transactional activity reports, scheduling records histories, and official summary files securely[cite: 1].</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <img src="~/Images/logo.png" width="36" alt="SORS Footer Logo">
+                        <span class="text-white fw-bold tracking-wider small">SMART OFFICE RECORDS SYSTEM</span>
+                    </div>
+                    <p class="small text-muted pe-4">Developed as an institutional framework optimization targeting organizational accountability boundaries inside the Philippine Service Sector[cite: 1].</p>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h5>Academic Context</h5>
+                    <p class="small text-muted mb-1">Asian College of Technology[cite: 1]</p>
+                    <p class="small text-muted mb-0">College of Computer Studies[cite: 1]</p>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h5>System Scope</h5>
+                    <p class="small text-muted mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Interview Scheduling</p>
+                    <p class="small text-muted mb-0"><i class="bi bi-check-circle-fill text-success me-2"></i>PDF Reporting Logs[cite: 1]</p>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary opacity-25">
+            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center small opacity-50">
+                <p class="mb-2 mb-sm-0">© 2026 Smart Office Records System. All rights reserved[cite: 1].</p>
+                <p class="mb-0">Designed & Developed by Joan T. Latayada et al[cite: 1].</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

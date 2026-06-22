@@ -46,13 +46,14 @@
                 display: flex;
             }
 
-            .register-wrapper {
-                width: 100%;
-                height: 100vh;
-                display: flex;
-                overflow: hidden;
-                background: white;
-            }
+        .register-wrapper {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: row-reverse;
+            overflow: hidden;
+            background: white;
+        }
 
             /* LEFT */
             .left-side {
@@ -213,7 +214,7 @@
             height: 50px;
             border: none;
             border-radius: 6px;
-            background: #16a34a;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
             color: white;
             font-size: 18px;
             font-weight: 600;
@@ -222,7 +223,9 @@
         }
 
             .btn-register:hover {
-                background: #15803d;
+                background: linear-gradient(135deg, #16a34a, #14532d);
+                transform: translateY(-2px);
+                box-shadow: 0 10px 25px rgba(22, 163, 74, 0.45);
             }
 
         /* LOGIN */
@@ -242,7 +245,7 @@
         @@media(max-width: 991px) {
 
             .register-wrapper {
-                flex-direction: column;
+                flex-direction: column-reverse;
             }
 
             .left-side,
@@ -283,6 +286,32 @@
                 text-align: center;
                 margin-bottom: 15px;
             }
+
+        /* ==========================
+           CARD SLIDE ANIMATION
+        ========================== */
+
+        @@keyframes slideInCard {
+            from
+        {
+            opacity: 0;
+            transform: translateX(-80px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);}
+        }
+
+        .register-card {
+            width: 100%;
+            max-width: 620px;
+            background: white;
+            border: 1px solid #dbe2ea;
+            border-radius: 10px;
+            padding: 28px 38px;
+            animation: slideInCard 0.8s ease-out forwards;
+        }
 
         </style>
 

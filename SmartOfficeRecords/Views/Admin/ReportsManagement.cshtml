@@ -52,7 +52,7 @@
 
         .sidebar {
             width: 190px;
-            background: #1f3b97;
+            background: #0b1f3a;
             color: white;
             display: flex;
             flex-direction: column;
@@ -111,7 +111,7 @@
 
                         /* Active menu */
                         .sidebar.collapsed .menu a.active {
-                            background: #4a86ff;
+                            background: #1e4f8a;
                             box-shadow: 0 4px 10px rgba(0,0,0,.15);
                         }
 
@@ -271,7 +271,8 @@
                 }
 
                 .menu a.active {
-                    background: #3d7cff;
+                    background: #1e4f8a;
+                    box-shadow: 0 4px 10px rgba(0,0,0,.15);
                 }
 
         /* MAIN */
@@ -296,7 +297,7 @@
         .menu-toggle {
             background: none;
             border: none;
-            color: #243f99;
+            color: #1e4f8a;
             font-size: 22px;
             cursor: pointer;
             margin-right: 10px;
@@ -311,13 +312,13 @@
 
             .topbar-left i {
                 font-size: 28px;
-                color: #243f99;
+                color: #1e4f8a;
                 cursor: pointer;
                 margin: 8px;
             }
 
             .topbar-left h3 {
-                color: #243f99;
+                color: #1e4f8a;
                 font-weight: 700;
                 margin: 0;
             }
@@ -433,7 +434,7 @@
         }
 
         .create-btn {
-            background: #3b82f6;
+            background: #1e4f8a;
             border: none;
             color: white;
             height: 50px;
@@ -448,8 +449,8 @@
         }
 
             .create-btn:hover {
-                background: #2563eb;
-                color: white;
+                transform: translateY(0px);
+                box-shadow: 0 3px 8px rgba(11, 31, 58, 0.25);
             }
 
         /* TABLE */
@@ -502,7 +503,7 @@
         }
 
         .active-page {
-            background: #3b82f6;
+            background: #1e4f8a;
             color: white;
         }
 
@@ -572,7 +573,7 @@
                             <span>General Settings</span>
                         </a>
 
-                        <a href="#">
+                        <a href="@Url.Action("SAccountSettings", "Admin")">
                             <i class="bi bi-person-gear"></i>
                             <span>Account & Security</span>
                         </a>

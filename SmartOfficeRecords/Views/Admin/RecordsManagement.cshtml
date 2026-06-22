@@ -272,6 +272,7 @@
 
                 .menu a.active {
                     background: #1e4f8a;
+                    box-shadow: 0 4px 10px rgba(0,0,0,.15);
                 }
 
             /* MAIN */
@@ -448,8 +449,8 @@
             }
 
                 .create-btn:hover {
-                transform: translateY(0px);
-                box-shadow: 0 3px 8px rgba(11, 31, 58, 0.25);
+                    transform: translateY(0px);
+                    box-shadow: 0 3px 8px rgba(11, 31, 58, 0.25);
                 }
 
             /* TABLE */
@@ -572,7 +573,7 @@
                             <span>General Settings</span>
                         </a>
 
-                        <a href="#">
+                        <a href="@Url.Action("SAccountSettings", "Admin")">
                             <i class="bi bi-person-gear"></i>
                             <span>Account & Security</span>
                         </a>

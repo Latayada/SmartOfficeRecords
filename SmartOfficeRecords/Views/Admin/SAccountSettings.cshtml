@@ -46,7 +46,7 @@
                   ===========================*/
         .sidebar {
             width: 190px;
-            background: #1f3b97;
+            background: #0b1f3a;
             color: white;
             display: flex;
             flex-direction: column;
@@ -127,7 +127,7 @@
 
                         /* Active menu */
                         .sidebar.collapsed .menu a.active {
-                            background: #4a86ff;
+                            background: #1e4f8a;
                             box-shadow: 0 4px 10px rgba(0,0,0,.15);
                         }
 
@@ -288,7 +288,8 @@
                 }
 
                 .menu a.active {
-                    background: #3d7cff;
+                    background: #1e4f8a;
+                    box-shadow: 0 4px 10px rgba(0,0,0,.15);
                 }
 
         /* =================
@@ -321,7 +322,7 @@
         .menu-toggle {
             background: none;
             border: none;
-            color: #243f99;
+            color: #1e4f8a;
             font-size: 22px;
             cursor: pointer;
             margin-right: 10px;
@@ -336,13 +337,13 @@
 
             .topbar-left i {
                 font-size: 28px;
-                color: #243f99;
+                color: #1e4f8a;
                 cursor: pointer;
                 margin: 8px;
             }
 
             .topbar-left h3 {
-                color: #243f99;
+                color: #1e4f8a;
                 font-weight: 700;
                 margin: 0;
             }
@@ -387,7 +388,7 @@
                 margin: 0;
                 font-size: 14px;
                 font-weight: 600;
-                color: #243f99;
+                color: #1e4f8a;
             }
 
             .profile-info span {
@@ -414,7 +415,7 @@
 
             .settings-box h4,
             .settings-box h5 {
-                color: #243f99;
+                color: #1e4f8a;
                 font-weight: 600;
             }
 
@@ -424,7 +425,7 @@
         }
 
         .btn-save {
-            background: #3d7cff;
+            background: #1e4f8a;
             color: white;
             border: none;
             padding: 10px 18px;
@@ -432,7 +433,7 @@
         }
 
             .btn-save:hover {
-                background: #2f66dd;
+                background: #1e4f8a;
             }
 
     </style>
@@ -650,5 +651,20 @@
 
     </div>
 
+    <script>
+        const dropdown = document.querySelector('.sidebar-dropdown');
+            const toggle = document.querySelector('.dropdown-toggle-menu');
+
+        toggle.addEventListener('click', function () {
+            dropdown.classList.toggle('open');
+        });
+
+        const sidebar = document.querySelector('.sidebar');
+        const toggleBtn = document.getElementById('menuToggle');
+
+        toggleBtn.addEventListener('click', function () {
+            sidebar.classList.toggle('collapsed');
+        });
+    </script>
 </body>
 </html>
