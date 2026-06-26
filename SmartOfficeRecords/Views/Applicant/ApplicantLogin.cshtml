@@ -6,27 +6,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <meta charset="utf-8" />
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applicant Login</title>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -35,7 +25,7 @@
         }
 
         body {
-            background: #f3f4f6;
+            background: #f4f6f9;
             min-height: 100vh;
             overflow: hidden;
         }
@@ -54,124 +44,182 @@
             background: white;
         }
 
-        /* LEFT SIDE */
+        /* LEFT SIDE - ENHANCED WITH GRADIENT & TEXTURE */
         .left-side {
             width: 40%;
             height: 100vh;
-            background: #168a3b;
+            background: linear-gradient(135deg, #1b9a46 0%, #0f6328 100%);
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
         }
+
+            /* Subtle geometric overlay background pattern */
+            .left-side::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                opacity: 0.04;
+                background-image: linear-gradient(30deg, #000 12%, transparent 12.5%, transparent 87%, #000 87.5%, #000), linear-gradient(150deg, #000 12%, transparent 12.5%, transparent 87%, #000 87.5%, #000), linear-gradient(300deg, #000 12%, transparent 12.5%, transparent 87%, #000 87.5%, #000), linear-gradient(60deg, #000 25%, transparent 25.5%, transparent 75%, #000 75%, #000), linear-gradient(240deg, #000 25%, transparent 25.5%, transparent 75%, #000 75%, #000);
+                background-size: 40px 70px;
+                z-index: 1;
+            }
 
         .top-content {
             text-align: center;
-            padding-top: 70px;
+            padding-top: 80px;
             position: relative;
             z-index: 2;
         }
 
+            /* Ambient glow ring under logo */
             .top-content img {
                 width: 130px;
                 margin-bottom: 25px;
+                background: rgba(255, 255, 255, 0.1);
+                padding: 10px;
+                border-radius: 50%;
+                backdrop-filter: blur(8px);
+                border: 1px solid rgba(255, 255, 255, 0.15);
             }
 
             .top-content h1 {
                 color: white;
-                font-size: 44px;
+                font-size: 40px;
                 font-weight: 700;
-                line-height: 1.3;
+                line-height: 1.25;
+                letter-spacing: 0.5px;
+                text-shadow: 0 4px 12px rgba(0,0,0,0.15);
             }
 
         .bottom-image {
-            position: absolute;
-            bottom: 0;
+            position: relative;
+            z-index: 2;
             width: 100%;
+            margin-top: auto;
         }
 
             .bottom-image img {
                 width: 100%;
-                height: 52vh;
+                height: 50vh;
                 object-fit: cover;
+                display: block;
             }
 
         /* RIGHT SIDE */
         .right-side {
             width: 60%;
             height: 100vh;
-            background: #f8f8f8;
+            background: #f8fafc;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 40px;
         }
 
-        /* LOGIN CARD */
+        /* MODERN FLOATING LOGIN CARD */
         .login-card {
             width: 100%;
-            max-width: 470px;
+            max-width: 480px;
             background: white;
-            border: 1px solid #dddddd;
-            border-radius: 8px;
+            border: none;
+            border-radius: 16px;
             padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            /* Animation */
+            opacity: 0;
+            animation: slideInCard 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
             .login-card h2 {
                 text-align: center;
-                font-size: 38px;
+                font-size: 34px;
                 font-weight: 700;
+                color: #1e293b;
                 margin-bottom: 8px;
             }
 
         .subtitle {
             text-align: center;
-            color: #6b7280;
-            margin-bottom: 40px;
+            color: #64748b;
+            margin-bottom: 35px;
+            font-size: 15px;
         }
 
         .form-label {
-            font-weight: 600;
-            margin-bottom: 10px;
+            font-weight: 500;
+            color: #334155;
+            margin-bottom: 8px;
+            font-size: 14px;
         }
 
-        /* INPUT */
+        /* INPUT GROUP STYLING */
         .input-group-custom {
             position: relative;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
             .input-group-custom .left-icon {
                 position: absolute;
-                left: 15px;
-                top: 15px;
-                color: #9ca3af;
+                left: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #94a3b8;
+                font-size: 18px;
+                transition: color 0.2s ease;
             }
 
             .input-group-custom .right-icon {
                 position: absolute;
-                right: 15px;
-                top: 15px;
+                right: 16px;
+                top: 50%;
+                transform: translateY(-50%);
                 cursor: pointer;
-                color: #6b7280;
+                color: #94a3b8;
+                font-size: 18px;
+                transition: color 0.2s ease;
             }
+
+                .input-group-custom .right-icon:hover {
+                    color: #475569;
+                }
 
         .form-control-custom {
             width: 100%;
             height: 52px;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            padding-left: 45px;
-            padding-right: 45px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding-left: 48px;
+            padding-right: 48px;
             outline: none;
+            color: #1e293b;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            background-color: #f8fafc;
         }
 
-            .form-control-custom:focus {
-                border-color: #16a34a;
+            .form-control-custom::placeholder {
+                color: #94a3b8;
             }
 
-        /* FORGOT */
+            .form-control-custom:focus {
+                background-color: #fff;
+                border-color: #16a34a;
+                box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.12);
+            }
+
+        /* Focus updates the inner icon color wrapper */
+        .input-group-custom:focus-within .left-icon {
+            color: #16a34a;
+        }
+
+        /* FORGOT PASSWORD */
         .forgot-password {
             text-align: right;
-            margin-top: -10px;
-            margin-bottom: 30px;
+            margin-top: -8px;
+            margin-bottom: 28px;
         }
 
             .forgot-password a {
@@ -179,249 +227,227 @@
                 color: #16a34a;
                 font-size: 14px;
                 font-weight: 500;
+                transition: color 0.2s ease;
             }
 
-        /* BUTTON */
+                .forgot-password a:hover {
+                    color: #15803d;
+                    text-decoration: underline;
+                }
+
+        /* MODERN INTERACTIVE BUTTON */
         .btn-login {
             width: 100%;
-            height: 55px;
+            height: 52px;
             border: none;
-            border-radius: 6px;
+            border-radius: 10px;
             background: linear-gradient(135deg, #22c55e, #16a34a);
             color: white;
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
         }
 
             .btn-login:hover {
-                background: linear-gradient(135deg, #16a34a, #14532d);
-                transform: translateY(-2px);
-                box-shadow: 0 10px 25px rgba(22, 163, 74, 0.45);
+                background: linear-gradient(135deg, #16a34a, #15803d);
+                transform: translateY(-1px);
+                box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35);
             }
 
-        /* REGISTER */
+            .btn-login:active {
+                transform: translateY(1px);
+                box-shadow: 0 4px 10px rgba(22, 163, 74, 0.2);
+            }
+
+        /* REGISTER LINK */
         .register-link {
             text-align: center;
             margin-top: 25px;
-            font-size: 15px;
+            font-size: 14px;
+            color: #64748b;
         }
 
             .register-link a {
                 color: #16a34a;
                 text-decoration: none;
                 font-weight: 600;
+                transition: color 0.2s ease;
             }
 
-        /* ERROR */
+                .register-link a:hover {
+                    color: #15803d;
+                    text-decoration: underline;
+                }
+
+        /* ERROR DISPLAY */
         .error-message {
-            color: red;
+            background-color: #fef2f2;
+            border: 1px solid #fee2e2;
+            color: #dc2626;
             text-align: center;
-            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
             font-size: 14px;
+            font-weight: 500;
         }
 
-        @@media(max-width: 991px) {
+        /* RESPONSIVE LAYOUT */
+       @@media(max - width: 991px)
 
-            .login-wrapper {
-                flex-direction: column;
-            }
+        {
+            .login-wrapper
 
-            .left-side,
-            .right-side {
-                width: 100%;
-            }
-
-            .left-side {
-                height: 450px;
-            }
+        {
+            flex-direction: column;
+            overflow-y: auto;
         }
 
-        /* ==========================
-                CARD ANIMATION
-        ========================== */
+        .left-side,
+        .right-side {
+            width: 100%;
+        }
 
+        .left-side {
+            height: auto;
+            padding-bottom: 0;
+        }
+
+        .top-content {
+            padding: 50px 20px 30px 20px;
+        }
+
+            .top-content h1 {
+                font-size: 32px;
+            }
+
+        .bottom-image img {
+            height: 35vh;
+        }
+
+        .right-side {
+            height: auto;
+            padding: 40px 20px;
+        }
+
+        .login-card {
+            padding: 35px 24px;
+        }
+
+        }
+
+        /* CARD ANIMATION */
         @@keyframes slideInCard {
             from
+
         {
             opacity: 0;
-            transform: translateX(80px);
+            transform: translateY(30px);
         }
 
         to {
             opacity: 1;
-            transform: translateX(0)}
+            transform: translateY(0);
         }
 
-        .login-card {
-        width: 100%;
-        max-width: 470px;
-        background: white;
-        border: 1px solid #dddddd;
-        border-radius: 8px;
-        padding: 50px;
-
-        /* Animation */
-        opacity: 0;
-        animation: slideInCard 0.8s ease-out forwards;
-}
-
+        }
     </style>
-
 </head>
-
 <body>
 
     <div class="main-container">
-
         <div class="login-wrapper">
 
-            <!-- LEFT -->
             <div class="left-side">
-
                 <div class="top-content">
-
-                    <img src="~/Images/logo.png"
-                         alt="Logo" />
-
+                    <img src="~/Images/logo.png" alt="Logo" />
                     <h1>
                         SMART OFFICE
                         <br />
                         RECORDS SYSTEM
                     </h1>
-
                 </div>
 
                 <div class="bottom-image">
-
-                    <img src="~/Images/applicant.png"
-                         alt="Applicant Image" />
-
+                    <img src="~/Images/applicant.png" alt="Applicant Image" />
                 </div>
-
             </div>
 
-            <!-- RIGHT -->
             <div class="right-side">
-
                 <div class="login-card">
 
                     <h2>Welcome Users!</h2>
-
-                    <p class="subtitle">
-                        Please sign in to continue.
-                    </p>
+                    <p class="subtitle">Please sign in to continue.</p>
 
                     @if (ViewBag.Error != null)
                     {
                         <div class="error-message">
-                            @ViewBag.Error
+                            <i class="bi bi-exclamation-circle me-2"></i>@ViewBag.Error
                         </div>
                     }
 
-                    @using (Html.BeginForm(
-                                        "ApplicantLogin",
-                                        "Applicant",
-                                        FormMethod.Post))
+                    @using (Html.BeginForm("ApplicantLogin", "Applicant", FormMethod.Post))
                     {
-
-                        <!-- USERNAME -->
-                        <label class="form-label">
-                            Username
-                        </label>
-
-                        <div class="input-group-custom">
-
-                            <i class="bi bi-person left-icon"></i>
-
-                            <input type="text"
-                                   name="Username"
-                                   class="form-control-custom"
-                                   placeholder="Enter Username"
-                                   required />
-
+                        <div class="mb-1">
+                            <label class="form-label">Username</label>
+                            <div class="input-group-custom">
+                                <i class="bi bi-person left-icon"></i>
+                                <input type="text"
+                                       name="Username"
+                                       class="form-control-custom"
+                                       placeholder="Enter Username"
+                                       required />
+                            </div>
                         </div>
 
-                        <!-- PASSWORD -->
-                        <label class="form-label">
-                            Password
-                        </label>
-
-                        <div class="input-group-custom">
-
-                            <i class="bi bi-lock left-icon"></i>
-
-                            <input type="password"
-                                   id="password"
-                                   name="Password"
-                                   class="form-control-custom"
-                                   placeholder="Enter Password"
-                                   required />
-
-                            <i class="bi bi-eye right-icon"
-                               id="togglePassword"></i>
-
+                        <div class="mb-1">
+                            <label class="form-label">Password</label>
+                            <div class="input-group-custom">
+                                <i class="bi bi-lock left-icon"></i>
+                                <input type="password"
+                                       id="password"
+                                       name="Password"
+                                       class="form-control-custom"
+                                       placeholder="Enter Password"
+                                       required />
+                                <i class="bi bi-eye right-icon" id="togglePassword"></i>
+                            </div>
                         </div>
 
-                        <!-- FORGOT -->
                         <div class="forgot-password">
-
-                            <a href="#">
-                                Forgot Password?
-                            </a>
-
+                            <a href="#">Forgot Password?</a>
                         </div>
 
-                        <!-- BUTTON -->
-                        <button type="submit"
-                                class="btn-login">
-
+                        <button type="submit" class="btn-login">
                             Login
-
                         </button>
                     }
 
-                    <!-- REGISTER -->
                     <div class="register-link">
-
                         Don’t have an account?
-
-                        <a href="@Url.Action("ApplicantRegister", "Applicant")">
-                            Register!
-                        </a>
-
+                        <a href="@Url.Action("ApplicantRegister", "Applicant")">Register!</a>
                     </div>
 
                 </div>
-
             </div>
 
         </div>
-
     </div>
 
     <script>
-
-        const togglePassword =
-            document.querySelector("#togglePassword");
-
-        const password =
-            document.querySelector("#password");
+        const togglePassword = document.querySelector("#togglePassword");
+        const password = document.querySelector("#password");
 
         togglePassword.addEventListener("click", function () {
-
-            const type =
-                password.getAttribute("type") === "password"
-                    ? "text"
-                    : "password";
-
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
             password.setAttribute("type", type);
 
             this.classList.toggle("bi-eye");
             this.classList.toggle("bi-eye-slash");
-
         });
-
     </script>
-
 </body>
 </html>

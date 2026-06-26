@@ -20,12 +20,12 @@
 
     <style>
         :root {
-            --primary-green: #10b981;
-            --dark-green: #065f46;
-            --light-mint: #ecfdf5;
+            --primary-green: #16a34a;
+            --dark-green: #166534;
+            --light-mint: #dcfce7;
             --surface-white: #ffffff;
-            --text-dark: #0f172a;
-            --text-muted: #64748b;
+            --text-dark: #166534;
+            --text-muted: #ffffff;
         }
 
         * {
@@ -84,15 +84,15 @@
             }
 
             .nav-menu a.active {
-                color: var(--dark-green);
-                background: var(--light-mint);
+                background: #dcfce7;
+                color: #166534;
                 font-weight: 600;
             }
 
         /* HERO SECTION */
         .hero {
             min-height: 540px;
-            background: linear-gradient(135deg, #f0fdf4 0%, #e6fbf0 100%);
+            background: linear-gradient(135deg,#dcfce7,#bbf7d0);
             position: relative;
             overflow: hidden;
             display: flex;
@@ -117,7 +117,7 @@
         .hero h1 {
             font-size: 2.85rem;
             font-weight: 700;
-            color: #064e3b;
+            color: var(--dark-green);
             line-height: 1.25;
             letter-spacing: -1px;
         }
@@ -130,28 +130,60 @@
             line-height: 1.6;
         }
 
-        /* BUTTONS */
+        /* COMMON BUTTON EFFECT */
+        .btn-green,
+        .btn-book {
+            position: relative;
+            overflow: hidden;
+            transition: all .35s ease;
+        }
+
+        /* REGISTER BUTTON */
         .btn-green {
-            background: var(--primary-green);
+            background: linear-gradient(135deg,#16a34a,#15803d);
             color: white;
             padding: 14px 38px;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 600;
             border: none;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 5px 18px rgba(22,163,74,.25);
         }
 
             .btn-green:hover {
-                background: #059669;
                 color: white;
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+                transform: translateY(-4px) scale(1.02);
+                box-shadow: 0 12px 25px rgba(22,163,74,.35), 0 0 20px rgba(34,197,94,.25);
+            }
+
+            .btn-green:active {
+                transform: translateY(-1px);
+            }
+
+        /* LOGIN BUTTON */
+        .btn-book {
+            background: white;
+            border: 2px solid #16a34a;
+            color: #166534;
+            border-radius: 10px;
+            padding: 14px 38px;
+            font-weight: 600;
+            box-shadow: 0 5px 18px rgba(0,0,0,.05);
+        }
+
+            .btn-book:hover {
+                background: white;
+                color: #166534;
+                transform: translateY(-4px) scale(1.02);
+                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15), 0 0 20px rgba(0, 0, 0, 0.08);
+            }
+
+            .btn-book:active {
+                transform: translateY(-1px);
             }
 
         /* SECTION TEXT HEADER */
         .section-title {
-            color: #064e3b;
+            color: #166534;
             font-weight: 700;
             position: relative;
             display: inline-block;
@@ -161,7 +193,7 @@
         /* CARDS / CONTAINERS */
         .custom-card {
             background: var(--surface-white);
-            border: 1px solid #e2e8f0;
+            border: 1px solid #bbf7d0;
             border-radius: 16px;
             padding: 28px;
             box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
@@ -172,6 +204,7 @@
             .custom-card:hover {
                 transform: translateY(-4px);
                 box-shadow: 0 12px 24px -4px rgba(16, 185, 129, 0.08);
+                border-color: #16a34a;
             }
 
         /* ICON CIRCLE */
@@ -201,7 +234,7 @@
 
         .workflow-box {
             background: white;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #bbf7d0;
             border-radius: 12px;
             transition: all 0.2s ease;
         }
@@ -214,7 +247,7 @@
 
         /* FOOTER */
         footer {
-            background: #0f172a;
+            background: #166534;
             color: #94a3b8;
             padding: 60px 0 30px 0;
         }
@@ -230,7 +263,7 @@
 
             footer p, footer a {
                 font-size: 13.5px;
-                color: #94a3b8;
+                color: var(--text-muted);
                 text-decoration: none;
                 margin-bottom: 10px;
                 display: block;
@@ -238,7 +271,7 @@
             }
 
                 footer a:hover {
-                    color: var(--primary-green);
+                    color: #ffffff;
                 }
 
         @@media (max-width: 991px) {
@@ -247,7 +280,6 @@
         {
             font-size: 2.25rem;
         }
-
         }
     </style>
 </head>
@@ -279,13 +311,17 @@
             <h1 class="px-3">Streamlined Interview Booking & Records Portal</h1>
             <p class="px-4">
                 Welcome to the <strong>Smart Office Records System</strong> for Work Avenue and Business Solutions, Inc.
-                Applicants must create and validate an account before they are eligible to schedule and lock in their official interview dates[cite: 1].
+                Applicants must create and validate an account before they are eligible to schedule and lock in their official interview dates.
             </p>
             <div class="gap-3 d-flex justify-content-center flex-wrap mt-3">
-                <a href="@Url.Action("Register", "Account")" class="btn btn-green">
-                    <i class="bi bi-person-plus-fill me-2"></i>Step 1: Register Account
+                <a href="@Url.Action("ApplicantRegister", "Applicant")"
+                   class="btn btn-green">
+                    <i class="bi bi-person-plus-fill me-2"></i>
+                    Step 1: Register Account
                 </a>
-                <a href="@Url.Action("Login", "Account")" class="btn btn-outline-success px-4 py-3 fw-bold bg-white" style="border-radius: 8px;">
+                <a href="@Url.Action("ApplicantLogin", "Applicant")"
+                   class="btn btn-book">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>
                     Step 2: Sign In & Book
                 </a>
             </div>
@@ -298,7 +334,7 @@
             <div class="text-center mb-5">
                 <h2 class="section-title">The Booking & Interview Pipeline</h2>
                 <p class="text-secondary mx-auto" style="max-width: 600px;">
-                    Please follow the sequential timeline to complete your application entry successfully[cite: 1].
+                    Please follow the sequential timeline to complete your application entry successfully.
                 </p>
             </div>
 
@@ -309,7 +345,7 @@
                         <span class="step-number"><i class="bi bi-1-circle-fill me-1"></i> Required First</span>
                         <h5 class="fw-bold text-dark small mb-2">Account Registration</h5>
                         <p class="text-muted mb-0" style="font-size: 12px;">
-                            Create your unique profile using verified personal details and upload a valid identity card for administrative validation[cite: 1].
+                            Create your unique profile using verified personal details and upload a valid identity card for administrative validation.
                         </p>
                     </div>
                 </div>
@@ -329,7 +365,7 @@
                         <span class="step-number"><i class="bi bi-3-circle-fill me-1"></i> Front Desk Check</span>
                         <h5 class="fw-bold text-dark small mb-2">Document Verification</h5>
                         <p class="text-muted mb-0" style="font-size: 12px;">
-                            Arrive at the office to lodge required physical duplicates (resumes, valid IDs) to match your digital system record[cite: 1].
+                            Arrive at the office to lodge required physical duplicates (resumes, valid IDs) to match your digital system record.
                         </p>
                     </div>
                 </div>
@@ -339,7 +375,7 @@
                         <span class="step-number"><i class="bi bi-4-circle-fill me-1"></i> Live Update</span>
                         <h5 class="fw-bold text-dark small mb-2">Monitoring & PDF Logs</h5>
                         <p class="text-muted mb-0" style="font-size: 12px;">
-                            Track queue progress via real-time monitoring dashboards and download an official summary report in PDF format upon completion[cite: 1].
+                            Track queue progress via real-time monitoring dashboards and download an official summary report in PDF format upon completion.
                         </p>
                     </div>
                 </div>
@@ -352,7 +388,7 @@
         <div class="text-center mb-5">
             <h2 class="section-title">Core System Boundaries</h2>
             <p class="text-secondary mx-auto" style="max-width: 650px;">
-                Engineered specifically to solve structural operational challenges within the Philippine Service Industry[cite: 1].
+                Engineered specifically to solve structural operational challenges within the Philippine Service Industry.
             </p>
         </div>
 
@@ -364,7 +400,7 @@
                         <i class="bi bi-shield-lock"></i>
                     </div>
                     <h5 class="fw-bold mb-2">User Account Validation</h5>
-                    <p class="text-secondary small lh-base mb-0">Protects office integrity boundaries by enforcing role-based authorization parameters and account identity matching upon submission[cite: 1].</p>
+                    <p class="text-secondary small lh-base mb-0">Protects office integrity boundaries by enforcing role-based authorization parameters and account identity matching upon submission.</p>
                 </div>
             </div>
             <!-- Document Tracking Module -->
@@ -374,7 +410,7 @@
                         <i class="bi bi-calendar3"></i>
                     </div>
                     <h5 class="fw-bold mb-2">Monitoring Feature</h5>
-                    <p class="text-secondary small lh-base mb-0">Tracks and updates the status of individual requests and interview sequences dynamically on structural dashboards[cite: 1].</p>
+                    <p class="text-secondary small lh-base mb-0">Tracks and updates the status of individual requests and interview sequences dynamically on structural dashboards.</p>
                 </div>
             </div>
             <!-- Report Generation Module -->
@@ -384,7 +420,7 @@
                         <i class="bi bi-filetype-pdf"></i>
                     </div>
                     <h5 class="fw-bold mb-2">PDF Report Export</h5>
-                    <p class="text-secondary small lh-base mb-0">Instantly extracts transactional activity reports, scheduling records histories, and official summary files securely[cite: 1].</p>
+                    <p class="text-secondary small lh-base mb-0">Instantly extracts transactional activity reports, scheduling records histories, and official summary files securely.</p>
                 </div>
             </div>
         </div>
@@ -399,23 +435,23 @@
                         <img src="~/Images/logo.png" width="36" alt="SORS Footer Logo">
                         <span class="text-white fw-bold tracking-wider small">SMART OFFICE RECORDS SYSTEM</span>
                     </div>
-                    <p class="small text-muted pe-4">Developed as an institutional framework optimization targeting organizational accountability boundaries inside the Philippine Service Sector[cite: 1].</p>
+                    <p class="small text-white pe-4">Developed as an institutional framework optimization targeting organizational accountability boundaries inside the Philippine Service Sector.</p>
                 </div>
                 <div class="col-lg-3 col-6">
                     <h5>Academic Context</h5>
-                    <p class="small text-muted mb-1">Asian College of Technology[cite: 1]</p>
-                    <p class="small text-muted mb-0">College of Computer Studies[cite: 1]</p>
+                    <p class="small text-white mb-1">Asian College of Technology</p>
+                    <p class="small text-white mb-0">College of Computer Studies</p>
                 </div>
                 <div class="col-lg-3 col-6">
                     <h5>System Scope</h5>
-                    <p class="small text-muted mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Interview Scheduling</p>
-                    <p class="small text-muted mb-0"><i class="bi bi-check-circle-fill text-success me-2"></i>PDF Reporting Logs[cite: 1]</p>
+                    <p class="small text-white mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Interview Scheduling</p>
+                    <p class="small text-white mb-0"><i class="bi bi-check-circle-fill text-success me-2"></i>PDF Reporting Logs</p>
                 </div>
             </div>
             <hr class="my-4 border-secondary opacity-25">
             <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center small opacity-50">
-                <p class="mb-2 mb-sm-0">© 2026 Smart Office Records System. All rights reserved[cite: 1].</p>
-                <p class="mb-0">Designed & Developed by Joan T. Latayada et al[cite: 1].</p>
+                <p class="mb-2 mb-sm-0">© 2026 Smart Office Records System. All rights reserved.</p>
+                <p class="mb-0">Designed & Developed by JJJC</p>
             </div>
         </div>
     </footer>
