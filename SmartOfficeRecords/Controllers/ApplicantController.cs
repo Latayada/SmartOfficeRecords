@@ -87,5 +87,15 @@ namespace SmartOfficeRecords.Controllers
         {
             return View();
         }
+
+        public ActionResult Profile()
+        {
+            return View();
+        }
+
+        public ActionResult MyAppointment()
+        {
+            return View();
+        }
     }
 }
