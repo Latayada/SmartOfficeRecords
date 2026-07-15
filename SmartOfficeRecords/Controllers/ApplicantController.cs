@@ -93,6 +93,10 @@ namespace SmartOfficeRecords.Controllers
             return View();
         }
 
+        public ActionResult BookInterview()
+        {
+            return View();
+        }
         public ActionResult MyAppointment()
         {
             return View();
