@@ -154,6 +154,38 @@
             display: block;
         }
 
+        .profile-dropdown {
+            min-width: 220px;
+            border-radius: 16px;
+            border: 1px solid #dbe4dc;
+            padding: 10px 0;
+            margin-top: 12px;
+        }
+
+            .profile-dropdown .dropdown-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 18px;
+                font-size: 15px;
+                font-weight: 500;
+                color: #374151;
+            }
+
+                .profile-dropdown .dropdown-item i {
+                    font-size: 18px;
+                    width: 20px;
+                }
+
+                .profile-dropdown .dropdown-item:hover {
+                    background: #f0fdf4;
+                    color: #16a34a;
+                }
+
+        .profile-widget::after {
+            display: none;
+        }
+
         /* --- CONTENT BODY STYLING --- */
         .page-container {
             max-width: 1300px;
@@ -182,31 +214,7 @@
             margin: 0;
         }
 
-        /* Date display pill component */
-        .date-pill-container {
-            display: flex;
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .date-pill-value {
-            padding: 12px 24px;
-            font-size: 15px;
-            font-weight: 600;
-            color: #334155;
-        }
-
-        .date-pill-day {
-            padding: 12px 24px;
-            background-color: #f8fafc;
-            border-left: 1px solid #e2e8f0;
-            font-size: 15px;
-            font-weight: 600;
-            color: #334155;
-        }
-
+       
         /* Main Container Box */
         .schedules-card {
             background: white;
@@ -478,17 +486,48 @@
 
             <!-- Right: Notifications & Profile -->
             <div class="navbar-profile">
+
                 <button class="notification-btn" title="Notifications">
                     <i class="bi bi-bell"></i>
                 </button>
-                <div class="profile-widget">
-                    <div class="profile-avatar">JC</div>
-                    <div class="profile-info">
-                        <span class="profile-name">John Cruz</span>
-                        <span class="profile-email">johncruz@gmail.com</span>
+
+                <div class="dropdown">
+
+                    <div class="profile-widget"
+                         data-bs-toggle="dropdown"
+                         aria-expanded="false">
+
+                        <div class="profile-avatar">MG</div>
+
+                        <div class="profile-info">
+                            <span class="profile-name">Mary Grace</span>
+                            <span class="profile-email">smartoffice@gmail.com</span>
+                        </div>
+
+                        <i class="bi bi-chevron-down text-muted ms-2"></i>
                     </div>
-                    <i class="bi bi-chevron-down text-muted" style="font-size: 12px; margin-left: 2px;"></i>
+
+                    <ul class="dropdown-menu dropdown-menu-end profile-dropdown shadow">
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("Profile", "Applicant")">
+                                <i class="bi bi-person-circle"></i>
+                                My Account
+                            </a>
+                        </li>
+
+                        <li><hr class="dropdown-divider"></li>
+
+                        <li>
+                            <a class="dropdown-item text-danger"
+                               href="@Url.Action("ApplicantLogin", "Applicant")">
+                                <i class="bi bi-box-arrow-right"></i>
+                                Sign out
+                            </a>
+                        </li>
+                    </ul>
+
                 </div>
+
             </div>
 
         </div>
@@ -610,14 +649,6 @@
         </div>
     </div>
 
-    <!-- Date Helper Script -->
-    <script>
-        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-        const now = new Date();
-        document.getElementById("currentDate").innerText = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
-        document.getElementById("currentDay").innerText = days[now.getDay()];
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
