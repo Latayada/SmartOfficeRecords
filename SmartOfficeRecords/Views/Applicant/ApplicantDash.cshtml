@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Smart Office Records System</title>
+    <title>Home - SORS</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -29,14 +29,52 @@
             background-color: #eaf6ed; /* Light mint background */
             min-height: 100vh;
             color: #334155;
-            padding-top: 70px; /* Add this line to offset the fixed navbar height */
+            padding-top: 70px;
         }
 
         /* --- NAVBAR STYLING --- */
         .navbar-custom {
             background-color: #ffffff;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 12px 24px;
+            padding: 0;
+            z-index: 1030;
+            height: 70px;
+        }
+
+        /* White Logo Brand Box Container */
+        .navbar-left-box {
+            display: flex;
+            align-items: center;
+            width: 260px;
+            height: 100%;
+            padding: 0 24px;
+            background-color: #ffffff;
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+            transition: width 0.3s ease, padding 0.3s ease;
+        }
+
+        /* Dedicated Light Green Toggle Zone Box from Image */
+        .toggle-zone-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 70px;
+            background-color: #eaf6ed; /* Light green area holding toggle */
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-toggle-btn {
+            background: none;
+            border: none;
+            color: #16a34a; /* Green hamburger menu icon */
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
         }
 
         .navbar-brand-custom {
@@ -47,60 +85,24 @@
         }
 
             .navbar-brand-custom img {
-                width: 40px;
-                height: 40px;
+                width: 42px;
+                height: 42px;
                 object-fit: contain;
             }
 
         .brand-text {
             color: #0f6328;
             font-weight: 700;
-            line-height: 1.1;
-            font-size: 14px;
+            font-size: 18px;
             letter-spacing: 0.5px;
         }
 
-            .brand-text span {
-                color: #1e293b;
-                font-weight: 500;
-                font-size: 12px;
-            }
-
-        .nav-links-custom {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            align-items: center;
-        }
-
-        .nav-link-custom {
-            text-decoration: none;
-            color: #64748b;
-            font-weight: 500;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s ease;
-        }
-
-            .nav-link-custom:hover {
-                color: #16a34a;
-            }
-
-            .nav-link-custom.active {
-                color: #16a34a;
-                border-bottom: 2px solid #16a34a;
-                padding-bottom: 4px;
-                font-weight: 600;
-            }
-
+        /* --- NAVBAR PROFILE AND UTILITY --- */
         .navbar-profile {
             display: flex;
             align-items: center;
             gap: 15px;
+            margin-left: auto;
         }
 
         .notification-btn {
@@ -127,7 +129,7 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background-color: #ffb74d; /* Yellow/Orange avatar placeholder */
+            background-color: #ffb74d;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -182,40 +184,108 @@
                     color: #16a34a;
                 }
 
-        .profile-widget::after {
+        /* --- VERTICAL SIDEBAR MENU STYLING --- */
+        .sidebar-menu-wrapper {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            bottom: 0;
+            width: 260px;
+            background-color: #ffffff;
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 24px 16px;
+            overflow-y: auto;
+            z-index: 1020;
+            transition: width 0.3s ease, padding 0.3s ease;
+        }
+
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-link-item {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+            .sidebar-link-item i {
+                font-size: 20px;
+                min-width: 24px;
+                display: inline-flex;
+                justify-content: center;
+            }
+
+            .sidebar-link-item:hover {
+                color: #16a34a;
+                background-color: #f0fdf4;
+            }
+
+            .sidebar-link-item.active {
+                color: #16a34a;
+                background-color: #f0fdf4;
+                font-weight: 600;
+            }
+
+        /* --- LAYOUT WORKSPACE CONTAINER --- */
+        .page-container {
+            margin-left: 260px;
+            max-width: 1300px;
+            padding: 40px 30px;
+            transition: margin-left 0.3s ease;
+        }
+
+        /* ==========================================================================
+                    DRIVEN COLLAPSE STYLES (Matches image perfectly on toggle click)
+                   ========================================================================== */
+
+        /* 1. Logo Box shrinks to a perfectly clean white square */
+        body.sidebar-collapsed .navbar-left-box {
+            width: 76px;
+            padding: 0;
+            justify-content: center;
+        }
+
+        /* 2. Brand name text drops out cleanly */
+        body.sidebar-collapsed .brand-text {
             display: none;
         }
 
-        /* --- CONTENT BODY STYLING --- */
-        .page-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        /* 3. Navigation Sidebar wrapper body collapses down */
+        body.sidebar-collapsed .sidebar-menu-wrapper {
+            width: 76px;
+            padding: 24px 10px;
         }
 
-        .heading-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 35px;
+        body.sidebar-collapsed .sidebar-link-text {
+            display: none;
         }
 
-        .page-title {
-            color: #16a34a;
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 4px;
+        body.sidebar-collapsed .sidebar-link-item {
+            justify-content: center;
+            padding: 12px 0;
+            gap: 0;
         }
 
-        .page-subtitle {
-            color: #64748b;
-            font-size: 14px;
-            font-weight: 500;
-            margin: 0;
+        /* 4. Core layout workspace shifts outward */
+        body.sidebar-collapsed .page-container {
+            margin-left: 76px;
         }
 
-
-        /* --- LEFT MAIN CONTAINER CARD --- */
+        /* --- DASHBOARD CONTENT CARDS --- */
         .main-dashboard-box {
             background-color: #ffffff;
             border-radius: 12px;
@@ -231,7 +301,7 @@
             margin-bottom: 20px;
         }
 
-        /* --- QUICK ACTIONS STYLING (UPDATED) --- */
+        /* --- QUICK ACTIONS STYLING --- */
         .quick-actions-grid {
             display: flex;
             gap: 20px;
@@ -241,7 +311,7 @@
 
         .action-card-button {
             display: flex;
-            flex-direction: row; 
+            flex-direction: row;
             align-items: center;
             justify-content: flex-start;
             gap: 16px;
@@ -264,7 +334,7 @@
             }
 
             .action-card-button i {
-                font-size: 32px; 
+                font-size: 32px;
                 color: #16a34a;
                 display: flex;
                 align-items: center;
@@ -273,9 +343,9 @@
 
             .action-card-button span {
                 font-size: 11px;
-                font-weight: 700; 
+                font-weight: 700;
                 line-height: 1.3;
-                text-align: left; 
+                text-align: left;
                 color: #334155;
             }
 
@@ -315,7 +385,6 @@
                 font-weight: 500;
             }
 
-        /* Status Pills */
         .status-pill-pending {
             background-color: #ffe0b2;
             color: #e65100;
@@ -367,124 +436,150 @@
         }
 
         .announcements-box {
-            background-color: #eaf6ed; /* Slightly lighter mint tint for Announcements */
+            background-color: #eaf6ed;
             border: none;
         }
 
         /* Responsive UI adjustments */
         @@media (max-width: 991px) {
-            .heading-section {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
+            .toggle-zone-box
 
-            .date-pill-container {
-                align-self: flex-start;
-            }
+        {
+            display: none !important;
+        }
 
-            .nav-links-custom {
-                display: none;
-            }
+        .navbar-left-box {
+            width: auto !important;
+            padding: 0 15px !important;
+            border-right: none !important;
+        }
+
+        .brand-text {
+            display: inline !important;
+        }
+
+        .sidebar-menu-wrapper {
+            position: static;
+            width: 100% !important;
+            height: auto;
+            border-right: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 15px 20px !important;
+        }
+
+        .sidebar-links {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .sidebar-link-text {
+            display: inline !important;
+        }
+
+        .sidebar-link-item {
+            padding: 8px 14px !important;
+            font-size: 14px;
+            justify-content: flex-start !important;
+            gap: 12px !important;
+        }
+
+        .page-container {
+            margin-left: 0 !important;
+            padding: 20px;
+        }
+
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
+    <!-- TOP NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top d-flex flex-row align-items-center justify-content-start">
 
-            <!-- Left: Brand Logo -->
+        <!-- Left Brand Logo Panel (White background box) -->
+        <div class="navbar-left-box" id="navLeftBox">
             <a class="navbar-brand-custom" href="#">
                 <img src="~/Images/logo.png" alt="Logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3061/3061341.png'" />
-                <div class="brand-text">
-                    SMART OFFICE<br />
-                    <span>RECORDS SYSTEM</span>
-                </div>
+                <div class="brand-text" id="brandText">SORS</div>
             </a>
+        </div>
 
-            <!-- Center: Navigation Links -->
-            <ul class="nav-links-custom">
-                <li>
-                    <a href="@Url.Action("ApplicantDash", "Applicant")" class="nav-link-custom active">
-                        <i class="bi bi-house-door-fill"></i> Home
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("BookInterview", "Applicant")" class="nav-link-custom">
-                        <i class="bi bi-file-earmark-spreadsheet-fill"></i> Book Interview
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("MyAppointment", "Applicant")" class="nav-link-custom">
-                        <i class="bi bi-person-bounding-box"></i> My Appointment
-                    </a>
-                </li>
-            </ul>
+        <!-- Menu Toggle Area Container (Light Green Background Strip) -->
+        <div class="toggle-zone-box">
+            <button class="sidebar-toggle-btn" id="toggleSidebar" title="Toggle Menu">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
 
-            <!-- Right: Notifications & Profile -->
-            <div class="navbar-profile">
+        <!-- Right Profile/Notification Actions -->
+        <div class="navbar-profile pe-4">
+            <button class="notification-btn" title="Notifications">
+                <i class="bi bi-bell"></i>
+            </button>
 
-                <button class="notification-btn" title="Notifications">
-                    <i class="bi bi-bell"></i>
-                </button>
-
-                <div class="dropdown">
-
-                    <div class="profile-widget"
-                         data-bs-toggle="dropdown"
-                         aria-expanded="false">
-
-                        <div class="profile-avatar">MG</div>
-
-                        <div class="profile-info">
-                            <span class="profile-name"></span>
-                            <span class="profile-email">smartoffice@gmail.com</span>
-                        </div>
-
-                        <i class="bi bi-chevron-down text-muted ms-2"></i>
+            <div class="dropdown">
+                <div class="profile-widget" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="profile-avatar">MG</div>
+                    <div class="profile-info">
+                        <span class="profile-name">Mary Grace</span>
+                        <span class="profile-email">smartoffice@gmail.com</span>
                     </div>
-
-                    <ul class="dropdown-menu dropdown-menu-end profile-dropdown shadow">
-                        <li>
-                            <a class="dropdown-item" href="@Url.Action("Profile", "Applicant")">
-                                <i class="bi bi-person-circle"></i>
-                                My Account
-                            </a>
-                        </li>
-
-                        <li><hr class="dropdown-divider"></li>
-
-                        <li>
-                            <a class="dropdown-item text-danger"
-                               href="@Url.Action("ApplicantLogin", "Applicant")">
-                                <i class="bi bi-box-arrow-right"></i>
-                                Sign out
-                            </a>
-                        </li>
-                    </ul>
-
+                    <i class="bi bi-chevron-down text-muted ms-2"></i>
                 </div>
 
+                <ul class="dropdown-menu dropdown-menu-end profile-dropdown shadow">
+                    <li>
+                        <a class="dropdown-item" href="@Url.Action("MyAccount", "Applicant")">
+                            <i class="bi bi-person-circle"></i> My Account
+                        </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item text-danger" href="@Url.Action("ApplicantLogin", "Applicant")">
+                            <i class="bi bi-box-arrow-right"></i> Sign out
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <!-- CONTENT BODY -->
-    <div class="page-container">
+    <!-- LEFT SIDEBAR NAV MENU -->
+    <aside class="sidebar-menu-wrapper" id="sidebarMenu">
+        <ul class="sidebar-links">
+            <li>
+                <a href="@Url.Action("ApplicantDash", "Applicant")" class="sidebar-link-item active">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span class="sidebar-link-text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("BookInterview", "Applicant")" class="sidebar-link-item">
+                    <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                    <span class="sidebar-link-text">Book Interview</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("MyAppointment", "Applicant")" class="sidebar-link-item">
+                    <i class="bi bi-person-bounding-box"></i>
+                    <span class="sidebar-link-text">My Appointment</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
 
-        <!-- Header Panel Layout -->
-        <div class="heading-section">
+    <!-- WORKSPACE MAIN CONTENT AREA -->
+    <main class="page-container" id="mainContent">
+
+        <div class="heading-section mb-4">
             <div>
                 <h1 class="page-title">Welcome John!</h1>
                 <p class="page-subtitle">Here's what's happening with your interviews and records today.</p>
             </div>
-
         </div>
 
         <div class="row g-4">
-
             <!-- Left Column: Main Dashboard Features (Col-8) -->
             <div class="col-lg-8">
                 <div class="main-dashboard-box">
@@ -543,8 +638,7 @@
 
             <!-- Right Column: Sidebar Panels (Col-4) -->
             <div class="col-lg-4">
-
-                <!-- Announcements Card (Tinted Mint Background) -->
+                <!-- Announcements Card -->
                 <div class="sidebar-panel announcements-box">
                     <div class="sidebar-header">
                         <i class="bi bi-megaphone-fill"></i> Announcements
@@ -563,12 +657,18 @@
                         Office holiday schedule updated. (August 04, 2030)
                     </div>
                 </div>
-
             </div>
-
         </div>
-    </div>
+    </main>
 
+    <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Toggle Script Logic -->
+    <script>
+        document.getElementById('toggleSidebar').addEventListener('click', function () {
+            document.body.classList.toggle('sidebar-collapsed');
+        });
+    </script>
 </body>
 </html>

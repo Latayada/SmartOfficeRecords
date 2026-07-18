@@ -88,7 +88,7 @@ namespace SmartOfficeRecords.Controllers
             return View();
         }
 
-        public ActionResult Profile()
+        public ActionResult MyAccount()
         {
             return View();
         }
