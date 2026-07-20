@@ -36,7 +36,43 @@
         .navbar-custom {
             background-color: #ffffff;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 12px 24px;
+            padding: 0;
+            z-index: 1030;
+            height: 70px;
+        }
+
+        /* White Logo Brand Box Container */
+        .navbar-left-box {
+            display: flex;
+            align-items: center;
+            width: 260px;
+            height: 100%;
+            padding: 0 24px;
+            background-color: #ffffff;
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+            transition: width 0.3s ease, padding 0.3s ease;
+        }
+
+        /* Dedicated Light Green Toggle Zone Box from Image */
+        .toggle-zone-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 70px;
+        }
+
+        .sidebar-toggle-btn {
+            background: none;
+            border: none;
+            color: #16a34a; /* Green hamburger menu icon */
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
         }
 
         .navbar-brand-custom {
@@ -47,60 +83,24 @@
         }
 
             .navbar-brand-custom img {
-                width: 40px;
-                height: 40px;
+                width: 42px;
+                height: 42px;
                 object-fit: contain;
             }
 
         .brand-text {
             color: #0f6328;
             font-weight: 700;
-            line-height: 1.1;
-            font-size: 14px;
+            font-size: 18px;
             letter-spacing: 0.5px;
         }
 
-            .brand-text span {
-                color: #1e293b;
-                font-weight: 500;
-                font-size: 12px;
-            }
-
-        .nav-links-custom {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            align-items: center;
-        }
-
-        .nav-link-custom {
-            text-decoration: none;
-            color: #64748b;
-            font-weight: 500;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s ease;
-        }
-
-            .nav-link-custom:hover {
-                color: #16a34a;
-            }
-
-            .nav-link-custom.active {
-                color: #16a34a;
-                border-bottom: 2px solid #16a34a;
-                padding-bottom: 4px;
-                font-weight: 600;
-            }
-
+        /* --- NAVBAR PROFILE AND UTILITY --- */
         .navbar-profile {
             display: flex;
             align-items: center;
             gap: 15px;
+            margin-left: auto;
         }
 
         .notification-btn {
@@ -127,7 +127,7 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background-color: #ffb74d; /* Yellow/Orange avatar placeholder */
+            background-color: #ffb74d;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -182,15 +182,114 @@
                     color: #16a34a;
                 }
 
-        .profile-widget::after {
+        /* --- VERTICAL SIDEBAR MENU STYLING --- */
+        .sidebar-menu-wrapper {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            bottom: 0;
+            width: 260px;
+            background-color: #ffffff;
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 24px 16px;
+            overflow-y: auto;
+            z-index: 1020;
+            transition: width 0.3s ease, padding 0.3s ease;
+        }
+
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-link-item {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+            .sidebar-link-item i {
+                font-size: 20px;
+                min-width: 24px;
+                display: inline-flex;
+                justify-content: center;
+            }
+
+            .sidebar-link-item:hover {
+                color: #16a34a;
+                background-color: #f0fdf4;
+            }
+
+            .sidebar-link-item.active {
+                color: #16a34a;
+                background-color: #f0fdf4;
+                font-weight: 600;
+            }
+
+        /* --- LAYOUT WORKSPACE CONTAINER --- */
+        .page-container {
+            margin-left: 260px;
+            padding: 40px 30px;
+            width: calc(100% - 260px);
+            transition: margin-left 0.3s ease;
+        }
+
+        /* ==========================================================================
+                            DRIVEN COLLAPSE STYLES (Matches image perfectly on toggle click)
+                           ========================================================================== */
+
+        /* 1. Logo Box shrinks to a perfectly clean white square */
+        body.sidebar-collapsed .navbar-left-box {
+            width: 76px;
+            padding: 0;
+            justify-content: center;
+        }
+
+        /* 2. Brand name text drops out cleanly */
+        body.sidebar-collapsed .brand-text {
             display: none;
+        }
+
+        /* 3. Navigation Sidebar wrapper body collapses down */
+        body.sidebar-collapsed .sidebar-menu-wrapper {
+            width: 76px;
+            padding: 24px 10px;
+        }
+
+        body.sidebar-collapsed .sidebar-link-text {
+            display: none;
+        }
+
+        body.sidebar-collapsed .sidebar-link-item {
+            justify-content: center;
+            padding: 12px 0;
+            gap: 0;
+        }
+
+        /* 4. Core layout workspace shifts outward */
+        body.sidebar-collapsed .page-container {
+            margin-left: 76px;
+            width: calc(100% - 76px);
         }
 
         /* --- CONTENT BODY STYLING --- */
         .page-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            margin-left: 260px;
+            width: calc(100% - 260px); 
+            padding: 35px;
+            transition: all .3s ease;
         }
 
         .heading-section {
@@ -495,86 +594,80 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
+    <!-- TOP NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top d-flex flex-row align-items-center justify-content-start">
 
-            <!-- Left: Brand Logo -->
+        <!-- Left Brand Logo Panel (White background box) -->
+        <div class="navbar-left-box" id="navLeftBox">
             <a class="navbar-brand-custom" href="#">
                 <img src="~/Images/logo.png" alt="Logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3061/3061341.png'" />
-                <div class="brand-text">
-                    SMART OFFICE<br />
-                    <span>RECORDS SYSTEM</span>
-                </div>
+                <div class="brand-text" id="brandText">SORS</div>
             </a>
+        </div>
 
-            <!-- Center: Menu Navigation Links -->
-            <ul class="nav-links-custom">
-                <li>
-                    <a href="@Url.Action("ApplicantDash", "Applicant")" class="nav-link-custom">
-                        <i class="bi bi-house-door"></i> Home
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="nav-link-custom active">
-                        <i class="bi bi-file-earmark-spreadsheet"></i> Book Interview
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("MyAppointment", "Applicant")" class="nav-link-custom">
-                        <i class="bi bi-person-bounding-box"></i> My Appointment
-                    </a>
-                </li>
-            </ul>
+        <!-- Menu Toggle Area Container (Light Green Background Strip) -->
+        <div class="toggle-zone-box">
+            <button class="sidebar-toggle-btn" id="toggleSidebar" title="Toggle Menu">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
 
-            <!-- Right: Notifications & Profile -->
-            <div class="navbar-profile">
+        <!-- Right Profile/Notification Actions -->
+        <div class="navbar-profile pe-4">
+            <button class="notification-btn" title="Notifications">
+                <i class="bi bi-bell"></i>
+            </button>
 
-                <button class="notification-btn" title="Notifications">
-                    <i class="bi bi-bell"></i>
-                </button>
-
-                <div class="dropdown">
-
-                    <div class="profile-widget"
-                         data-bs-toggle="dropdown"
-                         aria-expanded="false">
-
-                        <div class="profile-avatar">MG</div>
-
-                        <div class="profile-info">
-                            <span class="profile-name">Mary Grace</span>
-                            <span class="profile-email">smartoffice@gmail.com</span>
-                        </div>
-
-                        <i class="bi bi-chevron-down text-muted ms-2"></i>
+            <div class="dropdown">
+                <div class="profile-widget" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="profile-avatar">MG</div>
+                    <div class="profile-info">
+                        <span class="profile-name">Mary Grace</span>
+                        <span class="profile-email">smartoffice@gmail.com</span>
                     </div>
-
-                    <ul class="dropdown-menu dropdown-menu-end profile-dropdown shadow">
-                        <li>
-                            <a class="dropdown-item" href="@Url.Action("MyAccount", "Applicant")">
-                                <i class="bi bi-person-circle"></i>
-                                My Account
-                            </a>
-                        </li>
-
-                        <li><hr class="dropdown-divider"></li>
-
-                        <li>
-                            <a class="dropdown-item text-danger"
-                               href="@Url.Action("ApplicantLogin", "Applicant")">
-                                <i class="bi bi-box-arrow-right"></i>
-                                Sign out
-                            </a>
-                        </li>
-                    </ul>
-
+                    <i class="bi bi-chevron-down text-muted ms-2"></i>
                 </div>
 
+                <ul class="dropdown-menu dropdown-menu-end profile-dropdown shadow">
+                    <li>
+                        <a class="dropdown-item" href="@Url.Action("MyAccount", "Applicant")">
+                            <i class="bi bi-person-circle"></i> My Account
+                        </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item text-danger" href="@Url.Action("ApplicantLogin", "Applicant")">
+                            <i class="bi bi-box-arrow-right"></i> Sign out
+                        </a>
+                    </li>
+                </ul>
             </div>
-
         </div>
     </nav>
+
+    <!-- LEFT SIDEBAR NAV MENU -->
+    <aside class="sidebar-menu-wrapper" id="sidebarMenu">
+        <ul class="sidebar-links">
+            <li>
+                <a href="@Url.Action("ApplicantDash", "Applicant")" class="sidebar-link-item">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span class="sidebar-link-text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("BookInterview", "Applicant")" class="sidebar-link-item active">
+                    <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                    <span class="sidebar-link-text">Book Interview</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("MyAppointment", "Applicant")" class="sidebar-link-item">
+                    <i class="bi bi-person-bounding-box"></i>
+                    <span class="sidebar-link-text">My Appointment</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
 
     <!-- CONTENT BODY -->
     <div class="page-container">
@@ -591,7 +684,7 @@
         <div class="row g-4">
 
             <!-- Main Form Card (Col-8) -->
-            <div class="col-lg-8">
+            <div class="col-xl-8 col-lg-8">
                 <div class="form-card">
                     <div class="form-card-title">
                         <i class="bi bi-file-earmark-text"></i> Interview Booking Form
@@ -635,6 +728,38 @@
                                         <input type="text" id="fakeFileText" class="file-upload-input" placeholder="Choose File" readonly />
                                     </div>
                                     <button type="button" id="uploadBtn" class="file-upload-btn">Browse</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label-custom">Upload Valid ID (JPG, JPEG, PNG )</label>
+
+                                <div class="file-upload-wrapper">
+
+                                    <!-- Hidden File Input -->
+                                    <input type="file"
+                                           id="validIDFile"
+                                           name="ValidIDFile"
+                                           accept=".jpg,.jpeg,.png,.pdf"
+                                           style="display:none;"
+                                           required />
+
+                                    <!-- Custom Text Box -->
+                                    <div class="input-group-custom" style="flex-grow:1;">
+                                        <i class="bi bi-person-vcard"></i>
+                                        <input type="text"
+                                               id="validIDText"
+                                               class="file-upload-input"
+                                               placeholder="Choose Valid ID"
+                                               readonly />
+                                    </div>
+
+                                    <!-- Browse Button -->
+                                    <button type="button"
+                                            id="validIDBtn"
+                                            class="file-upload-btn">
+                                        Browse
+                                    </button>
+
                                 </div>
                             </div>
                         </div>
@@ -687,7 +812,7 @@
             </div>
 
             <!-- Sidebar Cards (Col-4) -->
-            <div class="col-lg-4">
+            <div class="col-xl-4 col-lg-4">
 
                 <!-- Card 1: Reminder -->
                 <div class="sidebar-card-reminder">
@@ -744,8 +869,16 @@
         const realFileBtn = document.getElementById("realFile");
         const customBtn = document.getElementById("uploadBtn");
         const customTxt = document.getElementById("fakeFileText");
+
+        const validIDFile = document.getElementById("validIDFile");
+        const validIDBtn = document.getElementById("validIDBtn");
+        const validIDText = document.getElementById("validIDText");
+
+
         const resetBtn = document.getElementById("resetBtn");
 
+
+         //Resume upload
         customBtn.addEventListener("click", function() {
             realFileBtn.click();
         });
@@ -759,9 +892,27 @@
             }
         });
 
+        //Valid ID Upload 
+        validIDBtn.addEventListener("click", function () {
+            validIDFile.click();
+        });
+
+        validIDFile.addEventListener("change", function () {
+            if (validIDFile.files.length > 0) {
+                validIDText.value = validIDFile.files[0].name;
+            } else {
+                validIDText.value = "";
+            }
+        });
+
         // Clear Custom File label when Reset is pressed
         resetBtn.addEventListener("click", function() {
             customTxt.value = "Choose File";
+        });
+
+        //Toggle
+        document.getElementById('toggleSidebar').addEventListener('click', function () {    
+            document.body.classList.toggle('sidebar-collapsed');
         });
 
     </script>
