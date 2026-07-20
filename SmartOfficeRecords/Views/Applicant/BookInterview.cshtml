@@ -154,33 +154,70 @@
             display: block;
         }
 
-        .profile-dropdown {
-            min-width: 220px;
-            border-radius: 16px;
-            border: 1px solid #dbe4dc;
-            padding: 10px 0;
-            margin-top: 12px;
+        /*==============================
+                      PROFILE DROPDOWN
+                ==============================*/
+
+        .profile-container {
+            position: relative;
         }
 
-            .profile-dropdown .dropdown-item {
+        .profile-widget {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .profile-arrow {
+            transition: .3s;
+        }
+
+        .profile-dropdown-custom {
+            position: absolute;
+            right: 0;
+            top: 115%;
+            width: 230px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            box-shadow: 0 12px 30px rgba(0,0,0,.08);
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: max-height .35s ease, opacity .25s ease, transform .25s ease;
+            transform: translateY(-10px);
+        }
+
+            .profile-dropdown-custom a {
                 display: flex;
                 align-items: center;
                 gap: 12px;
-                padding: 12px 18px;
-                font-size: 15px;
+                padding: 14px 18px;
+                text-decoration: none;
+                color: #475569;
                 font-weight: 500;
-                color: #374151;
+                transition: .25s;
             }
 
-                .profile-dropdown .dropdown-item i {
-                    font-size: 18px;
-                    width: 20px;
-                }
-
-                .profile-dropdown .dropdown-item:hover {
+                .profile-dropdown-custom a:hover {
                     background: #f0fdf4;
                     color: #16a34a;
                 }
+
+                .profile-dropdown-custom a i {
+                    font-size: 18px;
+                }
+
+        .profile-container.open .profile-dropdown-custom {
+            max-height: 200px;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .profile-container.open .profile-arrow {
+            transform: rotate(180deg);
+        }
 
         /* --- VERTICAL SIDEBAR MENU STYLING --- */
         .sidebar-menu-wrapper {
@@ -590,6 +627,81 @@
                 display: none; /* Hide on smaller screens or implement standard Bootstrap toggle navbar */
             }
         }
+
+        /* SETTINGS */
+        .sidebar-settings {
+            list-style: none;
+        }
+
+        .settings-toggle {
+            justify-content: space-between;
+        }
+            /* Parent active */
+            .settings-toggle.active {
+                background: #f0fdf4;
+                color: #16a34a;
+                font-weight: 600;
+            }
+        /* Child active */
+        .settings-submenu a.active {
+            background: #f0fdf4;
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        .settings-arrow {
+            font-size: 14px;
+            transition: .3s;
+            color: #64748b;
+        }
+
+        .settings-submenu {
+            list-style: none;
+            padding-left: 18px;
+            margin-top: 5px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease;
+        }
+
+
+            .settings-submenu li {
+                margin: 5px 0;
+            }
+
+            .settings-submenu a {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                text-decoration: none;
+                color: #64748b;
+                padding: 10px 15px;
+                border-radius: 8px;
+                font-size: 14px;
+                transition: .3s;
+            }
+
+                .settings-submenu a:hover {
+                    background: #f0fdf4;
+                    color: #16a34a;
+                }
+
+        .sidebar-settings.open .settings-submenu {
+            max-height: 200px;
+        }
+
+        .sidebar-settings.open .settings-arrow {
+            transform: rotate(90deg);
+        }
+
+        /* Hide submenu text when sidebar collapses */
+        body.sidebar-collapsed .settings-submenu {
+            display: none !important;
+        }
+
+        body.sidebar-collapsed .settings-arrow {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -613,35 +725,37 @@
         </div>
 
         <!-- Right Profile/Notification Actions -->
-        <div class="navbar-profile pe-4">
-            <button class="notification-btn" title="Notifications">
-                <i class="bi bi-bell"></i>
-            </button>
+        <div class="profile-container">
 
-            <div class="dropdown">
-                <div class="profile-widget" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class="profile-avatar">MG</div>
-                    <div class="profile-info">
-                        <span class="profile-name">Mary Grace</span>
-                        <span class="profile-email">smartoffice@gmail.com</span>
-                    </div>
-                    <i class="bi bi-chevron-down text-muted ms-2"></i>
+            <div class="profile-widget" id="profileToggle">
+
+                <div class="profile-avatar">
+                    MG
                 </div>
 
-                <ul class="dropdown-menu dropdown-menu-end profile-dropdown shadow">
-                    <li>
-                        <a class="dropdown-item" href="@Url.Action("MyAccount", "Applicant")">
-                            <i class="bi bi-person-circle"></i> My Account
-                        </a>
-                    </li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li>
-                        <a class="dropdown-item text-danger" href="@Url.Action("ApplicantLogin", "Applicant")">
-                            <i class="bi bi-box-arrow-right"></i> Sign out
-                        </a>
-                    </li>
-                </ul>
+                <div class="profile-info">
+                    <span class="profile-name">Mary Grace</span>
+                    <span class="profile-email">smartoffice@gmail.com</span>
+                </div>
+
+                <i class="bi bi-chevron-down profile-arrow ms-2"></i>
+
             </div>
+
+            <div class="profile-dropdown-custom" id="profileMenu">
+
+                <a href="@Url.Action("MyAccount", "Applicant")">
+                    <i class="bi bi-person-circle"></i>
+                    My Account
+                </a>
+
+                <a href="@Url.Action("ApplicantLogin", "Applicant")" class="text-danger">
+                    <i class="bi bi-box-arrow-right"></i>
+                    Sign Out
+                </a>
+
+            </div>
+
         </div>
     </nav>
 
@@ -665,6 +779,41 @@
                     <i class="bi bi-person-bounding-box"></i>
                     <span class="sidebar-link-text">My Appointment</span>
                 </a>
+            </li>
+
+            <!-- Open by default on Settings page -->
+            <li class="sidebar-settings">
+                <div class="sidebar-link-item settings-toggle">
+
+                    <a href="@Url.Action("Settings", "Applicant")"
+                       class="d-flex align-items-center flex-grow-1 text-decoration-none text-reset">
+
+                        <i class="bi bi-gear-fill"></i>
+                        <span class="sidebar-link-text ms-2">
+                            Settings & Account
+                        </span>
+
+                    </a>
+
+                    <i class="bi bi-chevron-right settings-arrow"
+                       id="settingsToggle"></i>
+
+                </div>
+
+                <ul class="settings-submenu" id="settingsMenu">
+                    <li>
+                        <a href="@Url.Action("Settings", "Applicant")" id="settingsLink">
+                            <i class="bi bi-shield-lock"></i>
+                            <span class="sidebar-link-text">Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("MyAccount", "Applicant")">
+                            <i class="bi bi-person-circle"></i>
+                            <span class="sidebar-link-text">My Account</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </aside>
@@ -910,9 +1059,60 @@
             customTxt.value = "Choose File";
         });
 
-        //Toggle
+        //Top menu Toggle
         document.getElementById('toggleSidebar').addEventListener('click', function () {    
             document.body.classList.toggle('sidebar-collapsed');
+        });
+
+        // Settings expand/collapse
+                   const settingsToggle = document.getElementById("settingsToggle");
+        const settingsParent = document.querySelector(".settings-toggle");
+        const settingsGroup = document.querySelector(".sidebar-settings");
+        const settingsLink = document.getElementById("settingsLink");
+
+        // Open Settings menu
+        settingsToggle.addEventListener("click", function (e) {
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            settingsGroup.classList.toggle("open");
+
+            // Make Settings & Account active
+            settingsParent.classList.add("active");
+        });
+
+        // Click Settings
+        settingsLink.addEventListener("click", function () {
+
+            // Parent remains active
+            settingsParent.classList.add("active");
+
+            // Child becomes active
+            settingsLink.classList.add("active");
+
+        });
+
+        //Profile dropdown
+                const profileContainer = document.querySelector(".profile-container");
+        const profileToggle = document.getElementById("profileToggle");
+
+        profileToggle.addEventListener("click", function (e) {
+
+            e.stopPropagation();
+
+            profileContainer.classList.toggle("open");
+
+        });
+
+        document.addEventListener("click", function (e) {
+
+            if (!profileContainer.contains(e.target)) {
+
+                profileContainer.classList.remove("open");
+
+            }
+
         });
 
     </script>

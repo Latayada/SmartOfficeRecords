@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "My Appointments";
+    ViewBag.Title = "Settings";
     Layout = null;
 }
 
@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Appointments</title>
+    <title>Settings - SORS</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -29,7 +29,7 @@
             background-color: #eaf6ed; /* Light mint background */
             min-height: 100vh;
             color: #334155;
-            padding-top: 70px; /* Add this line to offset the fixed navbar height */
+            padding-top: 70px;
         }
 
         /* --- NAVBAR STYLING --- */
@@ -53,7 +53,7 @@
             transition: width 0.3s ease, padding 0.3s ease;
         }
 
-        /* Dedicated Light Green Toggle Zone Box from Image */
+        /* Dedicated Light Green Toggle Zone Box */
         .toggle-zone-box {
             display: flex;
             align-items: center;
@@ -155,9 +155,8 @@
         }
 
         /*==============================
-              PROFILE DROPDOWN
-        ==============================*/
-
+                            PROFILE DROPDOWN
+                ==============================*/
         .profile-container {
             position: relative;
         }
@@ -283,23 +282,67 @@
             transition: margin-left 0.3s ease;
         }
 
-        /* ==========================================================================
-                            DRIVEN COLLAPSE STYLES (Matches image perfectly on toggle click)
-                           ========================================================================== */
+        /* --- SETTINGS CARD STYLING --- */
+        .settings-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
 
-        /* 1. Logo Box shrinks to a perfectly clean white square */
+        .form-label {
+            font-weight: 600;
+            font-size: 14px;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        .form-select, .form-control {
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            padding: 10px 14px;
+            font-size: 14px;
+            color: #334155;
+        }
+
+            .form-select:focus, .form-control:focus {
+                border-color: #16a34a;
+                box-shadow: 0 0 0 0.25rem rgba(22, 163, 74, 0.15);
+            }
+
+        .form-check-input:checked {
+            background-color: #16a34a;
+            border-color: #16a34a;
+        }
+
+        .btn-save {
+            background-color: #16a34a;
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+            .btn-save:hover {
+                background-color: #15803d;
+                box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+            }
+
+        /* --- SIDEBAR COLLAPSE STYLES --- */
         body.sidebar-collapsed .navbar-left-box {
             width: 76px;
             padding: 0;
             justify-content: center;
         }
 
-        /* 2. Brand name text drops out cleanly */
         body.sidebar-collapsed .brand-text {
             display: none;
         }
 
-        /* 3. Navigation Sidebar wrapper body collapses down */
         body.sidebar-collapsed .sidebar-menu-wrapper {
             width: 76px;
             padding: 24px 10px;
@@ -315,268 +358,62 @@
             gap: 0;
         }
 
-        /* 4. Core layout workspace shifts outward */
         body.sidebar-collapsed .page-container {
             margin-left: 76px;
         }
 
-        .heading-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 35px;
-        }
-
-        .page-title {
-            color: #16a34a;
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .page-subtitle {
-            color: #64748b;
-            font-size: 14px;
-            font-weight: 500;
-            margin: 0;
-        }
-
-       
-        /* Main Container Box */
-        .schedules-card {
-            background: white;
-            border-radius: 8px;
-            border: none;
-            padding: 40px;
-            min-height: 500px;
-        }
-
-        .card-header-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .card-title-custom {
-            font-size: 16px;
-            font-weight: 700;
-            color: #475569;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 0;
-        }
-
-            .card-title-custom i {
-                color: #16a34a;
-                font-size: 20px;
-            }
-
-        /* Search input styling */
-        .search-wrapper {
-            position: relative;
-            width: 300px;
-        }
-
-            .search-wrapper i {
-                position: absolute;
-                left: 12px;
-                top: 50%;
-                transform: translateY(-50%);
-                color: #16a34a;
-            }
-
-        .search-input {
-            width: 100%;
-            padding: 8px 12px 8px 36px;
-            font-size: 12px;
-            border: 1px solid #16a34a;
-            border-radius: 6px;
-            outline: none;
-        }
-
-            .search-input::placeholder {
-                color: #94a3b8;
-            }
-
-        .section-table-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #475569;
-            margin-bottom: 12px;
-        }
-
-        /* --- CUSTOM TABLE STYLING --- */
-        .custom-table-container {
-            border: 1px solid #16a34a;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .custom-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 0;
-        }
-
-            .custom-table th {
-                background-color: #eaf6ed;
-                color: #000000;
-                font-weight: 700;
-                font-size: 14px;
-                padding: 14px 20px;
-                text-align: left;
-                border-bottom: 1px solid #16a34a;
-            }
-
-            .custom-table td {
-                padding: 20px;
-                vertical-align: middle;
-                font-size: 12px;
-                color: #334155;
-                background-color: #ffffff;
-            }
-
-        /* Table Columns Content styling */
-        .datetime-flex {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .datetime-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #334155;
-            font-weight: 500;
-        }
-
-            .datetime-item i {
-                color: #64748b;
-            }
-
-        /* Status Pill and Context Subtext */
-        .status-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .status-pill-pending {
-            background-color: #ffe0b2;
-            color: #e65100;
-            font-weight: 600;
-            font-size: 10px;
-            padding: 4px 12px;
-            border-radius: 4px;
-            width: fit-content;
-        }
-
-        .status-subtext {
-            font-size: 10px;
-            color: #64748b;
-        }
-
-        .status-confirmed {
-            font-weight: 600;
-            color: #334155;
-        }
-
-        /* Action Row Buttons */
-        .action-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .btn-row {
-            display: flex;
-            gap: 8px;
-        }
-
-        .btn-action-edit {
-            background: white;
-            color: #16a34a;
-            border: 1px solid #16a34a;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 500;
-            padding: 4px 12px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-            .btn-action-edit:hover {
-                background-color: #f0fdf4;
-                color: #16a34a;
-            }
-
-        .btn-action-cancel {
-            background: white;
-            color: #dc3545;
-            border: 1px solid #dc3545;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 500;
-            padding: 4px 12px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-            .btn-action-cancel:hover {
-                background-color: #fff5f5;
-                color: #dc3545;
-            }
-
-        .action-subtext {
-            font-size: 10px;
-            color: #64748b;
-            line-height: 1.3;
-        }
-
-        /* Responsive UI Breakpoints */
+        /* Responsive UI adjustments */
         @@media (max-width: 991px) {
-            .heading-section
+            .toggle-zone-box
 
         {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
+            display: none !important;
         }
 
-        .date-pill-container {
-            align-self: flex-start;
+        .navbar-left-box {
+            width: auto !important;
+            padding: 0 15px !important;
+            border-right: none !important;
         }
 
-        .nav-links-custom {
-            display: none;
+        .brand-text {
+            display: inline !important;
         }
 
-        .card-header-flex {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
+        .sidebar-menu-wrapper {
+            position: static;
+            width: 100% !important;
+            height: auto;
+            border-right: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 15px 20px !important;
         }
 
-        .search-wrapper {
-            width: 100%;
+        .sidebar-links {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .custom-table th, .custom-table td {
-            padding: 12px;
+        .sidebar-link-text {
+            display: inline !important;
+        }
+
+        .sidebar-link-item {
+            padding: 8px 14px !important;
+            font-size: 14px;
+            justify-content: flex-start !important;
+            gap: 12px !important;
+        }
+
+        .page-container {
+            margin-left: 0 !important;
+            padding: 20px;
         }
 
         }
 
-        /* SETTINGS */
+        /* SETTINGS SUBMENU */
         .sidebar-settings {
             list-style: none;
         }
@@ -607,11 +444,8 @@
             list-style: none;
             padding-left: 18px;
             margin-top: 5px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height .35s ease;
+            display: none;
         }
-
 
             .settings-submenu li {
                 margin: 5px 0;
@@ -635,21 +469,18 @@
                 }
 
         .sidebar-settings.open .settings-submenu {
-            max-height: 200px;
+            display: block;
         }
-
         .sidebar-settings.open .settings-arrow {
             transform: rotate(90deg);
         }
-
-        /* Hide submenu text when sidebar collapses */
         body.sidebar-collapsed .settings-submenu {
             display: none !important;
         }
-
         body.sidebar-collapsed .settings-arrow {
             display: none;
         }
+
     </style>
 </head>
 <body>
@@ -657,7 +488,7 @@
     <!-- TOP NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top d-flex flex-row align-items-center justify-content-start">
 
-        <!-- Left Brand Logo Panel (White background box) -->
+        <!-- Left Brand Logo Panel -->
         <div class="navbar-left-box" id="navLeftBox">
             <a class="navbar-brand-custom" href="#">
                 <img src="~/Images/logo.png" alt="Logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3061/3061341.png'" />
@@ -665,7 +496,7 @@
             </a>
         </div>
 
-        <!-- Menu Toggle Area Container (Light Green Background Strip) -->
+        <!-- Menu Toggle Area Container -->
         <div class="toggle-zone-box">
             <button class="sidebar-toggle-btn" id="toggleSidebar" title="Toggle Menu">
                 <i class="bi bi-list"></i>
@@ -679,40 +510,31 @@
             </button>
 
             <div class="profile-container">
-
                 <div class="profile-widget" id="profileToggle">
-
                     <div class="profile-avatar">
                         MG
                     </div>
-
                     <div class="profile-info">
                         <span class="profile-name">Mary Grace</span>
                         <span class="profile-email">smartoffice@gmail.com</span>
                     </div>
-
-                    <i class="bi bi-chevron-down profile-arrow"></i>
-
+                    <i class="bi bi-chevron-down profile-arrow ms-2"></i>
                 </div>
 
                 <div class="profile-dropdown-custom" id="profileMenu">
-
                     <a href="@Url.Action("MyAccount", "Applicant")">
                         <i class="bi bi-person-circle"></i>
                         My Account
                     </a>
-
-                    <a href="@Url.Action("ApplicantLogin", "Applicant")"
-                       class="text-danger">
+                    <a href="@Url.Action("ApplicantLogin", "Applicant")" class="text-danger">
                         <i class="bi bi-box-arrow-right"></i>
                         Sign Out
                     </a>
-
                 </div>
-
             </div>
         </div>
     </nav>
+
     <!-- LEFT SIDEBAR NAV MENU -->
     <aside class="sidebar-menu-wrapper" id="sidebarMenu">
         <ul class="sidebar-links">
@@ -729,7 +551,7 @@
                 </a>
             </li>
             <li>
-                <a href="@Url.Action("MyAppointment", "Applicant")" class="sidebar-link-item active">
+                <a href="@Url.Action("MyAppointment", "Applicant")" class="sidebar-link-item">
                     <i class="bi bi-person-bounding-box"></i>
                     <span class="sidebar-link-text">My Appointment</span>
                 </a>
@@ -756,7 +578,7 @@
 
                 <ul class="settings-submenu" id="settingsMenu">
                     <li>
-                        <a href="@Url.Action("Settings", "Applicant")" id="settingsLink">
+                        <a href="@Url.Action("Settings", "Applicant")" class="sidebar-link-item active">
                             <i class="bi bi-shield-lock"></i>
                             <span class="sidebar-link-text">Settings</span>
                         </a>
@@ -772,125 +594,135 @@
         </ul>
     </aside>
 
-    <!-- CONTENT BODY -->
-    <div class="page-container">
+    <!-- WORKSPACE MAIN CONTENT AREA -->
+    <main class="page-container" id="mainContent">
+        <div class="settings-card">
+            <h4 class="mb-4 fw-bold">
+                <i class="bi bi-sliders me-2 text-success"></i>
+                General Settings
+            </h4>
 
-        <!-- Top Heading Layout -->
-        <div class="heading-section">
-            <div>
-                <h1 class="page-title">My Appointments</h1>
-                <p class="page-subtitle">View your schedule interview details below.</p>
+            <div class="row">
+                <!-- Appearance -->
+                <div class="col-md-6 mb-4">
+                    <label class="form-label">Appearance</label>
+                    <select class="form-select form-control">
+                        <option>Light Mode</option>
+                        <option>Dark Mode</option>
+                        <option selected>System Default</option>
+                    </select>
+                </div>
+
+                <!-- Font Size -->
+                <div class="col-md-6 mb-4">
+                    <label class="form-label">Font Size</label>
+                    <select class="form-select form-control">
+                        <option>Small</option>
+                        <option selected>Medium</option>
+                        <option>Large</option>
+                    </select>
+                </div>
+
+                <!-- Font Style -->
+                <div class="col-md-6 mb-4">
+                    <label class="form-label">Font Style</label>
+                    <select class="form-select form-control">
+                        <option selected>Poppins</option>
+                        <option>Arial</option>
+                        <option>Roboto</option>
+                        <option>Segoe UI</option>
+                    </select>
+                </div>
+
+                <!-- Sidebar Style -->
+                <div class="col-md-6 mb-4">
+                    <label class="form-label">Sidebar Style</label>
+                    <select class="form-select form-control">
+                        <option selected>Expanded</option>
+                        <option>Collapsed</option>
+                        <option>Auto Hide</option>
+                    </select>
+                </div>
+
+                <!-- Language -->
+                <div class="col-md-6 mb-4">
+                    <label class="form-label">Language</label>
+                    <select class="form-select form-control">
+                        <option selected>English</option>
+                        <option>Filipino</option>
+                    </select>
+                </div>
+
+                <!-- Date Format -->
+                <div class="col-md-6 mb-4">
+                    <label class="form-label">Date Format</label>
+                    <select class="form-select form-control">
+                        <option selected>MM/DD/YYYY</option>
+                        <option>DD/MM/YYYY</option>
+                        <option>YYYY-MM-DD</option>
+                    </select>
+                </div>
+
+                <!-- Time Format -->
+                <div class="col-md-6 mb-4">
+                    <label class="form-label">Time Format</label>
+                    <select class="form-select form-control">
+                        <option selected>12-Hour (AM/PM)</option>
+                        <option>24-Hour</option>
+                    </select>
+                </div>
+
+                <!-- Animations -->
+                <div class="col-md-6 mb-4">
+                    <label class="form-label d-block">Animations</label>
+                    <div class="form-check form-switch mt-2">
+                        <input class="form-check-input" type="checkbox" checked>
+                        <label class="form-check-label">
+                            Enable Interface Animations
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Compact Mode -->
+                <div class="col-md-6 mb-4">
+                    <label class="form-label d-block">Compact Layout</label>
+                    <div class="form-check form-switch mt-2">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label">
+                            Use Compact View
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Sound -->
+                <div class="col-md-6 mb-4">
+                    <label class="form-label d-block">System Sound</label>
+                    <div class="form-check form-switch mt-2">
+                        <input class="form-check-input" type="checkbox" checked>
+                        <label class="form-check-label">
+                            Play Notification Sounds
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Save -->
+                <div class="col-12 mt-3">
+                    <button class="btn-save">
+                        <i class="bi bi-check-circle-fill me-2"></i>
+                        Save Settings
+                    </button>
+                </div>
             </div>
-
         </div>
+    </main>
 
-        <!-- Main Display Panel Container -->
-        <div class="schedules-card">
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-            <!-- Card Header with Title and Search Input -->
-            <div class="card-header-flex">
-                <h2 class="card-title-custom">
-                    <i class="bi bi-calendar-event-fill"></i> Schedules Interviews
-                </h2>
-                <div class="search-wrapper">
-                    <i class="bi bi-search"></i>
-                    <input type="text" class="search-input" placeholder="Search here...">
-                </div>
-            </div>
-
-            <!-- SECTION 1: Upcoming Appointment -->
-            <div class="mb-5">
-                <h3 class="section-table-title">Upcoming appointment</h3>
-                <div class="custom-table-container">
-                    <table class="custom-table">
-                        <thead>
-                            <tr>
-                                <th style="width: 25%;">Purpose</th>
-                                <th style="width: 30%;">Date & Time</th>
-                                <th style="width: 30%;">Office</th>
-                                <th style="width: 15%;">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Document Verification</td>
-
-                                <td>
-                                    <div class="datetime-flex">
-                                        <div class="datetime-item">
-                                            <i class="bi bi-calendar3"></i>
-                                            July 15, 2026 (Wednesday)
-                                        </div>
-                                        <div class="datetime-item">
-                                            <i class="bi bi-clock"></i>
-                                            09:00 AM
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td>Work Avenue and Business Solutions Inc.</td>
-
-                                <td>
-                                    <span class="status-confirmed">CONFIRMED</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- SECTION 2: Appointment History -->
-            <div>
-                <h3 class="section-table-title">Appointment History</h3>
-                <div class="custom-table-container">
-                    <table class="custom-table">
-                        <thead>
-                            <tr>
-                                <th style="width: 30%;">Interview Details</th>
-                                <th style="width: 30%;">Date & Time</th>
-                                <th style="width: 20%;">Status</th>
-                                <th style="width: 20%;">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>July 15, 2026 (Wednesday)</td>
-                                <td>
-                                    <div class="datetime-flex">
-                                        <div class="datetime-item">
-                                            <i class="bi bi-calendar3"></i> July 15, 2026 (Wednesday)
-                                        </div>
-                                        <div class="datetime-item">
-                                            <i class="bi bi-clock"></i> 09:00 AM
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="status-wrapper">
-                                        <span class="status-pill-pending">Pending</span>
-                                        <span class="status-subtext">Waiting for an admin review</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="action-wrapper">
-                                        <div class="btn-row">
-                                            <a href="#" class="btn-action-edit"><i class="bi bi-pencil"></i> Edit</a>
-                                            <a href="#" class="btn-action-cancel"><i class="bi bi-trash"></i> Cancel</a>
-                                        </div>
-                                        <span class="action-subtext">Edit or Cancel is available only while pending.</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    <!-- Toggle Script Logic -->
     <script>
-        //Top menu toggle
-         document.getElementById('toggleSidebar').addEventListener('click', function () {
+        // Top menu toggle
+        document.getElementById('toggleSidebar').addEventListener('click', function () {
             document.body.classList.toggle('sidebar-collapsed');
         });
 
@@ -923,28 +755,20 @@
 
         });
 
-        //Profile dropdown
-                const profileContainer = document.querySelector(".profile-container");
+        // Profile dropdown
+        const profileContainer = document.querySelector(".profile-container");
         const profileToggle = document.getElementById("profileToggle");
 
         profileToggle.addEventListener("click", function (e) {
-
             e.stopPropagation();
-
             profileContainer.classList.toggle("open");
-
         });
 
         document.addEventListener("click", function (e) {
-
             if (!profileContainer.contains(e.target)) {
-
                 profileContainer.classList.remove("open");
-
             }
-
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
