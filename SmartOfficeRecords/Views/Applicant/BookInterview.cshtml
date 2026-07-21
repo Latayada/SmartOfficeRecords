@@ -155,8 +155,8 @@
         }
 
         /*==============================
-                      PROFILE DROPDOWN
-                ==============================*/
+                              PROFILE DROPDOWN
+                        ==============================*/
 
         .profile-container {
             position: relative;
@@ -219,6 +219,7 @@
             transform: rotate(180deg);
         }
 
+
         /* --- VERTICAL SIDEBAR MENU STYLING --- */
         .sidebar-menu-wrapper {
             position: fixed;
@@ -278,10 +279,11 @@
         /* --- LAYOUT WORKSPACE CONTAINER --- */
         .page-container {
             margin-left: 260px;
+            max-width: 1300px;
             padding: 40px 30px;
-            width: calc(100% - 260px);
             transition: margin-left 0.3s ease;
         }
+
 
         /* ==========================================================================
                             DRIVEN COLLAPSE STYLES (Matches image perfectly on toggle click)
@@ -725,37 +727,43 @@
         </div>
 
         <!-- Right Profile/Notification Actions -->
-        <div class="profile-container">
+        <div class="navbar-profile pe-4">
+            <button class="notification-btn" title="Notifications">
+                <i class="bi bi-bell"></i>
+            </button>
 
-            <div class="profile-widget" id="profileToggle">
+            <div class="profile-container">
 
-                <div class="profile-avatar">
-                    MG
+                <div class="profile-widget" id="profileToggle">
+
+                    <div class="profile-avatar">
+                        MG
+                    </div>
+
+                    <div class="profile-info">
+                        <span class="profile-name">Mary Grace</span>
+                        <span class="profile-email">smartoffice@gmail.com</span>
+                    </div>
+
+                    <i class="bi bi-chevron-down profile-arrow ms-2"></i>
+
                 </div>
 
-                <div class="profile-info">
-                    <span class="profile-name">Mary Grace</span>
-                    <span class="profile-email">smartoffice@gmail.com</span>
+                <div class="profile-dropdown-custom" id="profileMenu">
+
+                    <a href="@Url.Action("MyAccount", "Applicant")">
+                        <i class="bi bi-person-circle"></i>
+                        My Account
+                    </a>
+
+                    <a href="@Url.Action("ApplicantLogin", "Applicant")" class="text-danger">
+                        <i class="bi bi-box-arrow-right"></i>
+                        Sign Out
+                    </a>
+
                 </div>
 
-                <i class="bi bi-chevron-down profile-arrow ms-2"></i>
-
             </div>
-
-            <div class="profile-dropdown-custom" id="profileMenu">
-
-                <a href="@Url.Action("MyAccount", "Applicant")">
-                    <i class="bi bi-person-circle"></i>
-                    My Account
-                </a>
-
-                <a href="@Url.Action("ApplicantLogin", "Applicant")" class="text-danger">
-                    <i class="bi bi-box-arrow-right"></i>
-                    Sign Out
-                </a>
-
-            </div>
-
         </div>
     </nav>
 
