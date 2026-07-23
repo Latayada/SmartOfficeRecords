@@ -106,5 +106,18 @@ namespace SmartOfficeRecords.Controllers
         {
             return View();
         }
+
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+        public ActionResult VerifyCode()
+        {
+            return View();
+        }
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
     }
 }
