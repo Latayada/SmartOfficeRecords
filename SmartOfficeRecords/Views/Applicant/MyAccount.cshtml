@@ -354,6 +354,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
             .section-title-custom i {
@@ -434,35 +436,7 @@
                 transform: translateY(-1px);
             }
 
-        /* --- SIDEBAR PANEL STYLING --- */
-        .sidebar-panel {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
-            margin-bottom: 24px;
-        }
-
-        .sidebar-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 15px;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 12px;
-        }
-
-            .sidebar-header i {
-                color: #16a34a;
-                font-size: 18px;
-            }
-
-        .sidebar-body {
-            font-size: 13px;
-            color: #64748b;
-            line-height: 1.6;
-        }
+       
 
         @@media (max-width: 991px) {
             .profile-info-row
@@ -943,7 +917,7 @@
 
         <div class="row g-4">
             <!-- Left Column: Profile View Box -->
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div class="account-card">
 
                     <h5 class="section-title-custom">
@@ -1029,32 +1003,10 @@
                         </button>
 
                     </div>
-
                 </div>
             </div>
 
-            <!-- Right Column: Sidebar Panels -->
-            <div class="col-lg-4">
-
-                <div class="sidebar-panel">
-                    <div class="sidebar-header">
-                        <i class="bi bi-shield-lock-fill"></i> Security Tip
-                    </div>
-                    <div class="sidebar-body">
-                        Please keep your phone number and email information updated to avoid losing access to account announcements and verification documents.
-                    </div>
-                </div>
-
-                <div class="sidebar-panel">
-                    <div class="sidebar-header">
-                        <i class="bi bi-info-circle-fill"></i> Help & Support
-                    </div>
-                    <div class="sidebar-body">
-                        Need to change critical verification details? Get in touch with the main administration branch office.
-                    </div>
-                </div>
-
-            </div>
+           
         </div>
     </div>
 
