@@ -286,8 +286,8 @@
 
 
         /* ==========================================================================
-                            DRIVEN COLLAPSE STYLES (Matches image perfectly on toggle click)
-                           ========================================================================== */
+             DRIVEN COLLAPSE STYLES (Matches image perfectly on toggle click)
+           ========================================================================== */
 
         /* 1. Logo Box shrinks to a perfectly clean white square */
         body.sidebar-collapsed .navbar-left-box {
@@ -566,7 +566,7 @@
 
         .sidebar-card-guidelines {
             background: white;
-            border: 1px solid #bbf7d0; /* Soft green border */
+            border: 1px solid #bbf7d0;
             border-radius: 12px;
             padding: 24px;
         }
@@ -1064,38 +1064,6 @@
                                     <button type="button" id="uploadBtn" class="file-upload-btn">Browse</button>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label class="form-label-custom">Upload Valid ID (JPG, JPEG, PNG )</label>
-
-                                <div class="file-upload-wrapper">
-
-                                    <!-- Hidden File Input -->
-                                    <input type="file"
-                                           id="validIDFile"
-                                           name="ValidIDFile"
-                                           accept=".jpg,.jpeg,.png,.pdf"
-                                           style="display:none;"
-                                           required />
-
-                                    <!-- Custom Text Box -->
-                                    <div class="input-group-custom" style="flex-grow:1;">
-                                        <i class="bi bi-person-vcard"></i>
-                                        <input type="text"
-                                               id="validIDText"
-                                               class="file-upload-input"
-                                               placeholder="Choose Valid ID"
-                                               readonly />
-                                    </div>
-
-                                    <!-- Browse Button -->
-                                    <button type="button"
-                                            id="validIDBtn"
-                                            class="file-upload-btn">
-                                        Browse
-                                    </button>
-
-                                </div>
-                            </div>
                         </div>
 
                         <!-- SECTION 2: Interview Details -->
@@ -1204,11 +1172,6 @@
         const customBtn = document.getElementById("uploadBtn");
         const customTxt = document.getElementById("fakeFileText");
 
-        const validIDFile = document.getElementById("validIDFile");
-        const validIDBtn = document.getElementById("validIDBtn");
-        const validIDText = document.getElementById("validIDText");
-
-
         const resetBtn = document.getElementById("resetBtn");
 
 
@@ -1226,19 +1189,7 @@
             }
         });
 
-        //Valid ID Upload 
-        validIDBtn.addEventListener("click", function () {
-            validIDFile.click();
-        });
-
-        validIDFile.addEventListener("change", function () {
-            if (validIDFile.files.length > 0) {
-                validIDText.value = validIDFile.files[0].name;
-            } else {
-                validIDText.value = "";
-            }
-        });
-
+       
         // Clear Custom File label when Reset is pressed
         resetBtn.addEventListener("click", function() {
             customTxt.value = "Choose File";
