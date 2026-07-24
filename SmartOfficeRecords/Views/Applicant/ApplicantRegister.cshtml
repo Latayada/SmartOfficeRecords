@@ -127,7 +127,7 @@
             background: white;
             border: none;
             border-radius: 16px;
-            padding: 40px 45px;
+            padding: 28px 35px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
             /* Animation */
             opacity: 0;
@@ -136,24 +136,27 @@
 
             .register-card h2 {
                 text-align: center;
-                font-size: 30px;
+                font-size: 26px;
                 font-weight: 700;
                 color: #1e293b;
-                margin-bottom: 6px;
+                margin-bottom: 2px;
             }
 
+        .register-card {
+            padding: 20px 28px;
+        }
         .subtitle {
             text-align: center;
             color: #64748b;
-            margin-bottom: 30px;
-            font-size: 14px;
+            margin-bottom: 18px;
+            font-size: 13px;
         }
 
         /* BALANCED FORM GRID */
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px 20px;
+            gap: 10px 14px;
         }
 
         /* INPUT GROUP STYLING */
@@ -188,14 +191,14 @@
 
         .form-control-custom {
             width: 100%;
-            height: 48px;
+            height: 42px;
             border: 1px solid #e2e8f0;
             border-radius: 10px;
             padding-left: 46px;
             padding-right: 46px;
             outline: none;
             color: #1e293b;
-            font-size: 14px;
+            font-size: 13px;
             transition: all 0.2s ease;
             background-color: #f8fafc;
         }
@@ -230,11 +233,11 @@
 
         /* MODERN SLICK UPLOAD BOX */
         .upload-box {
-            margin-top: 20px;
+            margin-top: 10px;
             border: 2px dashed #cbd5e1;
-            border-radius: 12px;
+            border-radius: 10px;
             background: #f8fafc;
-            padding: 20px;
+            padding: 8px;
             text-align: center;
             transition: all 0.2s ease;
         }
@@ -245,44 +248,48 @@
             }
 
             .upload-box i {
-                font-size: 38px;
+                font-size: 20px;
                 color: #16a34a;
-                margin-bottom: 8px;
+                margin-bottom: 2px;
                 display: inline-block;
             }
 
-            .upload-box p {
+            .upload-box h6 {
                 font-size: 13px;
-                font-weight: 500;
+                margin-bottom: 3px;
+            }
+
+            .upload-box p {
+                font-size: 11px;
+                margin-bottom: 4px;
                 color: #475569;
-                margin-bottom: 12px;
             }
 
             .upload-box input[type=file] {
-                max-width: 100%;
-                font-size: 13px;
-                color: #64748b;
+                font-size: 12px;
+                padding: 4px;
             }
 
         .upload-info {
-            margin-top: 8px;
-            font-size: 12px;
+            margin-top: 4px;
+            font-size: 11px;
             color: #94a3b8;
         }
 
         /* REGISTER BUTTON */
         .btn-register {
             width: 60%;
-            height: 50px;
+            height: 45px;
             border: none;
             border-radius: 10px;
             background: linear-gradient(135deg, #22c55e, #16a34a);
             color: white;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             letter-spacing: 0.5px;
             display: block;
-            margin: 24px auto 0;
+            margin: 15px auto 0; 
+
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
@@ -302,7 +309,7 @@
         /* LOGIN LINK */
         .login-link {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 12px;
             font-size: 14px;
             color: #64748b;
         }
@@ -342,6 +349,56 @@
             margin-bottom: 20px;
             font-size: 14px;
             font-weight: 500;
+        }
+
+        /*profile upload*/
+        .profile-upload {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+            .profile-upload label {
+                width: 110px;
+                height: 110px;
+                border-radius: 50%;
+                border: 3px dashed #16a34a;
+                background: #f8fafc;
+                cursor: pointer;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                transition: .3s;
+            }
+
+                .profile-upload label:hover {
+                    background: #f0fdf4;
+                    border-color: #15803d;
+                }
+
+            .profile-upload img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: none;
+            }
+
+            .profile-upload .upload-icon {
+                font-size: 40px;
+                color: #16a34a;
+            }
+
+            .profile-upload input[type=file] {
+                display: none;
+            }
+
+        .profile-text {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 13px;
+            color: #64748b;
         }
 
         /* RESPONSIVE LAYOUT */
@@ -387,9 +444,7 @@
             gap: 16px;
         }
 
-        .register-card {
-            padding: 35px 24px;
-        }
+       
 
         .btn-register {
             width: 100%;
@@ -456,6 +511,24 @@
 
                     @using (Html.BeginForm("ApplicantRegister", "Applicant", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
+                        <div class="profile-upload">
+                            <div>
+                                <label for="ProfilePicture">
+                                    <img id="previewImage" src="" alt="Profile">
+                                    <i class="bi bi-camera-fill upload-icon" id="cameraIcon"></i>
+                                </label>
+
+                                <input type="file"
+                                       id="ProfilePicture"
+                                       name="ProfilePicture"
+                                       accept=".jpg,.jpeg,.png">
+
+                                <div class="profile-text">
+                                    Profile Picture <span class="text-muted">(Optional)</span>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-grid">
 
                             <div class="input-group-custom">
@@ -538,11 +611,17 @@
                         </div>
 
                         <div class="upload-box">
-                            <i class="bi bi-cloud-arrow-up"></i>
-                            <p>Drag and drop Valid ID  here or click to browse</p>
+                            <i class="bi bi-card-image"></i>
+                            <h6 class="mb-2 fw-semibold">Upload a Photo of Valid ID</h6>
+
+                            <p>Required</p>
+
                             <input type="file"
-                                   name="Valid ID"
-                                   accept=".jpg,.jpeg,.png" />
+                                   name="ValidID"
+                                   class="form-control"
+                                   accept=".jpg,.jpeg,.png"
+                                   required />
+
                             <div class="upload-info">
                                 JPG, JPEG or PNG formats supported. Max size 4MB.
                             </div>
@@ -585,6 +664,24 @@
             confirmPassword.setAttribute("type", type);
             this.classList.toggle("bi-eye");
             this.classList.toggle("bi-eye-slash");
+        });
+
+                const profileInput = document.getElementById("ProfilePicture");
+        const previewImage = document.getElementById("previewImage");
+        const cameraIcon = document.getElementById("cameraIcon");
+
+        profileInput.addEventListener("change", function () {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = "block";
+                    cameraIcon.style.display = "none";
+                };
+
+                reader.readAsDataURL(this.files[0]);
+            }
         });
     </script>
 </body>
