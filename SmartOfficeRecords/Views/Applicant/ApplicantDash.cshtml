@@ -828,26 +828,66 @@
             color: #64748b;
         }
 
-        .progress-percent {
-            color: #16a34a;
-            font-size: 42px;
-            font-weight: 700;
+       /*  progress */
+        .progress-card {
+            background: #fff;
+            border: 1px solid #cfcfcf;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .progress-status {
-            color: #64748b;
+        .progress-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #475569;
+            margin-bottom: 10px;
         }
 
         .progress-circle {
             position: relative;
-            width: 170px;
-            height: 170px;
-            margin: auto;
+            width: 180px;
+            height: 180px;
+            margin: 5px auto;
         }
 
             .progress-circle svg {
                 transform: rotate(-90deg);
             }
+
+        .bg-circle {
+            fill: none;
+            stroke: #e8e8e8;
+            stroke-width: 10;
+        }
+
+        .progress-ring {
+            fill: none;
+            stroke: #16a34a;
+            stroke-width: 10;
+            stroke-linecap: round;
+        }
+
+        .progress-value {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: #16a34a;
+        }
+
+        .progress-label {
+            margin-top: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #475569;
+        }
 
         .bg-circle {
             fill: none;
@@ -1178,41 +1218,29 @@
 
                         <div class="col-lg-4">
 
-                            <div class="tracker-card text-center">
+                            <div class="tracker-card progress-card">
 
-                                <h6>Overall Progress</h6>
-
-                                <h2 class="progress-percent">
-                                    75%
-                                </h2>
-
-                                <span class="progress-status">
-                                    Document Verification
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-lg-4">
-
-                            <div class="tracker-card text-center">
+                                <h5 class="progress-title">
+                                    Overall Progress
+                                </h5>
 
                                 <div class="progress-circle">
 
-                                    <svg width="170" height="170">
+                                    <svg width="180" height="180">
 
-                                        <circle cx="85"
-                                                cy="85"
-                                                r="70"
+                                        <!-- Background Circle -->
+                                        <circle cx="90"
+                                                cy="90"
+                                                r="68"
                                                 class="bg-circle" />
 
-                                        <circle cx="85"
-                                                cy="85"
-                                                r="70"
+                                        <!-- Progress -->
+                                        <circle cx="90"
+                                                cy="90"
+                                                r="68"
                                                 class="progress-ring"
-                                                stroke-dasharray="440"
-                                                stroke-dashoffset="110" />
+                                                stroke-dasharray="427"
+                                                stroke-dashoffset="107" />
 
                                     </svg>
 
@@ -1222,9 +1250,15 @@
 
                                 </div>
 
+                                <h6 class="progress-label">
+                                    Document Verification
+                                </h6>
+
                             </div>
 
                         </div>
+
+                        
 
                     </div>
 

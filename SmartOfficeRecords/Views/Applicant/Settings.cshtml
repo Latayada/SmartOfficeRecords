@@ -617,6 +617,105 @@
                 text-decoration: underline;
             }
 
+        /* ===========================
+           SETTINGS MAIN CONTENT
+        =========================== */
+
+        .page-container {
+            background: linear-gradient(180deg,#dff8e7 0%,#f7fff9 25%,#dff8e7 100%);
+            min-height: calc(100vh - 70px);
+        }
+
+        .settings-header h2 {
+            color: #16a34a;
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .settings-header p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .settings-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 28px;
+            border: 1px solid #e8f5eb;
+            box-shadow: 0 5px 18px rgba(0,0,0,.05);
+        }
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px 40px;
+        }
+
+        .setting-group label {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #475569;
+        }
+
+        .setting-group select {
+            height: 48px;
+            border: 1.5px solid #74d38f;
+            border-radius: 8px;
+            box-shadow: none;
+        }
+
+            .setting-group select:focus {
+                border-color: #16a34a;
+                box-shadow: 0 0 0 .18rem rgba(22,163,74,.15);
+            }
+
+        .sound-title {
+            font-weight: 600;
+            color: #475569;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .form-switch .form-check-input {
+            width: 48px;
+            height: 24px;
+        }
+
+            .form-switch .form-check-input:checked {
+                background-color: #16a34a;
+                border-color: #16a34a;
+            }
+
+        .btn-save {
+            background: #16a34a;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            color: #fff;
+            font-weight: 600;
+            margin-top: 25px;
+        }
+
+            .btn-save:hover {
+                background: #15803d;
+            }
+
+        @@media(max - width:768px) {
+            .settings-grid
+
+        {
+            grid-template-columns: 1fr;
+        }
+
+        .settings-header h2 {
+            font-size: 28px;
+        }
+
+        }
+
     </style>
 </head>
 <body>
@@ -774,105 +873,97 @@
 
     <!-- WORKSPACE MAIN CONTENT AREA -->
     <main class="page-container" id="mainContent">
+
+        <div class="settings-header">
+            <h2>General Settings</h2>
+            <p>Manage your general preferences for a better experience.</p>
+        </div>
+
         <div class="settings-card">
-            <h4 class="mb-4 fw-bold">
-                <i class="bi bi-sliders me-2 text-success"></i>
-                General Settings
-            </h4>
 
+            <div class="settings-grid">
 
-
-            <div class="row">
-                <!-- Appearance -->
-                <div class="col-md-6 mb-4">
-                    <label class="form-label">Appearance</label>
-                    <select class="form-select form-control">
-                        <option>Light Mode</option>
-                        <option>Dark Mode</option>
-                        <option selected>System Default</option>
+                <div class="setting-group">
+                    <label>Appearance</label>
+                    <select class="form-select">
+                        <option selected></option>
+                        <option>Light</option>
+                        <option>Dark</option>
+                        <option>System Default</option>
                     </select>
                 </div>
 
-                <!-- Font Size -->
-                <div class="col-md-6 mb-4">
-                    <label class="form-label">Font Size</label>
-                    <select class="form-select form-control">
-                        <option>Small</option>
-                        <option selected>Medium</option>
-                        <option>Large</option>
-                    </select>
-                </div>
-
-                <!-- Font Style -->
-                <div class="col-md-6 mb-4">
-                    <label class="form-label">Font Style</label>
-                    <select class="form-select form-control">
-                        <option selected>Poppins</option>
-                        <option>Arial</option>
-                        <option>Roboto</option>
-                        <option>Segoe UI</option>
-                    </select>
-                </div>
-
-                <!-- Sidebar Style -->
-                <div class="col-md-6 mb-4">
-                    <label class="form-label">Sidebar Style</label>
-                    <select class="form-select form-control">
-                        <option selected>Expanded</option>
-                        <option>Collapsed</option>
-                        <option>Auto Hide</option>
-                    </select>
-                </div>
-
-                <!-- Language -->
-                <div class="col-md-6 mb-4">
-                    <label class="form-label">Language</label>
-                    <select class="form-select form-control">
-                        <option selected>English</option>
+                <div class="setting-group">
+                    <label>Language</label>
+                    <select class="form-select">
+                        <option selected></option>
+                        <option>English</option>
                         <option>Filipino</option>
                     </select>
                 </div>
 
-                <!-- Date Format -->
-                <div class="col-md-6 mb-4">
-                    <label class="form-label">Date Format</label>
-                    <select class="form-select form-control">
+                <div class="setting-group">
+                    <label>Font Style</label>
+                    <select class="form-select">
+                        <option selected></option>
+                        <option>Poppins</option>
+                        <option>Arial</option>
+                        <option>Roboto</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label>Time Format</label>
+                    <select class="form-select">
+                        <option selected></option>
+                        <option>12-Hour</option>
+                        <option>24-Hour</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label>Font Size</label>
+                    <select class="form-select">
+                        <option selected></option>
+                        <option>Small</option>
+                        <option>Medium</option>
+                        <option>Large</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label>Date Format</label>
+                    <select class="form-select">
                         <option selected>MM/DD/YYYY</option>
                         <option>DD/MM/YYYY</option>
                         <option>YYYY-MM-DD</option>
                     </select>
                 </div>
 
-                <!-- Time Format -->
-                <div class="col-md-6 mb-4">
-                    <label class="form-label">Time Format</label>
-                    <select class="form-select form-control">
-                        <option selected>12-Hour (AM/PM)</option>
-                        <option>24-Hour</option>
-                    </select>
-                </div>
-
-
-                <!-- Sound -->
-                <div class="col-md-6 mb-4">
-                    <label class="form-label d-block">System Sound</label>
-                    <div class="form-check form-switch mt-2">
-                        <input class="form-check-input" type="checkbox" checked>
-                        <label class="form-check-label">
-                            Play Notification Sounds
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Save -->
-                <div class="col-12 mt-3">
-                    <button class="btn-save">
-                        <i class="bi bi-check-circle-fill me-2"></i>
-                        Save Settings
-                    </button>
-                </div>
             </div>
+
+            <div class="mt-4">
+
+                <div class="sound-title">
+                    System Sounds
+                </div>
+
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" checked>
+
+                    <label class="form-check-label ms-2">
+                        Play Notifications Sounds
+                    </label>
+                </div>
+
+            </div>
+
+            <button class="btn-save mt-4">
+                Save Changes
+            </button>
+
         </div>
+
     </main>
 
     <!-- Bootstrap Bundle JS -->
