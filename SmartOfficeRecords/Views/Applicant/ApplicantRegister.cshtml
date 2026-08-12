@@ -6,17 +6,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Applicant Register</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
 
     <style>
+
+        /* =========================================================
+                   GLOBAL
+                ========================================================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -25,664 +43,1167 @@
         }
 
         body {
-            background: #f4f6f9;
             min-height: 100vh;
+            background: #F4F6F8;
             overflow: hidden;
         }
+
+
+        /* =========================================================
+                   MAIN CONTAINER
+                ========================================================= */
 
         .main-container {
             width: 100%;
             height: 100vh;
             display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .register-wrapper {
             width: 100%;
             height: 100vh;
             display: flex;
-            flex-direction: row-reverse;
+            background: #FFFFFF;
             overflow: hidden;
-            background: white;
         }
 
-        /* LEFT SIDE - MATCHING GRADIENT & TEXTURE */
+
+        /* =========================================================
+                   LEFT SIDE
+                ========================================================= */
+
         .left-side {
-            width: 40%;
+            width: 33%;
             height: 100vh;
-            background: linear-gradient(135deg, #1b9a46 0%, #0f6328 100%);
-            position: relative;
+            background: linear-gradient( 145deg, #242D32 0%, #1A2024 45%, #101214 100% );
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            align-items: center;
+            justify-content: center;
+            position: relative;
             overflow: hidden;
         }
 
-            /* Subtle geometric overlay background pattern matching login */
+
+            /* subtle circle effect */
+
             .left-side::before {
                 content: "";
                 position: absolute;
-                inset: 0;
-                opacity: 0.04;
-                background-image: linear-gradient(30deg, #000 12%, transparent 12.5%, transparent 87%, #000 87.5%, #000), linear-gradient(150deg, #000 12%, transparent 12.5%, transparent 87%, #000 87.5%, #000), linear-gradient(300deg, #000 12%, transparent 12.5%, transparent 87%, #000 87.5%, #000), linear-gradient(60deg, #000 25%, transparent 25.5%, transparent 75%, #000 75%, #000), linear-gradient(240deg, #000 25%, transparent 25.5%, transparent 75%, #000 75%, #000);
-                background-size: 40px 70px;
-                z-index: 1;
+                width: 500px;
+                height: 500px;
+                top: -250px;
+                left: -250px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.025);
             }
+
+            .left-side::after {
+                content: "";
+                position: absolute;
+                width: 600px;
+                height: 600px;
+                bottom: -350px;
+                right: -350px;
+                border-radius: 50%;
+                background: rgba(237, 28, 36, 0.025);
+            }
+
+
+        /* =========================================================
+                   LEFT CONTENT
+                ========================================================= */
 
         .top-content {
+            width: 100%;
             text-align: center;
-            padding-top: 80px;
+            padding: 40px;
             position: relative;
             z-index: 2;
         }
 
-            /* Ambient glow ring under logo */
+
+            /* LOGO */
+
             .top-content img {
-                width: 130px;
-                margin-bottom: 25px;
-                background: rgba(255, 255, 255, 0.1);
+                width: 132px;
+                height: 132px;
+                object-fit: contain;
+                background: #FFFFFF;
                 padding: 10px;
                 border-radius: 50%;
-                backdrop-filter: blur(8px);
-                border: 1px solid rgba(255, 255, 255, 0.15);
+                margin-bottom: 31px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+                transition: transform 0.3s ease;
             }
+
+                .top-content img:hover {
+                    transform: scale(1.03);
+                }
+
+
+            /* SYSTEM NAME */
 
             .top-content h1 {
-                color: white;
-                font-size: 40px;
+                color: #FFFFFF;
+                font-size: 31px;
                 font-weight: 700;
-                line-height: 1.25;
-                letter-spacing: 0.5px;
-                text-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                line-height: 1.55;
+                letter-spacing: 0.4px;
+                margin: 0;
+                text-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
             }
 
-        .bottom-image {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            margin-top: auto;
-        }
 
-            .bottom-image img {
-                width: 100%;
-                height: 50vh;
-                object-fit: cover;
-                display: block;
-            }
+        /* =========================================================
+                   RIGHT SIDE
+                ========================================================= */
 
-        /* RIGHT SIDE */
         .right-side {
-            width: 60%;
+            width: 67%;
             height: 100vh;
-            background: #f8fafc;
+            background: #F5F7F9;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px 40px;
+            padding: 25px 35px;
         }
 
-        /* MODERN FLOATING CARD */
+
+        /* =========================================================
+                   REGISTER CARD
+                ========================================================= */
+
         .register-card {
             width: 100%;
-            max-width: 660px;
-            background: white;
-            border: none;
-            border-radius: 16px;
-            padding: 28px 35px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
-            /* Animation */
-            opacity: 0;
-            animation: slideInCard 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            max-width: 630px;
+            background: #FFFFFF;
+            border: 1px solid #E1E5E9;
+            border-radius: 10px;
+            padding: 35px 45px 27px 45px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            animation: slideInCard 0.6s ease forwards;
         }
+
+
+            /* =========================================================
+                   TITLE
+                ========================================================= */
 
             .register-card h2 {
                 text-align: center;
-                font-size: 26px;
+                color: #171717;
+                font-size: 24px;
                 font-weight: 700;
-                color: #1e293b;
-                margin-bottom: 2px;
+                margin-bottom: 3px;
             }
 
-        .register-card {
-            padding: 20px 28px;
-        }
         .subtitle {
             text-align: center;
-            color: #64748b;
-            margin-bottom: 18px;
-            font-size: 13px;
+            color: #6B7280;
+            font-size: 12px;
+            margin-bottom: 13px;
         }
 
-        /* BALANCED FORM GRID */
+
+        /* =========================================================
+                   PROFILE UPLOAD
+                ========================================================= */
+
+        .profile-upload {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .profile-upload-container {
+            text-align: center;
+        }
+
+
+        /* PROFILE CIRCLE */
+
+        .profile-upload label {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            border: 1.5px solid #ED1C24;
+            background: #FFFFFF;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+        }
+
+            .profile-upload label:hover {
+                background: #FFF5F5;
+                border-color: #C9151C;
+                transform: scale(1.03);
+            }
+
+
+        /* PROFILE IMAGE */
+
+        .profile-upload img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+
+        /* CAMERA ICON */
+
+        .profile-upload .upload-icon {
+            color: #ED1C24;
+            font-size: 17px;
+        }
+
+
+        /* HIDDEN INPUT */
+
+        .profile-upload input[type="file"] {
+            display: none;
+        }
+
+
+        /* PROFILE TEXT */
+
+        .profile-text {
+            color: #444444;
+            font-size: 9px;
+            line-height: 1.1;
+            margin-top: 2px;
+        }
+
+
+        /* =========================================================
+                   FORM GRID
+                ========================================================= */
+
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px 14px;
+            gap: 10px 24px;
         }
 
-        /* INPUT GROUP STYLING */
+
+        /* =========================================================
+                   INPUT GROUP
+                ========================================================= */
+
         .input-group-custom {
             position: relative;
+            width: 100%;
         }
+
+
+            /* LEFT ICON */
 
             .input-group-custom .left-icon {
                 position: absolute;
-                left: 16px;
+                left: 13px;
                 top: 50%;
                 transform: translateY(-50%);
-                color: #94a3b8;
-                font-size: 17px;
+                color: #87919B;
+                font-size: 16px;
+                z-index: 3;
                 transition: color 0.2s ease;
             }
 
+
+            /* RIGHT ICON */
+
             .input-group-custom .right-icon {
                 position: absolute;
-                right: 16px;
+                right: 13px;
                 top: 50%;
                 transform: translateY(-50%);
+                color: #87919B;
+                font-size: 16px;
                 cursor: pointer;
-                color: #94a3b8;
-                font-size: 17px;
+                z-index: 3;
                 transition: color 0.2s ease;
             }
 
                 .input-group-custom .right-icon:hover {
-                    color: #475569;
+                    color: #ED1C24;
                 }
+
+
+        /* =========================================================
+                   INPUT
+                ========================================================= */
 
         .form-control-custom {
             width: 100%;
-            height: 42px;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            padding-left: 46px;
-            padding-right: 46px;
-            outline: none;
-            color: #1e293b;
+            height: 48px;
+            border: 1px solid #E1D8D9;
+            border-radius: 7px;
+            background: #FFFFFF;
+            color: #30343B;
             font-size: 13px;
-            transition: all 0.2s ease;
-            background-color: #f8fafc;
+            padding-left: 42px;
+            padding-right: 42px;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
         }
 
-            /* Formatting dynamic adjustments for specific fields like dates */
-            .form-control-custom[type="date"] {
-                color: #475569;
-                padding-right: 50px;
-            }
+
+            /* PLACEHOLDER */
 
             .form-control-custom::placeholder {
-                color: #94a3b8;
+                color: #515A64;
+                opacity: 1;
+                font-size: 13px;
             }
 
-            .form-control-custom[type="date"]::-webkit-calendar-picker-indicator {
-                position: absolute;
-                right: 15px;
-                cursor: pointer;
-                opacity: 1;
-                z-index: 2;
+
+            /* HOVER */
+
+            .form-control-custom:hover {
+                border-color: #D7C7C9;
             }
+
+
+            /* FOCUS */
 
             .form-control-custom:focus {
-                background-color: #fff;
-                border-color: #16a34a;
-                box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.12);
+                background: #FFFFFF;
+                border-color: #ED1C24;
+                box-shadow: 0 0 0 3px rgba(237, 28, 36, 0.09);
             }
 
         .input-group-custom:focus-within .left-icon {
-            color: #16a34a;
+            color: #ED1C24;
         }
 
-        /* MODERN SLICK UPLOAD BOX */
-        .upload-box {
-            margin-top: 10px;
-            border: 2px dashed #cbd5e1;
-            border-radius: 10px;
-            background: #f8fafc;
-            padding: 8px;
-            text-align: center;
-            transition: all 0.2s ease;
+
+        /* =========================================================
+                   DATE INPUT
+                ========================================================= */
+
+        .form-control-custom[type="date"] {
+            color: #515A64;
+            padding-right: 38px;
         }
+
+            .form-control-custom[type="date"]::-webkit-calendar-picker-indicator {
+                position: absolute;
+                right: 12px;
+                cursor: pointer;
+                opacity: 0.7;
+            }
+
+
+        /* =========================================================
+                   VALID ID UPLOAD
+                ========================================================= */
+
+        .upload-box {
+            width: 100%;
+            margin-top: 12px;
+            border: 1.5px dashed #E1E1E1;
+            border-radius: 7px;
+            background: #FFFFFF;
+            min-height: 105px;
+            padding: 7px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
 
             .upload-box:hover {
-                border-color: #16a34a;
-                background: #f0fdf4;
+                border-color: #ED1C24;
+                background: #FFF9F9;
             }
 
-            .upload-box i {
-                font-size: 20px;
-                color: #16a34a;
-                margin-bottom: 2px;
-                display: inline-block;
+
+            /* UPLOAD ICON */
+
+            .upload-box > i {
+                color: #ED1C24;
+                font-size: 23px;
+                line-height: 1;
+                margin-bottom: 4px;
             }
+
+
+            /* UPLOAD TITLE */
 
             .upload-box h6 {
-                font-size: 13px;
-                margin-bottom: 3px;
+                color: #222222;
+                font-size: 10px;
+                font-weight: 600;
+                margin: 0 0 3px 0;
             }
+
+
+            /* OR */
 
             .upload-box p {
-                font-size: 11px;
-                margin-bottom: 4px;
-                color: #475569;
+                color: #555555;
+                font-size: 9px;
+                margin: 0 0 3px 0;
             }
 
-            .upload-box input[type=file] {
-                font-size: 12px;
-                padding: 4px;
+
+            /* FILE INPUT */
+
+            .upload-box input[type="file"] {
+                width: auto;
+                max-width: 115px;
+                height: 22px;
+                padding: 1px 5px;
+                border: none;
+                background: #ED1C24;
+                color: #FFFFFF;
+                border-radius: 4px;
+                font-size: 8px;
+                cursor: pointer;
             }
+
+
+                /* HIDE DEFAULT FILE TEXT */
+
+                .upload-box input[type="file"]::file-selector-button {
+                    border: none;
+                    background: #ED1C24;
+                    color: #FFFFFF;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 9px;
+                    font-weight: 500;
+                    padding: 3px 8px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+
+
+        /* UPLOAD INFO */
 
         .upload-info {
-            margin-top: 4px;
-            font-size: 11px;
-            color: #94a3b8;
+            color: #333333;
+            font-size: 8px;
+            font-weight: 500;
+            margin-top: 3px;
         }
 
-        /* REGISTER BUTTON */
+
+        /* =========================================================
+                   REGISTER BUTTON
+                ========================================================= */
+
         .btn-register {
-            width: 60%;
-            height: 45px;
+            width: 75%;
+            height: 47px;
             border: none;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            color: white;
-            font-size: 15px;
+            border-radius: 7px;
+            background: #ED1C24;
+            color: #FFFFFF;
+            font-size: 16px;
             font-weight: 600;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.2px;
             display: block;
-            margin: 15px auto 0; 
-
+            margin: 30px auto 0;
             cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 5px 14px rgba(237, 28, 36, 0.20);
         }
+
 
             .btn-register:hover {
-                background: linear-gradient(135deg, #16a34a, #15803d);
+                background: #D8171F;
                 transform: translateY(-1px);
-                box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35);
+                box-shadow: 0 8px 18px rgba(237, 28, 36, 0.28);
             }
+
 
             .btn-register:active {
-                transform: translateY(1px);
-                box-shadow: 0 4px 10px rgba(22, 163, 74, 0.2);
+                background: #C9151C;
+                transform: translateY(0);
+                box-shadow: 0 4px 10px rgba(237, 28, 36, 0.20);
             }
 
-        /* LOGIN LINK */
+
+        /* =========================================================
+                   LOGIN LINK
+                ========================================================= */
+
         .login-link {
             text-align: center;
-            margin-top: 12px;
-            font-size: 14px;
-            color: #64748b;
+            margin-top: 13px;
+            color: #222222;
+            font-size: 13px;
         }
 
+
             .login-link a {
-                color: #16a34a;
+                color: #ED1C24;
                 font-weight: 600;
-                text-decoration: none;
+                text-decoration: underline;
+                margin-left: 4px;
                 transition: color 0.2s ease;
             }
 
+
                 .login-link a:hover {
-                    color: #15803d;
-                    text-decoration: underline;
+                    color: #C9151C;
                 }
 
-        /* STATUS ALERTS */
+
+        /* =========================================================
+                   ERROR MESSAGE
+                ========================================================= */
+
         .error-message {
-            background-color: #fef2f2;
-            border: 1px solid #fee2e2;
-            color: #dc2626;
+            background: #FFF1F2;
+            border: 1px solid #FECDD3;
+            color: #C9151C;
             text-align: center;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 14px;
+            padding: 9px;
+            border-radius: 7px;
+            margin-bottom: 15px;
+            font-size: 12px;
             font-weight: 500;
         }
+
+
+        /* =========================================================
+                   SUCCESS MESSAGE
+                ========================================================= */
 
         .success-message {
-            background-color: #f0fdf4;
-            border: 1px solid #dcfce7;
-            color: #16a34a;
+            background: #F1F5F9;
+            border: 1px solid #CBD5E1;
+            color: #334155;
             text-align: center;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 14px;
+            padding: 9px;
+            border-radius: 7px;
+            margin-bottom: 15px;
+            font-size: 12px;
             font-weight: 500;
         }
 
-        /*profile upload*/
-        .profile-upload {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
 
-            .profile-upload label {
-                width: 110px;
-                height: 110px;
-                border-radius: 50%;
-                border: 3px dashed #16a34a;
-                background: #f8fafc;
-                cursor: pointer;
-                overflow: hidden;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-                transition: .3s;
+        /* =========================================================
+                   ANIMATION
+                ========================================================= */
+
+        @@keyframes slideInCard {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
 
-                .profile-upload label:hover {
-                    background: #f0fdf4;
-                    border-color: #15803d;
-                }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-            .profile-upload img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: none;
+
+        /* =========================================================
+                   RESPONSIVE - TABLET
+                ========================================================= */
+
+        @@media (max-width: 1100px) {
+
+            .left-side {
+                width: 35%;
             }
 
-            .profile-upload .upload-icon {
-                font-size: 40px;
-                color: #16a34a;
+            .right-side {
+                width: 65%;
             }
 
-            .profile-upload input[type=file] {
-                display: none;
+            .register-card {
+                max-width: 600px;
+                padding-left: 30px;
+                padding-right: 30px;
             }
-
-        .profile-text {
-            text-align: center;
-            margin-top: 8px;
-            font-size: 13px;
-            color: #64748b;
-        }
-
-        /* RESPONSIVE LAYOUT */
-        @@media(max - width: 991px)
-
-        {
-            .register-wrapper
-
-        {
-            flex-direction: column-reverse;
-            overflow-y: auto;
-        }
-
-        .left-side,
-        .right-side {
-            width: 100%;
-        }
-
-        .left-side {
-            height: auto;
-            padding-bottom: 0;
-        }
-
-        .top-content {
-            padding: 50px 20px 30px 20px;
-        }
 
             .top-content h1 {
-                font-size: 32px;
+                font-size: 27px;
             }
 
-        .bottom-image img {
-            height: 35vh;
+            .top-content img {
+                width: 115px;
+                height: 115px;
+            }
         }
 
-        .right-side {
-            height: auto;
-            padding: 40px 20px;
+
+        /* =========================================================
+                   RESPONSIVE - MOBILE
+                ========================================================= */
+
+        @@media (max-width: 991px) {
+
+            body {
+                overflow-y: auto;
+            }
+
+            .register-wrapper {
+                height: auto;
+                min-height: 100vh;
+                flex-direction: column;
+                overflow-y: auto;
+            }
+
+            .left-side {
+                width: 100%;
+                height: auto;
+                min-height: 300px;
+            }
+
+            .right-side {
+                width: 100%;
+                height: auto;
+                min-height: 700px;
+                padding: 35px 20px;
+            }
+
+            .top-content {
+                padding: 40px 20px;
+            }
+
+                .top-content img {
+                    width: 105px;
+                    height: 105px;
+                    margin-bottom: 20px;
+                }
+
+                .top-content h1 {
+                    font-size: 24px;
+                }
+
+            .register-card {
+                max-width: 600px;
+                padding: 35px 25px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .btn-register {
+                width: 100%;
+            }
         }
 
-        .form-grid {
-            grid-template-columns: 1fr;
-            gap: 16px;
+
+        /* =========================================================
+                   SMALL MOBILE
+                ========================================================= */
+
+        @@media (max-width: 576px) {
+
+            .left-side {
+                min-height: 270px;
+            }
+
+            .top-content {
+                padding: 30px 15px;
+            }
+
+                .top-content img {
+                    width: 90px;
+                    height: 90px;
+                }
+
+                .top-content h1 {
+                    font-size: 21px;
+                }
+
+            .right-side {
+                padding: 25px 12px;
+            }
+
+            .register-card {
+                padding: 30px 20px;
+            }
+
+                .register-card h2 {
+                    font-size: 22px;
+                }
+
+            .subtitle {
+                font-size: 11px;
+            }
         }
 
-       
-
-        .btn-register {
-            width: 100%;
-        }
-
-        }
-
-        /* CARD SLIDE ANIMATION */
-        @@keyframes slideInCard {
-            from
-
-        {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        }
     </style>
+
 </head>
+
+
 <body>
 
     <div class="main-container">
+
         <div class="register-wrapper">
 
+
+            <!-- =====================================================
+                 LEFT SIDE
+            ====================================================== -->
+
             <div class="left-side">
+
                 <div class="top-content">
-                    <img src="~/Images/logo.png" alt="Logo" />
+
+                    <img src="~/Images/logo.png"
+                         alt="Smart Office Records System Logo" />
+
                     <h1>
                         SMART OFFICE
                         <br />
                         RECORDS SYSTEM
                     </h1>
+
                 </div>
 
-                <div class="bottom-image">
-                    <img src="~/Images/applicant.png" alt="Applicant Image" />
-                </div>
             </div>
 
+
+            <!-- =====================================================
+                 RIGHT SIDE
+            ====================================================== -->
+
             <div class="right-side">
+
                 <div class="register-card">
 
-                    <h2>Create an Account!</h2>
-                    <p class="subtitle">Fill in the details to get started.</p>
 
+                    <!-- =================================================
+                         TITLE
+                    ================================================== -->
+
+                    <h2>
+                        Create an Account!
+                    </h2>
+
+                    <p class="subtitle">
+                        Fill in the details to get started.
+                    </p>
+
+
+                    <!-- =================================================
+                         ERROR MESSAGE
+                    ================================================== -->
                     @if (ViewBag.Error != null)
                     {
                         <div class="error-message">
-                            <i class="bi bi-exclamation-circle me-2"></i>@ViewBag.Error
+
+                            <i class="bi bi-exclamation-circle me-2"></i>
+
+                            @ViewBag.Error
+
                         </div>
                     }
 
+
+                    <!-- =================================================
+                         SUCCESS MESSAGE
+                    ================================================== -->
                     @if (ViewBag.Success != null)
                     {
                         <div class="success-message">
-                            <i class="bi bi-check-circle me-2"></i>@ViewBag.Success
+
+                            <i class="bi bi-check-circle me-2"></i>
+
+                            @ViewBag.Success
+
                         </div>
                     }
 
-                    @using (Html.BeginForm("ApplicantRegister", "Applicant", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+                    <!-- =================================================
+                         REGISTER FORM
+                    ================================================== -->
+                    @using (Html.BeginForm(
+                                        "ApplicantRegister",
+                                        "Applicant",
+                                        FormMethod.Post,
+                                        new { enctype = "multipart/form-data" }))
                     {
+
+
+                        <!-- =================================================
+                             PROFILE PICTURE
+                        ================================================== -->
+
                         <div class="profile-upload">
-                            <div>
+
+                            <div class="profile-upload-container">
+
                                 <label for="ProfilePicture">
-                                    <img id="previewImage" src="" alt="Profile">
-                                    <i class="bi bi-camera-fill upload-icon" id="cameraIcon"></i>
+
+                                    <img id="previewImage"
+                                         src=""
+                                         alt="Profile Picture" />
+
+                                    <i class="bi bi-camera-fill upload-icon"
+                                       id="cameraIcon"></i>
+
                                 </label>
+
 
                                 <input type="file"
                                        id="ProfilePicture"
                                        name="ProfilePicture"
-                                       accept=".jpg,.jpeg,.png">
+                                       accept=".jpg,.jpeg,.png" />
+
 
                                 <div class="profile-text">
-                                    Profile Picture <span class="text-muted">(Optional)</span>
+                                    Profile
                                 </div>
+
                             </div>
+
                         </div>
+
+
+                        <!-- =================================================
+                             FORM GRID
+                        ================================================== -->
 
                         <div class="form-grid">
 
+
+                            <!-- FULL NAME -->
+
                             <div class="input-group-custom">
+
                                 <i class="bi bi-person left-icon"></i>
+
                                 <input type="text"
                                        name="Fullname"
                                        class="form-control-custom"
                                        placeholder="Full name"
                                        required />
+
                             </div>
 
+
+                            <!-- USERNAME -->
+
                             <div class="input-group-custom">
-                                <i class="bi bi-person-badge left-icon"></i>
+
+                                <i class="bi bi-person left-icon"></i>
+
                                 <input type="text"
                                        name="Username"
                                        class="form-control-custom"
                                        placeholder="Username"
                                        required />
+
                             </div>
 
+
+                            <!-- EMAIL -->
+
                             <div class="input-group-custom">
+
                                 <i class="bi bi-envelope left-icon"></i>
+
                                 <input type="email"
                                        name="Email"
                                        class="form-control-custom"
                                        placeholder="Email Address"
                                        required />
+
                             </div>
 
+
+                            <!-- INVITED BY -->
+
                             <div class="input-group-custom">
-                                <i class="bi bi-person-plus left-icon"></i>
+
+                                <i class="bi bi-person left-icon"></i>
+
                                 <input type="text"
                                        name="InvitedBy"
                                        class="form-control-custom"
                                        placeholder="Invited by" />
+
                             </div>
 
+
+                            <!-- CONTACT NUMBER -->
+
                             <div class="input-group-custom">
+
                                 <i class="bi bi-telephone left-icon"></i>
+
                                 <input type="text"
                                        name="ContactNumber"
                                        class="form-control-custom"
                                        placeholder="Contact Number"
                                        required />
+
                             </div>
 
+
+                            <!-- PASSWORD -->
+
                             <div class="input-group-custom">
+
                                 <i class="bi bi-lock left-icon"></i>
+
                                 <input type="password"
                                        id="password"
                                        name="Password"
                                        class="form-control-custom"
                                        placeholder="Password"
                                        required />
-                                <i class="bi bi-eye right-icon" id="togglePassword"></i>
+
+                                <i class="bi bi-eye right-icon"
+                                   id="togglePassword"></i>
+
                             </div>
 
+
+                            <!-- BIRTHDATE -->
+
                             <div class="input-group-custom">
+
                                 <i class="bi bi-calendar-event left-icon"></i>
+
                                 <input type="text"
+                                       id="Birthdate"
                                        name="Birthdate"
                                        class="form-control-custom"
                                        placeholder="Birthdate"
-                                       onfocus="(this.type='date')"
-                                       onblur="if(!this.value)this.type='text'"
+                                       onfocus="this.type='date'"
+                                       onblur="if (!this.value) this.type='text'"
                                        required />
+
                             </div>
 
+
+                            <!-- CONFIRM PASSWORD -->
+
                             <div class="input-group-custom">
+
                                 <i class="bi bi-lock-fill left-icon"></i>
+
                                 <input type="password"
                                        id="confirmPassword"
                                        name="ConfirmPassword"
                                        class="form-control-custom"
                                        placeholder="Confirm Password"
                                        required />
-                                <i class="bi bi-eye right-icon" id="toggleConfirmPassword"></i>
+
+                                <i class="bi bi-eye right-icon"
+                                   id="toggleConfirmPassword"></i>
+
                             </div>
+
 
                         </div>
 
-                        <div class="upload-box">
-                            <i class="bi bi-card-image"></i>
-                            <h6 class="mb-2 fw-semibold">Upload a Photo of Valid ID</h6>
 
-                            <p>Required</p>
+                        <!-- =================================================
+                             VALID ID UPLOAD
+                        ================================================== -->
+
+                        <div class="upload-box">
+
+                            <i class="bi bi-cloud-arrow-up-fill"></i>
+
+
+                            <h6>
+                                Upload a Photo of Valid ID
+                            </h6>
+
+
+                            <p>
+                                or
+                            </p>
+
 
                             <input type="file"
                                    name="ValidID"
-                                   class="form-control"
                                    accept=".jpg,.jpeg,.png"
                                    required />
 
+
                             <div class="upload-info">
-                                JPG, JPEG or PNG formats supported. Max size 4MB.
+                                JPG, JPEG or PNG, Max size 4MB.
                             </div>
+
                         </div>
 
-                        <button type="submit" class="btn-register">
+
+                        <!-- =================================================
+                             REGISTER BUTTON
+                        ================================================== -->
+
+                        <button type="submit"
+                                class="btn-register">
+
                             Register
+
                         </button>
+
+
                     }
 
+
+                    <!-- =================================================
+                         LOGIN LINK
+                    ================================================== -->
+
                     <div class="login-link">
-                        Already have an account?
-                        <a href="@Url.Action("ApplicantLogin", "Applicant")">Login!</a>
+
+                        Don't have an account?
+
+                        <a href="@Url.Action("ApplicantLogin", "Applicant")">
+                            Login!
+                        </a>
+
                     </div>
 
+
                 </div>
+
             </div>
 
         </div>
+
     </div>
 
+
+    <!-- =============================================================
+         JAVASCRIPT
+    ============================================================== -->
+
     <script>
-        // PASSWORD VISIBILITY TOGGLE
-        const togglePassword = document.querySelector("#togglePassword");
-        const password = document.querySelector("#password");
 
-        togglePassword.addEventListener("click", function () {
-            const type = password.getAttribute("type") === "password" ? "text" : "password";
-            password.setAttribute("type", type);
-            this.classList.toggle("bi-eye");
-            this.classList.toggle("bi-eye-slash");
-        });
 
-        // CONFIRM PASSWORD VISIBILITY TOGGLE
-        const toggleConfirmPassword = document.querySelector("#toggleConfirmPassword");
-        const confirmPassword = document.querySelector("#confirmPassword");
+        /* =========================================================
+           PASSWORD TOGGLE
+        ========================================================= */
 
-        toggleConfirmPassword.addEventListener("click", function () {
-            const type = confirmPassword.getAttribute("type") === "password" ? "text" : "password";
-            confirmPassword.setAttribute("type", type);
-            this.classList.toggle("bi-eye");
-            this.classList.toggle("bi-eye-slash");
-        });
+        const togglePassword =
+            document.querySelector("#togglePassword");
 
-                const profileInput = document.getElementById("ProfilePicture");
-        const previewImage = document.getElementById("previewImage");
-        const cameraIcon = document.getElementById("cameraIcon");
+        const password =
+            document.querySelector("#password");
 
-        profileInput.addEventListener("change", function () {
-            if (this.files && this.files[0]) {
-                const reader = new FileReader();
 
-                reader.onload = function (e) {
-                    previewImage.src = e.target.result;
-                    previewImage.style.display = "block";
-                    cameraIcon.style.display = "none";
-                };
+        if (togglePassword && password) {
 
-                reader.readAsDataURL(this.files[0]);
-            }
-        });
+            togglePassword.addEventListener("click", function () {
+
+                const type =
+                    password.getAttribute("type") === "password"
+                        ? "text"
+                        : "password";
+
+
+                password.setAttribute("type", type);
+
+
+                this.classList.toggle("bi-eye");
+
+                this.classList.toggle("bi-eye-slash");
+
+            });
+
+        }
+
+
+        /* =========================================================
+           CONFIRM PASSWORD TOGGLE
+        ========================================================= */
+
+        const toggleConfirmPassword =
+            document.querySelector("#toggleConfirmPassword");
+
+        const confirmPassword =
+            document.querySelector("#confirmPassword");
+
+
+        if (toggleConfirmPassword && confirmPassword) {
+
+            toggleConfirmPassword.addEventListener("click", function () {
+
+                const type =
+                    confirmPassword.getAttribute("type") === "password"
+                        ? "text"
+                        : "password";
+
+
+                confirmPassword.setAttribute("type", type);
+
+
+                this.classList.toggle("bi-eye");
+
+                this.classList.toggle("bi-eye-slash");
+
+            });
+
+        }
+
+
+        /* =========================================================
+           PROFILE IMAGE PREVIEW
+        ========================================================= */
+
+        const profileInput =
+            document.getElementById("ProfilePicture");
+
+        const previewImage =
+            document.getElementById("previewImage");
+
+        const cameraIcon =
+            document.getElementById("cameraIcon");
+
+
+        if (profileInput) {
+
+            profileInput.addEventListener("change", function () {
+
+                if (this.files && this.files[0]) {
+
+                    const reader = new FileReader();
+
+
+                    reader.onload = function (e) {
+
+                        previewImage.src =
+                            e.target.result;
+
+                        previewImage.style.display =
+                            "block";
+
+                        cameraIcon.style.display =
+                            "none";
+
+                    };
+
+
+                    reader.readAsDataURL(this.files[0]);
+
+                }
+
+            });
+
+        }
+
     </script>
+
 </body>
 </html>

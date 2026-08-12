@@ -8,16 +8,26 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Appointments</title>
 
-    <!-- Bootstrap 5 CSS -->
+    <title>My Appointments - SORS</title>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Google Fonts (Poppins) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
     <style>
+
+        /* =========================================================
+                   GLOBAL
+                ========================================================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -26,187 +36,380 @@
         }
 
         body {
-            background-color: #eaf6ed; /* Light mint background */
+            background: #f1f1f1;
+            color: #263238;
             min-height: 100vh;
-            color: #334155;
-            padding-top: 70px; /* Add this line to offset the fixed navbar height */
+            overflow-x: hidden;
         }
 
-        /* --- NAVBAR STYLING --- */
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+                   COLOR PALETTE
+                ========================================================= */
+
+        :root {
+            --red: #ed1c24;
+            --red-dark: #c9151c;
+            --red-light: #fff1f1;
+            --sidebar: #222b30;
+            --sidebar-hover: #2d373d;
+            --white: #ffffff;
+            --black-gray: #263238;
+            --dark-gray: #455a64;
+            --gray: #78909c;
+            --light-gray: #eceff1;
+            --border: #e1e5e8;
+            --page-bg: #f1f1f1;
+        }
+
+
+        /* =========================================================
+                   TOP NAVBAR
+                ========================================================= */
+
         .navbar-custom {
-            background-color: #ffffff;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 56px;
+            background: var(--white);
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
             z-index: 1030;
-            height: 70px;
+            padding: 0;
         }
 
-        /* White Logo Brand Box Container */
+
+        /* =========================================================
+                   LEFT LOGO BOX
+                ========================================================= */
+
         .navbar-left-box {
+            width: 155px;
+            height: 56px;
+            background: var(--sidebar);
             display: flex;
             align-items: center;
-            width: 260px;
-            height: 100%;
-            padding: 0 24px;
-            background-color: #ffffff;
-            border-right: 1px solid rgba(0, 0, 0, 0.05);
-            transition: width 0.3s ease, padding 0.3s ease;
-        }
-
-        /* Dedicated Light Green Toggle Zone Box from Image */
-        .toggle-zone-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: 70px;
-        }
-
-        .sidebar-toggle-btn {
-            background: none;
-            border: none;
-            color: #16a34a; /* Green hamburger menu icon */
-            font-size: 24px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
+            padding: 0 15px;
+            border-right: 1px solid #39434a;
+            transition: all .3s ease;
         }
 
         .navbar-brand-custom {
             display: flex;
             align-items: center;
+            gap: 8px;
             text-decoration: none;
-            gap: 10px;
         }
 
             .navbar-brand-custom img {
-                width: 42px;
-                height: 42px;
+                width: 34px;
+                height: 34px;
                 object-fit: contain;
+                border-radius: 50%;
             }
 
         .brand-text {
-            color: #0f6328;
+            color: #ffffff;
+            font-size: 14px;
             font-weight: 700;
-            font-size: 18px;
-            letter-spacing: 0.5px;
+            letter-spacing: .4px;
         }
 
-        /* --- NAVBAR PROFILE AND UTILITY --- */
-        .navbar-profile {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-left: auto;
-        }
 
-        .notification-btn {
-            background: none;
-            border: none;
-            color: #64748b;
-            font-size: 20px;
-            position: relative;
-            cursor: pointer;
-        }
+        /* =========================================================
+                   HAMBURGER
+                ========================================================= */
 
-        .profile-widget {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: #f8fafc;
-            padding: 6px 12px;
-            border-radius: 30px;
-            border: 1px solid #e2e8f0;
-            cursor: pointer;
-        }
-
-        .profile-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: #ffb74d;
+        .toggle-zone-box {
+            height: 56px;
+            width: 55px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 600;
+            background: #ffffff;
+        }
+
+        .sidebar-toggle-btn {
+            border: none;
+            background: transparent;
+            color: var(--red);
+            font-size: 18px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+            .sidebar-toggle-btn:hover {
+                color: var(--red-dark);
+            }
+
+
+        /* =========================================================
+                   NAVBAR RIGHT
+                ========================================================= */
+
+        .navbar-profile {
+            margin-left: auto;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-right: 15px;
+        }
+
+
+        /* =========================================================
+                   NOTIFICATION
+                ========================================================= */
+
+        .notification-container {
+            position: relative;
+        }
+
+        .notification-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: transparent;
+            color: var(--dark-gray);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+            .notification-btn:hover {
+                color: var(--red);
+            }
+
+        .notification-badge-dot {
+            position: absolute;
+            top: 8px;
+            right: 7px;
+            width: 7px;
+            height: 7px;
+            background: var(--red);
+            border-radius: 50%;
+            border: 1px solid white;
+        }
+
+
+        /* =========================================================
+                   NOTIFICATION DROPDOWN
+                ========================================================= */
+
+        .notification-dropdown-custom {
+            position: absolute;
+            right: 0;
+            top: 48px;
+            width: 330px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.12);
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all .25s ease;
+            z-index: 1050;
+        }
+
+        .notification-container.open
+        .notification-dropdown-custom {
+            max-height: 450px;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .notif-header {
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .notif-header-title {
+            color: var(--black-gray);
             font-size: 13px;
+            font-weight: 700;
         }
 
-        .profile-info {
-            text-align: left;
-            line-height: 1.2;
-        }
-
-        .profile-name {
-            font-size: 12px;
-            font-weight: 600;
-            color: #1e293b;
-            display: block;
-        }
-
-        .profile-email {
+        .notif-mark-read {
+            color: var(--red);
             font-size: 10px;
-            color: #64748b;
-            display: block;
+            font-weight: 600;
         }
 
-        /*==============================
-                              PROFILE DROPDOWN
-                        ==============================*/
+            .notif-mark-read:hover {
+                color: var(--red-dark);
+            }
+
+        .notif-body {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .notif-item {
+            display: flex;
+            gap: 10px;
+            padding: 12px 15px;
+            border-bottom: 1px solid #f1f1f1;
+            color: inherit;
+            transition: .2s ease;
+        }
+
+            .notif-item:hover {
+                background: var(--red-light);
+            }
+
+            .notif-item.unread {
+                background: #fff7f7;
+            }
+
+        .notif-icon-box {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .notif-icon-success {
+            background: #e8f5e9;
+            color: #43a047;
+        }
+
+        .notif-icon-warning {
+            background: #fff3e0;
+            color: #fb8c00;
+        }
+
+        .notif-content {
+            flex: 1;
+        }
+
+        .notif-text {
+            color: var(--dark-gray);
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        .notif-time {
+            color: #9e9e9e;
+            font-size: 9px;
+            margin-top: 3px;
+        }
+
+        .notif-footer {
+            padding: 10px;
+            text-align: center;
+            background: #fafafa;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .notif-footer-btn {
+            color: var(--red);
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+
+        /* =========================================================
+                   PROFILE
+                ========================================================= */
 
         .profile-container {
             position: relative;
         }
 
         .profile-widget {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 8px;
+            border-radius: 20px;
+            background: #f5f5f5;
+            border: 1px solid #e3e3e3;
             cursor: pointer;
-            user-select: none;
+            transition: .2s ease;
+        }
+
+            .profile-widget:hover {
+                background: #eeeeee;
+            }
+
+        .profile-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #ffb52e;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .profile-info {
+            line-height: 1.1;
+        }
+
+        .profile-name {
+            display: block;
+            color: var(--black-gray);
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .profile-email {
+            display: block;
+            color: #78909c;
+            font-size: 8px;
         }
 
         .profile-arrow {
+            color: #546e7a;
+            font-size: 11px;
             transition: .3s;
         }
 
         .profile-dropdown-custom {
             position: absolute;
             right: 0;
-            top: 115%;
-            width: 230px;
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 15px;
-            box-shadow: 0 12px 30px rgba(0,0,0,.08);
+            top: 48px;
+            width: 200px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.12);
             overflow: hidden;
             max-height: 0;
             opacity: 0;
             visibility: hidden;
-            transition: max-height .35s ease, opacity .25s ease, transform .25s ease;
-            transform: translateY(-10px);
+            transform: translateY(-8px);
+            transition: all .25s ease;
+            z-index: 1050;
         }
-
-            .profile-dropdown-custom a {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                padding: 14px 18px;
-                text-decoration: none;
-                color: #475569;
-                font-weight: 500;
-                transition: .25s;
-            }
-
-                .profile-dropdown-custom a:hover {
-                    background: #f0fdf4;
-                    color: #16a34a;
-                }
-
-                .profile-dropdown-custom a i {
-                    font-size: 18px;
-                }
 
         .profile-container.open .profile-dropdown-custom {
             max-height: 200px;
@@ -219,201 +422,382 @@
             transform: rotate(180deg);
         }
 
-
-        /* --- VERTICAL SIDEBAR MENU STYLING --- */
-        .sidebar-menu-wrapper {
-            position: fixed;
-            top: 70px;
-            left: 0;
-            bottom: 0;
-            width: 260px;
-            background-color: #ffffff;
-            border-right: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 24px 16px;
-            overflow-y: auto;
-            z-index: 1020;
-            transition: width 0.3s ease, padding 0.3s ease;
+        .profile-dropdown-custom a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            color: var(--dark-gray);
+            font-size: 12px;
+            font-weight: 500;
+            transition: .2s ease;
         }
 
+            .profile-dropdown-custom a:hover {
+                background: var(--red-light);
+                color: var(--red);
+            }
+
+            .profile-dropdown-custom a i {
+                font-size: 16px;
+            }
+
+
+        /* =========================================================
+                   SIDEBAR
+                ========================================================= */
+
+        .sidebar-menu-wrapper {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            bottom: 0;
+            width: 155px;
+            background: var(--sidebar);
+            border-right: 1px solid #39434a;
+            padding: 15px 8px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            z-index: 1020;
+            transition: all .3s ease;
+        }
+
+
+            /* Sidebar scrollbar */
+
+            .sidebar-menu-wrapper::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            .sidebar-menu-wrapper::-webkit-scrollbar-track {
+                background: var(--sidebar);
+            }
+
+            .sidebar-menu-wrapper::-webkit-scrollbar-thumb {
+                background: #45545d;
+                border-radius: 10px;
+            }
+
+
         .sidebar-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
+            gap: 4px;
         }
 
         .sidebar-link-item {
-            text-decoration: none;
-            color: #64748b;
-            font-weight: 500;
-            font-size: 15px;
+            width: 100%;
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: 8px;
-            transition: all 0.2s ease;
+            gap: 10px;
+            padding: 11px 10px;
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 500;
             white-space: nowrap;
+            transition: all .2s ease;
         }
 
             .sidebar-link-item i {
-                font-size: 20px;
-                min-width: 24px;
+                width: 17px;
+                min-width: 17px;
+                font-size: 14px;
                 display: inline-flex;
                 justify-content: center;
             }
 
+
+            /* SIDEBAR HOVER */
+
             .sidebar-link-item:hover {
-                color: #16a34a;
-                background-color: #f0fdf4;
+                color: var(--red);
+                background: rgba(237, 28, 36, .08);
             }
 
+
+            /* ACTIVE */
+
             .sidebar-link-item.active {
-                color: #16a34a;
-                background-color: #f0fdf4;
+                color: var(--red);
+                background: transparent;
                 font-weight: 600;
             }
 
-        /* --- LAYOUT WORKSPACE CONTAINER --- */
+
+        /* =========================================================
+                   SETTINGS
+                ========================================================= */
+
+        .sidebar-settings {
+            list-style: none;
+        }
+
+        .settings-toggle {
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+            .settings-toggle > a {
+                color: #ffffff !important;
+            }
+
+                .settings-toggle > a:hover {
+                    color: var(--red) !important;
+                }
+
+            .settings-toggle.active {
+                color: var(--red);
+                background: rgba(237,28,36,.08);
+            }
+
+                .settings-toggle.active > a {
+                    color: var(--red) !important;
+                }
+
+        .settings-arrow {
+            color: #ffffff;
+            font-size: 11px;
+            transition: .3s;
+        }
+
+        .settings-toggle:hover .settings-arrow {
+            color: var(--red);
+        }
+
+        .settings-submenu {
+            list-style: none;
+            padding: 0 0 0 12px;
+            margin: 2px 0 0 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease;
+        }
+
+            .settings-submenu li {
+                margin: 2px 0;
+            }
+
+            .settings-submenu a {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 9px;
+                border-radius: 5px;
+                color: #ffffff !important;
+                font-size: 11px;
+                font-weight: 500;
+                transition: .2s ease;
+            }
+
+                /* Settings hover = RED */
+
+                .settings-submenu a:hover {
+                    background: rgba(237,28,36,.10);
+                    color: var(--red) !important;
+                }
+
+                .settings-submenu a i {
+                    color: #ffffff;
+                    font-size: 12px;
+                }
+
+                .settings-submenu a:hover i {
+                    color: var(--red);
+                }
+
+                .settings-submenu a.active {
+                    color: var(--red) !important;
+                    background: rgba(237,28,36,.10);
+                }
+
+                    .settings-submenu a.active i {
+                        color: var(--red);
+                    }
+
+        .sidebar-settings.open .settings-submenu {
+            max-height: 150px;
+        }
+
+        .sidebar-settings.open .settings-arrow {
+            transform: rotate(90deg);
+        }
+
+
+        /* =========================================================
+                   LOGOUT
+                ========================================================= */
+
+        .sidebar-logout {
+            position: absolute;
+            bottom: 15px;
+            left: 8px;
+            right: 8px;
+        }
+
+        .logout-link {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 10px;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 500;
+            border-radius: 5px;
+            transition: .2s ease;
+        }
+
+            .logout-link:hover {
+                color: var(--red);
+                background: rgba(237,28,36,.08);
+            }
+
+            .logout-link i {
+                font-size: 16px;
+            }
+
+
+        /* =========================================================
+                   MAIN CONTENT
+                ========================================================= */
+
         .page-container {
-            margin-left: 260px;
-            max-width: 1300px;
-            padding: 40px 30px;
-            transition: margin-left 0.3s ease;
+            margin-left: 155px;
+            padding: 78px 18px 35px 18px;
+            min-height: 100vh;
+            transition: margin-left .3s ease;
         }
 
 
-        /* ==========================================================================
-                            DRIVEN COLLAPSE STYLES (Matches image perfectly on toggle click)
-                           ========================================================================== */
-
-        /* 1. Logo Box shrinks to a perfectly clean white square */
-        body.sidebar-collapsed .navbar-left-box {
-            width: 76px;
-            padding: 0;
-            justify-content: center;
-        }
-
-        /* 2. Brand name text drops out cleanly */
-        body.sidebar-collapsed .brand-text {
-            display: none;
-        }
-
-        /* 3. Navigation Sidebar wrapper body collapses down */
-        body.sidebar-collapsed .sidebar-menu-wrapper {
-            width: 76px;
-            padding: 24px 10px;
-        }
-
-        body.sidebar-collapsed .sidebar-link-text {
-            display: none;
-        }
-
-        body.sidebar-collapsed .sidebar-link-item {
-            justify-content: center;
-            padding: 12px 0;
-            gap: 0;
-        }
-
-        /* 4. Core layout workspace shifts outward */
-        body.sidebar-collapsed .page-container {
-            margin-left: 76px;
-        }
+        /* =========================================================
+                   PAGE HEADING
+                ========================================================= */
 
         .heading-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 35px;
+            margin-bottom: 20px;
         }
 
         .page-title {
-            color: #16a34a;
-            font-size: 26px;
+            color: var(--black-gray);
+            font-size: 23px;
             font-weight: 700;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .page-subtitle {
-            color: #64748b;
-            font-size: 14px;
+            color: #607d8b;
+            font-size: 11px;
             font-weight: 500;
             margin: 0;
         }
 
-       
-        /* Main Container Box */
+
+        /* =========================================================
+                   MAIN CARD
+                ========================================================= */
+
         .schedules-card {
-            background: white;
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
             border-radius: 8px;
-            border: none;
-            padding: 40px;
+            padding: 20px 15px;
             min-height: 500px;
+            box-shadow: 0 3px 15px rgba(0,0,0,.04);
         }
+
+
+        /* =========================================================
+                   CARD HEADER
+                ========================================================= */
 
         .card-header-flex {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 18px;
         }
 
         .card-title-custom {
-            font-size: 16px;
-            font-weight: 700;
-            color: #475569;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            color: var(--black-gray);
+            font-size: 14px;
+            font-weight: 700;
             margin: 0;
         }
 
             .card-title-custom i {
-                color: #16a34a;
-                font-size: 20px;
+                color: var(--red);
+                font-size: 18px;
             }
 
-        /* Search input styling */
+
+        /* =========================================================
+                   SEARCH
+                ========================================================= */
+
         .search-wrapper {
             position: relative;
-            width: 300px;
+            width: 280px;
         }
 
             .search-wrapper i {
                 position: absolute;
-                left: 12px;
+                left: 13px;
                 top: 50%;
                 transform: translateY(-50%);
-                color: #16a34a;
+                color: #78909c;
+                font-size: 13px;
             }
 
         .search-input {
             width: 100%;
-            padding: 8px 12px 8px 36px;
-            font-size: 12px;
-            border: 1px solid #16a34a;
-            border-radius: 6px;
+            height: 35px;
+            padding: 7px 12px 7px 34px;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
             outline: none;
+            color: var(--black-gray);
+            font-size: 11px;
+            box-shadow: 0 3px 10px rgba(0,0,0,.05);
+            transition: .2s ease;
         }
 
-            .search-input::placeholder {
-                color: #94a3b8;
+            .search-input:focus {
+                border-color: var(--red);
+                box-shadow: 0 0 0 2px rgba(237,28,36,.08);
             }
 
+            .search-input::placeholder {
+                color: #9e9e9e;
+            }
+
+
+        /* =========================================================
+                   SECTION TITLES
+                ========================================================= */
+
         .section-table-title {
-            font-size: 15px;
+            color: var(--black-gray);
+            font-size: 13px;
             font-weight: 600;
-            color: #475569;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
-        /* --- CUSTOM TABLE STYLING --- */
+
+        /* =========================================================
+                   TABLE
+                ========================================================= */
+
         .custom-table-container {
-            border: 1px solid #16a34a;
-            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+            border-radius: 7px;
             overflow: hidden;
+            margin-bottom: 30px;
         }
 
         .custom-table {
@@ -423,43 +807,62 @@
         }
 
             .custom-table th {
-                background-color: #eaf6ed;
-                color: #000000;
-                font-weight: 700;
-                font-size: 14px;
-                padding: 14px 20px;
+                background: var(--black-gray);
+                color: #ffffff;
+                font-size: 11px;
+                font-weight: 600;
+                padding: 14px 14px;
                 text-align: left;
-                border-bottom: 1px solid #16a34a;
+                border: none;
             }
 
             .custom-table td {
-                padding: 20px;
+                background: #ffffff;
+                color: #37474f;
+                font-size: 10px;
+                padding: 15px 14px;
                 vertical-align: middle;
-                font-size: 12px;
-                color: #334155;
-                background-color: #ffffff;
+                border-bottom: 1px solid #eeeeee;
             }
 
-        /* Table Columns Content styling */
+            .custom-table tbody tr:last-child td {
+                border-bottom: none;
+            }
+
+            .custom-table tbody tr:hover td {
+                background: #fffafa;
+            }
+
+
+        /* =========================================================
+                   DATE AND TIME
+                ========================================================= */
+
         .datetime-flex {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
         }
 
         .datetime-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            color: #334155;
+            gap: 7px;
+            color: #455a64;
+            font-size: 10px;
             font-weight: 500;
         }
 
             .datetime-item i {
-                color: #64748b;
+                color: #78909c;
+                font-size: 12px;
             }
 
-        /* Status Pill and Context Subtext */
+
+        /* =========================================================
+                   STATUS
+                ========================================================= */
+
         .status-wrapper {
             display: flex;
             flex-direction: column;
@@ -467,647 +870,997 @@
         }
 
         .status-pill-pending {
-            background-color: #ffe0b2;
-            color: #e65100;
-            font-weight: 600;
-            font-size: 10px;
-            padding: 4px 12px;
-            border-radius: 4px;
+            display: inline-block;
             width: fit-content;
+            background: #fff3e0;
+            color: #ef6c00;
+            font-size: 9px;
+            font-weight: 600;
+            padding: 4px 9px;
+            border-radius: 4px;
         }
 
         .status-subtext {
-            font-size: 10px;
-            color: #64748b;
+            color: #78909c;
+            font-size: 8px;
+            line-height: 1.3;
         }
 
         .status-confirmed {
+            color: #263238;
+            font-size: 9px;
             font-weight: 600;
-            color: #334155;
         }
 
-        /* Action Row Buttons */
+
+        /* =========================================================
+                   ACTION BUTTONS
+                ========================================================= */
+
         .action-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
         }
 
         .btn-row {
             display: flex;
-            gap: 8px;
+            align-items: center;
+            gap: 7px;
         }
 
         .btn-action-edit {
-            background: white;
-            color: #16a34a;
-            border: 1px solid #16a34a;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 500;
-            padding: 4px 12px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            transition: all 0.2s;
+            gap: 5px;
+            padding: 5px 10px;
+            background: var(--red);
+            color: #ffffff;
+            border: 1px solid var(--red);
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 500;
+            transition: all .2s ease;
         }
 
             .btn-action-edit:hover {
-                background-color: #f0fdf4;
-                color: #16a34a;
+                background: var(--red-dark);
+                border-color: var(--red-dark);
+                color: #ffffff;
+                transform: translateY(-1px);
             }
 
         .btn-action-cancel {
-            background: white;
-            color: #dc3545;
-            border: 1px solid #dc3545;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 500;
-            padding: 4px 12px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            transition: all 0.2s;
+            gap: 5px;
+            padding: 5px 10px;
+            background: #ffffff;
+            color: var(--red);
+            border: 1px solid var(--red);
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 500;
+            transition: all .2s ease;
         }
 
             .btn-action-cancel:hover {
-                background-color: #fff5f5;
-                color: #dc3545;
+                background: var(--red);
+                color: #ffffff;
+                border-color: var(--red);
+                transform: translateY(-1px);
             }
 
         .action-subtext {
-            font-size: 10px;
-            color: #64748b;
+            color: #78909c;
+            font-size: 8px;
             line-height: 1.3;
         }
 
-        /* Responsive UI Breakpoints */
-        @@media (max-width: 991px) {
-            .heading-section
 
-        {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
+        /* =========================================================
+                   SIDEBAR COLLAPSE
+                ========================================================= */
+
+        body.sidebar-collapsed .navbar-left-box {
+            width: 60px;
+            padding: 0;
+            justify-content: center;
         }
 
-        .date-pill-container {
-            align-self: flex-start;
-        }
-
-        .nav-links-custom {
+        body.sidebar-collapsed .brand-text {
             display: none;
         }
 
-        .card-header-flex {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
+        body.sidebar-collapsed .sidebar-menu-wrapper {
+            width: 60px;
+            padding-left: 6px;
+            padding-right: 6px;
         }
 
-        .search-wrapper {
-            width: 100%;
+        body.sidebar-collapsed .sidebar-link-item {
+            justify-content: center;
+            padding-left: 0;
+            padding-right: 0;
+            gap: 0;
         }
 
-        .custom-table th, .custom-table td {
-            padding: 12px;
-        }
-
-        }
-
-        /* SETTINGS */
-        .sidebar-settings {
-            list-style: none;
-        }
-
-        .settings-toggle {
-            justify-content: space-between;
-        }
-            /* Parent active */
-            .settings-toggle.active {
-                background: #f0fdf4;
-                color: #16a34a;
-                font-weight: 600;
-            }
-        /* Child active */
-        .settings-submenu a.active {
-            background: #f0fdf4;
-            color: #16a34a;
-            font-weight: 600;
-        }
-
-        .settings-arrow {
-            font-size: 14px;
-            transition: .3s;
-            color: #64748b;
-        }
-
-        .settings-submenu {
-            list-style: none;
-            padding-left: 18px;
-            margin-top: 5px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height .35s ease;
-        }
-
-
-            .settings-submenu li {
-                margin: 5px 0;
-            }
-
-            .settings-submenu a {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                text-decoration: none;
-                color: #64748b;
-                padding: 10px 15px;
-                border-radius: 8px;
-                font-size: 14px;
-                transition: .3s;
-            }
-
-                .settings-submenu a:hover {
-                    background: #f0fdf4;
-                    color: #16a34a;
-                }
-
-        .sidebar-settings.open .settings-submenu {
-            max-height: 200px;
-        }
-
-        .sidebar-settings.open .settings-arrow {
-            transform: rotate(90deg);
-        }
-
-        /* Hide submenu text when sidebar collapses */
-        body.sidebar-collapsed .settings-submenu {
-            display: none !important;
+        body.sidebar-collapsed .sidebar-link-text {
+            display: none;
         }
 
         body.sidebar-collapsed .settings-arrow {
             display: none;
         }
 
-        /* --- NOTIFICATION DROPDOWN MENU --- */
-        .notification-dropdown-custom {
-            position: absolute;
-            right: 0;
-            top: 115%;
-            width: 340px;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            max-height: 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease;
-            transform: translateY(-10px);
-            z-index: 1050;
+        body.sidebar-collapsed .settings-submenu {
+            display: none !important;
         }
 
-        .notification-container.open .notification-dropdown-custom {
-            max-height: 480px;
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        /* Header */
-        .notif-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 18px;
-            border-bottom: 1px solid #f1f5f9;
-            background-color: #ffffff;
-        }
-
-        .notif-header-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #1e293b;
-        }
-
-        .notif-mark-read {
-            font-size: 11px;
-            color: #16a34a;
-            font-weight: 600;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-            .notif-mark-read:hover {
-                color: #15803d;
-                text-decoration: underline;
-            }
-
-        /* List Body */
-        .notif-body {
-            max-height: 320px;
-            overflow-y: auto;
-        }
-
-        .notif-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px 18px;
-            text-decoration: none;
-            border-bottom: 1px solid #f8fafc;
-            transition: background-color 0.2s;
-        }
-
-            .notif-item:hover {
-                background-color: #f0fdf4;
-            }
-
-            .notif-item.unread {
-                background-color: #f7fee7;
-            }
-
-        .notif-icon-box {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
+        body.sidebar-collapsed .logout-link {
             justify-content: center;
-            flex-shrink: 0;
-            font-size: 15px;
+            padding-left: 0;
+            padding-right: 0;
         }
 
-        .notif-icon-success {
-            background-color: #dcfce7;
-            color: #16a34a;
+        body.sidebar-collapsed .logout-text {
+            display: none;
         }
 
-        .notif-icon-warning {
-            background-color: #fef3c7;
-            color: #d97706;
+        body.sidebar-collapsed .page-container {
+            margin-left: 60px;
         }
 
-        .notif-content {
-            flex: 1;
-        }
 
-        .notif-text {
-            font-size: 12px;
-            color: #334155;
-            font-weight: 500;
-            line-height: 1.4;
-            margin-bottom: 2px;
-        }
+        /* =========================================================
+                   RESPONSIVE
+                ========================================================= */
 
-        .notif-time {
-            font-size: 10px;
-            color: #94a3b8;
-        }
+        @@media (max-width: 991px) {
 
-        /* Footer */
-        .notif-footer {
-            padding: 10px;
-            text-align: center;
-            background-color: #fafafa;
-            border-top: 1px solid #f1f5f9;
-        }
-
-        .notif-footer-btn {
-            font-size: 12px;
-            font-weight: 600;
-            color: #16a34a;
-            text-decoration: none;
-        }
-
-            .notif-footer-btn:hover {
-                text-decoration: underline;
+            .navbar-left-box {
+                width: 130px;
             }
+
+            .sidebar-menu-wrapper {
+                width: 130px;
+            }
+
+            .page-container {
+                margin-left: 130px;
+            }
+
+            .card-header-flex {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .search-wrapper {
+                width: 100%;
+            }
+
+            .custom-table-container {
+                overflow-x: auto;
+            }
+
+            .custom-table {
+                min-width: 700px;
+            }
+        }
+
+
+        @@media (max-width: 700px) {
+
+            .navbar-left-box {
+                width: 55px;
+                justify-content: center;
+                padding: 0;
+            }
+
+            .brand-text {
+                display: none;
+            }
+
+            .sidebar-menu-wrapper {
+                width: 55px;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .sidebar-link-item {
+                justify-content: center;
+                padding-left: 0;
+                padding-right: 0;
+                gap: 0;
+            }
+
+            .sidebar-link-text {
+                display: none;
+            }
+
+            .settings-arrow {
+                display: none;
+            }
+
+            .settings-submenu {
+                display: none !important;
+            }
+
+            .page-container {
+                margin-left: 55px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .profile-info {
+                display: none;
+            }
+
+            .profile-widget {
+                padding: 4px;
+            }
+
+            .profile-arrow {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 20px;
+            }
+
+            .schedules-card {
+                padding: 15px 10px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
-    <!-- TOP NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top d-flex flex-row align-items-center justify-content-start">
 
-        <!-- Left Brand Logo Panel (White background box) -->
+    <!-- =========================================================
+         TOP NAVBAR
+    ========================================================= -->
+
+    <nav class="navbar-custom">
+
+        <!-- LOGO -->
         <div class="navbar-left-box" id="navLeftBox">
-            <a class="navbar-brand-custom" href="#">
-                <img src="~/Images/logo.png" alt="Logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3061/3061341.png'" />
-                <div class="brand-text" id="brandText">SORS</div>
+
+            <a class="navbar-brand-custom"
+               href="@Url.Action("ApplicantDash", "Applicant")">
+
+                <img src="~/Images/logo.png"
+                     alt="SORS Logo"
+                     onerror="this.src='https://cdn-icons-png.flaticon.com/512/3061/3061341.png';" />
+
+                <span class="brand-text" id="brandText">
+                    SORS
+                </span>
+
             </a>
+
         </div>
 
-        <!-- Menu Toggle Area Container (Light Green Background Strip) -->
+
+        <!-- HAMBURGER -->
         <div class="toggle-zone-box">
-            <button class="sidebar-toggle-btn" id="toggleSidebar" title="Toggle Menu">
+
+            <button class="sidebar-toggle-btn"
+                    id="toggleSidebar"
+                    type="button"
+                    title="Toggle Menu">
+
                 <i class="bi bi-list"></i>
+
             </button>
+
         </div>
 
-        <!-- Right Profile/Notification Actions -->
-        <div class="navbar-profile pe-4">
-            <!-- NOTIFICATION CONTAINER -->
+
+        <!-- RIGHT SIDE -->
+        <div class="navbar-profile">
+
+
+            <!-- NOTIFICATION -->
             <div class="notification-container">
-                <button class="notification-btn" id="notificationToggle" title="Notifications">
+
+                <button class="notification-btn"
+                        id="notificationToggle"
+                        type="button"
+                        title="Notifications">
+
                     <i class="bi bi-bell"></i>
-                    <!-- Unread Badge Indicator -->
+
                     <span class="notification-badge-dot"></span>
+
                 </button>
 
-                <!-- DROPDOWN POPUP -->
-                <div class="notification-dropdown-custom" id="notificationMenu">
+
+                <!-- Notification Dropdown -->
+                <div class="notification-dropdown-custom"
+                     id="notificationMenu">
+
                     <div class="notif-header">
-                        <span class="notif-header-title">Notifications</span>
-                        <a href="#" class="notif-mark-read">Mark all as read</a>
+
+                        <span class="notif-header-title">
+                            Notifications
+                        </span>
+
+                        <a href="#"
+                           class="notif-mark-read">
+                            Mark all as read
+                        </a>
+
                     </div>
+
 
                     <div class="notif-body">
-                        <!-- Approved Notification Item -->
-                        <a href="#" class="notif-item unread">
+
+                        <!-- Notification 1 -->
+                        <a href="#"
+                           class="notif-item unread">
+
                             <div class="notif-icon-box notif-icon-success">
+
                                 <i class="bi bi-check-circle-fill"></i>
+
                             </div>
+
                             <div class="notif-content">
-                                <div class="notif-text">Your interview request <strong>#RI01</strong> was approved.</div>
-                                <div class="notif-time">10 mins ago</div>
+
+                                <div class="notif-text">
+
+                                    Your interview request
+                                    <strong>#RI01</strong>
+                                    was approved.
+
+                                </div>
+
+                                <div class="notif-time">
+                                    10 mins ago
+                                </div>
+
                             </div>
+
                         </a>
 
-                        <!-- Pending Notification Item -->
-                        <a href="#" class="notif-item">
+
+                        <!-- Notification 2 -->
+                        <a href="#"
+                           class="notif-item">
+
                             <div class="notif-icon-box notif-icon-warning">
+
                                 <i class="bi bi-clock-history"></i>
+
                             </div>
+
                             <div class="notif-content">
-                                <div class="notif-text">Reminder: Upload missing requirements for <strong>RI02</strong>.</div>
-                                <div class="notif-time">2 hours ago</div>
+
+                                <div class="notif-text">
+
+                                    Reminder: Upload missing
+                                    requirements for
+                                    <strong>#RI02</strong>.
+
+                                </div>
+
+                                <div class="notif-time">
+                                    2 hours ago
+                                </div>
+
                             </div>
+
                         </a>
+
                     </div>
+
 
                     <div class="notif-footer">
-                        <a href="#" class="notif-footer-btn">View All Notifications</a>
+
+                        <a href="#"
+                           class="notif-footer-btn">
+
+                            View All Notifications
+
+                        </a>
+
                     </div>
+
                 </div>
+
             </div>
 
+
+            <!-- PROFILE -->
             <div class="profile-container">
 
-                <div class="profile-widget" id="profileToggle">
+                <div class="profile-widget"
+                     id="profileToggle">
 
                     <div class="profile-avatar">
                         MG
                     </div>
 
                     <div class="profile-info">
-                        <span class="profile-name">Mary Grace</span>
-                        <span class="profile-email">smartoffice@gmail.com</span>
+
+                        <span class="profile-name">
+                            Mary Grace
+                        </span>
+
+                        <span class="profile-email">
+                            smartoffice@@gmail.com
+                        </span>
+
                     </div>
 
-                    <i class="bi bi-chevron-down profile-arrow ms-2"></i>
+                    <i class="bi bi-chevron-down profile-arrow"></i>
 
                 </div>
 
-                <div class="profile-dropdown-custom" id="profileMenu">
+
+                <!-- PROFILE DROPDOWN -->
+                <div class="profile-dropdown-custom"
+                     id="profileMenu">
 
                     <a href="@Url.Action("MyAccount", "Applicant")">
+
                         <i class="bi bi-person-circle"></i>
+
                         My Account
+
                     </a>
 
-                    <a href="@Url.Action("ApplicantLogin", "Applicant")" class="text-danger">
+
+                    <a href="@Url.Action("ApplicantLogin", "Applicant")">
+
                         <i class="bi bi-box-arrow-right"></i>
+
                         Sign Out
+
                     </a>
 
                 </div>
 
             </div>
+
         </div>
+
     </nav>
 
-    <!-- LEFT SIDEBAR NAV MENU -->
-    <aside class="sidebar-menu-wrapper" id="sidebarMenu">
+
+
+    <!-- =========================================================
+         SIDEBAR
+    ========================================================= -->
+
+    <aside class="sidebar-menu-wrapper"
+           id="sidebarMenu">
+
         <ul class="sidebar-links">
+
+
+            <!-- DASHBOARD -->
             <li>
-                <a href="@Url.Action("ApplicantDash", "Applicant")" class="sidebar-link-item">
+
+                <a href="@Url.Action("ApplicantDash", "Applicant")"
+                   class="sidebar-link-item">
+
                     <i class="bi bi-house-door-fill"></i>
-                    <span class="sidebar-link-text">Dashboard</span>
+
+                    <span class="sidebar-link-text">
+                        Dashboard
+                    </span>
+
                 </a>
-            </li>
-            <li>
-                <a href="@Url.Action("BookInterview", "Applicant")" class="sidebar-link-item">
-                    <i class="bi bi-file-earmark-spreadsheet-fill"></i>
-                    <span class="sidebar-link-text">Book Interview</span>
-                </a>
-            </li>
-            <li>
-                <a href="@Url.Action("MyAppointment", "Applicant")" class="sidebar-link-item active">
-                    <i class="bi bi-person-bounding-box"></i>
-                    <span class="sidebar-link-text">My Appointment</span>
-                </a>
+
             </li>
 
-            <!-- Open by default on Settings page -->
+
+            <!-- BOOK INTERVIEW -->
+            <li>
+
+                <a href="@Url.Action("BookInterview", "Applicant")"
+                   class="sidebar-link-item">
+
+                    <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+
+                    <span class="sidebar-link-text">
+                        Book Interview
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- MY APPOINTMENT -->
+            <li>
+
+                <a href="@Url.Action("MyAppointment", "Applicant")"
+                   class="sidebar-link-item active">
+
+                    <i class="bi bi-person-bounding-box"></i>
+
+                    <span class="sidebar-link-text">
+                        My Appointment
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- SETTINGS -->
             <li class="sidebar-settings">
-                <div class="sidebar-link-item settings-toggle">
+
+                <div class="sidebar-link-item settings-toggle"
+                     id="settingsToggle">
 
                     <a href="@Url.Action("Settings", "Applicant")"
-                       class="d-flex align-items-center flex-grow-1 text-decoration-none text-reset">
+                       class="d-flex align-items-center flex-grow-1 text-decoration-none">
 
                         <i class="bi bi-gear-fill"></i>
+
                         <span class="sidebar-link-text ms-2">
-                            Settings & Account
+                            Settings
                         </span>
 
                     </a>
 
-                    <i class="bi bi-chevron-right settings-arrow"
-                       id="settingsToggle"></i>
+                    <i class="bi bi-chevron-right settings-arrow"></i>
 
                 </div>
 
-                <ul class="settings-submenu" id="settingsMenu">
+
+                <!-- SETTINGS SUBMENU -->
+                <ul class="settings-submenu"
+                    id="settingsMenu">
+
                     <li>
-                        <a href="@Url.Action("Settings", "Applicant")" id="settingsLink">
+
+                        <a href="@Url.Action("Settings", "Applicant")">
+
                             <i class="bi bi-shield-lock"></i>
-                            <span class="sidebar-link-text">Settings</span>
+
+                            <span class="sidebar-link-text">
+                                Settings
+                            </span>
+
                         </a>
+
                     </li>
+
+
                     <li>
+
                         <a href="@Url.Action("MyAccount", "Applicant")">
+
                             <i class="bi bi-person-circle"></i>
-                            <span class="sidebar-link-text">My Account</span>
+
+                            <span class="sidebar-link-text">
+                                My Account
+                            </span>
+
                         </a>
+
                     </li>
+
                 </ul>
+
             </li>
+
         </ul>
+
+
+        <!-- LOGOUT -->
+        <div class="sidebar-logout">
+
+            <a href="@Url.Action("ApplicantLogin", "Applicant")"
+               class="logout-link">
+
+                <i class="bi bi-box-arrow-right"></i>
+
+                <span class="logout-text">
+                    Logout
+                </span>
+
+            </a>
+
+        </div>
+
     </aside>
 
-    <!-- CONTENT BODY -->
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================= -->
+
     <div class="page-container">
 
-        <!-- Top Heading Layout -->
+
+        <!-- PAGE HEADING -->
         <div class="heading-section">
-            <div>
-                <h1 class="page-title">My Appointments</h1>
-                <p class="page-subtitle">View your schedule interview details below.</p>
-            </div>
+
+            <h1 class="page-title">
+                My Appointments
+            </h1>
+
+            <p class="page-subtitle">
+                View your scheduled interview details below.
+            </p>
 
         </div>
 
-        <!-- Main Display Panel Container -->
+
+
+        <!-- =====================================================
+             MAIN SCHEDULE CARD
+        ===================================================== -->
+
         <div class="schedules-card">
 
-            <!-- Card Header with Title and Search Input -->
+
+            <!-- CARD HEADER -->
             <div class="card-header-flex">
+
                 <h2 class="card-title-custom">
-                    <i class="bi bi-calendar-event-fill"></i> Schedules Interviews
+
+                    <i class="bi bi-calendar-event-fill"></i>
+
+                    Schedules Interviews
+
                 </h2>
+
+
+                <!-- SEARCH -->
                 <div class="search-wrapper">
+
                     <i class="bi bi-search"></i>
-                    <input type="text" class="search-input" placeholder="Search here...">
+
+                    <input type="text"
+                           class="search-input"
+                           id="appointmentSearch"
+                           placeholder="Search here..." />
+
                 </div>
+
             </div>
 
-            <!-- SECTION 1: Upcoming Appointment -->
-            <div class="mb-5">
-                <h3 class="section-table-title">Upcoming appointment</h3>
-                <div class="custom-table-container">
-                    <table class="custom-table">
-                        <thead>
-                            <tr>
-                                <th style="width: 25%;">Purpose</th>
-                                <th style="width: 30%;">Date & Time</th>
-                                <th style="width: 20%;">Status</th>
-                                <th style="width: 20%;">Action</th>
-                               
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Document Verification</td>
 
+
+            <!-- =================================================
+                 UPCOMING APPOINTMENT
+            ================================================== -->
+
+            <div class="mb-4">
+
+                <h3 class="section-table-title">
+                    Upcoming appointment
+                </h3>
+
+
+                <div class="custom-table-container">
+
+                    <table class="custom-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th style="width: 25%;">
+                                    Interview Details
+                                </th>
+
+                                <th style="width: 30%;">
+                                    Date & Time
+                                </th>
+
+                                <th style="width: 20%;">
+                                    Status
+                                </th>
+
+                                <th style="width: 25%;">
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="upcomingTable">
+
+                            <tr>
+
+                                <!-- PURPOSE -->
                                 <td>
+
+                                    <strong>
+                                        Document Verification
+                                    </strong>
+
+                                </td>
+
+
+                                <!-- DATE TIME -->
+                                <td>
+
                                     <div class="datetime-flex">
+
                                         <div class="datetime-item">
+
                                             <i class="bi bi-calendar3"></i>
-                                            July 15, 2026 (Wednesday)
+
+                                            July 15, 2026
+                                            (Wednesday)
+
                                         </div>
+
+
                                         <div class="datetime-item">
+
                                             <i class="bi bi-clock"></i>
+
                                             09:00 AM
+
                                         </div>
+
                                     </div>
+
                                 </td>
 
-                                 <td>
-                                    <div class="status-wrapper">
-                                        <span class="status-pill-pending">Pending</span>
-                                        <span class="status-subtext">Waiting for an admin review</span>
-                                    </div>
-                                </td>
+
+                                <!-- STATUS -->
                                 <td>
-                                    <div class="action-wrapper">
-                                        <div class="btn-row">
-                                            <a href="#" class="btn-action-edit"><i class="bi bi-pencil"></i> Edit</a>
-                                            <a href="#" class="btn-action-cancel"><i class="bi bi-trash"></i> Cancel</a>
-                                        </div>
-                                        <span class="action-subtext">Edit or Cancel is available only while pending.</span>
+
+                                    <div class="status-wrapper">
+
+                                        <span class="status-pill-pending">
+                                            Pending
+                                        </span>
+
+                                        <span class="status-subtext">
+                                            Waiting for an admin review
+                                        </span>
+
                                     </div>
+
                                 </td>
-                               
+
+
+                                <!-- ACTION -->
+                                <td>
+
+                                    <div class="action-wrapper">
+
+                                        <div class="btn-row">
+
+                                            <a href="#"
+                                               class="btn-action-edit">
+
+                                                <i class="bi bi-pencil"></i>
+
+                                                Edit
+
+                                            </a>
+
+
+                                            <a href="#"
+                                               class="btn-action-cancel">
+
+                                                <i class="bi bi-trash"></i>
+
+                                                Cancel
+
+                                            </a>
+
+                                        </div>
+
+
+                                        <span class="action-subtext">
+
+                                            Edit or Cancel is available
+                                            only while pending.
+
+                                        </span>
+
+                                    </div>
+
+                                </td>
+
                             </tr>
+
                         </tbody>
+
                     </table>
+
                 </div>
+
             </div>
 
-            <!-- SECTION 2: Appointment History -->
+
+
+            <!-- =================================================
+                 APPOINTMENT HISTORY
+            ================================================== -->
+
             <div>
-                <h3 class="section-table-title">Appointment History</h3>
+
+                <h3 class="section-table-title">
+                    Appointment History
+                </h3>
+
+
                 <div class="custom-table-container">
+
                     <table class="custom-table">
+
                         <thead>
+
                             <tr>
-                                <th style="width: 30%;">Interview Details</th>
-                                <th style="width: 30%;">Date & Time</th>
-                                <th style="width: 30%;">Office</th>
-                                <th style="width: 15%;">Status</th>
+
+                                <th style="width: 30%;">
+                                    Email Address
+                                </th>
+
+                                <th style="width: 30%;">
+                                    Date & Time
+                                </th>
+
+                                <th style="width: 25%;">
+                                    Office
+                                </th>
+
+                                <th style="width: 15%;">
+                                    Status
+                                </th>
+
                             </tr>
+
                         </thead>
-                        <tbody>
+
+
+                        <tbody id="historyTable">
+
                             <tr>
-                                <td>marygrae@gmail.com</td>
+
+                                <!-- EMAIL -->
                                 <td>
+                                    marygrace@@gmail.com
+                                </td>
+
+
+                                <!-- DATE TIME -->
+                                <td>
+
                                     <div class="datetime-flex">
+
                                         <div class="datetime-item">
-                                            <i class="bi bi-calendar3"></i> July 15, 2026 (Wednesday)
+
+                                            <i class="bi bi-calendar3"></i>
+
+                                            July 15, 2026
+                                            (Wednesday)
+
                                         </div>
+
+
                                         <div class="datetime-item">
-                                            <i class="bi bi-clock"></i> 09:00 AM
+
+                                            <i class="bi bi-clock"></i>
+
+                                            09:00 AM
+
                                         </div>
+
                                     </div>
+
                                 </td>
 
-                                <td>Work Avenue and Business Solutions Inc.</td>
 
+                                <!-- OFFICE -->
                                 <td>
-                                    <span class="status-confirmed">CONFIRMED</span>
+                                    Work Avenue and Business
+                                    Solutions Inc.
                                 </td>
+
+
+                                <!-- STATUS -->
+                                <td>
+
+                                    <span class="status-confirmed">
+                                        CONFIRMED
+                                    </span>
+
+                                </td>
+
                             </tr>
+
                         </tbody>
+
                     </table>
+
                 </div>
+
             </div>
 
         </div>
+
     </div>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
     <script>
-        //Top menu toggle
-         document.getElementById('toggleSidebar').addEventListener('click', function () {
-            document.body.classList.toggle('sidebar-collapsed');
+
+        /* =====================================================
+           SIDEBAR TOGGLE
+        ===================================================== */
+
+        const toggleSidebar =
+            document.getElementById("toggleSidebar");
+
+        toggleSidebar.addEventListener("click", function () {
+
+            document.body.classList.toggle(
+                "sidebar-collapsed"
+            );
+
         });
 
-        // Settings expand/collapse
-                   const settingsToggle = document.getElementById("settingsToggle");
-        const settingsParent = document.querySelector(".settings-toggle");
-        const settingsGroup = document.querySelector(".sidebar-settings");
-        const settingsLink = document.getElementById("settingsLink");
 
-        // Open Settings menu
+
+        /* =====================================================
+           SETTINGS DROPDOWN
+        ===================================================== */
+
+        const settingsToggle =
+            document.getElementById("settingsToggle");
+
+        const settingsGroup =
+            document.querySelector(".sidebar-settings");
+
+
         settingsToggle.addEventListener("click", function (e) {
 
+            /*
+             * Only open the dropdown when clicking
+             * the arrow / settings area.
+             */
+
+            const clickedLink =
+                e.target.closest("a");
+
+            if (clickedLink) {
+                return;
+            }
+
             e.preventDefault();
-            e.stopPropagation();
 
             settingsGroup.classList.toggle("open");
 
-            // Make Settings & Account active
-            settingsParent.classList.add("active");
         });
 
-        // Click Settings
-        settingsLink.addEventListener("click", function () {
 
-            // Parent remains active
-            settingsParent.classList.add("active");
 
-            // Child becomes active
-            settingsLink.classList.add("active");
+        /* =====================================================
+           PROFILE DROPDOWN
+        ===================================================== */
 
-        });
+        const profileContainer =
+            document.querySelector(".profile-container");
 
-        //Profile dropdown
-                const profileContainer = document.querySelector(".profile-container");
-        const profileToggle = document.getElementById("profileToggle");
+        const profileToggle =
+            document.getElementById("profileToggle");
+
 
         profileToggle.addEventListener("click", function (e) {
 
@@ -1115,7 +1868,46 @@
 
             profileContainer.classList.toggle("open");
 
+            /*
+             * Close notification if profile opens
+             */
+
+            notificationContainer.classList.remove("open");
+
         });
+
+
+
+        /* =====================================================
+           NOTIFICATION DROPDOWN
+        ===================================================== */
+
+        const notificationContainer =
+            document.querySelector(".notification-container");
+
+        const notificationToggle =
+            document.getElementById("notificationToggle");
+
+
+        notificationToggle.addEventListener("click", function (e) {
+
+            e.stopPropagation();
+
+            notificationContainer.classList.toggle("open");
+
+            /*
+             * Close profile dropdown
+             */
+
+            profileContainer.classList.remove("open");
+
+        });
+
+
+
+        /* =====================================================
+           CLOSE DROPDOWNS WHEN CLICKING OUTSIDE
+        ===================================================== */
 
         document.addEventListener("click", function (e) {
 
@@ -1125,27 +1917,73 @@
 
             }
 
-        });
 
-        // Notification dropdown toggle
-        const notificationContainer = document.querySelector(".notification-container");
-        const notificationToggle = document.getElementById("notificationToggle");
-
-        notificationToggle.addEventListener("click", function (e) {
-            e.stopPropagation();
-            // Close profile menu if it's open
-            profileContainer.classList.remove("open");
-            // Toggle notification menu
-            notificationContainer.classList.toggle("open");
-        });
-
-        // Close when clicking anywhere outside
-        document.addEventListener("click", function (e) {
             if (!notificationContainer.contains(e.target)) {
+
                 notificationContainer.classList.remove("open");
+
             }
+
         });
+
+
+
+        /* =====================================================
+           SEARCH APPOINTMENT
+        ===================================================== */
+
+        const searchInput =
+            document.getElementById("appointmentSearch");
+
+
+        searchInput.addEventListener("keyup", function () {
+
+            const searchValue =
+                this.value.toLowerCase();
+
+
+            const upcomingRows =
+                document.querySelectorAll(
+                    "#upcomingTable tr"
+                );
+
+
+            const historyRows =
+                document.querySelectorAll(
+                    "#historyTable tr"
+                );
+
+
+            upcomingRows.forEach(function (row) {
+
+                row.style.display =
+                    row.innerText
+                        .toLowerCase()
+                        .includes(searchValue)
+                        ? ""
+                        : "none";
+
+            });
+
+
+            historyRows.forEach(function (row) {
+
+                row.style.display =
+                    row.innerText
+                        .toLowerCase()
+                        .includes(searchValue)
+                        ? ""
+                        : "none";
+
+            });
+
+        });
+
     </script>
+
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

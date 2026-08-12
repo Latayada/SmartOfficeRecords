@@ -7,17 +7,20 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings - SORS</title>
 
-    <!-- Bootstrap 5 CSS -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Google Fonts (Poppins) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -26,824 +29,1101 @@
         }
 
         body {
-            background-color: #eaf6ed; /* Light mint background */
+            background: #f5f6f7;
             min-height: 100vh;
-            color: #334155;
-            padding-top: 70px;
+            color: #1f2937;
         }
 
-        /* --- NAVBAR STYLING --- */
+        /* =========================================================
+                   TOP NAVBAR
+                ========================================================= */
+
         .navbar-custom {
-            background-color: #ffffff;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 78px;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
             z-index: 1030;
-            height: 70px;
         }
 
-        /* White Logo Brand Box Container */
+        /* Logo area */
         .navbar-left-box {
+            width: 175px;
+            height: 78px;
+            background: #222c33;
             display: flex;
             align-items: center;
-            width: 260px;
-            height: 100%;
-            padding: 0 24px;
-            background-color: #ffffff;
-            border-right: 1px solid rgba(0, 0, 0, 0.05);
-            transition: width 0.3s ease, padding 0.3s ease;
-        }
-
-        /* Dedicated Light Green Toggle Zone Box */
-        .toggle-zone-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: 70px;
-        }
-
-        .sidebar-toggle-btn {
-            background: none;
-            border: none;
-            color: #16a34a; /* Green hamburger menu icon */
-            font-size: 24px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
+            padding: 0 20px;
+            border-bottom: 1px solid rgba(255,255,255,.15);
+            transition: .3s ease;
         }
 
         .navbar-brand-custom {
             display: flex;
             align-items: center;
-            text-decoration: none;
             gap: 10px;
+            text-decoration: none;
         }
 
             .navbar-brand-custom img {
-                width: 42px;
-                height: 42px;
+                width: 38px;
+                height: 38px;
                 object-fit: contain;
+                border-radius: 50%;
             }
 
         .brand-text {
-            color: #0f6328;
+            color: #ffffff;
+            font-size: 15px;
             font-weight: 700;
-            font-size: 18px;
-            letter-spacing: 0.5px;
+            letter-spacing: .3px;
         }
 
-        /* --- NAVBAR PROFILE AND UTILITY --- */
-        .navbar-profile {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-left: auto;
-        }
-
-        .notification-btn {
-            background: none;
-            border: none;
-            color: #64748b;
-            font-size: 20px;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .profile-widget {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: #f8fafc;
-            padding: 6px 12px;
-            border-radius: 30px;
-            border: 1px solid #e2e8f0;
-            cursor: pointer;
-        }
-
-        .profile-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: #ffb74d;
+        /* Hamburger */
+        .toggle-zone-box {
+            width: 65px;
+            height: 78px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 600;
-            font-size: 13px;
         }
 
-        .profile-info {
-            text-align: left;
-            line-height: 1.2;
+        .sidebar-toggle-btn {
+            border: none;
+            background: transparent;
+            color: #ed1c24;
+            font-size: 20px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
         }
 
-        .profile-name {
-            font-size: 12px;
-            font-weight: 600;
-            color: #1e293b;
-            display: block;
+            .sidebar-toggle-btn:hover {
+                color: #c9151c;
+            }
+
+        /* Right navbar */
+        .navbar-profile {
+            margin-left: auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-right: 20px;
         }
 
-        .profile-email {
-            font-size: 10px;
-            color: #64748b;
-            display: block;
+        /* Notification */
+        .notification-container {
+            position: relative;
         }
 
-        /*==============================
-                            PROFILE DROPDOWN
-                ==============================*/
+        .notification-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: transparent;
+            color: #333b42;
+            font-size: 21px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .notification-btn:hover {
+                color: #ed1c24;
+            }
+
+        .notification-badge-dot {
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            background: #ed1c24;
+            border-radius: 50%;
+            top: 6px;
+            right: 7px;
+        }
+
+        /* Profile */
         .profile-container {
             position: relative;
         }
 
         .profile-widget {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f7f7f7;
+            border: 1px solid #e5e7eb;
+            border-radius: 25px;
+            padding: 5px 10px 5px 6px;
             cursor: pointer;
-            user-select: none;
+            min-width: 135px;
+        }
+
+            .profile-widget:hover {
+                background: #f3f4f6;
+            }
+
+        .profile-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #ffb52e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .profile-info {
+            line-height: 1.1;
+            flex: 1;
+        }
+
+        .profile-name {
+            display: block;
+            color: #20252a;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .profile-email {
+            display: block;
+            color: #6b7280;
+            font-size: 8px;
+            margin-top: 2px;
         }
 
         .profile-arrow {
+            color: #555;
+            font-size: 11px;
             transition: .3s;
-        }
-
-        .profile-dropdown-custom {
-            position: absolute;
-            right: 0;
-            top: 115%;
-            width: 230px;
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 15px;
-            box-shadow: 0 12px 30px rgba(0,0,0,.08);
-            overflow: hidden;
-            max-height: 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: max-height .35s ease, opacity .25s ease, transform .25s ease;
-            transform: translateY(-10px);
-        }
-
-            .profile-dropdown-custom a {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                padding: 14px 18px;
-                text-decoration: none;
-                color: #475569;
-                font-weight: 500;
-                transition: .25s;
-            }
-
-                .profile-dropdown-custom a:hover {
-                    background: #f0fdf4;
-                    color: #16a34a;
-                }
-
-                .profile-dropdown-custom a i {
-                    font-size: 18px;
-                }
-
-        .profile-container.open .profile-dropdown-custom {
-            max-height: 200px;
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
         }
 
         .profile-container.open .profile-arrow {
             transform: rotate(180deg);
         }
 
-        /* --- VERTICAL SIDEBAR MENU STYLING --- */
-        .sidebar-menu-wrapper {
-            position: fixed;
-            top: 70px;
-            left: 0;
-            bottom: 0;
-            width: 260px;
-            background-color: #ffffff;
-            border-right: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 24px 16px;
-            overflow-y: auto;
-            z-index: 1020;
-            transition: width 0.3s ease, padding 0.3s ease;
-        }
+        /* =========================================================
+                   PROFILE DROPDOWN
+                ========================================================= */
 
-        .sidebar-links {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .sidebar-link-item {
-            text-decoration: none;
-            color: #64748b;
-            font-weight: 500;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-            .sidebar-link-item i {
-                font-size: 20px;
-                min-width: 24px;
-                display: inline-flex;
-                justify-content: center;
-            }
-
-            .sidebar-link-item:hover {
-                color: #16a34a;
-                background-color: #f0fdf4;
-            }
-
-            .sidebar-link-item.active {
-                color: #16a34a;
-                background-color: #f0fdf4;
-                font-weight: 600;
-            }
-
-        /* --- LAYOUT WORKSPACE CONTAINER --- */
-        .page-container {
-            margin-left: 260px;
-            max-width: 1300px;
-            padding: 40px 30px;
-            transition: margin-left 0.3s ease;
-        }
-
-        /* --- SETTINGS CARD STYLING --- */
-        .settings-card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
-        }
-
-        .form-label {
-            font-weight: 600;
-            font-size: 14px;
-            color: #334155;
-            margin-bottom: 8px;
-        }
-
-        .form-select, .form-control {
-            border-radius: 8px;
-            border: 1px solid #cbd5e1;
-            padding: 10px 14px;
-            font-size: 14px;
-            color: #334155;
-        }
-
-            .form-select:focus, .form-control:focus {
-                border-color: #16a34a;
-                box-shadow: 0 0 0 0.25rem rgba(22, 163, 74, 0.15);
-            }
-
-        .form-check-input:checked {
-            background-color: #16a34a;
-            border-color: #16a34a;
-        }
-
-        .btn-save {
-            background-color: #16a34a;
-            color: #ffffff;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-            .btn-save:hover {
-                background-color: #15803d;
-                box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
-            }
-
-        /* --- SIDEBAR COLLAPSE STYLES --- */
-        body.sidebar-collapsed .navbar-left-box {
-            width: 76px;
-            padding: 0;
-            justify-content: center;
-        }
-
-        body.sidebar-collapsed .brand-text {
-            display: none;
-        }
-
-        body.sidebar-collapsed .sidebar-menu-wrapper {
-            width: 76px;
-            padding: 24px 10px;
-        }
-
-        body.sidebar-collapsed .sidebar-link-text {
-            display: none;
-        }
-
-        body.sidebar-collapsed .sidebar-link-item {
-            justify-content: center;
-            padding: 12px 0;
-            gap: 0;
-        }
-
-        body.sidebar-collapsed .page-container {
-            margin-left: 76px;
-        }
-
-        /* Responsive UI adjustments */
-        @@media (max-width: 991px) {
-            .toggle-zone-box
-
-        {
-            display: none !important;
-        }
-
-        .navbar-left-box {
-            width: auto !important;
-            padding: 0 15px !important;
-            border-right: none !important;
-        }
-
-        .brand-text {
-            display: inline !important;
-        }
-
-        .sidebar-menu-wrapper {
-            position: static;
-            width: 100% !important;
-            height: auto;
-            border-right: none;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 15px 20px !important;
-        }
-
-        .sidebar-links {
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .sidebar-link-text {
-            display: inline !important;
-        }
-
-        .sidebar-link-item {
-            padding: 8px 14px !important;
-            font-size: 14px;
-            justify-content: flex-start !important;
-            gap: 12px !important;
-        }
-
-        .page-container {
-            margin-left: 0 !important;
-            padding: 20px;
-        }
-
-        }
-
-        /* SETTINGS SUBMENU */
-        .sidebar-settings {
-            list-style: none;
-        }
-
-        .settings-toggle {
-            justify-content: space-between;
-        }
-            /* Parent active */
-            .settings-toggle.active {
-                background: #f0fdf4;
-                color: #16a34a;
-                font-weight: 600;
-            }
-        /* Child active */
-        .settings-submenu a.active {
-            background: #f0fdf4;
-            color: #16a34a;
-            font-weight: 600;
-        }
-
-        .settings-arrow {
-            font-size: 14px;
-            transition: .3s;
-            color: #64748b;
-        }
-
-        .settings-submenu {
-            list-style: none;
-            padding-left: 18px;
-            margin-top: 5px;
-            display: none;
-        }
-
-            .settings-submenu li {
-                margin: 5px 0;
-            }
-
-            .settings-submenu a {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                text-decoration: none;
-                color: #64748b;
-                padding: 10px 15px;
-                border-radius: 8px;
-                font-size: 14px;
-                transition: .3s;
-            }
-
-                .settings-submenu a:hover {
-                    background: #f0fdf4;
-                    color: #16a34a;
-                }
-
-        .sidebar-settings.open .settings-submenu {
-            display: block;
-        }
-        .sidebar-settings.open .settings-arrow {
-            transform: rotate(90deg);
-        }
-        body.sidebar-collapsed .settings-submenu {
-            display: none !important;
-        }
-        body.sidebar-collapsed .settings-arrow {
-            display: none;
-        }
-
-        /* --- NOTIFICATION DROPDOWN MENU --- */
-        .notification-dropdown-custom {
+        .profile-dropdown-custom {
             position: absolute;
             right: 0;
-            top: 115%;
-            width: 340px;
+            top: 48px;
+            width: 210px;
             background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0,0,0,.12);
             overflow: hidden;
-            max-height: 0;
             opacity: 0;
             visibility: hidden;
-            transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease;
-            transform: translateY(-10px);
-            z-index: 1050;
+            transform: translateY(-8px);
+            transition: .25s ease;
+            z-index: 1100;
         }
 
-        .notification-container.open .notification-dropdown-custom {
-            max-height: 480px;
+        .profile-container.open .profile-dropdown-custom {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
-        /* Header */
-        .notif-header {
+        .profile-dropdown-custom a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            color: #374151;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+            .profile-dropdown-custom a:hover {
+                background: #fff1f2;
+                color: #ed1c24;
+            }
+
+            .profile-dropdown-custom a i {
+                font-size: 17px;
+            }
+
+        /* =========================================================
+                   SIDEBAR
+                ========================================================= */
+
+        .sidebar-menu-wrapper {
+            position: fixed;
+            left: 0;
+            top: 78px;
+            bottom: 0;
+            width: 175px;
+            background: #222c33;
+            padding: 22px 10px 18px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            z-index: 1020;
+            transition: width .3s ease;
+        }
+
+        .sidebar-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .sidebar-links > li {
+                margin-bottom: 5px;
+            }
+
+        .sidebar-link-item {
+            width: 100%;
+            min-height: 40px;
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 7px;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all .2s ease;
+            white-space: nowrap;
+        }
+
+            .sidebar-link-item i {
+                width: 18px;
+                min-width: 18px;
+                text-align: center;
+                font-size: 15px;
+                color: #ffffff;
+            }
+
+            .sidebar-link-item:hover {
+                background: #303b43;
+                color: #ffffff;
+            }
+
+                .sidebar-link-item:hover i {
+                    color: #ffffff;
+                }
+
+            /* Active */
+            .sidebar-link-item.active {
+                background: transparent;
+                color: #ed1c24;
+                font-weight: 600;
+            }
+
+                .sidebar-link-item.active i {
+                    color: #ed1c24;
+                }
+
+        /* =========================================================
+                   SETTINGS SIDEBAR
+                ========================================================= */
+
+        .sidebar-settings {
+            list-style: none;
+        }
+
+        .settings-toggle {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 18px;
-            border-bottom: 1px solid #f1f5f9;
-            background-color: #ffffff;
+            padding: 0;
+            border-radius: 7px;
+        }
+
+            .settings-toggle > a {
+                flex: 1;
+                color: #ffffff !important;
+                padding: 10px 12px;
+                font-size: 13px;
+                font-weight: 500;
+            }
+
+                .settings-toggle > a i {
+                    color: #ffffff;
+                    font-size: 15px;
+                }
+
+            .settings-toggle:hover {
+                background: #303b43;
+            }
+
+            .settings-toggle.active {
+                background: transparent;
+            }
+
+                .settings-toggle.active > a {
+                    color: #ed1c24 !important;
+                    font-weight: 600;
+                }
+
+                    .settings-toggle.active > a i {
+                        color: #ed1c24;
+                    }
+
+        .settings-arrow {
+            color: #ffffff;
+            font-size: 11px;
+            margin-right: 12px;
+            cursor: pointer;
+            transition: transform .3s ease;
+        }
+
+        .sidebar-settings.open .settings-arrow {
+            transform: rotate(90deg);
+        }
+
+        .settings-submenu {
+            list-style: none;
+            padding: 4px 0 2px 18px;
+            margin: 0;
+            display: none;
+        }
+
+        .sidebar-settings.open .settings-submenu {
+            display: block;
+        }
+
+        .settings-submenu li {
+            margin-bottom: 2px;
+        }
+
+        .settings-submenu a {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 10px;
+            border-radius: 6px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 500;
+            transition: .2s ease;
+        }
+
+            .settings-submenu a i {
+                color: #ffffff;
+                font-size: 13px;
+            }
+
+            .settings-submenu a:hover {
+                background: #303b43;
+                color: #ffffff;
+            }
+
+            .settings-submenu a.active {
+                background: transparent;
+                color: #ed1c24;
+                font-weight: 600;
+            }
+
+                .settings-submenu a.active i {
+                    color: #ed1c24;
+                }
+
+        /* =========================================================
+                   LOGOUT
+                ========================================================= */
+
+        .sidebar-logout {
+            position: absolute;
+            bottom: 18px;
+            left: 10px;
+            right: 10px;
+        }
+
+        .logout-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            border-radius: 7px;
+            transition: .2s ease;
+        }
+
+            .logout-link i {
+                font-size: 16px;
+            }
+
+            .logout-link:hover {
+                background: #303b43;
+                color: #ffffff;
+            }
+
+        /* =========================================================
+                   MAIN CONTENT
+                ========================================================= */
+
+        .page-container {
+            margin-left: 175px;
+            padding: 105px 25px 40px;
+            min-height: 100vh;
+            transition: margin-left .3s ease;
+        }
+
+        .content-wrapper {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .settings-breadcrumb {
+            font-size: 10px;
+            font-weight: 600;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .settings-header h1 {
+            font-size: 24px;
+            line-height: 1.2;
+            color: #26323a;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .settings-header p {
+            color: #64748b;
+            font-size: 11px;
+            margin-bottom: 25px;
+        }
+
+        /* =========================================================
+                   SETTINGS GRID
+                ========================================================= */
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .settings-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 7px;
+            padding: 17px 18px;
+            min-height: 185px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.025);
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #27323a;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+            .card-title i {
+                color: #27323a;
+                font-size: 13px;
+            }
+
+        /* Fields */
+        .field-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 14px;
+        }
+
+        .setting-field label {
+            display: block;
+            font-size: 10px;
+            color: #475569;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .setting-field select {
+            width: 100%;
+            height: 34px;
+            padding: 5px 10px;
+            border: 1px solid #d7dce0;
+            border-radius: 6px;
+            background: #ffffff;
+            color: #374151;
+            font-size: 10px;
+            outline: none;
+            cursor: pointer;
+        }
+
+            .setting-field select:focus {
+                border-color: #ed1c24;
+                box-shadow: 0 0 0 2px rgba(237,28,36,.08);
+            }
+
+        /* =========================================================
+                   ACCENT COLORS
+                ========================================================= */
+
+        .accent-label {
+            display: block;
+            font-size: 10px;
+            color: #475569;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .accent-colors {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .accent-option {
+            width: 21px;
+            height: 21px;
+            border-radius: 50%;
+            border: 1px solid #9ca3af;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .2s;
+        }
+
+            .accent-option.red {
+                background: #ed1c24;
+                border-color: #ed1c24;
+            }
+
+            .accent-option.black {
+                background: #20272d;
+                border-color: #20272d;
+            }
+
+            .accent-option.blue {
+                background: #9aa9bd;
+                border-color: #9aa9bd;
+            }
+
+            .accent-option.white {
+                background: #ffffff;
+            }
+
+            .accent-option.active::after {
+                content: "✓";
+                color: #ffffff;
+                font-size: 12px;
+                font-weight: 700;
+            }
+
+            .accent-option.white.active::after {
+                color: #333333;
+            }
+
+        /* =========================================================
+                   NOTIFICATIONS
+                ========================================================= */
+
+        .notification-setting {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .notification-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+            .notification-left i {
+                font-size: 11px;
+                color: #64748b;
+            }
+
+            .notification-left span {
+                font-size: 10px;
+                color: #475569;
+                font-weight: 500;
+            }
+
+        /* Toggle */
+        .custom-switch {
+            position: relative;
+            width: 33px;
+            height: 18px;
+        }
+
+            .custom-switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+        .switch-slider {
+            position: absolute;
+            inset: 0;
+            background: #d9dee2;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+            .switch-slider::before {
+                content: "";
+                position: absolute;
+                width: 14px;
+                height: 14px;
+                left: 2px;
+                top: 2px;
+                background: #ffffff;
+                border-radius: 50%;
+                transition: .3s;
+                box-shadow: 0 1px 2px rgba(0,0,0,.15);
+            }
+
+        .custom-switch input:checked + .switch-slider {
+            background: #ed1c24;
+        }
+
+            .custom-switch input:checked + .switch-slider::before {
+                transform: translateX(15px);
+            }
+
+        /* Reminder */
+        .reminder-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 5px;
+            padding-left: 19px;
+        }
+
+        .reminder-label {
+            color: #475569;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .reminder-select {
+            height: 27px;
+            min-width: 72px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 3px 8px;
+            font-size: 9px;
+            color: #475569;
+            background: #ffffff;
+        }
+
+        /* =========================================================
+                   SAVE BUTTON
+                ========================================================= */
+
+        .save-container {
+            margin-top: 25px;
+        }
+
+        .btn-save {
+            border: none;
+            background: #ed1c24;
+            color: #ffffff;
+            padding: 9px 18px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+            .btn-save:hover {
+                background: #c9151c;
+                box-shadow: 0 4px 10px rgba(237,28,36,.20);
+                transform: translateY(-1px);
+            }
+
+        /* =========================================================
+                   NOTIFICATION DROPDOWN
+                ========================================================= */
+
+        .notification-dropdown-custom {
+            position: absolute;
+            right: 0;
+            top: 45px;
+            width: 320px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0,0,0,.12);
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: .25s ease;
+            z-index: 1100;
+        }
+
+        .notification-container.open .notification-dropdown-custom {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .notif-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 13px 15px;
+            border-bottom: 1px solid #edf0f2;
         }
 
         .notif-header-title {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 700;
-            color: #1e293b;
+            color: #26323a;
         }
 
         .notif-mark-read {
-            font-size: 11px;
-            color: #16a34a;
-            font-weight: 600;
+            font-size: 9px;
+            color: #ed1c24;
             text-decoration: none;
-            transition: color 0.2s;
+            font-weight: 600;
         }
 
-            .notif-mark-read:hover {
-                color: #15803d;
-                text-decoration: underline;
-            }
-
-        /* List Body */
         .notif-body {
-            max-height: 320px;
+            max-height: 260px;
             overflow-y: auto;
         }
 
         .notif-item {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            padding: 12px 18px;
+            gap: 10px;
+            padding: 11px 15px;
             text-decoration: none;
-            border-bottom: 1px solid #f8fafc;
-            transition: background-color 0.2s;
+            border-bottom: 1px solid #f1f5f9;
         }
 
             .notif-item:hover {
-                background-color: #f0fdf4;
-            }
-
-            .notif-item.unread {
-                background-color: #f7fee7;
+                background: #fff5f5;
             }
 
         .notif-icon-box {
-            width: 34px;
-            height: 34px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 15px;
         }
 
         .notif-icon-success {
-            background-color: #dcfce7;
+            background: #dcfce7;
             color: #16a34a;
         }
 
         .notif-icon-warning {
-            background-color: #fef3c7;
+            background: #fef3c7;
             color: #d97706;
         }
 
-        .notif-content {
-            flex: 1;
-        }
-
         .notif-text {
-            font-size: 12px;
-            color: #334155;
-            font-weight: 500;
+            font-size: 10px;
+            color: #374151;
             line-height: 1.4;
-            margin-bottom: 2px;
         }
 
         .notif-time {
-            font-size: 10px;
+            font-size: 8px;
             color: #94a3b8;
+            margin-top: 2px;
         }
 
-        /* Footer */
         .notif-footer {
-            padding: 10px;
             text-align: center;
-            background-color: #fafafa;
-            border-top: 1px solid #f1f5f9;
+            padding: 10px;
+            background: #fafafa;
         }
 
         .notif-footer-btn {
-            font-size: 12px;
-            font-weight: 600;
-            color: #16a34a;
+            color: #ed1c24;
+            font-size: 10px;
             text-decoration: none;
-        }
-
-            .notif-footer-btn:hover {
-                text-decoration: underline;
-            }
-
-        /* ===========================
-           SETTINGS MAIN CONTENT
-        =========================== */
-
-        .page-container {
-            background: linear-gradient(180deg,#dff8e7 0%,#f7fff9 25%,#dff8e7 100%);
-            min-height: calc(100vh - 70px);
-        }
-
-        .settings-header h2 {
-            color: #16a34a;
-            font-size: 34px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .settings-header p {
-            color: #64748b;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-
-        .settings-card {
-            background: #fff;
-            border-radius: 14px;
-            padding: 28px;
-            border: 1px solid #e8f5eb;
-            box-shadow: 0 5px 18px rgba(0,0,0,.05);
-        }
-
-        .settings-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px 40px;
-        }
-
-        .setting-group label {
-            font-size: 15px;
             font-weight: 600;
-            margin-bottom: 8px;
-            color: #475569;
         }
 
-        .setting-group select {
-            height: 48px;
-            border: 1.5px solid #74d38f;
-            border-radius: 8px;
-            box-shadow: none;
-        }
-
-            .setting-group select:focus {
-                border-color: #16a34a;
-                box-shadow: 0 0 0 .18rem rgba(22,163,74,.15);
-            }
-
-        .sound-title {
-            font-weight: 600;
-            color: #475569;
-            margin-top: 5px;
-            margin-bottom: 10px;
-        }
-
-        .form-switch .form-check-input {
-            width: 48px;
-            height: 24px;
-        }
-
-            .form-switch .form-check-input:checked {
-                background-color: #16a34a;
-                border-color: #16a34a;
-            }
-
-        .btn-save {
-            background: #16a34a;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 6px;
-            color: #fff;
-            font-weight: 600;
-            margin-top: 25px;
-        }
-
-            .btn-save:hover {
-                background: #15803d;
-            }
-
-        @@media(max - width:768px) {
-            .settings-grid
-
-        {
-            grid-template-columns: 1fr;
-        }
-
-        .settings-header h2 {
-            font-size: 28px;
-        }
-
-        }
+       
 
     </style>
 </head>
+
 <body>
 
-    <!-- TOP NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top d-flex flex-row align-items-center justify-content-start">
+    <!-- =========================================================
+         TOP NAVBAR
+    ========================================================== -->
 
-        <!-- Left Brand Logo Panel -->
+    <nav class="navbar-custom">
+
+        <!-- Logo -->
         <div class="navbar-left-box" id="navLeftBox">
-            <a class="navbar-brand-custom" href="#">
-                <img src="~/Images/logo.png" alt="Logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3061/3061341.png'" />
-                <div class="brand-text" id="brandText">SORS</div>
+
+            <a href="#" class="navbar-brand-custom">
+
+                <img src="~/Images/logo.png"
+                     alt="SORS Logo"
+                     onerror="this.src='https://cdn-icons-png.flaticon.com/512/3061/3061341.png'" />
+
+                <span class="brand-text">SORS</span>
+
             </a>
+
         </div>
 
-        <!-- Menu Toggle Area Container -->
+        <!-- Toggle -->
         <div class="toggle-zone-box">
-            <button class="sidebar-toggle-btn" id="toggleSidebar" title="Toggle Menu">
+
+            <button class="sidebar-toggle-btn"
+                    id="toggleSidebar"
+                    title="Toggle Sidebar">
+
                 <i class="bi bi-list"></i>
+
             </button>
+
         </div>
 
-        <!-- Right Profile/Notification Actions -->
-        <div class="navbar-profile pe-4">
+        <!-- Right Side -->
+        <div class="navbar-profile">
 
-            <!-- NOTIFICATION CONTAINER -->
+            <!-- Notification -->
             <div class="notification-container">
-                <button class="notification-btn" id="notificationToggle" title="Notifications">
+
+                <button class="notification-btn"
+                        id="notificationToggle"
+                        title="Notifications">
+
                     <i class="bi bi-bell"></i>
-                    <!-- Unread Badge Indicator -->
                     <span class="notification-badge-dot"></span>
+
                 </button>
 
-                <!-- DROPDOWN POPUP -->
-                <div class="notification-dropdown-custom" id="notificationMenu">
+                <!-- Notification Dropdown -->
+                <div class="notification-dropdown-custom"
+                     id="notificationMenu">
+
                     <div class="notif-header">
-                        <span class="notif-header-title">Notifications</span>
-                        <a href="#" class="notif-mark-read">Mark all as read</a>
+
+                        <span class="notif-header-title">
+                            Notifications
+                        </span>
+
+                        <a href="#" class="notif-mark-read">
+                            Mark all as read
+                        </a>
+
                     </div>
 
                     <div class="notif-body">
-                        <!-- Approved Notification Item -->
-                        <a href="#" class="notif-item unread">
+
+                        <a href="#" class="notif-item">
+
                             <div class="notif-icon-box notif-icon-success">
                                 <i class="bi bi-check-circle-fill"></i>
                             </div>
-                            <div class="notif-content">
-                                <div class="notif-text">Your interview request <strong>#RI01</strong> was approved.</div>
-                                <div class="notif-time">10 mins ago</div>
+
+                            <div>
+                                <div class="notif-text">
+                                    Your interview request
+                                    <strong>#RI01</strong>
+                                    was approved.
+                                </div>
+
+                                <div class="notif-time">
+                                    10 mins ago
+                                </div>
                             </div>
+
                         </a>
 
-                        <!-- Pending Notification Item -->
                         <a href="#" class="notif-item">
+
                             <div class="notif-icon-box notif-icon-warning">
                                 <i class="bi bi-clock-history"></i>
                             </div>
-                            <div class="notif-content">
-                                <div class="notif-text">Reminder: Upload missing requirements for <strong>RI02</strong>.</div>
-                                <div class="notif-time">2 hours ago</div>
+
+                            <div>
+                                <div class="notif-text">
+                                    Reminder: Upload missing requirements for
+                                    <strong>#RI02</strong>.
+                                </div>
+
+                                <div class="notif-time">
+                                    2 hours ago
+                                </div>
                             </div>
+
                         </a>
+
                     </div>
 
                     <div class="notif-footer">
-                        <a href="#" class="notif-footer-btn">View All Notifications</a>
+
+                        <a href="#" class="notif-footer-btn">
+                            View All Notifications
+                        </a>
+
                     </div>
+
                 </div>
+
             </div>
 
+            <!-- Profile -->
             <div class="profile-container">
-                <div class="profile-widget" id="profileToggle">
+
+                <div class="profile-widget"
+                     id="profileToggle">
+
                     <div class="profile-avatar">
-                        MG
+                        JC
                     </div>
+
                     <div class="profile-info">
-                        <span class="profile-name">Mary Grace</span>
-                        <span class="profile-email">smartoffice@gmail.com</span>
+
+                        <span class="profile-name">
+                            John Cruz
+                        </span>
+
+                        <span class="profile-email">
+                            johncruz@gmail.com
+                        </span>
+
                     </div>
-                    <i class="bi bi-chevron-down profile-arrow ms-2"></i>
+
+                    <i class="bi bi-chevron-down profile-arrow"></i>
+
                 </div>
 
-                <div class="profile-dropdown-custom" id="profileMenu">
+                <!-- Profile Dropdown -->
+                <div class="profile-dropdown-custom"
+                     id="profileMenu">
+
                     <a href="@Url.Action("MyAccount", "Applicant")">
+
                         <i class="bi bi-person-circle"></i>
+
                         My Account
+
                     </a>
-                    <a href="@Url.Action("ApplicantLogin", "Applicant")" class="text-danger">
+
+                    <a href="@Url.Action("ApplicantLogin", "Applicant")">
+
                         <i class="bi bi-box-arrow-right"></i>
+
                         Sign Out
+
                     </a>
+
                 </div>
+
             </div>
+
         </div>
+
     </nav>
 
-    <!-- LEFT SIDEBAR NAV MENU -->
-    <aside class="sidebar-menu-wrapper" id="sidebarMenu">
+
+    <!-- =========================================================
+         SIDEBAR
+    ========================================================== -->
+
+    <aside class="sidebar-menu-wrapper"
+           id="sidebarMenu">
+
         <ul class="sidebar-links">
+
+            <!-- Dashboard -->
             <li>
-                <a href="@Url.Action("ApplicantDash", "Applicant")" class="sidebar-link-item">
+
+                <a href="@Url.Action("ApplicantDash", "Applicant")"
+                   class="sidebar-link-item">
+
                     <i class="bi bi-house-door-fill"></i>
-                    <span class="sidebar-link-text">Dashboard</span>
+
+                    <span class="sidebar-link-text">
+                        Dashboard
+                    </span>
+
                 </a>
-            </li>
-            <li>
-                <a href="@Url.Action("BookInterview", "Applicant")" class="sidebar-link-item">
-                    <i class="bi bi-file-earmark-spreadsheet-fill"></i>
-                    <span class="sidebar-link-text">Book Interview</span>
-                </a>
-            </li>
-            <li>
-                <a href="@Url.Action("MyAppointment", "Applicant")" class="sidebar-link-item">
-                    <i class="bi bi-person-bounding-box"></i>
-                    <span class="sidebar-link-text">My Appointment</span>
-                </a>
+
             </li>
 
-            <!-- Open by default on Settings page -->
-            <li class="sidebar-settings">
-                <div class="sidebar-link-item settings-toggle">
+
+            <!-- Book Interview -->
+            <li>
+
+                <a href="@Url.Action("BookInterview", "Applicant")"
+                   class="sidebar-link-item">
+
+                    <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+
+                    <span class="sidebar-link-text">
+                        Book Interview
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- My Appointment -->
+            <li>
+
+                <a href="@Url.Action("MyAppointment", "Applicant")"
+                   class="sidebar-link-item">
+
+                    <i class="bi bi-person-bounding-box"></i>
+
+                    <span class="sidebar-link-text">
+                        My Appointment
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- Settings -->
+            <li class="sidebar-settings open">
+
+                <div class="settings-toggle active">
 
                     <a href="@Url.Action("Settings", "Applicant")"
-                       class="d-flex align-items-center flex-grow-1 text-decoration-none text-reset">
+                       class="d-flex align-items-center text-decoration-none">
 
                         <i class="bi bi-gear-fill"></i>
+
                         <span class="sidebar-link-text ms-2">
-                            Settings & Account
+                            Settings
                         </span>
 
                     </a>
@@ -853,136 +1133,542 @@
 
                 </div>
 
-                <ul class="settings-submenu" id="settingsMenu">
+
+                <!-- Settings Submenu -->
+                <ul class="settings-submenu"
+                    id="settingsMenu">
+
                     <li>
-                        <a href="@Url.Action("Settings", "Applicant")" class="sidebar-link-item active">
-                            <i class="bi bi-shield-lock"></i>
-                            <span class="sidebar-link-text">Settings</span>
+
+                        <a href="@Url.Action("Settings", "Applicant")"
+                           class="active">
+
+                            <i class="bi bi-sliders"></i>
+
+                            <span class="sidebar-link-text">
+                                General Settings
+                            </span>
+
                         </a>
+
                     </li>
+
                     <li>
+
                         <a href="@Url.Action("MyAccount", "Applicant")">
+
                             <i class="bi bi-person-circle"></i>
-                            <span class="sidebar-link-text">My Account</span>
+
+                            <span class="sidebar-link-text">
+                                My Account
+                            </span>
+
                         </a>
+
                     </li>
+
                 </ul>
+
             </li>
+
         </ul>
-    </aside>
 
-    <!-- WORKSPACE MAIN CONTENT AREA -->
-    <main class="page-container" id="mainContent">
 
-        <div class="settings-header">
-            <h2>General Settings</h2>
-            <p>Manage your general preferences for a better experience.</p>
+        <!-- Logout -->
+        <div class="sidebar-logout">
+
+            <a href="@Url.Action("ApplicantLogin", "Applicant")"
+               class="logout-link">
+
+                <i class="bi bi-box-arrow-right"></i>
+
+                <span class="logout-text">
+                    Logout
+                </span>
+
+            </a>
+
         </div>
 
-        <div class="settings-card">
+    </aside>
 
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
+    <main class="page-container">
+
+        <div class="content-wrapper">
+
+            <!-- Header -->
+            <div class="settings-header">
+
+                <div class="settings-breadcrumb">
+                    Settings
+                </div>
+
+                <h1>
+                    General Settings
+                </h1>
+
+                <p>
+                    Manage your system preferences and customize your experience.
+                </p>
+
+            </div>
+
+
+            <!-- SETTINGS GRID -->
             <div class="settings-grid">
 
-                <div class="setting-group">
-                    <label>Appearance</label>
-                    <select class="form-select">
-                        <option selected></option>
-                        <option>Light</option>
-                        <option>Dark</option>
-                        <option>System Default</option>
-                    </select>
+
+                <!-- =================================================
+                     APPEARANCE
+                ================================================== -->
+
+                <div class="settings-card">
+
+                    <div class="card-title">
+
+                        <i class="bi bi-palette-fill"></i>
+
+                        Appearance
+
+                    </div>
+
+
+                    <div class="field-row">
+
+                        <!-- Theme -->
+                        <div class="setting-field">
+
+                            <label>
+                                Theme
+                            </label>
+
+                            <select>
+
+                                <option selected>
+                                    Light
+                                </option>
+
+                                <option>
+                                    Dark
+                                </option>
+
+                                <option>
+                                    System Default
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Font Style -->
+                        <div class="setting-field">
+
+                            <label>
+                                Font Style
+                            </label>
+
+                            <select>
+
+                                <option selected>
+                                    Poppins
+                                </option>
+
+                                <option>
+                                    Arial
+                                </option>
+
+                                <option>
+                                    Roboto
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field-row">
+
+                        <!-- Font Size -->
+                        <div class="setting-field">
+
+                            <label>
+                                Font Size
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    Small
+                                </option>
+
+                                <option selected>
+                                    Medium
+                                </option>
+
+                                <option>
+                                    Large
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Sidebar Style -->
+                        <div class="setting-field">
+
+                            <label>
+                                Sidebar Style
+                            </label>
+
+                            <select>
+
+                                <option selected>
+                                    Light
+                                </option>
+
+                                <option>
+                                    Dark
+                                </option>
+
+                                <option>
+                                    Compact
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Accent -->
+                    <div>
+
+                        <span class="accent-label">
+                            Accent Color
+                        </span>
+
+                        <div class="accent-colors">
+
+                            <div class="accent-option red active"></div>
+
+                            <div class="accent-option black"></div>
+
+                            <div class="accent-option blue"></div>
+
+                            <div class="accent-option white"></div>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="setting-group">
-                    <label>Language</label>
-                    <select class="form-select">
-                        <option selected></option>
-                        <option>English</option>
-                        <option>Filipino</option>
-                    </select>
+
+                <!-- =================================================
+                     LANGUAGE & REGION
+                ================================================== -->
+
+                <div class="settings-card">
+
+                    <div class="card-title">
+
+                        <i class="bi bi-globe2"></i>
+
+                        Language & Region
+
+                    </div>
+
+
+                    <div class="field-row">
+
+                        <!-- Language -->
+                        <div class="setting-field">
+
+                            <label>
+                                Language
+                            </label>
+
+                            <select>
+
+                                <option selected>
+                                    English
+                                </option>
+
+                                <option>
+                                    Filipino
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Timezone -->
+                        <div class="setting-field">
+
+                            <label>
+                                Time Zone
+                            </label>
+
+                            <select>
+
+                                <option selected>
+                                    Asia/Manila (GMT+8)
+                                </option>
+
+                                <option>
+                                    Asia/Tokyo (GMT+9)
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field-row">
+
+                        <!-- Time Format -->
+                        <div class="setting-field">
+
+                            <label>
+                                Time Format
+                            </label>
+
+                            <select>
+
+                                <option selected>
+                                    12-Hour
+                                </option>
+
+                                <option>
+                                    24-Hour
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Date Format -->
+                        <div class="setting-field">
+
+                            <label>
+                                Date Format
+                            </label>
+
+                            <select>
+
+                                <option selected>
+                                    MM/DD/YYYY
+                                </option>
+
+                                <option>
+                                    DD/MM/YYYY
+                                </option>
+
+                                <option>
+                                    YYYY-MM-DD
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="setting-group">
-                    <label>Font Style</label>
-                    <select class="form-select">
-                        <option selected></option>
-                        <option>Poppins</option>
-                        <option>Arial</option>
-                        <option>Roboto</option>
-                    </select>
+
+                <!-- =================================================
+                     NOTIFICATIONS
+                ================================================== -->
+
+                <div class="settings-card">
+
+                    <div class="card-title">
+
+                        <i class="bi bi-bell"></i>
+
+                        Notifications
+
+                    </div>
+
+
+                    <!-- Email -->
+                    <div class="notification-setting">
+
+                        <div class="notification-left">
+
+                            <i class="bi bi-envelope"></i>
+
+                            <span>
+                                Email Notifications
+                            </span>
+
+                        </div>
+
+                        <label class="custom-switch">
+
+                            <input type="checkbox" checked />
+
+                            <span class="switch-slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- SMS -->
+                    <div class="notification-setting">
+
+                        <div class="notification-left">
+
+                            <i class="bi bi-chat-left-text"></i>
+
+                            <span>
+                                SMS Notifications
+                            </span>
+
+                        </div>
+
+                        <label class="custom-switch">
+
+                            <input type="checkbox" />
+
+                            <span class="switch-slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- Interview Reminder -->
+                    <div class="reminder-row">
+
+                        <span class="reminder-label">
+                            Interview Reminders
+                        </span>
+
+                        <select class="reminder-select">
+
+                            <option selected>
+                                1 hour before
+                            </option>
+
+                            <option>
+                                2 hours before
+                            </option>
+
+                            <option>
+                                1 day before
+                            </option>
+
+                        </select>
+
+                    </div>
+
                 </div>
 
-                <div class="setting-group">
-                    <label>Time Format</label>
-                    <select class="form-select">
-                        <option selected></option>
-                        <option>12-Hour</option>
-                        <option>24-Hour</option>
-                    </select>
-                </div>
 
-                <div class="setting-group">
-                    <label>Font Size</label>
-                    <select class="form-select">
-                        <option selected></option>
-                        <option>Small</option>
-                        <option>Medium</option>
-                        <option>Large</option>
-                    </select>
-                </div>
+                <!-- =================================================
+                     NOTIFICATION THEME
+                ================================================== -->
 
-                <div class="setting-group">
-                    <label>Date Format</label>
-                    <select class="form-select">
-                        <option selected>MM/DD/YYYY</option>
-                        <option>DD/MM/YYYY</option>
-                        <option>YYYY-MM-DD</option>
-                    </select>
+                <div class="settings-card">
+
+                    <div class="card-title">
+
+                        <i class="bi bi-bell"></i>
+
+                        Notifications
+
+                    </div>
+
+
+                    <div class="setting-field"
+                         style="max-width:190px;">
+
+                        <label>
+                            Theme
+                        </label>
+
+                        <select>
+
+                            <option selected>
+                                Light
+                            </option>
+
+                            <option>
+                                Dark
+                            </option>
+
+                            <option>
+                                System Default
+                            </option>
+
+                        </select>
+
+                    </div>
+
                 </div>
 
             </div>
 
-            <div class="mt-4">
 
-                <div class="sound-title">
-                    System Sounds
-                </div>
+            <!-- Save -->
+            <div class="save-container">
 
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" checked>
-
-                    <label class="form-check-label ms-2">
-                        Play Notifications Sounds
-                    </label>
-                </div>
+                <button class="btn-save">
+                    Save Changes
+                </button>
 
             </div>
-
-            <button class="btn-save mt-4">
-                Save Changes
-            </button>
 
         </div>
 
     </main>
 
-    <!-- Bootstrap Bundle JS -->
+
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Toggle Script Logic -->
+
     <script>
-        // Top menu toggle
-        document.getElementById('toggleSidebar').addEventListener('click', function () {
-            document.body.classList.toggle('sidebar-collapsed');
-        });
 
-        // Settings expand/collapse
-                   const settingsToggle = document.getElementById("settingsToggle");
-        const settingsParent = document.querySelector(".settings-toggle");
-        const settingsGroup = document.querySelector(".sidebar-settings");
-        const settingsLink = document.getElementById("settingsLink");
+        /* =========================================================
+           SIDEBAR TOGGLE
+        ========================================================== */
 
-        // Open Settings menu
+        document.getElementById("toggleSidebar")
+            .addEventListener("click", function () {
+
+                document.body.classList.toggle("sidebar-collapsed");
+
+            });
+
+
+        /* =========================================================
+           SETTINGS DROPDOWN
+        ========================================================== */
+
+        const settingsToggle =
+            document.getElementById("settingsToggle");
+
+        const settingsGroup =
+            document.querySelector(".sidebar-settings");
+
         settingsToggle.addEventListener("click", function (e) {
 
             e.preventDefault();
@@ -990,54 +1676,88 @@
 
             settingsGroup.classList.toggle("open");
 
-            // Make Settings & Account active
-            settingsParent.classList.add("active");
         });
 
-        // Click Settings
-        settingsLink.addEventListener("click", function () {
 
-            // Parent remains active
-            settingsParent.classList.add("active");
+        /* =========================================================
+           PROFILE DROPDOWN
+        ========================================================== */
 
-            // Child becomes active
-            settingsLink.classList.add("active");
+        const profileContainer =
+            document.querySelector(".profile-container");
 
-        });
-
-        // Profile dropdown
-        const profileContainer = document.querySelector(".profile-container");
-        const profileToggle = document.getElementById("profileToggle");
+        const profileToggle =
+            document.getElementById("profileToggle");
 
         profileToggle.addEventListener("click", function (e) {
+
             e.stopPropagation();
+
             profileContainer.classList.toggle("open");
+
+            notificationContainer.classList.remove("open");
+
         });
 
-        document.addEventListener("click", function (e) {
-            if (!profileContainer.contains(e.target)) {
-                profileContainer.classList.remove("open");
-            }
+
+        /* =========================================================
+           NOTIFICATION DROPDOWN
+        ========================================================== */
+
+        const notificationContainer =
+            document.querySelector(".notification-container");
+
+        const notificationToggle =
+            document.getElementById("notificationToggle");
+
+        notificationToggle.addEventListener("click", function (e) {
+
+            e.stopPropagation();
+
+            notificationContainer.classList.toggle("open");
+
+            profileContainer.classList.remove("open");
+
         });
 
-        // Notification dropdown toggle
-         const notificationContainer = document.querySelector(".notification-container");
-         const notificationToggle = document.getElementById("notificationToggle");
 
-         notificationToggle.addEventListener("click", function (e) {
-             e.stopPropagation();
-             // Close profile menu if it's open
-             profileContainer.classList.remove("open");
-             // Toggle notification menu
-             notificationContainer.classList.toggle("open");
-         });
+        /* =========================================================
+           CLOSE DROPDOWNS
+        ========================================================== */
 
-         // Close when clicking anywhere outside
-         document.addEventListener("click", function (e) {
-             if (!notificationContainer.contains(e.target)) {
-                 notificationContainer.classList.remove("open");
-             }
-         });
+        document.addEventListener("click", function () {
+
+            profileContainer.classList.remove("open");
+
+            notificationContainer.classList.remove("open");
+
+        });
+
+
+        /* =========================================================
+           ACCENT COLOR SELECTION
+        ========================================================== */
+
+        const accentOptions =
+            document.querySelectorAll(".accent-option");
+
+        accentOptions.forEach(function (option) {
+
+            option.addEventListener("click", function () {
+
+                accentOptions.forEach(function (item) {
+
+                    item.classList.remove("active");
+
+                });
+
+                option.classList.add("active");
+
+            });
+
+        });
+
     </script>
+
 </body>
 </html>
