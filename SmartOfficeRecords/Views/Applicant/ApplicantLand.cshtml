@@ -95,6 +95,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 0 20px;
         }
 
 
@@ -697,24 +698,58 @@
             }
 
 
-        /* SOCIAL */
+        /* =====================================================
+           SOCIAL MEDIA ICONS
+        ===================================================== */
 
         .footer-social {
-            margin-top: 9px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-top: 14px;
         }
 
-
             .footer-social a {
-                display: inline-block;
-                margin-right: 9px;
-                color: var(--primary-red);
-                font-size: 13px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                transition: transform 0.25s ease;
             }
 
-
                 .footer-social a:hover {
-                    color: #FF5361;
+                    transform: translateY(-3px);
                 }
+
+            /* Exact logo sizes */
+
+            .footer-social img {
+                width: 28px;
+                height: 28px;
+                object-fit: contain;
+                display: block;
+            }
+
+            /* Facebook */
+
+            .footer-social .facebook-icon {
+                width: 29px;
+                height: 29px;
+            }
+
+            /* Gmail */
+
+            .footer-social .gmail-icon {
+                width: 31px;
+                height: 31px;
+            }
+
+            /* Yahoo */
+
+            .footer-social .yahoo-icon {
+                width: 34px;
+                height: 30px;
+            }
 
 
         /* =====================================================
@@ -871,14 +906,14 @@
 
     <header class="top-header">
 
-        <div class="container header-container">
+        <div class="header-container">
 
 
             <!-- LEFT SIDE: LOGO + SYSTEM NAME -->
 
             <div class="brand-wrapper">
 
-                <img src="~/Images/logo.png"
+                <img src="~/Images/newlogo.png"
                      alt="Smart Office Records Logo"
                      class="brand-logo" />
 
@@ -1414,31 +1449,44 @@
 
                         <div class="footer-social">
 
-                            <a href="#" aria-label="Facebook">
+                            <!-- FACEBOOK -->
+                            <a href="#"
+                               aria-label="Facebook"
+                               title="Facebook">
 
-                                <i class="bi bi-facebook"></i>
-
-                            </a>
-
-
-                            <a href="#" aria-label="Instagram">
-
-                                <i class="bi bi-instagram"></i>
+                                <img src="https://api.iconify.design/logos:facebook.svg"
+                                     alt="Facebook"
+                                     class="facebook-icon" />
 
                             </a>
 
 
-                            <a href="#" aria-label="Email">
+                            <!-- GMAIL -->
+                            <a href="#"
+                               aria-label="Gmail"
+                               title="Gmail">
 
-                                <i class="bi bi-envelope-fill"></i>
+                                <img src="https://api.iconify.design/logos:google-gmail.svg"
+                                     alt="Gmail"
+                                     class="gmail-icon" />
+
+                            </a>
+
+
+                            <!-- YAHOO -->
+                            <a href="#"
+                               aria-label="Yahoo"
+                               title="Yahoo">
+
+                                <img src="https://api.iconify.design/logos:yahoo.svg"
+                                     alt="Yahoo"
+                                     class="yahoo-icon" />
 
                             </a>
 
                         </div>
 
                     </div>
-
-
 
                     <!-- =================================================
                          ABOUT US

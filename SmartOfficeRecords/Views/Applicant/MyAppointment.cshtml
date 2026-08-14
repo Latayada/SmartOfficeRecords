@@ -1427,7 +1427,7 @@
                             <i class="bi bi-shield-lock"></i>
 
                             <span class="sidebar-link-text">
-                                Settings
+                                General Settings
                             </span>
 
                         </a>
@@ -1820,7 +1820,7 @@
 
         /* =====================================================
            SETTINGS DROPDOWN
-        ===================================================== */
+        ====================================================== */
 
         const settingsToggle =
             document.getElementById("settingsToggle");
@@ -1831,19 +1831,8 @@
 
         settingsToggle.addEventListener("click", function (e) {
 
-            /*
-             * Only open the dropdown when clicking
-             * the arrow / settings area.
-             */
-
-            const clickedLink =
-                e.target.closest("a");
-
-            if (clickedLink) {
-                return;
-            }
-
             e.preventDefault();
+            e.stopPropagation();
 
             settingsGroup.classList.toggle("open");
 
@@ -1907,7 +1896,7 @@
 
         /* =====================================================
            CLOSE DROPDOWNS WHEN CLICKING OUTSIDE
-        ===================================================== */
+        ====================================================== */
 
         document.addEventListener("click", function (e) {
 
@@ -1916,7 +1905,6 @@
                 profileContainer.classList.remove("open");
 
             }
-
 
             if (!notificationContainer.contains(e.target)) {
 

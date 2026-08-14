@@ -6,20 +6,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Settings - SORS</title>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- POPPINS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
 
     <style>
+
+        /* =========================================================
+                   GLOBAL
+                ========================================================== */
 
         * {
             margin: 0;
@@ -29,95 +39,139 @@
         }
 
         body {
-            background: #f5f6f7;
+            background: #f1f1f1;
+            color: #263238;
             min-height: 100vh;
-            color: #1f2937;
+            overflow-x: hidden;
         }
+
+        a {
+            text-decoration: none;
+        }
+
+        :root {
+            --red: #ed1c24;
+            --red-dark: #c9151c;
+            --red-light: #fff1f1;
+            --sidebar: #222b30;
+            --sidebar-hover: #2d373d;
+            --white: #ffffff;
+            --black-gray: #263238;
+            --dark-gray: #455a64;
+            --gray: #78909c;
+            --light-gray: #eceff1;
+            --border: #e1e5e8;
+            --page-bg: #f1f1f1;
+        }
+
 
         /* =========================================================
                    TOP NAVBAR
-                ========================================================= */
+                   SAME AS BOOK INTERVIEW
+                ========================================================== */
 
         .navbar-custom {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: 78px;
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
+            height: 56px;
+            background: var(--white);
+            border-bottom: 1px solid #e0e0e0;
             display: flex;
             align-items: center;
             z-index: 1030;
+            padding: 0;
         }
 
-        /* Logo area */
+
+        /* =========================================================
+                   LEFT LOGO BOX
+                ========================================================== */
+
         .navbar-left-box {
-            width: 175px;
-            height: 78px;
-            background: #222c33;
+            width: 155px;
+            height: 56px;
+            background: var(--sidebar);
             display: flex;
             align-items: center;
-            padding: 0 20px;
-            border-bottom: 1px solid rgba(255,255,255,.15);
-            transition: .3s ease;
+            padding: 0 15px;
+            border-right: 1px solid #39434a;
+            transition: all .3s ease;
         }
 
         .navbar-brand-custom {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             text-decoration: none;
         }
 
             .navbar-brand-custom img {
-                width: 38px;
-                height: 38px;
+                width: 34px;
+                height: 34px;
                 object-fit: contain;
                 border-radius: 50%;
             }
 
         .brand-text {
             color: #ffffff;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
-            letter-spacing: .3px;
+            letter-spacing: .4px;
         }
 
-        /* Hamburger */
+
+        /* =========================================================
+                   HAMBURGER
+                ========================================================== */
+
         .toggle-zone-box {
-            width: 65px;
-            height: 78px;
+            height: 56px;
+            width: 55px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: #ffffff;
         }
 
         .sidebar-toggle-btn {
             border: none;
             background: transparent;
-            color: #ed1c24;
-            font-size: 20px;
-            cursor: pointer;
+            color: var(--red);
+            font-size: 18px;
             width: 40px;
             height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: .2s ease;
         }
 
             .sidebar-toggle-btn:hover {
-                color: #c9151c;
+                color: var(--red-dark);
             }
 
-        /* Right navbar */
+
+        /* =========================================================
+                   NAVBAR RIGHT
+                ========================================================== */
+
         .navbar-profile {
             margin-left: auto;
-            height: 100%;
+            height: 56px;
             display: flex;
             align-items: center;
             gap: 15px;
-            padding-right: 20px;
+            padding-right: 15px;
         }
 
-        /* Notification */
+
+        /* =========================================================
+                   NOTIFICATION
+                ========================================================== */
+
         .notification-container {
             position: relative;
         }
@@ -127,29 +181,154 @@
             height: 40px;
             border: none;
             background: transparent;
-            color: #333b42;
-            font-size: 21px;
-            cursor: pointer;
+            color: var(--dark-gray);
+            font-size: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            transition: .2s ease;
         }
 
             .notification-btn:hover {
-                color: #ed1c24;
+                color: var(--red);
             }
 
         .notification-badge-dot {
             position: absolute;
+            top: 8px;
+            right: 7px;
             width: 7px;
             height: 7px;
-            background: #ed1c24;
+            background: var(--red);
             border-radius: 50%;
-            top: 6px;
-            right: 7px;
+            border: 1px solid white;
         }
 
-        /* Profile */
+
+        /* =========================================================
+                   NOTIFICATION DROPDOWN
+                   SAME AS BOOK INTERVIEW
+                ========================================================== */
+
+        .notification-dropdown-custom {
+            position: absolute;
+            right: 0;
+            top: 48px;
+            width: 330px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.12);
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all .25s ease;
+            z-index: 1050;
+        }
+
+        .notification-container.open .notification-dropdown-custom {
+            max-height: 450px;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .notif-header {
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .notif-header-title {
+            color: var(--black-gray);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .notif-mark-read {
+            color: var(--red);
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+            .notif-mark-read:hover {
+                color: var(--red-dark);
+            }
+
+        .notif-body {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .notif-item {
+            display: flex;
+            gap: 10px;
+            padding: 12px 15px;
+            border-bottom: 1px solid #f1f1f1;
+            color: inherit;
+            transition: .2s ease;
+        }
+
+            .notif-item:hover {
+                background: var(--red-light);
+            }
+
+        .notif-icon-box {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .notif-icon-success {
+            background: #e8f5e9;
+            color: #43a047;
+        }
+
+        .notif-icon-warning {
+            background: #fff3e0;
+            color: #fb8c00;
+        }
+
+        .notif-text {
+            color: var(--dark-gray);
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        .notif-time {
+            color: #9e9e9e;
+            font-size: 9px;
+            margin-top: 3px;
+        }
+
+        .notif-footer {
+            padding: 10px;
+            text-align: center;
+            background: #fafafa;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .notif-footer-btn {
+            color: var(--red);
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+
+        /* =========================================================
+                   PROFILE
+                   SAME AS BOOK INTERVIEW
+                ========================================================== */
+
         .profile-container {
             position: relative;
         }
@@ -158,85 +337,86 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            background: #f7f7f7;
-            border: 1px solid #e5e7eb;
-            border-radius: 25px;
-            padding: 5px 10px 5px 6px;
+            padding: 4px 8px;
+            border-radius: 20px;
+            background: #f5f5f5;
+            border: 1px solid #e3e3e3;
             cursor: pointer;
-            min-width: 135px;
+            transition: .2s ease;
         }
 
             .profile-widget:hover {
-                background: #f3f4f6;
+                background: #eeeeee;
             }
 
         .profile-avatar {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background: #ffb52e;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 700;
         }
 
         .profile-info {
             line-height: 1.1;
-            flex: 1;
         }
 
         .profile-name {
             display: block;
-            color: #20252a;
-            font-size: 11px;
+            color: var(--black-gray);
+            font-size: 10px;
             font-weight: 700;
         }
 
         .profile-email {
             display: block;
-            color: #6b7280;
+            color: #78909c;
             font-size: 8px;
-            margin-top: 2px;
         }
 
         .profile-arrow {
-            color: #555;
+            color: #546e7a;
             font-size: 11px;
             transition: .3s;
         }
 
-        .profile-container.open .profile-arrow {
-            transform: rotate(180deg);
-        }
 
         /* =========================================================
                    PROFILE DROPDOWN
-                ========================================================= */
+                ========================================================== */
 
         .profile-dropdown-custom {
             position: absolute;
             right: 0;
             top: 48px;
-            width: 210px;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
+            width: 200px;
+            background: white;
+            border: 1px solid var(--border);
             border-radius: 10px;
-            box-shadow: 0 12px 30px rgba(0,0,0,.12);
+            box-shadow: 0 10px 30px rgba(0,0,0,.12);
             overflow: hidden;
+            max-height: 0;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-8px);
-            transition: .25s ease;
-            z-index: 1100;
+            transition: all .25s ease;
+            z-index: 1050;
         }
 
         .profile-container.open .profile-dropdown-custom {
+            max-height: 200px;
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
+        }
+
+        .profile-container.open .profile-arrow {
+            transform: rotate(180deg);
         }
 
         .profile-dropdown-custom a {
@@ -244,305 +424,311 @@
             align-items: center;
             gap: 10px;
             padding: 12px 15px;
-            color: #374151;
-            text-decoration: none;
-            font-size: 13px;
+            color: var(--dark-gray);
+            font-size: 12px;
             font-weight: 500;
+            transition: .2s ease;
         }
 
             .profile-dropdown-custom a:hover {
-                background: #fff1f2;
-                color: #ed1c24;
+                background: var(--red-light);
+                color: var(--red);
             }
 
             .profile-dropdown-custom a i {
-                font-size: 17px;
+                font-size: 16px;
             }
+
 
         /* =========================================================
                    SIDEBAR
-                ========================================================= */
+                   EXACT STYLE FROM BOOK INTERVIEW
+                ========================================================== */
 
         .sidebar-menu-wrapper {
             position: fixed;
+            top: 56px;
             left: 0;
-            top: 78px;
             bottom: 0;
-            width: 175px;
-            background: #222c33;
-            padding: 22px 10px 18px;
+            width: 155px;
+            background: var(--sidebar);
+            border-right: 1px solid #39434a;
+            padding: 15px 8px;
             overflow-y: auto;
             overflow-x: hidden;
             z-index: 1020;
-            transition: width .3s ease;
+            transition: all .3s ease;
         }
+
+            .sidebar-menu-wrapper::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            .sidebar-menu-wrapper::-webkit-scrollbar-track {
+                background: var(--sidebar);
+            }
+
+            .sidebar-menu-wrapper::-webkit-scrollbar-thumb {
+                background: #45545d;
+                border-radius: 10px;
+            }
 
         .sidebar-links {
             list-style: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
-
-            .sidebar-links > li {
-                margin-bottom: 5px;
-            }
 
         .sidebar-link-item {
             width: 100%;
-            min-height: 40px;
-            padding: 10px 12px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            border-radius: 7px;
-            text-decoration: none;
+            gap: 10px;
+            padding: 11px 10px;
+            border-radius: 5px;
             color: #ffffff;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
-            transition: all .2s ease;
             white-space: nowrap;
+            transition: all .2s ease;
         }
 
             .sidebar-link-item i {
-                width: 18px;
-                min-width: 18px;
-                text-align: center;
-                font-size: 15px;
-                color: #ffffff;
+                width: 17px;
+                min-width: 17px;
+                font-size: 14px;
+                display: inline-flex;
+                justify-content: center;
             }
 
             .sidebar-link-item:hover {
-                background: #303b43;
-                color: #ffffff;
+                color: var(--red);
+                background: rgba(237, 28, 36, .08);
             }
 
                 .sidebar-link-item:hover i {
-                    color: #ffffff;
+                    color: var(--red);
                 }
 
-            /* Active */
             .sidebar-link-item.active {
+                color: var(--red);
                 background: transparent;
-                color: #ed1c24;
                 font-weight: 600;
             }
 
                 .sidebar-link-item.active i {
-                    color: #ed1c24;
+                    color: var(--red);
                 }
+
 
         /* =========================================================
                    SETTINGS SIDEBAR
-                ========================================================= */
+                ========================================================== */
 
         .sidebar-settings {
             list-style: none;
         }
 
         .settings-toggle {
-            display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 0;
-            border-radius: 7px;
+            cursor: pointer;
         }
 
             .settings-toggle > a {
-                flex: 1;
                 color: #ffffff !important;
-                padding: 10px 12px;
-                font-size: 13px;
-                font-weight: 500;
             }
 
-                .settings-toggle > a i {
-                    color: #ffffff;
-                    font-size: 15px;
+                .settings-toggle > a:hover {
+                    color: var(--red) !important;
                 }
 
-            .settings-toggle:hover {
-                background: #303b43;
-            }
-
             .settings-toggle.active {
-                background: transparent;
+                color: var(--red);
+                background: rgba(237,28,36,.08);
             }
 
                 .settings-toggle.active > a {
-                    color: #ed1c24 !important;
-                    font-weight: 600;
+                    color: var(--red) !important;
                 }
-
-                    .settings-toggle.active > a i {
-                        color: #ed1c24;
-                    }
 
         .settings-arrow {
             color: #ffffff;
             font-size: 11px;
-            margin-right: 12px;
-            cursor: pointer;
-            transition: transform .3s ease;
+            transition: .3s;
+        }
+
+        .settings-toggle:hover .settings-arrow {
+            color: var(--red);
+        }
+
+        .settings-submenu {
+            list-style: none;
+            padding: 0 0 0 12px;
+            margin: 2px 0 0 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease;
+        }
+
+            .settings-submenu li {
+                margin: 2px 0;
+            }
+
+            .settings-submenu a {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 9px;
+                border-radius: 5px;
+                color: #ffffff !important;
+                font-size: 11px;
+                font-weight: 500;
+                transition: .2s ease;
+            }
+
+                .settings-submenu a:hover {
+                    background: rgba(237,28,36,.10);
+                    color: var(--red) !important;
+                }
+
+                .settings-submenu a i {
+                    color: #ffffff;
+                    font-size: 12px;
+                }
+
+                .settings-submenu a:hover i {
+                    color: var(--red);
+                }
+
+                .settings-submenu a.active {
+                    color: var(--red) !important;
+                    background: rgba(237,28,36,.10);
+                }
+
+                    .settings-submenu a.active i {
+                        color: var(--red);
+                    }
+
+        .sidebar-settings.open .settings-submenu {
+            max-height: 150px;
         }
 
         .sidebar-settings.open .settings-arrow {
             transform: rotate(90deg);
         }
 
-        .settings-submenu {
-            list-style: none;
-            padding: 4px 0 2px 18px;
-            margin: 0;
-            display: none;
-        }
-
-        .sidebar-settings.open .settings-submenu {
-            display: block;
-        }
-
-        .settings-submenu li {
-            margin-bottom: 2px;
-        }
-
-        .settings-submenu a {
-            display: flex;
-            align-items: center;
-            gap: 9px;
-            padding: 8px 10px;
-            border-radius: 6px;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 11px;
-            font-weight: 500;
-            transition: .2s ease;
-        }
-
-            .settings-submenu a i {
-                color: #ffffff;
-                font-size: 13px;
-            }
-
-            .settings-submenu a:hover {
-                background: #303b43;
-                color: #ffffff;
-            }
-
-            .settings-submenu a.active {
-                background: transparent;
-                color: #ed1c24;
-                font-weight: 600;
-            }
-
-                .settings-submenu a.active i {
-                    color: #ed1c24;
-                }
 
         /* =========================================================
                    LOGOUT
-                ========================================================= */
+                ========================================================== */
 
-        .sidebar-logout {
+        .logout-wrapper {
             position: absolute;
-            bottom: 18px;
-            left: 10px;
-            right: 10px;
+            bottom: 15px;
+            left: 8px;
+            right: 8px;
         }
 
         .logout-link {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 12px;
+            gap: 9px;
+            padding: 10px;
             color: #ffffff;
-            text-decoration: none;
             font-size: 12px;
             font-weight: 500;
-            border-radius: 7px;
+            border-radius: 5px;
             transition: .2s ease;
         }
+
+            .logout-link:hover {
+                color: var(--red);
+                background: rgba(237,28,36,.08);
+            }
 
             .logout-link i {
                 font-size: 16px;
             }
 
-            .logout-link:hover {
-                background: #303b43;
-                color: #ffffff;
-            }
 
         /* =========================================================
-                   MAIN CONTENT
-                ========================================================= */
+                   MAIN PAGE CONTAINER
+                   EXACT SAME SPACE AS BOOK INTERVIEW
+                ========================================================== */
 
         .page-container {
-            margin-left: 175px;
-            padding: 105px 25px 40px;
+            margin-left: 155px;
+            padding: 78px 18px 35px 18px;
             min-height: 100vh;
             transition: margin-left .3s ease;
         }
 
-        .content-wrapper {
-            max-width: 1150px;
-            margin: 0 auto;
+
+        /* =========================================================
+                   SETTINGS CONTENT
+                ========================================================== */
+
+        .heading-section {
+            margin-bottom: 18px;
         }
 
-        /* Header */
-        .settings-breadcrumb {
-            font-size: 10px;
-            font-weight: 600;
-            color: #64748b;
-            margin-bottom: 4px;
-        }
-
-        .settings-header h1 {
-            font-size: 24px;
-            line-height: 1.2;
-            color: #26323a;
+        .page-title {
+            color: var(--black-gray);
+            font-size: 21px;
             font-weight: 700;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
 
-        .settings-header p {
-            color: #64748b;
-            font-size: 11px;
-            margin-bottom: 25px;
+        .page-subtitle {
+            color: #607d8b;
+            font-size: 10px;
+            font-weight: 500;
+            margin: 0;
         }
+
 
         /* =========================================================
                    SETTINGS GRID
-                ========================================================= */
+                ========================================================== */
 
         .settings-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
+            gap: 12px;
+            align-items: start;
         }
 
         .settings-card {
             background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 7px;
-            padding: 17px 18px;
-            min-height: 185px;
-            box-shadow: 0 2px 8px rgba(0,0,0,.025);
+            border: 1px solid #e5e5e5;
+            border-radius: 9px;
+            padding: 16px 17px 20px;
+            box-shadow: 0 3px 15px rgba(0,0,0,.05);
         }
 
         .card-title {
             display: flex;
             align-items: center;
-            gap: 7px;
-            color: #27323a;
+            gap: 9px;
+            color: var(--black-gray);
             font-size: 13px;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
             .card-title i {
-                color: #27323a;
-                font-size: 13px;
+                color: #455a64;
+                font-size: 14px;
             }
 
-        /* Fields */
+
+        /* =========================================================
+                   FORM ROW
+                ========================================================== */
+
         .field-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -552,38 +738,41 @@
 
         .setting-field label {
             display: block;
+            color: #37474f;
             font-size: 10px;
-            color: #475569;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .setting-field select {
             width: 100%;
-            height: 34px;
-            padding: 5px 10px;
-            border: 1px solid #d7dce0;
-            border-radius: 6px;
+            height: 38px;
+            border: 1px solid #d8dde0;
+            border-radius: 7px;
             background: #ffffff;
-            color: #374151;
+            color: #455a64;
             font-size: 10px;
+            padding: 0 12px;
             outline: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,.10);
             cursor: pointer;
+            transition: all .2s ease;
         }
 
             .setting-field select:focus {
-                border-color: #ed1c24;
-                box-shadow: 0 0 0 2px rgba(237,28,36,.08);
+                border-color: var(--red);
+                box-shadow: 0 0 0 3px rgba(237,28,36,.08);
             }
+
 
         /* =========================================================
                    ACCENT COLORS
-                ========================================================= */
+                ========================================================== */
 
         .accent-label {
             display: block;
+            color: #37474f;
             font-size: 10px;
-            color: #475569;
             font-weight: 600;
             margin-bottom: 8px;
         }
@@ -595,8 +784,8 @@
         }
 
         .accent-option {
-            width: 21px;
-            height: 21px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             border: 1px solid #9ca3af;
             cursor: pointer;
@@ -605,6 +794,10 @@
             justify-content: center;
             transition: .2s;
         }
+
+            .accent-option:hover {
+                transform: scale(1.08);
+            }
 
             .accent-option.red {
                 background: #ed1c24;
@@ -636,39 +829,45 @@
                 color: #333333;
             }
 
+
         /* =========================================================
-                   NOTIFICATIONS
-                ========================================================= */
+                   NOTIFICATION SETTINGS
+                ========================================================== */
 
         .notification-setting {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .notification-left {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 9px;
         }
 
             .notification-left i {
-                font-size: 11px;
-                color: #64748b;
+                color: #78909c;
+                font-size: 13px;
             }
 
             .notification-left span {
+                color: #455a64;
                 font-size: 10px;
-                color: #475569;
                 font-weight: 500;
             }
 
-        /* Toggle */
+
+        /* =========================================================
+                   CUSTOM SWITCH
+                ========================================================== */
+
         .custom-switch {
             position: relative;
-            width: 33px;
-            height: 18px;
+            width: 36px;
+            height: 20px;
+            display: inline-block;
         }
 
             .custom-switch input {
@@ -689,8 +888,8 @@
             .switch-slider::before {
                 content: "";
                 position: absolute;
-                width: 14px;
-                height: 14px;
+                width: 16px;
+                height: 16px;
                 left: 2px;
                 top: 2px;
                 background: #ffffff;
@@ -700,182 +899,266 @@
             }
 
         .custom-switch input:checked + .switch-slider {
-            background: #ed1c24;
+            background: var(--red);
         }
 
             .custom-switch input:checked + .switch-slider::before {
-                transform: translateX(15px);
+                transform: translateX(16px);
             }
 
-        /* Reminder */
+
+        /* =========================================================
+                   REMINDER
+                ========================================================== */
+
         .reminder-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-top: 5px;
-            padding-left: 19px;
+            padding-left: 22px;
         }
 
         .reminder-label {
-            color: #475569;
+            color: #455a64;
             font-size: 10px;
             font-weight: 500;
         }
 
         .reminder-select {
-            height: 27px;
-            min-width: 72px;
-            border: 1px solid #e2e8f0;
+            height: 30px;
+            min-width: 105px;
+            border: 1px solid #d8dde0;
             border-radius: 6px;
             padding: 3px 8px;
             font-size: 9px;
-            color: #475569;
+            color: #455a64;
             background: #ffffff;
+            outline: none;
         }
+
+            .reminder-select:focus {
+                border-color: var(--red);
+            }
+
 
         /* =========================================================
                    SAVE BUTTON
-                ========================================================= */
+                ========================================================== */
 
         .save-container {
-            margin-top: 25px;
+            margin-top: 18px;
         }
 
         .btn-save {
+            min-width: 150px;
+            height: 38px;
             border: none;
-            background: #ed1c24;
+            border-radius: 7px;
+            background: var(--red);
             color: #ffffff;
-            padding: 9px 18px;
-            border-radius: 4px;
             font-size: 11px;
             font-weight: 600;
             cursor: pointer;
-            transition: .2s ease;
+            box-shadow: 0 4px 10px rgba(237,28,36,.18);
+            transition: all .2s ease;
         }
 
             .btn-save:hover {
-                background: #c9151c;
-                box-shadow: 0 4px 10px rgba(237,28,36,.20);
+                background: var(--red-dark);
                 transform: translateY(-1px);
+                box-shadow: 0 5px 13px rgba(237,28,36,.22);
             }
+
 
         /* =========================================================
-                   NOTIFICATION DROPDOWN
-                ========================================================= */
+                   COLLAPSED SIDEBAR
+                ========================================================== */
 
-        .notification-dropdown-custom {
-            position: absolute;
-            right: 0;
-            top: 45px;
-            width: 320px;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-            box-shadow: 0 12px 30px rgba(0,0,0,.12);
-            overflow: hidden;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-8px);
-            transition: .25s ease;
-            z-index: 1100;
+        body.sidebar-collapsed .navbar-left-box {
+            width: 60px;
+            padding: 0;
+            justify-content: center;
         }
 
-        .notification-container.open .notification-dropdown-custom {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        body.sidebar-collapsed .brand-text {
+            display: none;
         }
 
-        .notif-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 13px 15px;
-            border-bottom: 1px solid #edf0f2;
+        body.sidebar-collapsed .sidebar-menu-wrapper {
+            width: 60px;
+            padding-left: 6px;
+            padding-right: 6px;
         }
 
-        .notif-header-title {
-            font-size: 12px;
-            font-weight: 700;
-            color: #26323a;
+        body.sidebar-collapsed .sidebar-link-item {
+            justify-content: center;
+            padding-left: 0;
+            padding-right: 0;
+            gap: 0;
         }
 
-        .notif-mark-read {
-            font-size: 9px;
-            color: #ed1c24;
-            text-decoration: none;
-            font-weight: 600;
+        body.sidebar-collapsed .sidebar-link-text {
+            display: none;
         }
 
-        .notif-body {
-            max-height: 260px;
-            overflow-y: auto;
+        body.sidebar-collapsed .settings-arrow {
+            display: none;
         }
 
-        .notif-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 11px 15px;
-            text-decoration: none;
-            border-bottom: 1px solid #f1f5f9;
+        body.sidebar-collapsed .settings-submenu {
+            display: none !important;
         }
 
-            .notif-item:hover {
-                background: #fff5f5;
+        body.sidebar-collapsed .logout-link {
+            justify-content: center;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        body.sidebar-collapsed .logout-text {
+            display: none;
+        }
+
+        body.sidebar-collapsed .page-container {
+            margin-left: 60px;
+        }
+
+
+        /* =========================================================
+                   RESPONSIVE
+                ========================================================== */
+
+        @@media (max-width: 1000px) {
+
+            .navbar-left-box {
+                width: 210px;
             }
 
-        .notif-icon-box {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
+            .sidebar-menu-wrapper {
+                width: 210px;
+            }
+
+            .page-container {
+                margin-left: 210px;
+            }
+
+            body.sidebar-collapsed .page-container {
+                margin-left: 60px;
+            }
+
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .notif-icon-success {
-            background: #dcfce7;
-            color: #16a34a;
+
+        @@media (max-width: 700px) {
+
+            .navbar-left-box {
+                width: 60px;
+                padding: 0;
+                justify-content: center;
+            }
+
+            .brand-text {
+                display: none;
+            }
+
+            .sidebar-menu-wrapper {
+                width: 60px;
+            }
+
+            .sidebar-link-item {
+                justify-content: center;
+                padding: 11px 0;
+                gap: 0;
+            }
+
+            .sidebar-link-text {
+                display: none;
+            }
+
+            .settings-arrow {
+                display: none;
+            }
+
+            .settings-submenu {
+                display: none !important;
+            }
+
+            .page-container {
+                margin-left: 60px;
+                padding: 75px 12px 25px;
+            }
+
+            .profile-info {
+                display: none;
+            }
+
+            .profile-widget {
+                padding: 4px;
+            }
+
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .field-row {
+                grid-template-columns: 1fr;
+            }
+
+            .notification-dropdown-custom {
+                width: 280px;
+            }
         }
 
-        .notif-icon-warning {
-            background: #fef3c7;
-            color: #d97706;
-        }
 
-        .notif-text {
-            font-size: 10px;
-            color: #374151;
-            line-height: 1.4;
-        }
+        @@media (max-width: 500px) {
 
-        .notif-time {
-            font-size: 8px;
-            color: #94a3b8;
-            margin-top: 2px;
-        }
+            .navbar-profile {
+                gap: 5px;
+                padding-right: 7px;
+            }
 
-        .notif-footer {
-            text-align: center;
-            padding: 10px;
-            background: #fafafa;
-        }
+            .notification-dropdown-custom {
+                width: 280px;
+                right: -60px;
+            }
 
-        .notif-footer-btn {
-            color: #ed1c24;
-            font-size: 10px;
-            text-decoration: none;
-            font-weight: 600;
-        }
+            .profile-dropdown-custom {
+                right: -5px;
+            }
 
-       
+            .page-title {
+                font-size: 18px;
+            }
+
+            .page-subtitle {
+                font-size: 9px;
+            }
+
+            .settings-card {
+                padding: 14px;
+            }
+
+            .reminder-row {
+                padding-left: 0;
+                gap: 10px;
+            }
+
+            .btn-save {
+                width: 100%;
+            }
+        }
 
     </style>
+
 </head>
 
+
 <body>
+
 
     <!-- =========================================================
          TOP NAVBAR
@@ -883,26 +1166,34 @@
 
     <nav class="navbar-custom">
 
-        <!-- Logo -->
-        <div class="navbar-left-box" id="navLeftBox">
 
-            <a href="#" class="navbar-brand-custom">
+        <!-- LOGO -->
+
+        <div class="navbar-left-box">
+
+            <a class="navbar-brand-custom"
+               href="@Url.Action("ApplicantDash", "Applicant")">
 
                 <img src="~/Images/logo.png"
                      alt="SORS Logo"
                      onerror="this.src='https://cdn-icons-png.flaticon.com/512/3061/3061341.png'" />
 
-                <span class="brand-text">SORS</span>
+                <span class="brand-text">
+                    SORS
+                </span>
 
             </a>
 
         </div>
 
-        <!-- Toggle -->
+
+        <!-- HAMBURGER -->
+
         <div class="toggle-zone-box">
 
             <button class="sidebar-toggle-btn"
                     id="toggleSidebar"
+                    type="button"
                     title="Toggle Sidebar">
 
                 <i class="bi bi-list"></i>
@@ -911,24 +1202,33 @@
 
         </div>
 
-        <!-- Right Side -->
+
+        <!-- RIGHT NAVIGATION -->
+
         <div class="navbar-profile">
 
-            <!-- Notification -->
+
+            <!-- NOTIFICATION -->
+
             <div class="notification-container">
 
                 <button class="notification-btn"
                         id="notificationToggle"
+                        type="button"
                         title="Notifications">
 
                     <i class="bi bi-bell"></i>
+
                     <span class="notification-badge-dot"></span>
 
                 </button>
 
-                <!-- Notification Dropdown -->
+
+                <!-- NOTIFICATION DROPDOWN -->
+
                 <div class="notification-dropdown-custom"
                      id="notificationMenu">
+
 
                     <div class="notif-header">
 
@@ -936,59 +1236,81 @@
                             Notifications
                         </span>
 
-                        <a href="#" class="notif-mark-read">
+                        <a href="#"
+                           class="notif-mark-read">
                             Mark all as read
                         </a>
 
                     </div>
 
+
                     <div class="notif-body">
 
-                        <a href="#" class="notif-item">
+
+                        <a href="#"
+                           class="notif-item">
 
                             <div class="notif-icon-box notif-icon-success">
+
                                 <i class="bi bi-check-circle-fill"></i>
+
                             </div>
 
                             <div>
+
                                 <div class="notif-text">
+
                                     Your interview request
                                     <strong>#RI01</strong>
                                     was approved.
+
                                 </div>
 
                                 <div class="notif-time">
                                     10 mins ago
                                 </div>
+
                             </div>
 
                         </a>
 
-                        <a href="#" class="notif-item">
+
+                        <a href="#"
+                           class="notif-item">
 
                             <div class="notif-icon-box notif-icon-warning">
+
                                 <i class="bi bi-clock-history"></i>
+
                             </div>
 
                             <div>
+
                                 <div class="notif-text">
-                                    Reminder: Upload missing requirements for
-                                    <strong>#RI02</strong>.
+
+                                    Reminder: Check your interview schedule.
+
                                 </div>
 
                                 <div class="notif-time">
                                     2 hours ago
                                 </div>
+
                             </div>
 
                         </a>
 
+
                     </div>
+
 
                     <div class="notif-footer">
 
-                        <a href="#" class="notif-footer-btn">
+                        <a href="#"
+                           class="notif-footer-btn">
+
                             View All Notifications
+
                         </a>
 
                     </div>
@@ -997,15 +1319,20 @@
 
             </div>
 
-            <!-- Profile -->
+
+            <!-- PROFILE -->
+
             <div class="profile-container">
+
 
                 <div class="profile-widget"
                      id="profileToggle">
 
+
                     <div class="profile-avatar">
                         JC
                     </div>
+
 
                     <div class="profile-info">
 
@@ -1019,13 +1346,17 @@
 
                     </div>
 
+
                     <i class="bi bi-chevron-down profile-arrow"></i>
 
                 </div>
 
-                <!-- Profile Dropdown -->
+
+                <!-- PROFILE DROPDOWN -->
+
                 <div class="profile-dropdown-custom"
                      id="profileMenu">
+
 
                     <a href="@Url.Action("MyAccount", "Applicant")">
 
@@ -1034,6 +1365,7 @@
                         My Account
 
                     </a>
+
 
                     <a href="@Url.Action("ApplicantLogin", "Applicant")">
 
@@ -1059,9 +1391,12 @@
     <aside class="sidebar-menu-wrapper"
            id="sidebarMenu">
 
+
         <ul class="sidebar-links">
 
-            <!-- Dashboard -->
+
+            <!-- DASHBOARD -->
+
             <li>
 
                 <a href="@Url.Action("ApplicantDash", "Applicant")"
@@ -1078,7 +1413,8 @@
             </li>
 
 
-            <!-- Book Interview -->
+            <!-- BOOK INTERVIEW -->
+
             <li>
 
                 <a href="@Url.Action("BookInterview", "Applicant")"
@@ -1095,7 +1431,8 @@
             </li>
 
 
-            <!-- My Appointment -->
+            <!-- MY APPOINTMENT -->
+
             <li>
 
                 <a href="@Url.Action("MyAppointment", "Applicant")"
@@ -1112,13 +1449,17 @@
             </li>
 
 
-            <!-- Settings -->
+            <!-- SETTINGS -->
+
             <li class="sidebar-settings open">
 
-                <div class="settings-toggle active">
+
+                <div class="sidebar-link-item settings-toggle active"
+                     id="settingsToggle">
+
 
                     <a href="@Url.Action("Settings", "Applicant")"
-                       class="d-flex align-items-center text-decoration-none">
+                       class="d-flex align-items-center flex-grow-1 text-decoration-none">
 
                         <i class="bi bi-gear-fill"></i>
 
@@ -1128,22 +1469,24 @@
 
                     </a>
 
-                    <i class="bi bi-chevron-right settings-arrow"
-                       id="settingsToggle"></i>
+
+                    <i class="bi bi-chevron-right settings-arrow"></i>
 
                 </div>
 
 
-                <!-- Settings Submenu -->
+                <!-- SETTINGS SUBMENU -->
+
                 <ul class="settings-submenu"
                     id="settingsMenu">
+
 
                     <li>
 
                         <a href="@Url.Action("Settings", "Applicant")"
                            class="active">
 
-                            <i class="bi bi-sliders"></i>
+                            <i class="bi bi-shield-lock"></i>
 
                             <span class="sidebar-link-text">
                                 General Settings
@@ -1152,6 +1495,7 @@
                         </a>
 
                     </li>
+
 
                     <li>
 
@@ -1167,15 +1511,18 @@
 
                     </li>
 
+
                 </ul>
 
             </li>
 
+
         </ul>
 
 
-        <!-- Logout -->
-        <div class="sidebar-logout">
+        <!-- LOGOUT -->
+
+        <div class="logout-wrapper">
 
             <a href="@Url.Action("ApplicantLogin", "Applicant")"
                class="logout-link">
@@ -1199,406 +1546,51 @@
 
     <main class="page-container">
 
-        <div class="content-wrapper">
 
-            <!-- Header -->
-            <div class="settings-header">
+        <!-- PAGE HEADING -->
 
-                <div class="settings-breadcrumb">
-                    Settings
-                </div>
+        <div class="heading-section">
 
-                <h1>
-                    General Settings
-                </h1>
+            <h1 class="page-title">
+                General Settings
+            </h1>
 
-                <p>
-                    Manage your system preferences and customize your experience.
-                </p>
+            <p class="page-subtitle">
+                Manage your system preferences and customize your experience.
+            </p>
 
-            </div>
+        </div>
 
 
-            <!-- SETTINGS GRID -->
-            <div class="settings-grid">
+        <!-- =====================================================
+             SETTINGS GRID
+        ====================================================== -->
 
+        <div class="settings-grid">
 
-                <!-- =================================================
-                     APPEARANCE
-                ================================================== -->
 
-                <div class="settings-card">
+            <!-- =================================================
+                 APPEARANCE
+            ================================================== -->
 
-                    <div class="card-title">
+            <div class="settings-card">
 
-                        <i class="bi bi-palette-fill"></i>
 
-                        Appearance
+                <div class="card-title">
 
-                    </div>
+                    <i class="bi bi-palette-fill"></i>
 
-
-                    <div class="field-row">
-
-                        <!-- Theme -->
-                        <div class="setting-field">
-
-                            <label>
-                                Theme
-                            </label>
-
-                            <select>
-
-                                <option selected>
-                                    Light
-                                </option>
-
-                                <option>
-                                    Dark
-                                </option>
-
-                                <option>
-                                    System Default
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <!-- Font Style -->
-                        <div class="setting-field">
-
-                            <label>
-                                Font Style
-                            </label>
-
-                            <select>
-
-                                <option selected>
-                                    Poppins
-                                </option>
-
-                                <option>
-                                    Arial
-                                </option>
-
-                                <option>
-                                    Roboto
-                                </option>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="field-row">
-
-                        <!-- Font Size -->
-                        <div class="setting-field">
-
-                            <label>
-                                Font Size
-                            </label>
-
-                            <select>
-
-                                <option>
-                                    Small
-                                </option>
-
-                                <option selected>
-                                    Medium
-                                </option>
-
-                                <option>
-                                    Large
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <!-- Sidebar Style -->
-                        <div class="setting-field">
-
-                            <label>
-                                Sidebar Style
-                            </label>
-
-                            <select>
-
-                                <option selected>
-                                    Light
-                                </option>
-
-                                <option>
-                                    Dark
-                                </option>
-
-                                <option>
-                                    Compact
-                                </option>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Accent -->
-                    <div>
-
-                        <span class="accent-label">
-                            Accent Color
-                        </span>
-
-                        <div class="accent-colors">
-
-                            <div class="accent-option red active"></div>
-
-                            <div class="accent-option black"></div>
-
-                            <div class="accent-option blue"></div>
-
-                            <div class="accent-option white"></div>
-
-                        </div>
-
-                    </div>
+                    Appearance
 
                 </div>
 
 
-                <!-- =================================================
-                     LANGUAGE & REGION
-                ================================================== -->
+                <div class="field-row">
 
-                <div class="settings-card">
 
-                    <div class="card-title">
+                    <!-- THEME -->
 
-                        <i class="bi bi-globe2"></i>
-
-                        Language & Region
-
-                    </div>
-
-
-                    <div class="field-row">
-
-                        <!-- Language -->
-                        <div class="setting-field">
-
-                            <label>
-                                Language
-                            </label>
-
-                            <select>
-
-                                <option selected>
-                                    English
-                                </option>
-
-                                <option>
-                                    Filipino
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <!-- Timezone -->
-                        <div class="setting-field">
-
-                            <label>
-                                Time Zone
-                            </label>
-
-                            <select>
-
-                                <option selected>
-                                    Asia/Manila (GMT+8)
-                                </option>
-
-                                <option>
-                                    Asia/Tokyo (GMT+9)
-                                </option>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="field-row">
-
-                        <!-- Time Format -->
-                        <div class="setting-field">
-
-                            <label>
-                                Time Format
-                            </label>
-
-                            <select>
-
-                                <option selected>
-                                    12-Hour
-                                </option>
-
-                                <option>
-                                    24-Hour
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <!-- Date Format -->
-                        <div class="setting-field">
-
-                            <label>
-                                Date Format
-                            </label>
-
-                            <select>
-
-                                <option selected>
-                                    MM/DD/YYYY
-                                </option>
-
-                                <option>
-                                    DD/MM/YYYY
-                                </option>
-
-                                <option>
-                                    YYYY-MM-DD
-                                </option>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- =================================================
-                     NOTIFICATIONS
-                ================================================== -->
-
-                <div class="settings-card">
-
-                    <div class="card-title">
-
-                        <i class="bi bi-bell"></i>
-
-                        Notifications
-
-                    </div>
-
-
-                    <!-- Email -->
-                    <div class="notification-setting">
-
-                        <div class="notification-left">
-
-                            <i class="bi bi-envelope"></i>
-
-                            <span>
-                                Email Notifications
-                            </span>
-
-                        </div>
-
-                        <label class="custom-switch">
-
-                            <input type="checkbox" checked />
-
-                            <span class="switch-slider"></span>
-
-                        </label>
-
-                    </div>
-
-
-                    <!-- SMS -->
-                    <div class="notification-setting">
-
-                        <div class="notification-left">
-
-                            <i class="bi bi-chat-left-text"></i>
-
-                            <span>
-                                SMS Notifications
-                            </span>
-
-                        </div>
-
-                        <label class="custom-switch">
-
-                            <input type="checkbox" />
-
-                            <span class="switch-slider"></span>
-
-                        </label>
-
-                    </div>
-
-
-                    <!-- Interview Reminder -->
-                    <div class="reminder-row">
-
-                        <span class="reminder-label">
-                            Interview Reminders
-                        </span>
-
-                        <select class="reminder-select">
-
-                            <option selected>
-                                1 hour before
-                            </option>
-
-                            <option>
-                                2 hours before
-                            </option>
-
-                            <option>
-                                1 day before
-                            </option>
-
-                        </select>
-
-                    </div>
-
-                </div>
-
-
-                <!-- =================================================
-                     NOTIFICATION THEME
-                ================================================== -->
-
-                <div class="settings-card">
-
-                    <div class="card-title">
-
-                        <i class="bi bi-bell"></i>
-
-                        Notifications
-
-                    </div>
-
-
-                    <div class="setting-field"
-                         style="max-width:190px;">
+                    <div class="setting-field">
 
                         <label>
                             Theme
@@ -1622,30 +1614,416 @@
 
                     </div>
 
+
+                    <!-- FONT STYLE -->
+
+                    <div class="setting-field">
+
+                        <label>
+                            Font Style
+                        </label>
+
+                        <select>
+
+                            <option selected>
+                                Poppins
+                            </option>
+
+                            <option>
+                                Arial
+                            </option>
+
+                            <option>
+                                Roboto
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="field-row">
+
+
+                    <!-- FONT SIZE -->
+
+                    <div class="setting-field">
+
+                        <label>
+                            Font Size
+                        </label>
+
+                        <select>
+
+                            <option>
+                                Small
+                            </option>
+
+                            <option selected>
+                                Medium
+                            </option>
+
+                            <option>
+                                Large
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- SIDEBAR STYLE -->
+
+                    <div class="setting-field">
+
+                        <label>
+                            Sidebar Style
+                        </label>
+
+                        <select>
+
+                            <option selected>
+                                Dark
+                            </option>
+
+                            <option>
+                                Light
+                            </option>
+
+                            <option>
+                                Compact
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACCENT COLOR -->
+
+                <div>
+
+                    <span class="accent-label">
+                        Accent Color
+                    </span>
+
+
+                    <div class="accent-colors">
+
+                        <div class="accent-option red active"></div>
+
+                        <div class="accent-option black"></div>
+
+                        <div class="accent-option blue"></div>
+
+                        <div class="accent-option white"></div>
+
+                    </div>
+
                 </div>
 
             </div>
 
 
-            <!-- Save -->
-            <div class="save-container">
+            <!-- =================================================
+                 LANGUAGE & REGION
+            ================================================== -->
 
-                <button class="btn-save">
-                    Save Changes
-                </button>
+            <div class="settings-card">
+
+
+                <div class="card-title">
+
+                    <i class="bi bi-globe2"></i>
+
+                    Language & Region
+
+                </div>
+
+
+                <div class="field-row">
+
+
+                    <!-- LANGUAGE -->
+
+                    <div class="setting-field">
+
+                        <label>
+                            Language
+                        </label>
+
+                        <select>
+
+                            <option selected>
+                                English
+                            </option>
+
+                            <option>
+                                Filipino
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- TIMEZONE -->
+
+                    <div class="setting-field">
+
+                        <label>
+                            Time Zone
+                        </label>
+
+                        <select>
+
+                            <option selected>
+                                Asia/Manila (GMT+8)
+                            </option>
+
+                            <option>
+                                Asia/Tokyo (GMT+9)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="field-row">
+
+
+                    <!-- TIME FORMAT -->
+
+                    <div class="setting-field">
+
+                        <label>
+                            Time Format
+                        </label>
+
+                        <select>
+
+                            <option selected>
+                                12-Hour
+                            </option>
+
+                            <option>
+                                24-Hour
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- DATE FORMAT -->
+
+                    <div class="setting-field">
+
+                        <label>
+                            Date Format
+                        </label>
+
+                        <select>
+
+                            <option selected>
+                                MM/DD/YYYY
+                            </option>
+
+                            <option>
+                                DD/MM/YYYY
+                            </option>
+
+                            <option>
+                                YYYY-MM-DD
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
 
             </div>
 
+
+            <!-- =================================================
+                 NOTIFICATIONS
+            ================================================== -->
+
+            <div class="settings-card">
+
+
+                <div class="card-title">
+
+                    <i class="bi bi-bell"></i>
+
+                    Notifications
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="notification-setting">
+
+                    <div class="notification-left">
+
+                        <i class="bi bi-envelope"></i>
+
+                        <span>
+                            Email Notifications
+                        </span>
+
+                    </div>
+
+
+                    <label class="custom-switch">
+
+                        <input type="checkbox" checked />
+
+                        <span class="switch-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- SMS -->
+
+                <div class="notification-setting">
+
+                    <div class="notification-left">
+
+                        <i class="bi bi-chat-left-text"></i>
+
+                        <span>
+                            SMS Notifications
+                        </span>
+
+                    </div>
+
+
+                    <label class="custom-switch">
+
+                        <input type="checkbox" />
+
+                        <span class="switch-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- INTERVIEW REMINDER -->
+
+                <div class="reminder-row">
+
+                    <span class="reminder-label">
+                        Interview Reminders
+                    </span>
+
+
+                    <select class="reminder-select">
+
+                        <option selected>
+                            1 hour before
+                        </option>
+
+                        <option>
+                            2 hours before
+                        </option>
+
+                        <option>
+                            1 day before
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 NOTIFICATION THEME
+            ================================================== -->
+
+            <div class="settings-card">
+
+
+                <div class="card-title">
+
+                    <i class="bi bi-display"></i>
+
+                    Notification Theme
+
+                </div>
+
+
+                <div class="setting-field"
+                     style="max-width:220px;">
+
+                    <label>
+                        Theme
+                    </label>
+
+
+                    <select>
+
+                        <option selected>
+                            Light
+                        </option>
+
+                        <option>
+                            Dark
+                        </option>
+
+                        <option>
+                            System Default
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
         </div>
+
+
+        <!-- SAVE -->
+
+        <div class="save-container">
+
+            <button class="btn-save"
+                    type="button">
+
+                Save Changes
+
+            </button>
+
+        </div>
+
 
     </main>
 
 
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- BOOTSTRAP -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
 
 
     <script>
+
 
         /* =========================================================
            SIDEBAR TOGGLE
@@ -1671,6 +2049,18 @@
 
         settingsToggle.addEventListener("click", function (e) {
 
+            /*
+             * Allow the Settings text/link
+             * to navigate normally.
+             *
+             * Clicking the arrow area toggles
+             * the submenu.
+             */
+
+            if (e.target.closest("a")) {
+                return;
+            }
+
             e.preventDefault();
             e.stopPropagation();
 
@@ -1688,6 +2078,7 @@
 
         const profileToggle =
             document.getElementById("profileToggle");
+
 
         profileToggle.addEventListener("click", function (e) {
 
@@ -1709,6 +2100,7 @@
 
         const notificationToggle =
             document.getElementById("notificationToggle");
+
 
         notificationToggle.addEventListener("click", function (e) {
 
@@ -1735,11 +2127,12 @@
 
 
         /* =========================================================
-           ACCENT COLOR SELECTION
+           ACCENT COLOR
         ========================================================== */
 
         const accentOptions =
             document.querySelectorAll(".accent-option");
+
 
         accentOptions.forEach(function (option) {
 
@@ -1758,6 +2151,7 @@
         });
 
     </script>
+
 
 </body>
 </html>

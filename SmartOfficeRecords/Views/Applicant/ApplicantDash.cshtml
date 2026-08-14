@@ -434,7 +434,6 @@
 
         /* =========================================================
                    SIDEBAR
-                   SAME AS MY APPOINTMENT
                 ========================================================= */
 
         .sidebar-menu-wrapper {
@@ -1116,31 +1115,26 @@
 
     <nav class="navbar-custom">
 
-        <!-- LOGO -->
-        <div class="navbar-left-box">
+        <!-- Logo -->
+        <div class="navbar-left-box" id="navLeftBox">
 
-            <a class="navbar-brand-custom"
-               href="@Url.Action("ApplicantDash", "Applicant")">
+            <a href="#" class="navbar-brand-custom">
 
                 <img src="~/Images/logo.png"
                      alt="SORS Logo"
                      onerror="this.src='https://cdn-icons-png.flaticon.com/512/3061/3061341.png'" />
 
-                <span class="brand-text">
-                    SORS
-                </span>
+                <span class="brand-text">SORS</span>
 
             </a>
 
         </div>
 
-
-        <!-- HAMBURGER -->
+        <!-- Toggle -->
         <div class="toggle-zone-box">
 
             <button class="sidebar-toggle-btn"
                     id="toggleSidebar"
-                    type="button"
                     title="Toggle Sidebar">
 
                 <i class="bi bi-list"></i>
@@ -1149,26 +1143,22 @@
 
         </div>
 
-
-        <!-- RIGHT NAVIGATION -->
+        <!-- Right Side -->
         <div class="navbar-profile">
 
-            <!-- NOTIFICATION -->
+            <!-- Notification -->
             <div class="notification-container">
 
                 <button class="notification-btn"
                         id="notificationToggle"
-                        type="button"
                         title="Notifications">
 
                     <i class="bi bi-bell"></i>
-
                     <span class="notification-badge-dot"></span>
 
                 </button>
 
-
-                <!-- NOTIFICATION DROPDOWN -->
+                <!-- Notification Dropdown -->
                 <div class="notification-dropdown-custom"
                      id="notificationMenu">
 
@@ -1178,66 +1168,58 @@
                             Notifications
                         </span>
 
-                        <a href="#"
-                           class="notif-mark-read">
+                        <a href="#" class="notif-mark-read">
                             Mark all as read
                         </a>
 
                     </div>
 
-
                     <div class="notif-body">
 
-                        <a href="#"
-                           class="notif-item">
+                        <a href="#" class="notif-item">
 
                             <div class="notif-icon-box notif-icon-success">
                                 <i class="bi bi-check-circle-fill"></i>
                             </div>
 
                             <div>
-
                                 <div class="notif-text">
-                                    Your interview request has been approved.
+                                    Your interview request
+                                    <strong>#RI01</strong>
+                                    was approved.
                                 </div>
 
                                 <div class="notif-time">
                                     10 mins ago
                                 </div>
-
                             </div>
 
                         </a>
 
-
-                        <a href="#"
-                           class="notif-item">
+                        <a href="#" class="notif-item">
 
                             <div class="notif-icon-box notif-icon-warning">
                                 <i class="bi bi-clock-history"></i>
                             </div>
 
                             <div>
-
                                 <div class="notif-text">
-                                    Reminder: Check your interview schedule.
+                                    Reminder: Upload missing requirements for
+                                    <strong>#RI02</strong>.
                                 </div>
 
                                 <div class="notif-time">
                                     2 hours ago
                                 </div>
-
                             </div>
 
                         </a>
 
                     </div>
 
-
                     <div class="notif-footer">
 
-                        <a href="#"
-                           class="notif-footer-btn">
+                        <a href="#" class="notif-footer-btn">
                             View All Notifications
                         </a>
 
@@ -1247,8 +1229,7 @@
 
             </div>
 
-
-            <!-- PROFILE -->
+            <!-- Profile -->
             <div class="profile-container">
 
                 <div class="profile-widget"
@@ -1274,8 +1255,7 @@
 
                 </div>
 
-
-                <!-- PROFILE DROPDOWN -->
+                <!-- Profile Dropdown -->
                 <div class="profile-dropdown-custom"
                      id="profileMenu">
 
@@ -1318,7 +1298,8 @@
             <li>
 
                 <a href="@Url.Action("ApplicantDash", "Applicant")"
-                   class="sidebar-link-item active">
+                   class="sidebar-link-item active"
+                data-label="Dashboard">
 
                     <i class="bi bi-house-door-fill"></i>
 
@@ -1398,7 +1379,7 @@
                             <i class="bi bi-shield-lock"></i>
 
                             <span class="sidebar-link-text">
-                                Settings
+                                General Settings
                             </span>
 
                         </a>
