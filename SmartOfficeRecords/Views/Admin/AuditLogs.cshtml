@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Request Management";
+    ViewBag.Title = "Audit Logs";
     Layout = null;
 }
 
@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Request Management - SORS</title>
+    <title>Audit Logs</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -56,7 +56,7 @@
 
         /* =========================================================
                    SIDEBAR
-                   SAME AS RECORDS PAGE
+                   SAME AS RECORDS MANAGEMENT
                 ========================================================= */
 
         .sidebar {
@@ -71,6 +71,7 @@
             overflow-y: auto;
             overflow-x: hidden;
         }
+
 
         /* Scrollbar */
 
@@ -229,10 +230,14 @@
                     min-width: 14px;
                 }
 
+                /* HOVER - SAME AS RECORDS */
+
                 .menu a:hover {
                     background: rgba(185, 28, 28, .18);
                     color: #FFFFFF;
                 }
+
+                /* ACTIVE - SAME AS RECORDS */
 
                 .menu a.active {
                     background: #B91C1C;
@@ -348,6 +353,7 @@
 
         /* =========================================================
                    TOPBAR
+                   SAME AS RECORDS MANAGEMENT
                 ========================================================= */
 
         .topbar {
@@ -446,8 +452,7 @@
 
 
         /* =========================================================
-                   CONTENT AREA
-                   SAME AS RECORDS PAGE
+                   AUDIT CONTENT
                 ========================================================= */
 
         .content-area {
@@ -460,7 +465,6 @@
 
         /* =========================================================
                    PAGE HEADER
-                   SAME AS RECORDS PAGE
                 ========================================================= */
 
         .page-header {
@@ -477,7 +481,7 @@
             margin: 0 0 2px 0;
         }
 
-        .page-subtitle {
+        .page-description {
             color: #64748B;
             font-size: 9px;
             font-weight: 500;
@@ -487,7 +491,6 @@
 
         /* =========================================================
                    ACTION BAR
-                   SAME AS RECORDS PAGE
                 ========================================================= */
 
         .action-bar {
@@ -508,7 +511,7 @@
         .search-box {
             height: 34px;
             flex: 1;
-            max-width: 540px;
+            max-width: 560px;
             background: #FFFFFF;
             border-radius: 20px;
             box-shadow: 0 3px 12px rgba(0,0,0,.07);
@@ -536,8 +539,13 @@
                     color: #9CA3AF;
                 }
 
-        .status-filter {
-            width: 190px;
+
+        /* =========================================================
+                   AUDIT FILTERS
+                ========================================================= */
+
+        .audit-filter {
+            width: 120px;
             height: 34px;
             background: #FFFFFF;
             border: 1px solid #D1D5DB;
@@ -549,49 +557,13 @@
             outline: none;
         }
 
-            .status-filter:focus {
+            .audit-filter:focus {
                 border-color: #B91C1C;
             }
 
 
         /* =========================================================
-                   CREATE REQUEST BUTTON
-                   SAME HEIGHT AS RECORDS BUTTON
-                ========================================================= */
-
-        .create-btn {
-            height: 34px;
-            border: none;
-            border-radius: 5px;
-            background: #B91C1C;
-            color: #FFFFFF;
-            padding: 0 15px;
-            font-size: 10px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            cursor: pointer;
-            transition: all .2s ease;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-            .create-btn:hover {
-                background: #991B1B;
-                color: #FFFFFF;
-                transform: translateY(-1px);
-                box-shadow: 0 4px 10px rgba(185,28,28,.20);
-            }
-
-            .create-btn i {
-                font-size: 14px;
-            }
-
-
-        /* =========================================================
                    TABLE
-                   SAME AS RECORDS PAGE
                 ========================================================= */
 
         .table-container {
@@ -601,28 +573,30 @@
             overflow: hidden;
         }
 
-        .table {
+        .audit-table {
             width: 100%;
             border-collapse: collapse;
             margin: 0;
         }
 
-            .table thead {
-                background: #D1D1D1;
+            /* BLACK HEADER LIKE IMAGE */
+
+            .audit-table thead {
+                background: #111111;
             }
 
-                .table thead th {
-                    height: 38px;
-                    padding: 0 12px;
-                    font-size: 9px;
-                    font-weight: 700;
-                    color: #111827;
-                    border-bottom: 1px solid #D1D5DB;
-                    white-space: nowrap;
-                    text-align: left;
-                }
+            .audit-table th {
+                height: 38px;
+                padding: 0 12px;
+                font-size: 9px;
+                font-weight: 700;
+                color: #FFFFFF;
+                border-bottom: 1px solid #111111;
+                white-space: nowrap;
+                text-align: left;
+            }
 
-            .table tbody td {
+            .audit-table td {
                 height: 36px;
                 padding: 0 12px;
                 font-size: 8px;
@@ -632,152 +606,135 @@
                 vertical-align: middle;
             }
 
-            .table tbody tr:hover {
+            .audit-table tbody tr:hover {
                 background: #FEF2F2;
             }
 
-            .table tbody tr:last-child td {
+            .audit-table tbody tr:last-child td {
                 border-bottom: none;
             }
 
 
         /* =========================================================
-                   STATUS BADGES
+                   ROLE BADGES
                 ========================================================= */
 
-        .status-badge {
-            display: inline-block;
-            padding: 3px 7px;
-            border-radius: 4px;
+        .role-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 45px;
+            padding: 3px 8px;
+            border-radius: 8px;
             font-size: 7px;
             font-weight: 600;
         }
 
-        .status-pending {
-            background: #FFF4E5;
-            color: #E58A00;
+        .role-admin {
+            background: #FECACA;
+            color: #DC2626;
         }
 
-        .status-approved {
-            background: #DCFCE7;
-            color: #15803D;
-        }
-
-        .status-rejected {
-            background: #FEE2E2;
-            color: #B91C1C;
-        }
-
-        .status-completed {
-            background: #DBEAFE;
-            color: #2563EB;
+        .role-staff {
+            background: #F3F4F6;
+            color: #374151;
         }
 
 
         /* =========================================================
-                   ACTION ICONS
+                   STATUS BADGE
                 ========================================================= */
 
-        .action-icons {
-            display: flex;
+        .success-badge {
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 4px;
+            padding: 4px 9px;
+            border-radius: 10px;
+            background: #D1FAE5;
+            color: #10B981;
+            font-size: 7px;
+            font-weight: 600;
         }
 
-        .action-btn {
-            width: 25px;
-            height: 25px;
-            border: none;
-            border-radius: 5px;
-            background: transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all .2s ease;
-        }
-
-            .action-btn i {
-                font-size: 11px;
+            .success-badge::before {
+                content: "";
+                width: 4px;
+                height: 4px;
+                background: #10B981;
+                border-radius: 50%;
             }
 
-        .view-action {
-            color: #374151;
+
+        /* =========================================================
+                   DATE COLUMN
+                ========================================================= */
+
+        .date-column {
+            line-height: 1.35;
         }
 
-            .view-action:hover {
-                background: #DBEAFE;
-                color: #2563EB;
-            }
-
-        .edit-action {
-            color: #374151;
-        }
-
-            .edit-action:hover {
-                background: #FEE2E2;
-                color: #B91C1C;
+            .date-column .time {
+                display: block;
+                margin-left: 8px;
             }
 
 
         /* =========================================================
                    PAGINATION
-                   SAME AS RECORDS PAGE
                 ========================================================= */
+
+        .pagination-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8px;
+        }
+
+        .showing-text {
+            font-size: 9px;
+            color: #374151;
+            font-weight: 500;
+        }
 
         .pagination-section {
             display: flex;
-            justify-content: flex-end;
             align-items: center;
-            gap: 5px;
-            margin-top: 18px;
+            gap: 6px;
         }
 
         .pagination-btn {
-            width: 28px;
             height: 28px;
-            border: none;
+            padding: 0 11px;
+            border: 1px solid #E5E7EB;
             background: #FFFFFF;
             border-radius: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #6B7280;
-            font-size: 9px;
+            font-size: 8px;
             cursor: pointer;
+            transition: all .2s ease;
         }
 
             .pagination-btn:hover {
                 background: #FEE2E2;
                 color: #B91C1C;
+                border-color: #FECACA;
             }
 
-        .page-number {
-            width: 28px;
-            height: 28px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 9px;
-            font-weight: 600;
-            color: #374151;
-            cursor: pointer;
-        }
-
-            .page-number:hover {
-                background: #FEE2E2;
-                color: #B91C1C;
-            }
-
-        .active-page {
+        .pagination-next {
             background: #B91C1C;
             color: #FFFFFF;
+            border-color: #B91C1C;
+            min-width: 55px;
         }
 
-            .active-page:hover {
+            .pagination-next:hover {
                 background: #991B1B;
                 color: #FFFFFF;
+                border-color: #991B1B;
             }
 
 
@@ -799,8 +756,8 @@
                 max-width: none;
             }
 
-            .create-btn {
-                margin-left: auto;
+            .audit-filter {
+                width: 160px;
             }
         }
 
@@ -861,12 +818,6 @@
                 padding: 14px;
             }
 
-            .page-header {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 10px;
-            }
-
             .action-bar {
                 flex-direction: column;
                 align-items: stretch;
@@ -882,21 +833,16 @@
                 max-width: none;
             }
 
-            .status-filter {
+            .audit-filter {
                 width: 100%;
-            }
-
-            .create-btn {
-                width: 100%;
-                justify-content: center;
             }
 
             .table-container {
                 overflow-x: auto;
             }
 
-            .table {
-                min-width: 850px;
+            .audit-table {
+                min-width: 800px;
             }
         }
 
@@ -926,9 +872,10 @@
     <div class="dashboard-container">
 
 
-        <!-- =========================================================
+        <!-- =====================================================
              SIDEBAR
-        ========================================================== -->
+             SAME AS RECORDS MANAGEMENT
+        ====================================================== -->
 
         <aside class="sidebar">
 
@@ -970,10 +917,9 @@
                 </a>
 
 
-                <!-- REQUEST - ACTIVE -->
+                <!-- REQUEST -->
 
-                <a href="@Url.Action("RequestManagement", "Admin")"
-                   class="active">
+                <a href="@Url.Action("RequestManagement", "Admin")">
 
                     <i class="bi bi-file-earmark-text"></i>
 
@@ -1010,9 +956,10 @@
                 </a>
 
 
-                <!-- AUDIT LOGS -->
+                <!-- AUDIT LOGS - ACTIVE -->
 
-                <a href="@Url.Action("AuditLogs", "Admin")">
+                <a href="@Url.Action("AuditLogs", "Admin")"
+                   class="active">
 
                     <i class="bi bi-clock-history"></i>
 
@@ -1105,16 +1052,17 @@
         </aside>
 
 
-        <!-- =========================================================
+        <!-- =====================================================
              MAIN CONTENT
-        ========================================================== -->
+        ====================================================== -->
 
         <div class="main-content">
 
 
-            <!-- =====================================================
+            <!-- =================================================
                  TOPBAR
-            ====================================================== -->
+                 SAME AS RECORDS MANAGEMENT
+            ================================================== -->
 
             <div class="topbar">
 
@@ -1171,27 +1119,25 @@
             </div>
 
 
-            <!-- =====================================================
+            <!-- =================================================
                  CONTENT
-            ====================================================== -->
+            ================================================== -->
 
             <div class="content-area">
 
 
-                <!-- =================================================
-                     PAGE HEADER
-                ================================================== -->
+                <!-- PAGE HEADER -->
 
                 <div class="page-header">
 
                     <div>
 
                         <h2 class="page-title">
-                            Request
+                            Audit Logs
                         </h2>
 
-                        <p class="page-subtitle">
-                            Here's what's happening with your interviews and records today.
+                        <p class="page-description">
+                            View a records of activities performed by users in the system.
                         </p>
 
                     </div>
@@ -1216,50 +1162,62 @@
                             <i class="bi bi-search"></i>
 
                             <input type="text"
-                                   placeholder="Search here..." />
+                                   placeholder="Search users or activity..." />
 
                         </div>
 
 
+                        <!-- MODULE FILTER -->
+
+                        <select class="audit-filter">
+
+                            <option>
+                                All Modules
+                            </option>
+
+                            <option>
+                                Login
+                            </option>
+
+                            <option>
+                                Request
+                            </option>
+
+                            <option>
+                                Records
+                            </option>
+
+                            <option>
+                                Reports
+                            </option>
+
+                            <option>
+                                Users
+                            </option>
+
+                        </select>
+
+
                         <!-- STATUS FILTER -->
 
-                        <select class="status-filter">
+                        <select class="audit-filter">
 
                             <option>
                                 All Status
                             </option>
 
                             <option>
-                                Pending
+                                Success
                             </option>
 
                             <option>
-                                Approved
-                            </option>
-
-                            <option>
-                                Rejected
-                            </option>
-
-                            <option>
-                                Completed
+                                Failed
                             </option>
 
                         </select>
 
+
                     </div>
-
-
-                    <!-- CREATE REQUEST -->
-
-                    <a href="@Url.Action("RCreateRequest", "Admin")"
-                       class="create-btn">
-
-                        <i class="bi bi-plus-lg"></i>
-
-                        Create Request
-
-                    </a>
 
 
                 </div>
@@ -1272,7 +1230,7 @@
                 <div class="table-container">
 
 
-                    <table class="table">
+                    <table class="audit-table">
 
 
                         <thead>
@@ -1280,27 +1238,27 @@
                             <tr>
 
                                 <th>
-                                    ID
+                                    DATE & TIME
                                 </th>
 
                                 <th>
-                                    APPLICANT NAME
+                                    USERS
                                 </th>
 
                                 <th>
-                                    EMAIL ADDRESS
+                                    ROLE
                                 </th>
 
                                 <th>
-                                    DATE APPLIED
+                                    ACTIVITY
+                                </th>
+
+                                <th>
+                                    MODULE
                                 </th>
 
                                 <th>
                                     STATUS
-                                </th>
-
-                                <th>
-                                    ACTION
                                 </th>
 
                             </tr>
@@ -1316,48 +1274,44 @@
                             <tr>
 
                                 <td>
-                                    AP001
+
+                                    <div class="date-column">
+
+                                        August 01, 2026
+
+                                        <span class="time">
+                                            09:00:15 AM
+                                        </span>
+
+                                    </div>
+
                                 </td>
 
                                 <td>
-                                    Cris Alin Zobrado
-                                </td>
-
-                                <td>
-                                    @@gmail.com
-                                </td>
-
-                                <td>
-                                    Apr 24, 2026
+                                    Admin User
                                 </td>
 
                                 <td>
 
-                                    <span class="status-badge status-pending">
-                                        Pending
+                                    <span class="role-badge role-admin">
+                                        Admin
                                     </span>
 
                                 </td>
 
                                 <td>
+                                    Logged in to the system.
+                                </td>
 
-                                    <div class="action-icons">
+                                <td>
+                                    Login
+                                </td>
 
-                                        <button class="action-btn view-action"
-                                                title="View">
+                                <td>
 
-                                            <i class="bi bi-eye"></i>
-
-                                        </button>
-
-                                        <button class="action-btn edit-action"
-                                                title="Edit">
-
-                                            <i class="bi bi-pencil"></i>
-
-                                        </button>
-
-                                    </div>
+                                    <span class="success-badge">
+                                        Success
+                                    </span>
 
                                 </td>
 
@@ -1369,207 +1323,44 @@
                             <tr>
 
                                 <td>
-                                    AP002
-                                </td>
 
-                                <td>
-                                    Hannah Cabasan
-                                </td>
+                                    <div class="date-column">
 
-                                <td>
-                                    Back Office
-                                </td>
+                                        August 01, 2026
 
-                                <td>
-                                    Apr 24, 2026
-                                </td>
-
-                                <td>
-
-                                    <span class="status-badge status-pending">
-                                        Pending
-                                    </span>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="action-icons">
-
-                                        <button class="action-btn view-action"
-                                                title="View">
-
-                                            <i class="bi bi-eye"></i>
-
-                                        </button>
-
-                                        <button class="action-btn edit-action"
-                                                title="Edit">
-
-                                            <i class="bi bi-pencil"></i>
-
-                                        </button>
+                                        <span class="time">
+                                            09:00:15 AM
+                                        </span>
 
                                     </div>
 
                                 </td>
 
-                            </tr>
-
-
-                            <!-- ROW 3 -->
-
-                            <tr>
-
                                 <td>
-                                    AP003
-                                </td>
-
-                                <td>
-                                    John Mark Gualderama
-                                </td>
-
-                                <td>
-                                    Office Staff
-                                </td>
-
-                                <td>
-                                    Apr 24, 2026
+                                    Staff User
                                 </td>
 
                                 <td>
 
-                                    <span class="status-badge status-pending">
-                                        Pending
+                                    <span class="role-badge role-staff">
+                                        Staff
                                     </span>
 
                                 </td>
 
                                 <td>
-
-                                    <div class="action-icons">
-
-                                        <button class="action-btn view-action"
-                                                title="View">
-
-                                            <i class="bi bi-eye"></i>
-
-                                        </button>
-
-                                        <button class="action-btn edit-action"
-                                                title="Edit">
-
-                                            <i class="bi bi-pencil"></i>
-
-                                        </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-
-                            <!-- ROW 4 -->
-
-                            <tr>
-
-                                <td>
-                                    AP004
+                                    Approved request #02
                                 </td>
 
                                 <td>
-                                    Juan Dela Cruz
-                                </td>
-
-                                <td>
-                                    Customer Service
-                                </td>
-
-                                <td>
-                                    Apr 24, 2026
+                                    Request
                                 </td>
 
                                 <td>
 
-                                    <span class="status-badge status-pending">
-                                        Pending
+                                    <span class="success-badge">
+                                        Success
                                     </span>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="action-icons">
-
-                                        <button class="action-btn view-action"
-                                                title="View">
-
-                                            <i class="bi bi-eye"></i>
-
-                                        </button>
-
-                                        <button class="action-btn edit-action"
-                                                title="Edit">
-
-                                            <i class="bi bi-pencil"></i>
-
-                                        </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-
-                            <!-- ROW 5 -->
-
-                            <tr>
-
-                                <td>
-                                    AP005
-                                </td>
-
-                                <td>
-                                    John Michael Aninon
-                                </td>
-
-                                <td>
-                                    Data Entry Specialist
-                                </td>
-
-                                <td>
-                                    Apr 24, 2026
-                                </td>
-
-                                <td>
-
-                                    <span class="status-badge status-pending">
-                                        Pending
-                                    </span>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="action-icons">
-
-                                        <button class="action-btn view-action"
-                                                title="View">
-
-                                            <i class="bi bi-eye"></i>
-
-                                        </button>
-
-                                        <button class="action-btn edit-action"
-                                                title="Edit">
-
-                                            <i class="bi bi-pencil"></i>
-
-                                        </button>
-
-                                    </div>
 
                                 </td>
 
@@ -1578,50 +1369,41 @@
 
                         </tbody>
 
+
                     </table>
 
-                </div>
+
+                    <!-- PAGINATION INSIDE TABLE CONTAINER -->
+
+                    <div class="pagination-area">
 
 
-                <!-- =================================================
-                     PAGINATION
-                ================================================== -->
-
-                <div class="pagination-section">
+                        <div class="showing-text">
+                            Showing 1 to 5 users
+                        </div>
 
 
-                    <button class="pagination-btn">
-
-                        <i class="bi bi-chevron-left"></i>
-
-                    </button>
+                        <div class="pagination-section">
 
 
-                    <div class="page-number active-page">
-                        1
+                            <button class="pagination-btn">
+
+                                Previous
+
+                            </button>
+
+
+                            <button class="pagination-btn pagination-next">
+
+                                Next
+
+                            </button>
+
+
+                        </div>
+
+
                     </div>
-
-
-                    <div class="page-number">
-                        2
-                    </div>
-
-
-                    <div class="page-number">
-                        3
-                    </div>
-
-
-                    <div class="page-number">
-                        4
-                    </div>
-
-
-                    <button class="pagination-btn">
-
-                        <i class="bi bi-chevron-right"></i>
-
-                    </button>
 
 
                 </div>
@@ -1640,9 +1422,10 @@
 
     <script>
 
-        /* =========================================================
+
+        /* =========================================
            SETTINGS DROPDOWN
-        ========================================================= */
+        ========================================= */
 
         const dropdown =
             document.querySelector('.sidebar-dropdown');
@@ -1658,9 +1441,9 @@
         });
 
 
-        /* =========================================================
+        /* =========================================
            SIDEBAR COLLAPSE
-        ========================================================= */
+        ========================================= */
 
         const sidebar =
             document.querySelector('.sidebar');
@@ -1674,6 +1457,7 @@
             sidebar.classList.toggle('collapsed');
 
         });
+
 
     </script>
 

@@ -45,6 +45,11 @@ namespace SmartOfficeRecords.Controllers
         {
             return View();
         }
+
+        public ActionResult AuditLogs()
+        {
+            return View();
+        }
         public ActionResult UsersManagement()
         {
             return View();
