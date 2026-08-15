@@ -1,0 +1,1215 @@
+﻿@{
+    ViewBag.Title = "Upload Record Details";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Upload Record Details - SORS</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #F5F6F8;
+            overflow: hidden;
+        }
+
+        .dashboard-container {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+        }
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar {
+            width: 158px;
+            min-width: 158px;
+            height: 100vh;
+            background: #1F2933;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            transition: all .3s ease;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+            .sidebar::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            .sidebar::-webkit-scrollbar-thumb {
+                background: rgba(255,255,255,.25);
+                border-radius: 10px;
+            }
+
+            .sidebar::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .sidebar.collapsed {
+                width: 78px;
+                min-width: 78px;
+            }
+
+                .sidebar.collapsed .system-name {
+                    display: block;
+                    font-size: 10px;
+                    font-weight: 600;
+                    margin-top: 8px;
+                }
+
+                .sidebar.collapsed .logo-circle {
+                    width: 42px;
+                    height: 42px;
+                }
+
+                .sidebar.collapsed .logo-section {
+                    padding: 18px 10px;
+                }
+
+                .sidebar.collapsed .menu a span,
+                .sidebar.collapsed .dropdown-toggle-menu span,
+                .sidebar.collapsed .logout a span {
+                    display: none;
+                }
+
+                .sidebar.collapsed .menu {
+                    padding: 15px 10px;
+                }
+
+                    .sidebar.collapsed .menu a {
+                        width: 42px;
+                        height: 42px;
+                        margin: 0 auto 10px auto;
+                        padding: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 6px;
+                    }
+
+                        .sidebar.collapsed .menu a.active {
+                            background: #B91C1C;
+                            box-shadow: 0 4px 10px rgba(0,0,0,.15);
+                        }
+
+                        .sidebar.collapsed .menu a i,
+                        .sidebar.collapsed .logout a i {
+                            margin: 0;
+                        }
+
+                .sidebar.collapsed .dropdown-toggle-menu {
+                    width: 42px;
+                    height: 42px;
+                    margin: 0 auto 10px auto;
+                    padding: 0;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 6px;
+                }
+
+                .sidebar.collapsed .small-arrow {
+                    display: none;
+                }
+
+                .sidebar.collapsed .dropdown-submenu {
+                    display: none !important;
+                }
+
+                .sidebar.collapsed .logout {
+                    padding-bottom: 15px;
+                }
+
+                    .sidebar.collapsed .logout a {
+                        width: 42px;
+                        height: 42px;
+                        margin: 0 auto;
+                        padding: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+        /* ================= LOGO ================= */
+
+        .logo-section {
+            text-align: center;
+            padding: 16px 10px;
+            border-bottom: 1px solid rgba(255,255,255,.18);
+        }
+
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .system-name {
+            margin-top: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        /* ================= MENU ================= */
+
+        .menu {
+            padding: 14px 8px;
+        }
+
+            .menu a {
+                color: #FFFFFF;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 8px 10px;
+                margin-bottom: 3px;
+                border-radius: 5px;
+                font-size: 11px;
+                font-weight: 500;
+                transition: all .2s ease;
+            }
+
+                .menu a i {
+                    font-size: 14px;
+                    min-width: 14px;
+                }
+
+                .menu a:hover {
+                    background: rgba(185, 28, 28, .18);
+                    color: #FFFFFF;
+                    text-decoration: none;
+                }
+
+                .menu a.active {
+                    background: #B91C1C;
+                    color: #FFFFFF;
+                    box-shadow: 0 3px 8px rgba(185,28,28,.22);
+                }
+
+        /* ================= DROPDOWN ================= */
+
+        .sidebar-dropdown {
+            margin-bottom: 3px;
+        }
+
+        .dropdown-toggle-menu {
+            color: #FFFFFF;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 500;
+            transition: all .2s ease;
+        }
+
+            .dropdown-toggle-menu:hover {
+                background: rgba(185,28,28,.18);
+                color: #FFFFFF;
+                text-decoration: none;
+            }
+
+        .small-arrow {
+            font-size: 8px;
+            transition: transform .3s ease;
+        }
+
+        .dropdown-submenu {
+            display: none;
+            flex-direction: column;
+            padding-left: 14px;
+            margin-top: 3px;
+        }
+
+            .dropdown-submenu a {
+                color: #FFFFFF;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 7px 9px;
+                font-size: 10px;
+                border-radius: 5px;
+            }
+
+                .dropdown-submenu a:hover {
+                    background: rgba(185,28,28,.18);
+                    color: #FFFFFF;
+                    text-decoration: none;
+                }
+
+        .sidebar-dropdown.open .dropdown-submenu {
+            display: flex;
+        }
+
+        .sidebar-dropdown.open .small-arrow {
+            transform: rotate(90deg);
+        }
+
+        /* ================= LOGOUT ================= */
+
+        .logout {
+            margin-top: auto;
+            padding: 10px 8px 12px 8px;
+        }
+
+            .logout a {
+                color: #FFFFFF;
+                text-decoration: none;
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                padding: 8px 10px;
+                font-size: 11px;
+                font-weight: 500;
+                border-radius: 5px;
+                transition: all .2s ease;
+            }
+
+                .logout a:hover {
+                    background: rgba(185,28,28,.18);
+                    color: #FFFFFF;
+                    text-decoration: none;
+                }
+
+        /* ================= MAIN ================= */
+
+        .main-content {
+            flex: 1;
+            background: #F5F6F8;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ================= TOPBAR ================= */
+
+        .topbar {
+            height: 52px;
+            min-height: 52px;
+            flex-shrink: 0;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            background: #FFFFFF;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: #B91C1C;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-left: auto;
+        }
+
+        .notification-icon {
+            font-size: 17px;
+            color: #374151;
+            cursor: pointer;
+        }
+
+            .notification-icon:hover {
+                color: #B91C1C;
+            }
+
+        /* ================= PROFILE ================= */
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding-left: 8px;
+            border-left: 1px solid #E5E7EB;
+        }
+
+            .profile img {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+        }
+
+            .profile-info h5 {
+                margin: 0;
+                font-size: 10px;
+                font-weight: 600;
+                color: #111827;
+            }
+
+            .profile-info span {
+                font-size: 8px;
+                color: #6B7280;
+            }
+
+        .profile-arrow {
+            color: #6B7280;
+            font-size: 9px;
+            margin-left: 2px;
+        }
+
+        /* ================= CONTENT ================= */
+
+        .content-area {
+            flex: 1;
+            padding: 18px 28px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        /* =========================================================
+                                   BREADCRUMB
+                                ========================================================= */
+
+        .breadcrumb-title {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0;
+            padding: 0;
+            color: #111827;
+            line-height: 1.3;
+        }
+
+        .details-breadcrumb {
+            text-decoration: none;
+            color: #9CA3AF;
+            transition: .2s ease;
+        }
+
+            .details-breadcrumb:hover {
+                color: #B91C1C;
+            }
+
+        .breadcrumb-title strong {
+            color: #E32626;
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+                                   PAGE DESCRIPTION
+                                ========================================================= */
+
+        .page-description {
+            color: #64748B;
+            font-size: 10px;
+            font-weight: 400;
+            margin: 3px 0 20px 0;
+            padding: 0;
+            line-height: 1.4;
+        }
+
+        /* ================= STEPPER ================= */
+
+        .stepper-card {
+            width: 100%;
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 9px;
+            padding: 18px 22px;
+            margin-bottom: 14px;
+            box-shadow: 0 3px 12px rgba(0,0,0,.04);
+        }
+
+        .stepper {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .step-number {
+            width: 27px;
+            height: 27px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 700;
+            background: #E5E7EB;
+            color: #6B7280;
+            flex-shrink: 0;
+        }
+
+        .step.active .step-number,
+        .step.completed .step-number {
+            background: #EF1C24;
+            color: #FFFFFF;
+        }
+
+        .step-label {
+            font-size: 9px;
+            font-weight: 600;
+            color: #6B7280;
+        }
+
+        .step.active .step-label,
+        .step.completed .step-label {
+            color: #EF1C24;
+        }
+
+        .step-line {
+            flex: 1;
+            height: 1px;
+            background: #D1D5DB;
+            margin: 0 15px;
+        }
+
+            .step-line.completed {
+                background: #EF1C24;
+            }
+
+        /* ================= DETAILS CARD ================= */
+
+        .details-card {
+            width: 100%;
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 9px;
+            padding: 18px;
+            box-shadow: 0 3px 12px rgba(0,0,0,.04);
+        }
+
+        .details-heading {
+            font-size: 14px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 3px;
+        }
+
+        .details-subheading {
+            font-size: 10px;
+            color: #9CA3AF;
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 6px;
+        }
+
+        .required {
+            color: #EF1C24;
+        }
+
+        .form-control,
+        .form-select {
+            height: 41px;
+            border: 1px solid #C7C7C7;
+            border-radius: 6px;
+            font-size: 10px;
+            color: #374151;
+            padding: 0 12px;
+            box-shadow: none !important;
+        }
+
+            .form-control::placeholder {
+                color: #9CA3AF;
+            }
+
+            .form-control:focus,
+            .form-select:focus {
+                border-color: #EF1C24;
+            }
+
+        .description-wrapper {
+            position: relative;
+        }
+
+        .description-input {
+            height: 237px !important;
+            resize: none;
+            padding: 12px;
+            padding-bottom: 28px;
+        }
+
+        .char-count {
+            position: absolute;
+            right: 11px;
+            bottom: 9px;
+            font-size: 10px;
+            color: #6B7280;
+            pointer-events: none;
+        }
+
+        /* ================= FOOTER ================= */
+
+        .details-footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .cancel-btn,
+        .back-btn {
+            width: 90px;
+            height: 34px;
+            border: 1px solid #D1D5DB;
+            border-radius: 5px;
+            background: #FFFFFF;
+            color: #374151;
+            font-size: 9px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+            .cancel-btn:hover,
+            .back-btn:hover {
+                background: #F3F4F6;
+            }
+
+        .next-btn {
+            height: 34px;
+            padding: 0 16px;
+            border: none;
+            border-radius: 5px;
+            background: #EF1C24;
+            color: #FFFFFF;
+            font-size: 9px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+            .next-btn:hover {
+                background: #B91C1C;
+            }
+
+        /* ================= RESPONSIVE ================= */
+
+        @@media (max-width: 900px) {
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .description-input {
+                height: 180px !important;
+            }
+
+            .stepper {
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+
+            .step-line {
+                min-width: 40px;
+            }
+        }
+
+        @@media (max-width: 768px) {
+
+            body {
+                overflow-y: auto;
+            }
+
+            .sidebar {
+                width: 78px;
+                min-width: 78px;
+            }
+
+            .system-name,
+            .menu a span,
+            .dropdown-toggle-menu span,
+            .logout a span {
+                display: none;
+            }
+
+            .logo-section {
+                padding: 18px 10px;
+            }
+
+            .logo-circle {
+                width: 42px;
+                height: 42px;
+            }
+
+            .menu {
+                padding: 15px 10px;
+            }
+
+                .menu a {
+                    width: 42px;
+                    height: 42px;
+                    margin: 0 auto 10px auto;
+                    padding: 0;
+                    justify-content: center;
+                }
+
+            .dropdown-toggle-menu {
+                width: 42px;
+                height: 42px;
+                margin: 0 auto 10px auto;
+                padding: 0;
+                justify-content: center;
+            }
+
+            .small-arrow {
+                display: none;
+            }
+
+            .logout a {
+                width: 42px;
+                height: 42px;
+                margin: 0 auto;
+                padding: 0;
+                justify-content: center;
+            }
+
+            .content-area {
+                padding: 14px;
+            }
+
+            .breadcrumb-title {
+                font-size: 16px;
+            }
+
+            .stepper-card,
+            .details-card {
+                padding: 14px;
+            }
+
+            .details-footer {
+                justify-content: center;
+            }
+        }
+
+        @@media (max-width: 500px) {
+
+            .profile-info {
+                display: none;
+            }
+
+            .profile-arrow {
+                display: none;
+            }
+
+            .profile {
+                border-left: none;
+            }
+
+            .content-area {
+                padding: 12px;
+            }
+
+            .breadcrumb-title {
+                font-size: 15px;
+            }
+
+            .details-footer {
+                flex-direction: column-reverse;
+                align-items: stretch;
+            }
+
+            .cancel-btn,
+            .back-btn,
+            .next-btn {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo-section">
+                <div class="logo-circle">
+                    <img src="~/Images/newlogo.png"
+                         class="logo-img"
+                         alt="SORS Logo" />
+                </div>
+
+                <div class="system-name">
+                    SORS
+                </div>
+            </div>
+
+            <div class="menu">
+
+                <a href="@Url.Action("StaffDashboard", "Staff")">
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="@Url.Action("StaffRequest", "Staff")">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Request</span>
+                </a>
+
+                <a href="@Url.Action("StaffRecords", "Staff")"
+                   class="active">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>Records</span>
+                </a>
+
+                <a href="@Url.Action("StaffReports", "Staff")">
+                    <i class="bi bi-file-earmark-bar-graph"></i>
+                    <span>Reports</span>
+                </a>
+
+                <div class="sidebar-dropdown">
+
+                    <a href="javascript:void(0)"
+                       class="dropdown-toggle-menu">
+
+                        <i class="bi bi-gear-fill"></i>
+
+                        <span>Settings</span>
+
+                        <i class="bi bi-chevron-right ms-auto small-arrow"></i>
+
+                    </a>
+
+                    <div class="dropdown-submenu">
+
+                        <a href="@Url.Action("StaffSettings", "Staff")">
+                            <i class="bi bi-sliders"></i>
+                            <span>General Settings</span>
+                        </a>
+
+                        <a href="@Url.Action("SAccountSettings", "Staff")">
+                            <i class="bi bi-person-gear"></i>
+                            <span>Account & Security</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="logout">
+
+                <a href="@Url.Action("StaffLogin", "Staff")">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+        <div class="main-content">
+
+            <!-- TOPBAR -->
+            <div class="topbar">
+
+                <div class="topbar-left">
+
+                    <button class="menu-toggle"
+                            id="menuToggle">
+
+                        <i class="bi bi-list"></i>
+
+                    </button>
+
+                </div>
+
+                <div class="topbar-right">
+
+                    <i class="bi bi-bell notification-icon"></i>
+
+                    <div class="profile">
+
+                        <img src="~/Images/adminpic.jpg"
+                             alt="Profile" />
+
+                        <div class="profile-info">
+
+                            <h5>John Cruz</h5>
+
+                            <span>Administrator</span>
+
+                        </div>
+
+                        <i class="bi bi-chevron-down profile-arrow"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CONTENT -->
+            <div class="content-area">
+
+                <!-- =================================================
+                              BREADCRUMB
+                ================================================== -->
+
+                <div class="breadcrumb-title">
+
+                    <a href="@Url.Action("StaffRecords", "Staff")"
+                       class="details-breadcrumb">
+
+                        Records
+
+                    </a>
+
+                    <span>
+                        ›
+                    </span>
+
+                    <strong>
+                        Upload Records
+                    </strong>
+
+                </div>
+                <p class="page-description">
+                    Provide the necessary details for the uploaded record.
+                </p>
+
+                <!-- STEPPER -->
+                <div class="stepper-card">
+
+                    <div class="stepper">
+
+                        <div class="step completed">
+
+                            <div class="step-number">
+                                <i class="bi bi-check"></i>
+                            </div>
+
+                            <div class="step-label">
+                                Upload Files
+                            </div>
+
+                        </div>
+
+                        <div class="step-line completed"></div>
+
+                        <div class="step active">
+
+                            <div class="step-number">
+                                2
+                            </div>
+
+                            <div class="step-label">
+                                Details
+                            </div>
+
+                        </div>
+
+                        <div class="step-line"></div>
+
+                        <div class="step">
+
+                            <div class="step-number">
+                                3
+                            </div>
+
+                            <div class="step-label">
+                                Review and Confirm
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- DETAILS CARD -->
+                <div class="details-card">
+
+                    <div class="details-heading">
+                        File Details
+                    </div>
+
+                    <div class="details-subheading">
+                        Profile additional details/ information.
+                    </div>
+
+                    <div class="details-grid">
+
+                        <!-- LEFT -->
+                        <div>
+
+                            <div class="form-group">
+
+                                <label class="form-label">
+                                    Full name <span class="required">*</span>
+                                </label>
+
+                                <input type="text"
+                                       id="fullName"
+                                       class="form-control"
+                                       placeholder="Enter Full name" />
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="form-label">
+                                    Category <span class="required">*</span>
+                                </label>
+
+                                <select id="category"
+                                        class="form-select">
+
+                                    <option value="">Select category</option>
+                                    <option value="Send-Off">Send-Off</option>
+                                    <option value="Endorse(Emax & TP)">Endorse(Emax & TP)</option>
+                                    <option value="Endorse(Emax)">Endorse(Emax)</option>
+                                    <option value="Endorse(TP)">Endorse(TP)</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="form-label">
+                                    Date
+                                </label>
+
+                                <input type="date"
+                                       id="recordDate"
+                                       class="form-control" />
+
+                            </div>
+
+                        </div>
+
+                        <!-- RIGHT -->
+                        <div>
+
+                            <div class="form-group">
+
+                                <label class="form-label">
+                                    Description
+                                </label>
+
+                                <div class="description-wrapper">
+
+                                    <textarea id="description"
+                                              maxlength="100"
+                                              class="form-control description-input"
+                                              placeholder="Add description..."></textarea>
+
+                                    <span class="char-count">
+                                        <span id="charCount">0</span>/100
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- FOOTER -->
+                <div class="details-footer">
+
+                    <button type="button"
+                            class="cancel-btn"
+                            onclick="window.location.href='@Url.Action("StaffRecords", "Staff")'">
+
+                        Cancel
+
+                    </button>
+
+                    <button type="button"
+                            class="back-btn"
+                            onclick="window.location.href='@Url.Action("StaffUploadFiles", "Staff")'">
+
+                        Back
+
+                    </button>
+
+                    <button type="button"
+                            class="next-btn"
+                            id="nextBtn">
+
+                        Next: Reviews
+
+                        <i class="bi bi-arrow-right ms-1"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        /* SETTINGS DROPDOWN */
+
+        const dropdown =
+            document.querySelector('.sidebar-dropdown');
+
+        const dropdownToggle =
+            document.querySelector('.dropdown-toggle-menu');
+
+        dropdownToggle.addEventListener('click', function () {
+
+            dropdown.classList.toggle('open');
+
+        });
+
+
+        /* SIDEBAR */
+
+        const sidebar =
+            document.querySelector('.sidebar');
+
+        const menuToggle =
+            document.getElementById('menuToggle');
+
+        menuToggle.addEventListener('click', function () {
+
+            sidebar.classList.toggle('collapsed');
+
+        });
+
+
+        /* DESCRIPTION CHARACTER COUNT */
+
+        const description =
+            document.getElementById('description');
+
+        const charCount =
+            document.getElementById('charCount');
+
+        description.addEventListener('input', function () {
+
+            charCount.textContent =
+                description.value.length;
+
+        });
+
+
+        /* NEXT */
+
+        document.getElementById('nextBtn')
+            .addEventListener('click', function () {
+
+                const fullName =
+                    document.getElementById('fullName').value.trim();
+
+                const category =
+                    document.getElementById('category').value;
+
+                if (fullName === "") {
+
+                    alert("Please enter the full name.");
+
+                    return;
+
+                }
+
+                if (category === "") {
+
+                    alert("Please select a category.");
+
+                    return;
+
+                }
+
+                window.location.href =
+                    '@Url.Action("StaffUploadReviewConfirm", "Staff")';
+
+            });
+
+    </script>
+
+</body>
+</html>

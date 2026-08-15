@@ -29,23 +29,28 @@ namespace SmartOfficeRecords.Controllers
             return View();
         }
 
-        public IActionResult StaffRecordsManagement()
+        public IActionResult StaffRecords()
         {
             return View();
         }
 
-        // GET: Admin/RecordsManagement
-        public ActionResult UploadFiles()
+        // GET: Staff/RecordsManagement
+        public ActionResult StaffUploadFiles()
         {
             return View();
         }
 
-        public ActionResult UploadDetails()
+        public ActionResult StaffUploadDetails()
         {
             return View();
         }
 
-        public ActionResult UploadReviewConfirm()
+        public ActionResult StaffUploadReviewConfirm()
+        {
+            return View();
+        }
+
+        public ActionResult StaffRequest()
         {
             return View();
         }

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Staff Dashboard";
+    ViewBag.Title = "Records Management";
     Layout = null;
 }
 
@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin Dashboard</title>
+    <title>Records Management</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -56,6 +56,7 @@
 
         /* =========================================================
                            SIDEBAR
+                           SAME AS ADMIN DASHBOARD
                         ========================================================= */
 
         .sidebar {
@@ -301,7 +302,7 @@
         }
 
         .sidebar-dropdown.open .small-arrow {
-            transform: rotate(180deg);
+            transform: rotate(90deg);
         }
 
 
@@ -446,7 +447,7 @@
 
 
         /* =========================================================
-                           CONTENT AREA
+                           RECORDS CONTENT
                         ========================================================= */
 
         .content-area {
@@ -458,38 +459,54 @@
 
 
         /* =========================================================
-                           WELCOME
+                           PAGE HEADER
                         ========================================================= */
 
-        .welcome-section {
+        .page-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 13px;
+            margin-bottom: 18px;
         }
 
-        .welcome-text h2 {
+        .page-title {
+            color: #B91C1C;
             font-size: 18px;
             font-weight: 700;
-            color: #B91C1C;
             margin: 0 0 2px 0;
         }
 
-        .welcome-text p {
-            font-size: 9px;
+        .page-description {
             color: #64748B;
+            font-size: 9px;
             font-weight: 500;
             margin: 0;
         }
 
 
         /* =========================================================
-                           SEARCH
+                           ACTION BAR
                         ========================================================= */
 
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .search-filter {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
         .search-box {
-            width: 255px;
             height: 34px;
+            flex: 1;
+            max-width: 540px;
             background: #FFFFFF;
             border-radius: 20px;
             box-shadow: 0 3px 12px rgba(0,0,0,.07);
@@ -517,314 +534,234 @@
                     color: #9CA3AF;
                 }
 
-
-        /* =========================================================
-                           DASHBOARD CARDS
-                        ========================================================= */
-
-        .cards-container {
-            display: flex;
-            gap: 12px;
-            width: 100%;
-            margin-bottom: 18px;
-        }
-
-        .dashboard-card {
-            flex: 1;
-            min-width: 150px;
-            height: 86px;
+        .status-filter {
+            width: 190px;
+            height: 34px;
             background: #FFFFFF;
-            border: 1px solid #E5E7EB;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            padding: 13px;
-            gap: 12px;
-            transition: all .2s ease;
-        }
-
-            .dashboard-card:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 5px 15px rgba(0,0,0,.06);
-            }
-
-        .card-icon {
-            width: 43px;
-            height: 43px;
-            min-width: 43px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #FFFFFF;
-            font-size: 18px;
-        }
-
-        .purple {
-            background: #7C3AED;
-        }
-
-        .orange {
-            background: #F59E0B;
-        }
-
-        .green {
-            background: #10B981;
-        }
-
-        .blue {
-            background: #3B82F6;
-        }
-
-        .red {
-            background: #EF4444;
-        }
-
-        .card-info h2 {
-            margin: 0;
-            font-size: 21px;
-            font-weight: 700;
-            color: #111827;
-        }
-
-        .card-info span {
-            font-size: 9px;
-            font-weight: 600;
-        }
-
-
-        /* =========================================================
-                           LOWER CONTENT
-                        ========================================================= */
-
-        .lower-content {
-            display: grid;
-            grid-template-columns: 1.65fr .95fr;
-            gap: 10px;
-        }
-
-
-        /* =========================================================
-                           PANEL
-                        ========================================================= */
-
-        .dashboard-panel {
-            background: #FFFFFF;
-            border: 1px solid #D9DDE3;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-
-        /* =========================================================
-                           PANEL HEADER
-                        ========================================================= */
-
-        .panel-header {
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 15px;
-        }
-
-            .panel-header h4 {
-                font-size: 11px;
-                font-weight: 700;
-                color: #111827;
-                margin: 0;
-            }
-
-
-        /* =========================================================
-                           FILTER BUTTON
-                        ========================================================= */
-
-        .filter-btn {
-            height: 27px;
-            min-width: 115px;
             border: 1px solid #D1D5DB;
-            background: #FFFFFF;
-            padding: 0 10px;
             border-radius: 6px;
+            padding: 0 10px;
             font-size: 10px;
             font-weight: 600;
             color: #374151;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
+            outline: none;
         }
 
-            .filter-btn:hover {
+            .status-filter:focus {
                 border-color: #B91C1C;
-                color: #B91C1C;
             }
 
-
-        /* =========================================================
-                           GRAPH
-                        ========================================================= */
-
-        .graph-panel {
-            height: 232px;
-            padding: 0 15px 15px 15px;
-        }
-
-        .graph-area {
-            height: 180px;
-            margin-left: 42px;
-            border-left: 2px solid #9CA3AF;
-            border-bottom: 2px solid #9CA3AF;
-            position: relative;
-        }
-
-        .graph-y-labels {
-            position: absolute;
-            left: -33px;
-            top: 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            font-size: 8px;
+        .upload-btn {
+            height: 34px;
+            border: none;
+            border-radius: 5px;
+            background: #B91C1C;
+            color: #FFFFFF;
+            padding: 0 15px;
+            font-size: 10px;
             font-weight: 600;
-            color: #374151;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            transition: all .2s ease;
+            /* Remove underline */
+            text-decoration: none;
         }
 
-        .days {
-            position: absolute;
-            bottom: -25px;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            font-size: 8px;
-            font-weight: 600;
-            color: #374151;
-        }
+            .upload-btn:hover {
+                background: #991B1B;
+                color: #FFFFFF;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 10px rgba(185,28,28,.20);
+            }
+
+            .upload-btn i {
+                font-size: 14px;
+            }
 
 
         /* =========================================================
                            TABLE
                         ========================================================= */
 
-        .table-panel {
-            height: 232px;
+        .table-container {
+            background: #FFFFFF;
+            border: 1px solid #D9DDE3;
+            border-radius: 6px;
+            overflow: hidden;
         }
 
-        .applicant-table {
+        .records-table {
             width: 100%;
             border-collapse: collapse;
             margin: 0;
         }
 
-            .applicant-table thead {
-                background: #D1D1D1;
+            .records-table thead {
+                background: #111111;
             }
 
-            .applicant-table th {
-                height: 36px;
-                padding: 0 8px;
+            .records-table th {
+                height: 38px;
+                padding: 0 12px;
                 font-size: 9px;
                 font-weight: 700;
-                color: #111827;
-                border-bottom: 1px solid #D1D5DB;
+                color: #ffffff;
+                border-bottom: 1px solid #111111;
                 white-space: nowrap;
+                text-align: left;
             }
 
-            .applicant-table td {
-                height: 34px;
-                padding: 0 8px;
+            .records-table td {
+                height: 36px;
+                padding: 0 12px;
                 font-size: 8px;
                 color: #374151;
                 border-bottom: 1px solid #E5E7EB;
                 white-space: nowrap;
             }
 
-            .applicant-table tbody tr:hover {
+            .records-table tbody tr:hover {
                 background: #FEF2F2;
             }
 
+            .records-table tbody tr:last-child td {
+                border-bottom: none;
+            }
+
 
         /* =========================================================
-                           STATUS
+                           CATEGORY BADGES
                         ========================================================= */
 
-        .status-completed {
+        .category-badge {
+            display: inline-block;
+            padding: 3px 7px;
+            border-radius: 4px;
+            font-size: 7px;
+            font-weight: 600;
+        }
+
+        .category-pdf {
+            background: #FEE2E2;
+            color: #B91C1C;
+        }
+
+        .category-image {
             background: #DBEAFE;
             color: #2563EB;
-            padding: 3px 6px;
-            border-radius: 3px;
-            font-size: 7px;
-            font-weight: 600;
         }
 
-        .status-pending {
-            background: #FEF3C7;
-            color: #D97706;
-            padding: 3px 6px;
-            border-radius: 3px;
-            font-size: 7px;
-            font-weight: 600;
+        .category-document {
+            background: #DCFCE7;
+            color: #15803D;
         }
 
 
         /* =========================================================
-                           ACTION BUTTONS
+                           ACTION ICONS
                         ========================================================= */
 
-        .action-buttons {
+        .record-actions {
             display: flex;
-            gap: 5px;
-            justify-content: center;
             align-items: center;
+            gap: 8px;
         }
 
-        .action-btn {
-            height: 26px;
+        .record-action {
+            width: 25px;
+            height: 25px;
             border: none;
             border-radius: 5px;
-            font-size: 8px;
-            font-weight: 600;
-            padding: 0 8px;
+            background: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 4px;
-            color: #FFFFFF;
+            cursor: pointer;
             transition: all .2s ease;
         }
 
-            .action-btn i {
-                font-size: 10px;
+            .record-action i {
+                font-size: 11px;
             }
 
-        .btn-view {
-            background: #2563EB;
+        .download-action {
+            color: #374151;
         }
 
-            .btn-view:hover {
-                background: #1D4ED8;
-                transform: translateY(-1px);
+            .download-action:hover {
+                background: #FEE2E2;
+                color: #B91C1C;
             }
 
-        .btn-approve {
-            background: #16A34A;
+        .view-action {
+            color: #374151;
         }
 
-            .btn-approve:hover {
-                background: #15803D;
-                transform: translateY(-1px);
+            .view-action:hover {
+                background: #DBEAFE;
+                color: #2563EB;
             }
 
-        .btn-reject {
+
+        /* =========================================================
+                           PAGINATION
+                        ========================================================= */
+
+        .pagination-section {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 5px;
+            margin-top: 18px;
+        }
+
+        .pagination-btn {
+            width: 28px;
+            height: 28px;
+            border: none;
+            background: #FFFFFF;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #6B7280;
+            font-size: 9px;
+            cursor: pointer;
+        }
+
+            .pagination-btn:hover {
+                background: #FEE2E2;
+                color: #B91C1C;
+            }
+
+        .page-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 9px;
+            font-weight: 600;
+            color: #374151;
+            cursor: pointer;
+        }
+
+            .page-number:hover {
+                background: #FEE2E2;
+                color: #B91C1C;
+            }
+
+        .active-page {
             background: #B91C1C;
+            color: #FFFFFF;
         }
 
-            .btn-reject:hover {
+            .active-page:hover {
                 background: #991B1B;
-                transform: translateY(-1px);
+                color: #FFFFFF;
             }
 
 
@@ -834,20 +771,20 @@
 
         @@media (max-width: 1000px) {
 
-            .cards-container {
+            .action-bar {
                 flex-wrap: wrap;
             }
 
-            .dashboard-card {
-                min-width: 180px;
-            }
-
-            .lower-content {
-                grid-template-columns: 1fr;
+            .search-filter {
+                width: 100%;
             }
 
             .search-box {
-                width: 200px;
+                max-width: none;
+            }
+
+            .upload-btn {
+                margin-left: auto;
             }
         }
 
@@ -859,8 +796,8 @@
             }
 
             .sidebar {
-                width: 70px;
-                min-width: 70px;
+                width: 78px;
+                min-width: 78px;
             }
 
             .system-name,
@@ -871,21 +808,24 @@
             }
 
             .logo-section {
-                padding: 15px 8px;
+                padding: 18px 10px;
             }
 
             .logo-circle {
-                width: 40px;
-                height: 40px;
+                width: 42px;
+                height: 42px;
             }
 
             .menu {
-                padding: 15px 8px;
+                padding: 15px 10px;
             }
 
                 .menu a {
+                    width: 42px;
+                    height: 42px;
+                    margin: 0 auto 10px auto;
+                    padding: 0;
                     justify-content: center;
-                    padding: 10px;
                 }
 
             .dropdown-toggle-menu {
@@ -902,46 +842,61 @@
             }
 
             .content-area {
-                padding: 12px;
+                padding: 14px;
             }
 
-            .welcome-section {
+            .page-header {
                 align-items: flex-start;
                 flex-direction: column;
-                gap: 12px;
+                gap: 10px;
+            }
+
+            .action-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-filter {
+                width: 100%;
+                flex-direction: column;
             }
 
             .search-box {
                 width: 100%;
+                max-width: none;
             }
 
-            .cards-container {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .dashboard-card {
+            .status-filter {
                 width: 100%;
+            }
+
+            .upload-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .table-container {
+                overflow-x: auto;
+            }
+
+            .records-table {
+                min-width: 700px;
             }
         }
 
 
         @@media (max-width: 500px) {
 
-            .cards-container {
-                grid-template-columns: 1fr;
-            }
-
             .profile-info {
                 display: none;
             }
 
-            .lower-content {
-                display: block;
+            .profile {
+                border-left: none;
             }
 
-            .dashboard-panel {
-                margin-bottom: 15px;
+            .content-area {
+                padding: 12px;
             }
         }
 
@@ -988,8 +943,7 @@
 
                 <!-- DASHBOARD -->
 
-                <a href="@Url.Action("StaffDashboard", "Staff")"
-                   class="active">
+                <a href="@Url.Action("StaffDashboard", "Admin")">
 
                     <i class="bi bi-grid-fill"></i>
 
@@ -1013,9 +967,10 @@
                 </a>
 
 
-                <!-- RECORDS -->
+                <!-- RECORDS - ACTIVE -->
 
-                <a href="@Url.Action("StaffRecords", "Staff")">
+                <a href="@Url.Action("StaffRecords", "Staff")"
+                   class="active">
 
                     <i class="bi bi-folder2-open"></i>
 
@@ -1159,7 +1114,7 @@
                             </h5>
 
                             <span>
-                                Staff
+                                Administrator
                             </span>
 
                         </div>
@@ -1180,371 +1135,399 @@
             <div class="content-area">
 
 
-                <!-- WELCOME + SEARCH -->
+                <!-- PAGE HEADER -->
 
-                <div class="welcome-section">
+                <div class="page-header">
 
+                    <div>
 
-                    <div class="welcome-text">
-
-                        <h2>
-                            Hi!
+                        <h2 class="page-title">
+                            Records
                         </h2>
 
-                        <p>
-                            Here's what's happening with your interviews and records today.
+                        <p class="page-description">
+                            Manage, organize, and keep office records up to date.
                         </p>
 
                     </div>
 
-
-                    <!-- SEARCH -->
-
-                    <div class="search-box">
-
-                        <i class="bi bi-search"></i>
-
-                        <input type="text"
-                               placeholder="Search here..." />
-
-                    </div>
-
                 </div>
 
 
                 <!-- =================================================
-                     SUMMARY CARDS
+                     ACTION BAR
                 ================================================== -->
 
-                <div class="cards-container">
+                <div class="action-bar">
 
 
-                    <!-- TOTAL REQUEST -->
+                    <div class="search-filter">
 
-                    <div class="dashboard-card">
 
-                        <div class="card-icon purple">
+                        <!-- SEARCH -->
 
-                            <i class="bi bi-send-fill"></i>
+                        <div class="search-box">
 
-                        </div>
+                            <i class="bi bi-search"></i>
 
-                        <div class="card-info">
-
-                            <h2>
-                                0
-                            </h2>
-
-                            <span style="color:#7C3AED;">
-                                Total Request
-                            </span>
+                            <input type="text"
+                                   placeholder="Search here..." />
 
                         </div>
+
+
+                        <!-- CATEGORY FILTER -->
+
+                        <select class="status-filter">
+
+                            <option>
+                                All Categories
+                            </option>
+
+                            <option>
+                                PDF
+                            </option>
+
+                            <option>
+                                Images
+                            </option>
+
+                            <option>
+                                Documents
+                            </option>
+
+                        </select>
+
 
                     </div>
 
 
-                    <!-- PENDING -->
+                    <!-- UPLOAD -->
+                    <a href="@Url.Action("StaffUploadFiles", "Staff")"
+                       class="upload-btn">
 
-                    <div class="dashboard-card">
+                        <i class="bi bi-plus-lg"></i>
 
-                        <div class="card-icon orange">
+                        Upload Records
 
-                            <i class="bi bi-clock"></i>
-
-                        </div>
-
-                        <div class="card-info">
-
-                            <h2>
-                                0
-                            </h2>
-
-                            <span style="color:#F59E0B;">
-                                Pendings
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- APPROVED -->
-
-                    <div class="dashboard-card">
-
-                        <div class="card-icon green">
-
-                            <i class="bi bi-check-circle"></i>
-
-                        </div>
-
-                        <div class="card-info">
-
-                            <h2>
-                                0
-                            </h2>
-
-                            <span style="color:#10B981;">
-                                Approved
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- COMPLETED -->
-
-                    <div class="dashboard-card">
-
-                        <div class="card-icon blue">
-
-                            <i class="bi bi-file-earmark-text"></i>
-
-                        </div>
-
-                        <div class="card-info">
-
-                            <h2>
-                                0
-                            </h2>
-
-                            <span style="color:#3B82F6;">
-                                Completed
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- REJECTED -->
-
-                    <div class="dashboard-card">
-
-                        <div class="card-icon red">
-
-                            <i class="bi bi-x-circle"></i>
-
-                        </div>
-
-                        <div class="card-info">
-
-                            <h2>
-                                0
-                            </h2>
-
-                            <span style="color:#B91C1C;">
-                                Rejected
-                            </span>
-
-                        </div>
-
-                    </div>
+                    </a>
 
 
                 </div>
 
 
                 <!-- =================================================
-                     GRAPH + TABLE
+                     TABLE
                 ================================================== -->
 
-                <div class="lower-content">
+                <div class="table-container">
 
 
-                    <!-- =================================================
-                         REQUEST OVERVIEW
-                    ================================================== -->
+                    <table class="records-table">
 
-                    <div class="dashboard-panel graph-panel">
 
+                        <thead>
 
-                        <div class="panel-header">
+                            <tr>
 
-                            <h4>
-                                Request Overview
-                            </h4>
+                                <th>
+                                    ID
+                                </th>
 
+                                <th>
+                                    NAME
+                                </th>
 
-                            <button class="filter-btn">
+                                <th>
+                                    STATUS
+                                </th>
 
-                                This Week
+                                <th>
+                                    DATE APPLIED
+                                </th>
 
-                                <i class="bi bi-chevron-down"></i>
+                                <th>
+                                    ACTION
+                                </th>
 
-                            </button>
+                            </tr>
 
-                        </div>
+                        </thead>
 
 
-                        <div class="graph-area">
+                        <tbody>
 
 
-                            <!-- Y LABELS -->
+                            <tr>
 
-                            <div class="graph-y-labels">
+                                <td>
+                                    R-0001
+                                </td>
 
-                                <span>50</span>
-                                <span>40</span>
-                                <span>30</span>
-                                <span>20</span>
-                                <span>10</span>
-                                <span>0</span>
+                                <td>
+                                    John Doe
+                                </td>
 
-                            </div>
+                                <td>
+                                    <span class="category-badge category-document">
+                                        Completed
+                                    </span>
+                                </td>
 
+                                <td>
+                                    Apr 24, 2026
+                                </td>
 
-                            <!-- DAYS -->
+                                <td>
 
-                            <div class="days">
+                                    <div class="record-actions">
 
-                                <span>Mon</span>
-                                <span>Tue</span>
-                                <span>Wed</span>
-                                <span>Thu</span>
-                                <span>Fri</span>
-                                <span>Sat</span>
-                                <span>Sun</span>
+                                        <button class="record-action download-action"
+                                                title="Download">
 
-                            </div>
+                                            <i class="bi bi-download"></i>
 
-                        </div>
+                                        </button>
 
-                    </div>
+                                        <button class="record-action view-action"
+                                                title="View">
 
+                                            <i class="bi bi-eye"></i>
 
-                    <!-- =================================================
-                         APPLICANT TABLE
-                    ================================================== -->
+                                        </button>
 
-                    <div class="dashboard-panel table-panel">
+                                    </div>
 
+                                </td>
 
-                        <table class="applicant-table">
+                            </tr>
 
 
-                            <thead>
+                            <tr>
 
-                                <tr>
+                                <td>
+                                    R-0002
+                                </td>
 
-                                    <th>
-                                        ID
-                                    </th>
+                                <td>
+                                    April Jane
+                                </td>
 
-                                    <th>
-                                        APPLICANT NAME
-                                    </th>
+                                <td>
+                                    <span class="category-badge category-pdf">
+                                        PDF
+                                    </span>
+                                </td>
 
-                                    <th>
-                                        STATUS
-                                    </th>
+                                <td>
+                                    Apr 24, 2026
+                                </td>
 
-                                </tr>
+                                <td>
 
-                            </thead>
+                                    <div class="record-actions">
 
+                                        <button class="record-action download-action"
+                                                title="Download">
 
-                            <tbody>
+                                            <i class="bi bi-download"></i>
 
+                                        </button>
 
-                                <tr>
+                                        <button class="record-action view-action"
+                                                title="View">
 
-                                    <td>
-                                        AP001
-                                    </td>
+                                            <i class="bi bi-eye"></i>
 
-                                    <td>
-                                        Cris Alin Zobrado
-                                    </td>
+                                        </button>
 
-                                    <td>
+                                    </div>
 
-                                        <span class="status-completed">
-                                            Completed
-                                        </span>
+                                </td>
 
-                                    </td>
+                            </tr>
 
-                                </tr>
 
+                            <tr>
 
-                                <tr>
+                                <td>
+                                    R-0003
+                                </td>
 
-                                    <td>
-                                        AP002
-                                    </td>
+                                <td>
+                                    Johnny Bravo
+                                </td>
 
-                                    <td>
-                                        Hannah Cabasan
-                                    </td>
+                                <td>
+                                    <span class="category-badge category-document">
+                                        Document
+                                    </span>
+                                </td>
 
-                                    <td>
-                                        —
-                                    </td>
+                                <td>
+                                    Apr 24, 2026
+                                </td>
 
-                                </tr>
+                                <td>
 
+                                    <div class="record-actions">
 
-                                <tr>
+                                        <button class="record-action download-action"
+                                                title="Download">
 
-                                    <td>
-                                        3
-                                    </td>
+                                            <i class="bi bi-download"></i>
 
-                                    <td>
-                                        John Mark Guladerama
-                                    </td>
+                                        </button>
 
-                                    <td>
-                                        —
-                                    </td>
+                                        <button class="record-action view-action"
+                                                title="View">
 
-                                </tr>
+                                            <i class="bi bi-eye"></i>
 
+                                        </button>
 
-                                <tr>
+                                    </div>
 
-                                    <td>
-                                        4
-                                    </td>
+                                </td>
 
-                                    <td>
-                                        Juan Dela Cruz
-                                    </td>
+                            </tr>
 
-                                    <td>
-                                        —
-                                    </td>
 
-                                </tr>
+                            <tr>
 
+                                <td>
+                                    R-0004
+                                </td>
 
-                                <tr>
+                                <td>
+                                    Messi May
+                                </td>
 
-                                    <td>
-                                        5
-                                    </td>
+                                <td>
+                                    <span class="category-badge category-image">
+                                        Image
+                                    </span>
+                                </td>
 
-                                    <td>
-                                        John Michael Aninon
-                                    </td>
+                                <td>
+                                    Apr 24, 2026
+                                </td>
 
-                                    <td>
-                                        —
-                                    </td>
+                                <td>
 
-                                </tr>
+                                    <div class="record-actions">
 
+                                        <button class="record-action download-action"
+                                                title="Download">
 
-                            </tbody>
+                                            <i class="bi bi-download"></i>
 
-                        </table>
+                                        </button>
 
-                    </div>
+                                        <button class="record-action view-action"
+                                                title="View">
+
+                                            <i class="bi bi-eye"></i>
+
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    R-0005
+                                </td>
+
+                                <td>
+                                    Juan Dela Cruz
+                                </td>
+
+                                <td>
+                                    <span class="category-badge category-pdf">
+                                        PDF
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Apr 24, 2026
+                                </td>
+
+                                <td>
+
+                                    <div class="record-actions">
+
+                                        <button class="record-action download-action"
+                                                title="Download">
+
+                                            <i class="bi bi-download"></i>
+
+                                        </button>
+
+                                        <button class="record-action view-action"
+                                                title="View">
+
+                                            <i class="bi bi-eye"></i>
+
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
 
                 </div>
+
+
+                <!-- =================================================
+                     PAGINATION
+                ================================================== -->
+
+                <div class="pagination-section">
+
+                    <button class="pagination-btn">
+
+                        <i class="bi bi-chevron-left"></i>
+
+                    </button>
+
+
+                    <div class="page-number active-page">
+                        1
+                    </div>
+
+                    <div class="page-number">
+                        2
+                    </div>
+
+                    <div class="page-number">
+                        3
+                    </div>
+
+                    <div class="page-number">
+                        4
+                    </div>
+
+
+                    <button class="pagination-btn">
+
+                        <i class="bi bi-chevron-right"></i>
+
+                    </button>
+
+                </div>
+
 
             </div>
 
@@ -1559,40 +1542,45 @@
 
     <script>
 
-        /* =========================================
-           SETTINGS DROPDOWN
-        ========================================= */
+
+         /* =========================================
+            SETTINGS DROPDOWN
+         ========================================= */
 
         const dropdown =
-            document.querySelector('.sidebar-dropdown');
+             document.querySelector('.sidebar-dropdown');
 
-        const dropdownToggle =
-            document.querySelector('.dropdown-toggle-menu');
-
-
-        dropdownToggle.addEventListener('click', function () {
-
-            dropdown.classList.toggle('open');
-
-        });
+         const dropdownToggle =
+             document.querySelector('.dropdown-toggle-menu');
 
 
-        /* =========================================
-           SIDEBAR COLLAPSE
-        ========================================= */
+         dropdownToggle.addEventListener('click', function () {
 
-        const sidebar =
-            document.querySelector('.sidebar');
+             dropdown.classList.toggle('open');
 
-        const menuToggle =
-            document.getElementById('menuToggle');
+         });
 
 
-        menuToggle.addEventListener('click', function () {
 
-            sidebar.classList.toggle('collapsed');
 
-        });
+
+         /* =========================================
+            SIDEBAR COLLAPSE
+         ========================================= */
+
+         const sidebar =
+             document.querySelector('.sidebar');
+
+         const menuToggle =
+             document.getElementById('menuToggle');
+
+
+         menuToggle.addEventListener('click', function () {
+
+             sidebar.classList.toggle('collapsed');
+
+         });
+
 
     </script>
 
