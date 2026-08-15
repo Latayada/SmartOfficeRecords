@@ -21,14 +21,14 @@
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet">
 
     <style>
 
         /* =========================================================
-                   GLOBAL
-                ========================================================= */
+           GLOBAL
+        ========================================================= */
 
         * {
             margin: 0;
@@ -57,19 +57,21 @@
             --text-dark: #334155;
             --text-gray: #64748B;
             --text-light: #94A3B8;
+            --success: #22C55E;
+            --success-light: #DCFCE7;
         }
 
 
         /* =========================================================
-                   TOPBAR
-                ========================================================= */
+           TOPBAR
+        ========================================================= */
 
         .navbar-custom {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: 56px;
+            height: 62px;
             background: #ffffff;
             border-bottom: 1px solid #e5e7eb;
             z-index: 1100;
@@ -77,14 +79,9 @@
             align-items: center;
         }
 
-
-        /* =========================================================
-                   NAVBAR LEFT
-                ========================================================= */
-
         .navbar-left-box {
-            width: 155px;
-            height: 56px;
+            width: 181px;
+            height: 62px;
             background: var(--sidebar-black);
             display: flex;
             align-items: center;
@@ -95,32 +92,27 @@
         .navbar-brand-custom {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 9px;
             text-decoration: none;
         }
 
-            .navbar-brand-custom img {
-                width: 34px;
-                height: 34px;
-                object-fit: contain;
-                border-radius: 50%;
-            }
+        .navbar-brand-custom img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
 
         .brand-text {
             color: #ffffff;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 700;
             letter-spacing: .3px;
         }
 
-
-        /* =========================================================
-                   TOGGLE
-                ========================================================= */
-
         .toggle-zone-box {
             width: 48px;
-            height: 56px;
+            height: 62px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -132,7 +124,7 @@
             border: none;
             background: transparent;
             color: var(--primary-red);
-            font-size: 18px;
+            font-size: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -141,41 +133,36 @@
             transition: .2s ease;
         }
 
-            .sidebar-toggle-btn:hover {
-                background: var(--light-red);
-                color: var(--dark-red);
-            }
-
-
-        /* =========================================================
-                   NAVBAR RIGHT
-                ========================================================= */
-
-        .navbar-profile {
-            margin-left: auto;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding-right: 18px;
+        .sidebar-toggle-btn:hover {
+            background: var(--light-red);
+            color: var(--dark-red);
         }
 
 
         /* =========================================================
-                   NOTIFICATION
-                ========================================================= */
+           NAVBAR RIGHT
+        ========================================================= */
+
+        .navbar-profile {
+            margin-left: auto;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding-right: 16px;
+        }
 
         .notification-container {
             position: relative;
         }
 
         .notification-btn {
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             border: none;
             background: transparent;
             color: #1f2933;
-            font-size: 19px;
+            font-size: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -185,10 +172,10 @@
             transition: .2s ease;
         }
 
-            .notification-btn:hover {
-                background: #f5f5f5;
-                color: var(--primary-red);
-            }
+        .notification-btn:hover {
+            background: #f5f5f5;
+            color: var(--primary-red);
+        }
 
         .notification-badge-dot {
             position: absolute;
@@ -203,8 +190,8 @@
 
 
         /* =========================================================
-                   NOTIFICATION DROPDOWN
-                ========================================================= */
+           NOTIFICATION DROPDOWN
+        ========================================================= */
 
         .notification-dropdown-custom {
             position: absolute;
@@ -250,10 +237,10 @@
             font-weight: 600;
         }
 
-            .notif-mark-read:hover {
-                color: var(--dark-red);
-                text-decoration: underline;
-            }
+        .notif-mark-read:hover {
+            color: var(--dark-red);
+            text-decoration: underline;
+        }
 
         .notif-body {
             max-height: 300px;
@@ -270,13 +257,13 @@
             transition: .2s ease;
         }
 
-            .notif-item:hover {
-                background: var(--light-red);
-            }
+        .notif-item:hover {
+            background: var(--light-red);
+        }
 
-            .notif-item.unread {
-                background: #fff8f8;
-            }
+        .notif-item.unread {
+            background: #fff8f8;
+        }
 
         .notif-icon-box {
             width: 32px;
@@ -328,41 +315,37 @@
             font-weight: 600;
         }
 
-            .notif-footer-btn:hover {
-                text-decoration: underline;
-            }
-
 
         /* =========================================================
-                   PROFILE WIDGET
-                ========================================================= */
+           PROFILE WIDGET
+        ========================================================= */
 
         .profile-container {
             position: relative;
         }
 
         .profile-widget {
-            min-width: 155px;
-            height: 40px;
+            min-width: 185px;
+            height: 44px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 4px 8px;
+            gap: 9px;
+            padding: 4px 9px;
             background: #f5f5f5;
             border: 1px solid #e5e7eb;
-            border-radius: 20px;
+            border-radius: 22px;
             cursor: pointer;
             user-select: none;
             transition: .2s ease;
         }
 
-            .profile-widget:hover {
-                background: #eeeeee;
-            }
+        .profile-widget:hover {
+            background: #eeeeee;
+        }
 
         .profile-avatar {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background: #ffb347;
             color: #ffffff;
@@ -381,7 +364,7 @@
 
         .profile-name {
             display: block;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 700;
             color: #1f2937;
         }
@@ -404,12 +387,12 @@
 
 
         /* =========================================================
-                   PROFILE DROPDOWN
-                ========================================================= */
+           PROFILE DROPDOWN
+        ========================================================= */
 
         .profile-dropdown-custom {
             position: absolute;
-            top: 48px;
+            top: 50px;
             right: 0;
             width: 210px;
             background: #ffffff;
@@ -442,47 +425,30 @@
             transition: .2s ease;
         }
 
-            .profile-dropdown-custom a:hover {
-                background: var(--light-red);
-                color: var(--primary-red);
-            }
-
-            .profile-dropdown-custom a i {
-                font-size: 16px;
-            }
+        .profile-dropdown-custom a:hover {
+            background: var(--light-red);
+            color: var(--primary-red);
+        }
 
 
         /* =========================================================
-                   SIDEBAR
-                ========================================================= */
+           SIDEBAR
+        ========================================================= */
 
         .sidebar-menu-wrapper {
             position: fixed;
-            top: 56px;
+            top: 62px;
             left: 0;
             bottom: 0;
-            width: 155px;
+            width: 181px;
             background: var(--sidebar-black);
             border-right: 1px solid #39434a;
-            padding: 15px 8px;
+            padding: 18px 8px;
             overflow-y: auto;
             overflow-x: hidden;
             z-index: 1020;
             transition: all .3s ease;
         }
-
-            .sidebar-menu-wrapper::-webkit-scrollbar {
-                width: 4px;
-            }
-
-            .sidebar-menu-wrapper::-webkit-scrollbar-track {
-                background: var(--sidebar-black);
-            }
-
-            .sidebar-menu-wrapper::-webkit-scrollbar-thumb {
-                background: #45545d;
-                border-radius: 10px;
-            }
 
         .sidebar-links {
             list-style: none;
@@ -490,55 +456,45 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 5px;
         }
 
         .sidebar-link-item {
             width: 100%;
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 11px 10px;
-            border-radius: 5px;
+            gap: 11px;
+            padding: 12px 11px;
+            border-radius: 6px;
             color: #ffffff;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 500;
             white-space: nowrap;
             text-decoration: none;
             transition: all .2s ease;
         }
 
-            .sidebar-link-item i {
-                width: 17px;
-                min-width: 17px;
-                font-size: 14px;
-                display: inline-flex;
-                justify-content: center;
-            }
+        .sidebar-link-item i {
+            width: 18px;
+            min-width: 18px;
+            font-size: 15px;
+            display: inline-flex;
+            justify-content: center;
+        }
 
-            .sidebar-link-item:hover {
-                color: var(--primary-red);
-                background: rgba(237, 28, 36, .08);
-            }
+        .sidebar-link-item:hover {
+            color: var(--primary-red);
+            background: rgba(237,28,36,.08);
+        }
 
-                .sidebar-link-item:hover i {
-                    color: var(--primary-red);
-                }
-
-            .sidebar-link-item.active {
-                color: var(--primary-red);
-                background: transparent;
-                font-weight: 600;
-            }
-
-                .sidebar-link-item.active i {
-                    color: var(--primary-red);
-                }
+        .sidebar-link-item:hover i {
+            color: var(--primary-red);
+        }
 
 
         /* =========================================================
-                   SETTINGS
-                ========================================================= */
+           SETTINGS
+        ========================================================= */
 
         .sidebar-settings {
             list-style: none;
@@ -549,31 +505,23 @@
             cursor: pointer;
         }
 
-            .settings-toggle > a {
-                color: #ffffff !important;
-            }
+        .settings-toggle > a {
+            color: #ffffff !important;
+        }
 
-                .settings-toggle > a:hover {
-                    color: var(--primary-red) !important;
-                }
+        .settings-toggle.active {
+            background: rgba(237,28,36,.12);
+            color: var(--primary-red);
+            font-weight: 600;
+        }
 
-                    .settings-toggle > a:hover i {
-                        color: var(--primary-red);
-                    }
+        .settings-toggle.active > a {
+            color: var(--primary-red) !important;
+        }
 
-            .settings-toggle.active {
-                background: rgba(237, 28, 36, .10);
-                color: var(--primary-red);
-                font-weight: 600;
-            }
-
-                .settings-toggle.active > a {
-                    color: var(--primary-red) !important;
-                }
-
-                    .settings-toggle.active > a i {
-                        color: var(--primary-red) !important;
-                    }
+        .settings-toggle.active > a i {
+            color: var(--primary-red) !important;
+        }
 
         .settings-arrow {
             color: #ffffff;
@@ -589,60 +537,55 @@
             color: var(--primary-red);
         }
 
-
-        /* =========================================================
-                   SETTINGS SUBMENU
-                ========================================================= */
-
         .settings-submenu {
             list-style: none;
-            padding: 0 0 0 12px;
-            margin: 2px 0 0 0;
+            padding: 0 0 0 13px;
+            margin: 3px 0 0 0;
             max-height: 0;
             overflow: hidden;
             transition: max-height .3s ease;
         }
 
-            .settings-submenu li {
-                margin: 2px 0;
-            }
+        .settings-submenu li {
+            margin: 2px 0;
+        }
 
-            .settings-submenu a {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                padding: 8px 9px;
-                border-radius: 5px;
-                color: #ffffff !important;
-                font-size: 11px;
-                font-weight: 500;
-                text-decoration: none;
-                transition: .2s ease;
-            }
+        .settings-submenu a {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 10px;
+            border-radius: 6px;
+            color: #ffffff !important;
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: .2s ease;
+        }
 
-                .settings-submenu a:hover {
-                    background: rgba(237, 28, 36, .10);
-                    color: var(--primary-red) !important;
-                }
+        .settings-submenu a:hover {
+            background: rgba(237,28,36,.10);
+            color: var(--primary-red) !important;
+        }
 
-                .settings-submenu a i {
-                    color: #ffffff;
-                    font-size: 12px;
-                }
+        .settings-submenu a i {
+            color: #ffffff;
+            font-size: 13px;
+        }
 
-                .settings-submenu a:hover i {
-                    color: var(--primary-red);
-                }
+        .settings-submenu a:hover i {
+            color: var(--primary-red);
+        }
 
-                .settings-submenu a.active {
-                    color: var(--primary-red) !important;
-                    background: rgba(237, 28, 36, .10);
-                    font-weight: 600;
-                }
+        .settings-submenu a.active {
+            color: var(--primary-red) !important;
+            background: rgba(237,28,36,.10);
+            font-weight: 600;
+        }
 
-                    .settings-submenu a.active i {
-                        color: var(--primary-red);
-                    }
+        .settings-submenu a.active i {
+            color: var(--primary-red);
+        }
 
         .sidebar-settings.open .settings-submenu {
             max-height: 150px;
@@ -654,12 +597,12 @@
 
 
         /* =========================================================
-                   LOGOUT
-                ========================================================= */
+           LOGOUT
+        ========================================================= */
 
         .logout-wrapper {
             position: absolute;
-            bottom: 15px;
+            bottom: 17px;
             left: 8px;
             right: 8px;
         }
@@ -667,59 +610,50 @@
         .logout-link {
             display: flex;
             align-items: center;
-            gap: 9px;
+            gap: 10px;
             padding: 10px;
             color: #ffffff;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 500;
             border-radius: 5px;
             text-decoration: none;
             transition: .2s ease;
         }
 
-            .logout-link:hover {
-                color: var(--primary-red);
-                background: rgba(237, 28, 36, .08);
-            }
+        .logout-link:hover {
+            color: var(--primary-red);
+            background: rgba(237,28,36,.08);
+        }
 
-            .logout-link i {
-                font-size: 16px;
-            }
-
-            .logout-link:hover i {
-                color: var(--primary-red);
-            }
+        .logout-link i {
+            font-size: 17px;
+        }
 
 
         /* =========================================================
-                   MAIN PAGE
-                ========================================================= */
+           MAIN
+        ========================================================= */
 
         .page-container {
-            margin-left: 155px;
-            padding: 78px 18px 35px;
+            margin-left: 181px;
+            padding: 88px 21px 40px;
             min-height: 100vh;
             transition: margin-left .3s ease;
         }
 
-
-        /* =========================================================
-                   PAGE HEADER
-                ========================================================= */
-
         .heading-section {
-            margin-bottom: 18px;
+            margin-bottom: 22px;
         }
 
         .breadcrumb-text {
-            font-size: 10px;
+            font-size: 11px;
             color: #64748b;
             font-weight: 600;
             margin-bottom: 3px;
         }
 
         .page-title {
-            font-size: 23px;
+            font-size: 28px;
             color: #263238;
             font-weight: 700;
             margin-bottom: 2px;
@@ -727,29 +661,28 @@
 
         .page-subtitle {
             color: #64748b;
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 500;
             margin: 0;
         }
 
 
         /* =========================================================
-                   ACCOUNT TABS
-                ========================================================= */
+           TABS
+        ========================================================= */
 
         .account-tabs {
             border-bottom: 1px solid #d9dee3;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .account-tab {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            padding: 7px 0;
-            margin-right: 25px;
+            padding: 8px 0 11px;
+            margin-right: 30px;
             color: #94a3b8;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 600;
             text-decoration: none;
             border-bottom: 2px solid transparent;
@@ -757,32 +690,45 @@
             cursor: pointer;
         }
 
-            .account-tab:hover {
-                color: var(--primary-red);
-            }
+        .account-tab:hover {
+            color: var(--primary-red);
+        }
 
-            .account-tab.active {
-                color: var(--primary-red);
-                border-bottom-color: var(--primary-red);
-            }
+        .account-tab.active {
+            color: var(--primary-red);
+            border-bottom-color: var(--primary-red);
+        }
 
 
         /* =========================================================
-                   TAB CONTENT
-                ========================================================= */
+           TAB CONTENT
+        ========================================================= */
 
-        .account-tab-content {
+        .tab-content-area {
             display: none;
         }
 
-            .account-tab-content.active {
-                display: block;
+        .tab-content-area.active {
+            display: block;
+            animation: fadeIn .25s ease;
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
             }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
 
         /* =========================================================
-                   ACCOUNT CARD
-                ========================================================= */
+           PROFILE CARD
+        ========================================================= */
 
         .account-card {
             background: #ffffff;
@@ -792,11 +738,6 @@
             box-shadow: 0 5px 15px rgba(0,0,0,.06);
             margin-bottom: 18px;
         }
-
-
-        /* =========================================================
-                   PROFILE TOP
-                ========================================================= */
 
         .profile-top {
             display: flex;
@@ -809,7 +750,6 @@
             position: relative;
             width: 90px;
             height: 90px;
-            flex-shrink: 0;
         }
 
         .profile-large-image {
@@ -839,39 +779,8 @@
             box-shadow: 0 3px 8px rgba(0,0,0,.15);
         }
 
-            .camera-btn:hover {
-                background: var(--dark-red);
-            }
-
-        .profile-details {
-            flex: 1;
-        }
-
-            .profile-details label {
-                display: block;
-                color: #64748b;
-                font-size: 10px;
-                font-weight: 600;
-                margin-bottom: 5px;
-            }
-
-        .applicant-id {
-            display: inline-block;
-            min-width: 120px;
-            padding: 8px 12px;
-            background: #f1f3f5;
-            border-radius: 7px;
-            color: #475569;
-            font-size: 11px;
-            font-weight: 600;
-            box-shadow: inset 0 0 8px rgba(0,0,0,.03);
-        }
-
-        .id-note {
-            display: block;
-            color: #94a3b8;
-            font-size: 9px;
-            margin-top: 5px;
+        .camera-btn:hover {
+            background: var(--dark-red);
         }
 
         .btn-change-photo {
@@ -885,18 +794,38 @@
             font-weight: 600;
         }
 
-            .btn-change-photo:hover {
-                background: var(--light-red);
-                color: var(--dark-red);
-            }
+        .btn-change-photo:hover {
+            background: var(--light-red);
+        }
 
+        .profile-details label {
+            display: block;
+            color: #64748b;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
 
-        /* =========================================================
-                   FORM
-                ========================================================= */
+        .applicant-id {
+            display: inline-block;
+            min-width: 130px;
+            padding: 9px 12px;
+            background: #f1f3f5;
+            border-radius: 7px;
+            color: #475569;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .id-note {
+            display: block;
+            color: #94a3b8;
+            font-size: 9px;
+            margin-top: 5px;
+        }
 
         .form-label {
-            font-size: 10px;
+            font-size: 11px;
             color: #64748b;
             font-weight: 600;
             margin-bottom: 6px;
@@ -904,39 +833,29 @@
 
         .form-control,
         .form-select {
-            height: 42px;
+            height: 44px;
             border: 1px solid #e2e8f0;
             border-radius: 7px;
-            font-size: 10px;
+            font-size: 11px;
             color: #334155;
             padding: 8px 12px;
             background: #ffffff;
-            box-shadow: 0 4px 12px rgba(237,28,36,.08);
         }
 
-            .form-control:focus,
-            .form-select:focus {
-                border-color: var(--primary-red);
-                box-shadow: 0 0 0 3px rgba(237,28,36,.10);
-                outline: none;
-            }
-
-            .form-control::placeholder {
-                color: #a1a8b0;
-            }
-
-
-        /* =========================================================
-                   DATE INPUT
-                ========================================================= */
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px rgba(237,28,36,.10);
+            outline: none;
+        }
 
         .date-wrapper {
             position: relative;
         }
 
-            .date-wrapper .form-control {
-                padding-right: 35px;
-            }
+        .date-wrapper .form-control {
+            padding-right: 35px;
+        }
 
         .calendar-icon {
             position: absolute;
@@ -948,146 +867,138 @@
             pointer-events: none;
         }
 
-
-        /* =========================================================
-                   SAVE BUTTON
-                ========================================================= */
-
         .btn-action-save {
             background: var(--primary-red);
             border: none;
             color: #ffffff;
             font-size: 11px;
             font-weight: 600;
-            padding: 10px 18px;
+            padding: 11px 20px;
             border-radius: 6px;
             transition: .2s ease;
         }
 
-            .btn-action-save:hover {
-                background: var(--dark-red);
-                color: #ffffff;
-                transform: translateY(-1px);
-            }
+        .btn-action-save:hover {
+            background: var(--dark-red);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
 
 
         /* =========================================================
-                   SECURITY
-                ========================================================= */
+           SECURITY
+        ========================================================= */
+
+        .security-wrapper {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.06);
+        }
 
         .security-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
+            gap: 18px;
         }
 
         .security-box {
             background: #ffffff;
-            border: 1px solid #eef1f4;
-            border-radius: 10px;
-            padding: 16px;
-            box-shadow: 0 5px 15px rgba(0,0,0,.05);
+            border: 1px solid #edf0f3;
+            border-radius: 12px;
+            padding: 20px;
+            min-height: 190px;
+            box-shadow: 0 5px 18px rgba(0,0,0,.05);
         }
 
-            .security-box h4 {
-                font-size: 15px;
-                font-weight: 700;
-                color: #334155;
-                margin-bottom: 2px;
-            }
-
-                .security-box h4 i {
-                    color: var(--primary-red);
-                    margin-right: 5px;
-                    font-size: 14px;
-                }
-
-        .security-description {
-            font-size: 9px;
-            color: #94a3b8;
-            margin-bottom: 14px;
-        }
-
-
-        /* =========================================================
-                   PASSWORD BOX
-                ========================================================= */
-
-        .password-info {
+        .security-box-header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 10px;
+            gap: 8px;
+            margin-bottom: 2px;
         }
 
-        .password-last-changed {
-            font-size: 9px;
+        .security-box-header i {
+            color: var(--primary-red);
+            font-size: 18px;
+        }
+
+        .security-box-title {
+            color: #334155;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .security-description {
+            color: #94a3b8;
+            font-size: 10px;
+            margin-bottom: 17px;
+        }
+
+        .security-small-title {
+            font-size: 10px;
             color: #64748b;
             font-weight: 600;
         }
 
-            .password-last-changed span {
-                display: block;
-                margin-top: 2px;
-                color: #94a3b8;
-                font-weight: 500;
-            }
-
-        .btn-small {
-            border: 1px solid #dbe1e7;
-            background: #ffffff;
-            color: #334155;
-            padding: 7px 10px;
-            border-radius: 6px;
-            font-size: 9px;
-            font-weight: 600;
-            white-space: nowrap;
+        .security-info {
+            color: #475569;
+            font-size: 11px;
+            font-weight: 500;
         }
 
-            .btn-small:hover {
-                border-color: var(--primary-red);
-                color: var(--primary-red);
-                background: var(--light-red);
-            }
+        .security-button {
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #334155;
+            padding: 9px 14px;
+            border-radius: 7px;
+            font-size: 11px;
+            font-weight: 600;
+            transition: .2s ease;
+        }
 
+        .security-button:hover {
+            border-color: var(--primary-red);
+            color: var(--primary-red);
+        }
 
-        /* =========================================================
-                   ACTIVE SESSIONS
-                ========================================================= */
+        .password-box-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+        }
 
         .session-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 9px 0;
-            border-bottom: 1px solid #f1f5f9;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #edf0f3;
         }
 
-            .session-item:last-child {
-                border-bottom: none;
-                padding-bottom: 0;
-            }
+        .session-item:last-child {
+            border-bottom: none;
+        }
 
         .session-icon {
-            width: 30px;
-            height: 30px;
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            background: #f1f5f9;
+            color: #64748b;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 5px;
-            background: #f1f3f5;
-            color: #64748b;
             flex-shrink: 0;
         }
 
-        .session-info {
-            flex: 1;
-        }
-
         .session-device {
-            font-size: 10px;
-            color: #475569;
+            font-size: 11px;
             font-weight: 600;
+            color: #475569;
         }
 
         .session-location {
@@ -1095,133 +1006,297 @@
             color: #64748b;
         }
 
-        .session-device span {
+        .this-device {
             color: #16a34a;
             font-weight: 700;
-            margin-left: 4px;
+            margin-left: 5px;
         }
 
-        .btn-logout-session {
+        .logout-session {
+            margin-left: auto;
+            padding: 6px 11px;
             border: 1px solid var(--primary-red);
-            color: var(--primary-red);
             background: #ffffff;
-            font-size: 9px;
-            padding: 5px 10px;
+            color: var(--primary-red);
             border-radius: 6px;
+            font-size: 10px;
             font-weight: 600;
         }
 
-            .btn-logout-session:hover {
-                background: var(--primary-red);
-                color: #ffffff;
-            }
-
-
-        /* =========================================================
-                   ACCOUNT DETAILS
-                ========================================================= */
-
-        .security-field {
-            margin-bottom: 10px;
+        .logout-session:hover {
+            background: var(--primary-red);
+            color: #ffffff;
         }
 
-            .security-field:last-child {
-                margin-bottom: 0;
-            }
+        .country-select {
+            width: 100%;
+            height: 50px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px 12px;
+            color: #475569;
+            font-size: 11px;
+        }
 
-
-        /* =========================================================
-                   TWO FACTOR
-                ========================================================= */
-
-        .two-factor-box {
+        .two-factor-content {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 15px;
+            align-items: flex-start;
         }
 
-        .two-factor-title {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 15px;
-            color: #334155;
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-
-            .two-factor-title i {
-                color: var(--primary-red);
-                font-size: 14px;
-            }
-
-        .two-factor-description {
-            font-size: 9px;
-            color: #94a3b8;
-            margin: 0;
-        }
-
-        .toggle-switch {
+        .two-factor-switch {
             position: relative;
-            width: 31px;
-            height: 16px;
+            width: 38px;
+            height: 21px;
             flex-shrink: 0;
         }
 
-            .toggle-switch input {
-                opacity: 0;
-                width: 0;
-                height: 0;
-            }
+        .two-factor-switch input {
+            display: none;
+        }
 
-        .toggle-slider {
+        .switch-slider {
             position: absolute;
-            cursor: pointer;
             inset: 0;
             background: #cbd5e1;
             border-radius: 20px;
+            cursor: pointer;
             transition: .25s ease;
         }
 
-            .toggle-slider:before {
-                content: "";
-                position: absolute;
-                width: 12px;
-                height: 12px;
-                left: 2px;
-                top: 2px;
-                background: #ffffff;
-                border-radius: 50%;
-                transition: .25s ease;
-            }
+        .switch-slider:before {
+            content: "";
+            position: absolute;
+            width: 17px;
+            height: 17px;
+            left: 2px;
+            top: 2px;
+            background: #ffffff;
+            border-radius: 50%;
+            transition: .25s ease;
+        }
 
-        .toggle-switch input:checked + .toggle-slider {
+        .two-factor-switch input:checked + .switch-slider {
             background: var(--primary-red);
         }
 
-            .toggle-switch input:checked + .toggle-slider:before {
-                transform: translateX(15px);
-            }
+        .two-factor-switch input:checked + .switch-slider:before {
+            transform: translateX(17px);
+        }
 
-
-        /* =========================================================
-                   SECURITY SAVE AREA
-                ========================================================= */
-
-        .security-save-area {
+        .security-save {
             display: flex;
             justify-content: flex-end;
-            margin-top: 15px;
+            margin-top: 18px;
         }
 
 
         /* =========================================================
-                   SIDEBAR COLLAPSE
-                ========================================================= */
+           CHANGE PASSWORD OVERLAY
+        ========================================================= */
+
+        .password-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(20, 25, 30, .42);
+            backdrop-filter: blur(2px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            padding: 25px;
+        }
+
+        .password-overlay.show {
+            display: flex;
+            animation: overlayFade .2s ease;
+        }
+
+        @@keyframes overlayFade {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .password-modal {
+            width: 100%;
+            max-width: 580px;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 42px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,.20);
+            animation: modalUp .25s ease;
+        }
+
+        @@keyframes modalUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .password-close {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            width: 34px;
+            height: 34px;
+            border: none;
+            background: transparent;
+            color: #94a3b8;
+            font-size: 21px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .password-close:hover {
+            background: #f1f5f9;
+            color: var(--primary-red);
+        }
+
+        .password-modal-title {
+            color: #111827;
+            font-size: 23px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .password-modal-subtitle {
+            color: #a1a1aa;
+            font-size: 15px;
+            margin-bottom: 34px;
+        }
+
+        .password-field-label {
+            display: block;
+            color: #111827;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .password-input-wrapper {
+            position: relative;
+        }
+
+        .new-password-input {
+            width: 100%;
+            height: 55px;
+            border: 1px solid #22c55e;
+            border-radius: 6px;
+            background: #f1f1f1;
+            padding: 10px 45px 10px 43px;
+            font-size: 14px;
+            color: #8a8a8a;
+            outline: none;
+        }
+
+        .new-password-input:focus {
+            border-color: #22c55e;
+            box-shadow: 0 0 0 2px rgba(34,197,94,.12);
+        }
+
+        .password-lock-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #b8b8b8;
+            font-size: 19px;
+        }
+
+        .password-eye-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .strength-bars {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-top: 15px;
+        }
+
+        .strength-bar {
+            height: 7px;
+            border-radius: 10px;
+            background: var(--success);
+        }
+
+        .strength-text {
+            color: var(--success);
+            font-size: 10px;
+            font-weight: 500;
+            margin-top: 7px;
+        }
+
+        .password-rules {
+            list-style: none;
+            padding: 0;
+            margin: 13px 0 28px;
+        }
+
+        .password-rules li {
+            color: var(--success);
+            font-size: 11px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .password-rules li i {
+            font-size: 14px;
+        }
+
+        .match-message {
+            color: var(--success);
+            font-size: 10px;
+            margin-top: 7px;
+            padding-left: 12px;
+        }
+
+        .change-password-submit {
+            width: 100%;
+            height: 55px;
+            border: none;
+            background: var(--primary-red);
+            color: #ffffff;
+            border-radius: 6px;
+            font-size: 17px;
+            font-weight: 700;
+            margin-top: 26px;
+            box-shadow: 0 5px 12px rgba(237,28,36,.18);
+            transition: .2s ease;
+        }
+
+        .change-password-submit:hover {
+            background: var(--dark-red);
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================================
+           SIDEBAR COLLAPSE
+        ========================================================= */
 
         body.sidebar-collapsed .navbar-left-box {
-            width: 60px;
+            width: 65px;
             padding: 0;
             justify-content: center;
         }
@@ -1231,7 +1306,7 @@
         }
 
         body.sidebar-collapsed .sidebar-menu-wrapper {
-            width: 60px;
+            width: 65px;
             padding-left: 6px;
             padding-right: 6px;
         }
@@ -1257,8 +1332,6 @@
 
         body.sidebar-collapsed .logout-link {
             justify-content: center;
-            padding-left: 0;
-            padding-right: 0;
         }
 
         body.sidebar-collapsed .logout-text {
@@ -1266,18 +1339,18 @@
         }
 
         body.sidebar-collapsed .page-container {
-            margin-left: 60px;
+            margin-left: 65px;
         }
 
 
         /* =========================================================
-                   RESPONSIVE
-                ========================================================= */
+           RESPONSIVE
+        ========================================================= */
 
         @@media (max-width: 991px) {
 
             .navbar-left-box {
-                width: 62px;
+                width: 65px;
                 padding: 0;
                 justify-content: center;
             }
@@ -1287,7 +1360,7 @@
             }
 
             .sidebar-menu-wrapper {
-                width: 62px;
+                width: 65px;
                 padding: 15px 7px;
             }
 
@@ -1305,10 +1378,10 @@
                 justify-content: center;
             }
 
-                .settings-toggle > a {
-                    justify-content: center;
-                    width: 100%;
-                }
+            .settings-toggle > a {
+                justify-content: center;
+                width: 100%;
+            }
 
             .settings-arrow {
                 display: none;
@@ -1318,14 +1391,13 @@
                 display: none !important;
             }
 
-            .logout-link {
-                justify-content: center;
-                padding: 10px 0;
+            .page-container {
+                margin-left: 65px;
+                padding: 78px 15px 30px;
             }
 
-            .page-container {
-                margin-left: 62px;
-                padding: 72px 15px 30px;
+            .security-grid {
+                grid-template-columns: 1fr;
             }
 
             .profile-info {
@@ -1334,24 +1406,18 @@
 
             .profile-widget {
                 min-width: auto;
-                padding: 4px 7px;
             }
 
             .profile-arrow {
                 display: none;
             }
-
-            .security-grid {
-                grid-template-columns: 1fr;
-            }
         }
-
 
         @@media (max-width: 767px) {
 
             .navbar-profile {
-                padding-right: 8px;
                 gap: 5px;
+                padding-right: 8px;
             }
 
             .notification-dropdown-custom {
@@ -1359,35 +1425,34 @@
                 right: -40px;
             }
 
-            .profile-dropdown-custom {
-                right: -5px;
-            }
-
             .page-title {
-                font-size: 20px;
+                font-size: 23px;
             }
 
-            .account-card {
+            .account-card,
+            .security-wrapper {
                 padding: 18px;
             }
 
-            .profile-top {
-                align-items: flex-start;
+            .password-modal {
+                padding: 30px 22px;
             }
 
-            .password-info {
-                flex-direction: column;
-                align-items: flex-start;
+            .password-modal-title {
+                font-size: 20px;
             }
 
-            .two-factor-box {
-                align-items: flex-start;
+            .password-modal-subtitle {
+                font-size: 13px;
+            }
+
+            .password-rules li {
+                font-size: 10px;
             }
         }
 
     </style>
 </head>
-
 
 <body>
 
@@ -1397,9 +1462,6 @@
     ========================================================= -->
 
     <nav class="navbar-custom">
-
-
-        <!-- LOGO -->
 
         <div class="navbar-left-box">
 
@@ -1419,14 +1481,11 @@
         </div>
 
 
-        <!-- SIDEBAR TOGGLE -->
-
         <div class="toggle-zone-box">
 
             <button type="button"
                     class="sidebar-toggle-btn"
-                    id="toggleSidebar"
-                    title="Toggle Menu">
+                    id="toggleSidebar">
 
                 <i class="bi bi-list"></i>
 
@@ -1434,8 +1493,6 @@
 
         </div>
 
-
-        <!-- RIGHT NAVBAR -->
 
         <div class="navbar-profile">
 
@@ -1446,8 +1503,7 @@
 
                 <button type="button"
                         class="notification-btn"
-                        id="notificationToggle"
-                        title="Notifications">
+                        id="notificationToggle">
 
                     <i class="bi bi-bell"></i>
 
@@ -1455,10 +1511,8 @@
 
                 </button>
 
-
                 <div class="notification-dropdown-custom"
                      id="notificationMenu">
-
 
                     <div class="notif-header">
 
@@ -1473,27 +1527,21 @@
 
                     </div>
 
-
                     <div class="notif-body">
-
 
                         <a href="#"
                            class="notif-item unread">
 
                             <div class="notif-icon-box notif-icon-success">
-
                                 <i class="bi bi-check-circle-fill"></i>
-
                             </div>
 
                             <div class="notif-content">
 
                                 <div class="notif-text">
-
                                     Your interview request
                                     <strong>#RI01</strong>
                                     was approved.
-
                                 </div>
 
                                 <div class="notif-time">
@@ -1504,24 +1552,18 @@
 
                         </a>
 
-
                         <a href="#"
                            class="notif-item">
 
                             <div class="notif-icon-box notif-icon-warning">
-
                                 <i class="bi bi-clock-history"></i>
-
                             </div>
 
                             <div class="notif-content">
 
                                 <div class="notif-text">
-
-                                    Reminder: Upload missing
-                                    requirements for
+                                    Reminder: Upload missing requirements for
                                     <strong>#RI02</strong>.
-
                                 </div>
 
                                 <div class="notif-time">
@@ -1533,7 +1575,6 @@
                         </a>
 
                     </div>
-
 
                     <div class="notif-footer">
 
@@ -1587,7 +1628,6 @@
 
                     </a>
 
-
                     <a href="@Url.Action("ApplicantLogin", "Applicant")"
                        class="text-danger">
 
@@ -1606,19 +1646,13 @@
     </nav>
 
 
-
     <!-- =========================================================
          SIDEBAR
     ========================================================= -->
 
-    <aside class="sidebar-menu-wrapper"
-           id="sidebarMenu">
-
+    <aside class="sidebar-menu-wrapper">
 
         <ul class="sidebar-links">
-
-
-            <!-- DASHBOARD -->
 
             <li>
 
@@ -1636,8 +1670,6 @@
             </li>
 
 
-            <!-- BOOK INTERVIEW -->
-
             <li>
 
                 <a href="@Url.Action("BookInterview", "Applicant")"
@@ -1653,8 +1685,6 @@
 
             </li>
 
-
-            <!-- MY APPOINTMENT -->
 
             <li>
 
@@ -1695,13 +1725,7 @@
                 </div>
 
 
-                <!-- SETTINGS SUBMENU -->
-
-                <ul class="settings-submenu"
-                    id="settingsMenu">
-
-
-                    <!-- GENERAL SETTINGS -->
+                <ul class="settings-submenu">
 
                     <li>
 
@@ -1716,9 +1740,6 @@
                         </a>
 
                     </li>
-
-
-                    <!-- MY ACCOUNT -->
 
                     <li>
 
@@ -1738,7 +1759,6 @@
                 </ul>
 
             </li>
-
 
         </ul>
 
@@ -1763,15 +1783,12 @@
     </aside>
 
 
-
     <!-- =========================================================
          MAIN CONTENT
     ========================================================= -->
 
     <main class="page-container">
 
-
-        <!-- PAGE HEADER -->
 
         <div class="heading-section">
 
@@ -1791,7 +1808,7 @@
 
 
         <!-- =====================================================
-             PROFILE / SECURITY TABS
+             TABS
         ====================================================== -->
 
         <div class="account-tabs">
@@ -1804,7 +1821,6 @@
 
             </a>
 
-
             <a href="#security"
                class="account-tab"
                data-tab="security">
@@ -1816,12 +1832,11 @@
         </div>
 
 
-
         <!-- =====================================================
-             PROFILE TAB CONTENT
+             PROFILE TAB
         ====================================================== -->
 
-        <div class="account-tab-content active"
+        <div class="tab-content-area active"
              id="profileContent">
 
 
@@ -1832,9 +1847,6 @@
 
                 <div class="profile-top">
 
-
-                    <!-- PROFILE IMAGE -->
-
                     <div>
 
                         <div class="profile-image-wrapper">
@@ -1844,16 +1856,13 @@
                                  id="profilePreview"
                                  alt="Profile Photo" />
 
-
                             <button type="button"
                                     class="camera-btn"
-                                    id="changePhotoBtn"
-                                    title="Change Photo">
+                                    id="changePhotoBtn">
 
                                 <i class="bi bi-camera-fill"></i>
 
                             </button>
-
 
                             <input type="file"
                                    id="profilePhotoInput"
@@ -1861,7 +1870,6 @@
                                    hidden />
 
                         </div>
-
 
                         <button type="button"
                                 class="btn-change-photo"
@@ -1873,8 +1881,6 @@
 
                     </div>
 
-
-                    <!-- APPLICANT ID -->
 
                     <div class="profile-details">
 
@@ -1895,13 +1901,9 @@
                 </div>
 
 
-
                 <!-- PERSONAL INFORMATION -->
 
                 <div class="row">
-
-
-                    <!-- NAME -->
 
                     <div class="col-md-6 mb-3">
 
@@ -1916,8 +1918,6 @@
                     </div>
 
 
-                    <!-- USERNAME -->
-
                     <div class="col-md-6 mb-3">
 
                         <label class="form-label">
@@ -1930,8 +1930,6 @@
 
                     </div>
 
-
-                    <!-- BIRTHDATE -->
 
                     <div class="col-md-6 mb-3">
 
@@ -1952,8 +1950,6 @@
                     </div>
 
 
-                    <!-- PHONE -->
-
                     <div class="col-md-6 mb-3">
 
                         <label class="form-label">
@@ -1967,8 +1963,6 @@
                     </div>
 
 
-                    <!-- ADDRESS -->
-
                     <div class="col-12 mb-3">
 
                         <label class="form-label">
@@ -1981,11 +1975,8 @@
 
                     </div>
 
-
                 </div>
 
-
-                <!-- SAVE PROFILE -->
 
                 <div class="mt-3">
 
@@ -2004,55 +1995,54 @@
         </div>
 
 
-
         <!-- =====================================================
-             SECURITY TAB CONTENT
+             SECURITY TAB
         ====================================================== -->
 
-        <div class="account-tab-content"
+        <div class="tab-content-area"
              id="securityContent">
 
 
-            <div class="account-card">
-
+            <div class="security-wrapper">
 
                 <div class="security-grid">
 
 
-                    <!-- =================================================
-                         PASSWORD
-                    ================================================== -->
+                    <!-- PASSWORD -->
 
                     <div class="security-box">
 
-                        <h4>
+                        <div class="security-box-header">
 
                             <i class="bi bi-lock"></i>
 
-                            Password
+                            <h4 class="security-box-title">
+                                Password
+                            </h4>
 
-                        </h4>
+                        </div>
 
                         <p class="security-description">
                             Keep your account password secure.
                         </p>
 
 
-                        <div class="password-info">
+                        <div class="password-box-top">
 
-                            <div class="password-last-changed">
+                            <div>
 
-                                Last changed 3 months ago.
+                                <div class="security-info">
+                                    Last changed 3 months ago.
+                                </div>
 
-                                <span>
+                                <div class="security-description mb-0">
                                     For your security, update your password regularly.
-                                </span>
+                                </div>
 
                             </div>
 
-
                             <button type="button"
-                                    class="btn-small"
+                                    class="security-button"
                                     id="changePasswordBtn">
 
                                 Change Password
@@ -2064,27 +2054,24 @@
                     </div>
 
 
-
-                    <!-- =================================================
-                         ACTIVE SESSIONS
-                    ================================================== -->
+                    <!-- ACTIVE SESSIONS -->
 
                     <div class="security-box">
 
-                        <h4>
+                        <div class="security-box-header">
 
                             <i class="bi bi-device-ssd"></i>
 
-                            Active Sessions
+                            <h4 class="security-box-title">
+                                Active Sessions
+                            </h4>
 
-                        </h4>
+                        </div>
 
                         <p class="security-description">
                             Devices currently signed in to your account.
                         </p>
 
-
-                        <!-- CURRENT DEVICE -->
 
                         <div class="session-item">
 
@@ -2094,14 +2081,13 @@
 
                             </div>
 
-
-                            <div class="session-info">
+                            <div>
 
                                 <div class="session-device">
 
                                     Chrome on Windows
 
-                                    <span>
+                                    <span class="this-device">
                                         This device
                                     </span>
 
@@ -2116,8 +2102,6 @@
                         </div>
 
 
-                        <!-- SECOND DEVICE -->
-
                         <div class="session-item">
 
                             <div class="session-icon">
@@ -2126,8 +2110,7 @@
 
                             </div>
 
-
-                            <div class="session-info">
+                            <div>
 
                                 <div class="session-device">
                                     RS4 Itel
@@ -2139,9 +2122,8 @@
 
                             </div>
 
-
                             <button type="button"
-                                    class="btn-logout-session">
+                                    class="logout-session">
 
                                 Logout
 
@@ -2152,98 +2134,82 @@
                     </div>
 
 
-
-                    <!-- =================================================
-                         ACCOUNT DETAILS
-                    ================================================== -->
+                    <!-- ACCOUNT DETAILS -->
 
                     <div class="security-box">
 
-                        <h4>
+                        <div class="security-box-header">
 
                             <i class="bi bi-shield"></i>
 
-                            Account Details
+                            <h4 class="security-box-title">
+                                Account Details
+                            </h4>
 
-                        </h4>
+                        </div>
 
                         <p class="security-description">
                             Manage your account location and information.
                         </p>
 
+                        <label class="security-small-title">
+                            Country / Region
+                        </label>
 
-                        <div class="security-field">
+                        <select class="country-select mt-2">
 
-                            <label class="form-label">
-                                Country / Region
-                            </label>
+                            <option selected>
+                                Philippines
+                            </option>
 
-                            <select class="form-select">
+                            <option>
+                                United States
+                            </option>
 
-                                <option selected>
-                                    Philippines
-                                </option>
+                            <option>
+                                Canada
+                            </option>
 
-                                <option>
-                                    United States
-                                </option>
-
-                                <option>
-                                    Canada
-                                </option>
-
-                                <option>
-                                    Australia
-                                </option>
-
-                            </select>
-
-                        </div>
+                        </select>
 
                     </div>
 
 
-
-                    <!-- =================================================
-                         TWO FACTOR AUTHENTICATION
-                    ================================================== -->
+                    <!-- TWO FACTOR -->
 
                     <div class="security-box">
 
-                        <div class="two-factor-box">
-
+                        <div class="two-factor-content">
 
                             <div>
 
-                                <div class="two-factor-title">
+                                <div class="security-box-header">
 
                                     <i class="bi bi-lock-fill"></i>
 
-                                    Two-factor authentication
+                                    <h4 class="security-box-title">
+                                        Two-factor authentication
+                                    </h4>
 
-                                    <span style="
-                                        font-size:8px;
-                                        color:#94a3b8;
-                                        font-weight:500;
-                                    ">
+                                    <small style="color:#94a3b8;">
                                         off
-                                    </span>
+                                    </small>
 
                                 </div>
 
-                                <p class="two-factor-description">
+                                <p class="security-description">
                                     Add an extra layer of security to your login.
                                 </p>
 
                             </div>
 
 
-                            <label class="toggle-switch">
+                            <label class="two-factor-switch">
 
                                 <input type="checkbox"
                                        id="twoFactorToggle">
 
-                                <span class="toggle-slider"></span>
+                                <span class="switch-slider"></span>
 
                             </label>
 
@@ -2251,14 +2217,10 @@
 
                     </div>
 
-
                 </div>
 
 
-
-                <!-- SAVE SECURITY -->
-
-                <div class="security-save-area">
+                <div class="security-save">
 
                     <button type="button"
                             class="btn-action-save"
@@ -2270,14 +2232,150 @@
 
                 </div>
 
-
             </div>
 
         </div>
 
-
     </main>
 
+
+    <!-- =========================================================
+         CHANGE PASSWORD OVERLAY
+    ========================================================= -->
+
+    <div class="password-overlay"
+         id="passwordOverlay">
+
+
+        <div class="password-modal">
+
+
+            <!-- CLOSE -->
+
+            <button type="button"
+                    class="password-close"
+                    id="closePasswordModal">
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+
+            <!-- TITLE -->
+
+            <h2 class="password-modal-title">
+                Set a New Password
+            </h2>
+
+            <p class="password-modal-subtitle">
+                Choose a strong password you haven’t used before.
+            </p>
+
+
+            <!-- NEW PASSWORD -->
+
+            <label class="password-field-label">
+                New Password
+            </label>
+
+
+            <div class="password-input-wrapper">
+
+                <i class="bi bi-lock password-lock-icon"></i>
+
+                <input type="password"
+                       id="newPassword"
+                       class="new-password-input"
+                       value="bag0pass12@@" />
+
+                <i class="bi bi-eye password-eye-icon"
+                   id="newPasswordEye"></i>
+
+            </div>
+
+
+            <!-- STRENGTH -->
+
+            <div class="strength-bars">
+
+                <span class="strength-bar"></span>
+                <span class="strength-bar"></span>
+                <span class="strength-bar"></span>
+                <span class="strength-bar"></span>
+
+            </div>
+
+            <div class="strength-text">
+                Strong Password
+            </div>
+
+
+            <!-- REQUIREMENTS -->
+
+            <ul class="password-rules">
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+                    At least 8 characters
+                </li>
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+                    One uppercase & one number
+                </li>
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+                    Special character
+                </li>
+
+            </ul>
+
+
+            <!-- CONFIRM PASSWORD -->
+
+            <label class="password-field-label">
+                Confirm Password
+            </label>
+
+
+            <div class="password-input-wrapper">
+
+                <i class="bi bi-lock password-lock-icon"></i>
+
+                <input type="password"
+                       id="confirmPassword"
+                       class="new-password-input"
+                       value="bag0pass12@@" />
+
+                <i class="bi bi-eye password-eye-icon"
+                   id="confirmPasswordEye"></i>
+
+            </div>
+
+
+            <div class="match-message">
+
+                <i class="bi bi-check-lg"></i>
+
+                Password match
+
+            </div>
+
+
+            <!-- SUBMIT -->
+
+            <button type="button"
+                    class="change-password-submit"
+                    id="submitNewPassword">
+
+                Change Password
+
+            </button>
+
+        </div>
+
+    </div>
 
 
     <!-- =========================================================
@@ -2286,9 +2384,8 @@
 
     <script>
 
-
         /* =========================================================
-           SIDEBAR TOGGLE
+           SIDEBAR
         ========================================================= */
 
         const toggleSidebar =
@@ -2296,12 +2393,9 @@
 
         toggleSidebar.addEventListener("click", function () {
 
-            document.body.classList.toggle(
-                "sidebar-collapsed"
-            );
+            document.body.classList.toggle("sidebar-collapsed");
 
         });
-
 
 
         /* =========================================================
@@ -2321,12 +2415,10 @@
             }
 
             e.preventDefault();
-            e.stopPropagation();
 
             settingsGroup.classList.toggle("open");
 
         });
-
 
 
         /* =========================================================
@@ -2339,8 +2431,17 @@
         const profileToggle =
             document.getElementById("profileToggle");
 
+
+        /* =========================================================
+           NOTIFICATION
+        ========================================================= */
+
         const notificationContainer =
             document.querySelector(".notification-container");
+
+        const notificationToggle =
+            document.getElementById("notificationToggle");
+
 
         profileToggle.addEventListener("click", function (e) {
 
@@ -2353,14 +2454,6 @@
         });
 
 
-
-        /* =========================================================
-           NOTIFICATION DROPDOWN
-        ========================================================= */
-
-        const notificationToggle =
-            document.getElementById("notificationToggle");
-
         notificationToggle.addEventListener("click", function (e) {
 
             e.stopPropagation();
@@ -2371,11 +2464,6 @@
 
         });
 
-
-
-        /* =========================================================
-           CLOSE DROPDOWNS
-        ========================================================= */
 
         document.addEventListener("click", function (e) {
 
@@ -2392,7 +2480,6 @@
             }
 
         });
-
 
 
         /* =========================================================
@@ -2415,114 +2502,38 @@
 
                 e.preventDefault();
 
-                const selectedTab =
-                    this.getAttribute("data-tab");
-
-
-                /* Remove active from all tabs */
-
                 accountTabs.forEach(function (item) {
 
                     item.classList.remove("active");
 
                 });
 
-
-                /* Hide all content */
-
-                profileContent.classList.remove("active");
-
-                securityContent.classList.remove("active");
-
-
-                /* Activate selected tab */
-
                 this.classList.add("active");
+
+
+                const selectedTab =
+                    this.getAttribute("data-tab");
 
 
                 if (selectedTab === "profile") {
 
                     profileContent.classList.add("active");
 
-                    history.replaceState(
-                        null,
-                        null,
-                        "#profile"
-                    );
+                    securityContent.classList.remove("active");
 
                 }
 
-
-                if (selectedTab === "security") {
+                else if (selectedTab === "security") {
 
                     securityContent.classList.add("active");
 
-                    history.replaceState(
-                        null,
-                        null,
-                        "#security"
-                    );
+                    profileContent.classList.remove("active");
 
                 }
 
             });
 
         });
-
-
-
-        /* =========================================================
-           OPEN TAB FROM URL HASH
-        ========================================================= */
-
-        function openTabFromHash() {
-
-            const hash =
-                window.location.hash;
-
-
-            if (hash === "#security") {
-
-                accountTabs.forEach(function (tab) {
-
-                    tab.classList.remove("active");
-
-                });
-
-                profileContent.classList.remove("active");
-
-                securityContent.classList.add("active");
-
-
-                document
-                    .querySelector('[data-tab="security"]')
-                    .classList.add("active");
-
-            }
-
-            else {
-
-                accountTabs.forEach(function (tab) {
-
-                    tab.classList.remove("active");
-
-                });
-
-                securityContent.classList.remove("active");
-
-                profileContent.classList.add("active");
-
-
-                document
-                    .querySelector('[data-tab="profile"]')
-                    .classList.add("active");
-
-            }
-
-        }
-
-        openTabFromHash();
-
 
 
         /* =========================================================
@@ -2563,161 +2574,419 @@
                 const reader =
                     new FileReader();
 
+                reader.onload =
+                    function (e) {
 
-                reader.onload = function (e) {
+                        preview.src =
+                            e.target.result;
 
-                    preview.src =
-                        e.target.result;
+                    };
 
-                };
-
-
-                reader.readAsDataURL(
-                    this.files[0]
-                );
+                reader.readAsDataURL(this.files[0]);
 
             }
 
         });
 
 
-
         /* =========================================================
-           SAVE PROFILE
-        ========================================================= */
-
-        const saveProfileBtn =
-            document.getElementById("saveProfileBtn");
-
-
-        saveProfileBtn.addEventListener("click", function () {
-
-            alert(
-                "Profile updated successfully!"
-            );
-
-        });
-
-
-
-        /* =========================================================
-           CHANGE PASSWORD
+           CHANGE PASSWORD MODAL
         ========================================================= */
 
         const changePasswordBtn =
             document.getElementById("changePasswordBtn");
 
+        const passwordOverlay =
+            document.getElementById("passwordOverlay");
+
+        const closePasswordModal =
+            document.getElementById("closePasswordModal");
+
 
         changePasswordBtn.addEventListener("click", function () {
 
-            alert(
-                "Change Password option selected."
-            );
+            passwordOverlay.classList.add("show");
+
+            document.body.style.overflow = "hidden";
 
         });
 
 
+        closePasswordModal.addEventListener("click", function () {
 
-        /* =========================================================
-           TWO FACTOR
-        ========================================================= */
+            passwordOverlay.classList.remove("show");
 
-        const twoFactorToggle =
-            document.getElementById("twoFactorToggle");
-
-
-        twoFactorToggle.addEventListener("change", function () {
-
-            const status =
-                this.checked
-                    ? "enabled"
-                    : "disabled";
-
-
-            const label =
-                this.closest(".security-box")
-                    .querySelector(
-                        ".two-factor-title span"
-                    );
-
-
-            label.textContent =
-                this.checked
-                    ? "on"
-                    : "off";
-
-
-            alert(
-                "Two-factor authentication " +
-                status +
-                "."
-            );
+            document.body.style.overflow = "";
 
         });
 
 
+        /* CLICK OUTSIDE MODAL */
 
-        /* =========================================================
-           SECURITY SAVE
-        ========================================================= */
+        passwordOverlay.addEventListener("click", function (e) {
 
-        const saveSecurityBtn =
-            document.getElementById("saveSecurityBtn");
+            if (e.target === passwordOverlay) {
 
+                passwordOverlay.classList.remove("show");
 
-        saveSecurityBtn.addEventListener("click", function () {
+                document.body.style.overflow = "";
 
-            alert(
-                "Security settings updated successfully!"
-            );
+            }
 
         });
 
 
+        /* ESCAPE KEY */
+
+        document.addEventListener("keydown", function (e) {
+
+            if (e.key === "Escape") {
+
+                passwordOverlay.classList.remove("show");
+
+                document.body.style.overflow = "";
+
+            }
+
+        });
+
 
         /* =========================================================
-           ACTIVE SESSION LOGOUT
+           PASSWORD SHOW / HIDE
         ========================================================= */
 
-        const logoutSessionButtons =
-            document.querySelectorAll(
-                ".btn-logout-session"
-            );
+        const newPassword =
+            document.getElementById("newPassword");
+
+        const confirmPassword =
+            document.getElementById("confirmPassword");
+
+        const newPasswordEye =
+            document.getElementById("newPasswordEye");
+
+        const confirmPasswordEye =
+            document.getElementById("confirmPasswordEye");
 
 
-        logoutSessionButtons.forEach(function (button) {
+        newPasswordEye.addEventListener("click", function () {
 
-            button.addEventListener(
-                "click",
-                function () {
+            if (newPassword.type === "password") {
 
-                    const confirmed =
-                        confirm(
-                            "Are you sure you want to logout this device?"
-                        );
+                newPassword.type = "text";
+
+                this.classList.remove("bi-eye");
+
+                this.classList.add("bi-eye-slash");
+
+            }
+
+            else {
+
+                newPassword.type = "password";
+
+                this.classList.remove("bi-eye-slash");
+
+                this.classList.add("bi-eye");
+
+            }
+
+        });
 
 
-                    if (confirmed) {
+        confirmPasswordEye.addEventListener("click", function () {
 
-                        this.closest(
-                            ".session-item"
-                        ).remove();
+            if (confirmPassword.type === "password") {
 
-                    }
+                confirmPassword.type = "text";
+
+                this.classList.remove("bi-eye");
+
+                this.classList.add("bi-eye-slash");
+
+            }
+
+            else {
+
+                confirmPassword.type = "password";
+
+                this.classList.remove("bi-eye-slash");
+
+                this.classList.add("bi-eye");
+
+            }
+
+        });
+
+
+        /* =========================================================
+           PASSWORD VALIDATION
+        ========================================================= */
+
+        const passwordRules =
+            document.querySelectorAll(".password-rules li");
+
+        const strengthBars =
+            document.querySelectorAll(".strength-bar");
+
+        const strengthText =
+            document.querySelector(".strength-text");
+
+        const matchMessage =
+            document.querySelector(".match-message");
+
+
+        function validatePassword() {
+
+            const password =
+                newPassword.value;
+
+            const hasLength =
+                password.length >= 8;
+
+            const hasUppercase =
+                /[A-Z]/.test(password);
+
+            const hasNumber =
+                /[0-9]/.test(password);
+
+            const hasSpecial =
+                /[^A-Za-z0-9]/.test(password);
+
+
+            if (hasLength) {
+
+                passwordRules[0].style.color =
+                    "#22C55E";
+
+            }
+
+            if (hasUppercase && hasNumber) {
+
+                passwordRules[1].style.color =
+                    "#22C55E";
+
+            }
+
+            if (hasSpecial) {
+
+                passwordRules[2].style.color =
+                    "#22C55E";
+
+            }
+
+
+            let score = 0;
+
+            if (hasLength) score++;
+
+            if (hasUppercase) score++;
+
+            if (hasNumber) score++;
+
+            if (hasSpecial) score++;
+
+
+            strengthBars.forEach(function (bar, index) {
+
+                if (index < score) {
+
+                    bar.style.background =
+                        "#22C55E";
 
                 }
-            );
+
+                else {
+
+                    bar.style.background =
+                        "#e5e7eb";
+
+                }
+
+            });
+
+
+            if (score === 4) {
+
+                strengthText.textContent =
+                    "Strong Password";
+
+                strengthText.style.color =
+                    "#22C55E";
+
+            }
+
+            else {
+
+                strengthText.textContent =
+                    "Password needs improvement";
+
+                strengthText.style.color =
+                    "#ED1C24";
+
+            }
+
+
+            checkPasswordMatch();
+
+        }
+
+
+        function checkPasswordMatch() {
+
+            if (
+                confirmPassword.value ===
+                newPassword.value &&
+                confirmPassword.value !== ""
+            ) {
+
+                matchMessage.innerHTML =
+                    '<i class="bi bi-check-lg"></i> Password match';
+
+                matchMessage.style.color =
+                    "#22C55E";
+
+                confirmPassword.style.borderColor =
+                    "#22C55E";
+
+            }
+
+            else {
+
+                matchMessage.innerHTML =
+                    '<i class="bi bi-x-lg"></i> Password does not match';
+
+                matchMessage.style.color =
+                    "#ED1C24";
+
+                confirmPassword.style.borderColor =
+                    "#ED1C24";
+
+            }
+
+        }
+
+
+        newPassword.addEventListener(
+            "input",
+            validatePassword
+        );
+
+        confirmPassword.addEventListener(
+            "input",
+            checkPasswordMatch
+        );
+
+
+        /* =========================================================
+           CHANGE PASSWORD SUBMIT
+        ========================================================= */
+
+        const submitNewPassword =
+            document.getElementById("submitNewPassword");
+
+
+        submitNewPassword.addEventListener("click", function () {
+
+            const password =
+                newPassword.value;
+
+            const confirm =
+                confirmPassword.value;
+
+
+            if (password.length < 8) {
+
+                alert("Password must contain at least 8 characters.");
+
+                return;
+
+            }
+
+
+            if (!/[A-Z]/.test(password)) {
+
+                alert("Password must contain at least one uppercase letter.");
+
+                return;
+
+            }
+
+
+            if (!/[0-9]/.test(password)) {
+
+                alert("Password must contain at least one number.");
+
+                return;
+
+            }
+
+
+            if (!/[^A-Za-z0-9]/.test(password)) {
+
+                alert("Password must contain a special character.");
+
+                return;
+
+            }
+
+
+            if (password !== confirm) {
+
+                alert("Passwords do not match.");
+
+                return;
+
+            }
+
+
+            alert("Password changed successfully!");
+
+
+            passwordOverlay.classList.remove("show");
+
+            document.body.style.overflow = "";
 
         });
+
+
+        /* =========================================================
+           SAVE PROFILE
+        ========================================================= */
+
+        document
+            .getElementById("saveProfileBtn")
+            .addEventListener("click", function () {
+
+                alert("Profile updated successfully!");
+
+            });
+
+
+        /* =========================================================
+           SAVE SECURITY
+        ========================================================= */
+
+        document
+            .getElementById("saveSecurityBtn")
+            .addEventListener("click", function () {
+
+                alert("Security settings updated successfully!");
+
+            });
+
+
+        /* =========================================================
+           INITIAL PASSWORD VALIDATION
+           So green na dayon ang requirements
+        ========================================================= */
+
+        validatePassword();
 
     </script>
 
-
-    <!-- Bootstrap JS -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
     </script>
-
 
 </body>
 </html>
