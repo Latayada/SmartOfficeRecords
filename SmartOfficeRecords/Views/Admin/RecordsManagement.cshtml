@@ -565,10 +565,13 @@
             gap: 7px;
             cursor: pointer;
             transition: all .2s ease;
+            /* Remove underline */
+            text-decoration: none;
         }
 
             .upload-btn:hover {
                 background: #991B1B;
+                color: #FFFFFF;
                 transform: translateY(-1px);
                 box-shadow: 0 4px 10px rgba(185,28,28,.20);
             }
@@ -1228,14 +1231,14 @@
 
 
                     <!-- UPLOAD -->
-
-                    <button class="upload-btn">
+                    <a href="@Url.Action("UploadFiles", "Admin")"
+                       class="upload-btn">
 
                         <i class="bi bi-plus-lg"></i>
 
                         Upload Records
 
-                    </button>
+                    </a>
 
 
                 </div>

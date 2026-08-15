@@ -41,6 +41,21 @@ namespace SmartOfficeRecords.Controllers
         {
             return View();
         }
+
+        public ActionResult UploadFiles()
+        {
+            return View();
+        }
+
+        public ActionResult UploadDetails()
+        {
+            return View();
+        }
+
+        public ActionResult UploadReviewConfirm()
+        {
+            return View();
+        }
         public ActionResult ReportsManagement()
         {
             return View();
