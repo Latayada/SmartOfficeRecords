@@ -24,10 +24,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
 
-
-
-
-
     <style>
 
         /* =========================================================
@@ -47,12 +43,6 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
-
-
-        /* =========================================================
-                   COLOR VARIABLES
-                   SAME AS BOOK INTERVIEW
-                ========================================================= */
 
         :root {
             --primary-red: #ED1C24;
@@ -89,7 +79,7 @@
 
 
         /* =========================================================
-                   NAVBAR LEFT / LOGO
+                   NAVBAR LEFT
                 ========================================================= */
 
         .navbar-left-box {
@@ -125,7 +115,7 @@
 
 
         /* =========================================================
-                   TOGGLE ZONE
+                   TOGGLE
                 ========================================================= */
 
         .toggle-zone-box {
@@ -464,7 +454,6 @@
 
         /* =========================================================
                    SIDEBAR
-                   SAME AS BOOK INTERVIEW
                 ========================================================= */
 
         .sidebar-menu-wrapper {
@@ -527,10 +516,6 @@
                 justify-content: center;
             }
 
-            /* =========================================================
-                   SIDEBAR HOVER
-                ========================================================= */
-
             .sidebar-link-item:hover {
                 color: var(--primary-red);
                 background: rgba(237, 28, 36, .08);
@@ -539,10 +524,6 @@
                 .sidebar-link-item:hover i {
                     color: var(--primary-red);
                 }
-
-            /* =========================================================
-                   ACTIVE SIDEBAR
-                ========================================================= */
 
             .sidebar-link-item.active {
                 color: var(--primary-red);
@@ -556,25 +537,22 @@
 
 
         /* =========================================================
-           SETTINGS
-        ========================================================= */
+                   SETTINGS
+                ========================================================= */
 
         .sidebar-settings {
             list-style: none;
         }
 
-        /* SETTINGS PARENT */
         .settings-toggle {
             justify-content: space-between;
             cursor: pointer;
         }
 
-            /* Default Settings */
             .settings-toggle > a {
                 color: #ffffff !important;
             }
 
-                /* Hover Settings */
                 .settings-toggle > a:hover {
                     color: var(--primary-red) !important;
                 }
@@ -583,36 +561,30 @@
                         color: var(--primary-red);
                     }
 
-            /* ACTIVE SETTINGS */
             .settings-toggle.active {
                 background: rgba(237, 28, 36, .10);
                 color: var(--primary-red);
                 font-weight: 600;
             }
 
-                /* IMPORTANT: make the WORD Settings red */
                 .settings-toggle.active > a {
                     color: var(--primary-red) !important;
                 }
 
-                    /* Make the gear red too */
                     .settings-toggle.active > a i {
                         color: var(--primary-red) !important;
                     }
 
-        /* Arrow */
         .settings-arrow {
             color: #ffffff;
             font-size: 11px;
             transition: .3s ease;
         }
 
-        /* Arrow when Settings is active */
         .settings-toggle.active .settings-arrow {
             color: var(--primary-red);
         }
 
-        /* Arrow hover */
         .settings-toggle:hover .settings-arrow {
             color: var(--primary-red);
         }
@@ -661,8 +633,6 @@
                 .settings-submenu a:hover i {
                     color: var(--primary-red);
                 }
-
-                /* ACTIVE MY ACCOUNT */
 
                 .settings-submenu a.active {
                     color: var(--primary-red) !important;
@@ -784,6 +754,7 @@
             text-decoration: none;
             border-bottom: 2px solid transparent;
             transition: .2s ease;
+            cursor: pointer;
         }
 
             .account-tab:hover {
@@ -793,6 +764,19 @@
             .account-tab.active {
                 color: var(--primary-red);
                 border-bottom-color: var(--primary-red);
+            }
+
+
+        /* =========================================================
+                   TAB CONTENT
+                ========================================================= */
+
+        .account-tab-content {
+            display: none;
+        }
+
+            .account-tab-content.active {
+                display: block;
             }
 
 
@@ -918,7 +902,8 @@
             margin-bottom: 6px;
         }
 
-        .form-control {
+        .form-control,
+        .form-select {
             height: 42px;
             border: 1px solid #e2e8f0;
             border-radius: 7px;
@@ -929,7 +914,8 @@
             box-shadow: 0 4px 12px rgba(237,28,36,.08);
         }
 
-            .form-control:focus {
+            .form-control:focus,
+            .form-select:focus {
                 border-color: var(--primary-red);
                 box-shadow: 0 0 0 3px rgba(237,28,36,.10);
                 outline: none;
@@ -989,55 +975,245 @@
                    SECURITY
                 ========================================================= */
 
-        .section-title-green {
-            color: #334155;
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 18px;
+        .security-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
         }
 
-        .password-wrapper {
-            position: relative;
-        }
-
-            .password-wrapper .form-control {
-                padding-right: 38px;
-            }
-
-        .password-toggle {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #94a3b8;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-            .password-toggle:hover {
-                color: var(--primary-red);
-            }
-
-        .security-divider {
-            border: 0;
-            border-top: 1px solid #e5e7eb;
-            margin: 18px 0;
-        }
-
-        .btn-action-cancel {
+        .security-box {
             background: #ffffff;
-            border: 1px solid #cbd5e1;
-            color: #64748b;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 10px 18px;
-            border-radius: 6px;
+            border: 1px solid #eef1f4;
+            border-radius: 10px;
+            padding: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.05);
         }
 
-            .btn-action-cancel:hover {
-                background: #f8fafc;
+            .security-box h4 {
+                font-size: 15px;
+                font-weight: 700;
                 color: #334155;
+                margin-bottom: 2px;
             }
+
+                .security-box h4 i {
+                    color: var(--primary-red);
+                    margin-right: 5px;
+                    font-size: 14px;
+                }
+
+        .security-description {
+            font-size: 9px;
+            color: #94a3b8;
+            margin-bottom: 14px;
+        }
+
+
+        /* =========================================================
+                   PASSWORD BOX
+                ========================================================= */
+
+        .password-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .password-last-changed {
+            font-size: 9px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+            .password-last-changed span {
+                display: block;
+                margin-top: 2px;
+                color: #94a3b8;
+                font-weight: 500;
+            }
+
+        .btn-small {
+            border: 1px solid #dbe1e7;
+            background: #ffffff;
+            color: #334155;
+            padding: 7px 10px;
+            border-radius: 6px;
+            font-size: 9px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+            .btn-small:hover {
+                border-color: var(--primary-red);
+                color: var(--primary-red);
+                background: var(--light-red);
+            }
+
+
+        /* =========================================================
+                   ACTIVE SESSIONS
+                ========================================================= */
+
+        .session-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+            .session-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+        .session-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            background: #f1f3f5;
+            color: #64748b;
+            flex-shrink: 0;
+        }
+
+        .session-info {
+            flex: 1;
+        }
+
+        .session-device {
+            font-size: 10px;
+            color: #475569;
+            font-weight: 600;
+        }
+
+        .session-location {
+            font-size: 9px;
+            color: #64748b;
+        }
+
+        .session-device span {
+            color: #16a34a;
+            font-weight: 700;
+            margin-left: 4px;
+        }
+
+        .btn-logout-session {
+            border: 1px solid var(--primary-red);
+            color: var(--primary-red);
+            background: #ffffff;
+            font-size: 9px;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+            .btn-logout-session:hover {
+                background: var(--primary-red);
+                color: #ffffff;
+            }
+
+
+        /* =========================================================
+                   ACCOUNT DETAILS
+                ========================================================= */
+
+        .security-field {
+            margin-bottom: 10px;
+        }
+
+            .security-field:last-child {
+                margin-bottom: 0;
+            }
+
+
+        /* =========================================================
+                   TWO FACTOR
+                ========================================================= */
+
+        .two-factor-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .two-factor-title {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 15px;
+            color: #334155;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+            .two-factor-title i {
+                color: var(--primary-red);
+                font-size: 14px;
+            }
+
+        .two-factor-description {
+            font-size: 9px;
+            color: #94a3b8;
+            margin: 0;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 31px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+            .toggle-switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background: #cbd5e1;
+            border-radius: 20px;
+            transition: .25s ease;
+        }
+
+            .toggle-slider:before {
+                content: "";
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                left: 2px;
+                top: 2px;
+                background: #ffffff;
+                border-radius: 50%;
+                transition: .25s ease;
+            }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background: var(--primary-red);
+        }
+
+            .toggle-switch input:checked + .toggle-slider:before {
+                transform: translateX(15px);
+            }
+
+
+        /* =========================================================
+                   SECURITY SAVE AREA
+                ========================================================= */
+
+        .security-save-area {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 15px;
+        }
 
 
         /* =========================================================
@@ -1164,6 +1340,10 @@
             .profile-arrow {
                 display: none;
             }
+
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
 
@@ -1192,6 +1372,15 @@
             }
 
             .profile-top {
+                align-items: flex-start;
+            }
+
+            .password-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .two-factor-box {
                 align-items: flex-start;
             }
         }
@@ -1267,8 +1456,6 @@
                 </button>
 
 
-                <!-- NOTIFICATION DROPDOWN -->
-
                 <div class="notification-dropdown-custom"
                      id="notificationMenu">
 
@@ -1281,9 +1468,7 @@
 
                         <a href="#"
                            class="notif-mark-read">
-
                             Mark all as read
-
                         </a>
 
                     </div>
@@ -1291,8 +1476,6 @@
 
                     <div class="notif-body">
 
-
-                        <!-- NOTIFICATION 1 -->
 
                         <a href="#"
                            class="notif-item unread">
@@ -1321,8 +1504,6 @@
 
                         </a>
 
-
-                        <!-- NOTIFICATION 2 -->
 
                         <a href="#"
                            class="notif-item">
@@ -1358,9 +1539,7 @@
 
                         <a href="#"
                            class="notif-footer-btn">
-
                             View All Notifications
-
                         </a>
 
                     </div>
@@ -1373,7 +1552,6 @@
             <!-- PROFILE -->
 
             <div class="profile-container">
-
 
                 <div class="profile-widget"
                      id="profileToggle">
@@ -1399,11 +1577,7 @@
                 </div>
 
 
-                <!-- PROFILE DROPDOWN -->
-
-                <div class="profile-dropdown-custom"
-                     id="profileMenu">
-
+                <div class="profile-dropdown-custom">
 
                     <a href="@Url.Action("MyAccount", "Applicant")">
 
@@ -1526,7 +1700,8 @@
                 <ul class="settings-submenu"
                     id="settingsMenu">
 
-                    <!-- GENERAL SETTINGS NOT ACTIVE -->
+
+                    <!-- GENERAL SETTINGS -->
 
                     <li>
 
@@ -1543,7 +1718,7 @@
                     </li>
 
 
-                    <!-- MY ACCOUNT ACTIVE -->
+                    <!-- MY ACCOUNT -->
 
                     <li>
 
@@ -1568,9 +1743,7 @@
         </ul>
 
 
-        <!-- =====================================================
-             LOGOUT
-        ====================================================== -->
+        <!-- LOGOUT -->
 
         <div class="logout-wrapper">
 
@@ -1618,14 +1791,14 @@
 
 
         <!-- =====================================================
-             ACCOUNT TABS
+             PROFILE / SECURITY TABS
         ====================================================== -->
 
         <div class="account-tabs">
 
-
             <a href="#profile"
-               class="account-tab active">
+               class="account-tab active"
+               data-tab="profile">
 
                 Profile
 
@@ -1633,201 +1806,199 @@
 
 
             <a href="#security"
-               class="account-tab">
+               class="account-tab"
+               data-tab="security">
 
                 Security
 
             </a>
 
-
         </div>
 
 
 
         <!-- =====================================================
-             PROFILE CARD
+             PROFILE TAB CONTENT
         ====================================================== -->
 
-        <div class="account-card"
-             id="profile">
+        <div class="account-tab-content active"
+             id="profileContent">
 
 
-            <!-- PROFILE TOP -->
-
-            <div class="profile-top">
+            <div class="account-card">
 
 
-                <!-- PROFILE IMAGE -->
+                <!-- PROFILE TOP -->
 
-                <div>
-
-                    <div class="profile-image-wrapper">
+                <div class="profile-top">
 
 
-                        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
-                             class="profile-large-image"
-                             id="profilePreview"
-                             alt="Profile Photo" />
+                    <!-- PROFILE IMAGE -->
+
+                    <div>
+
+                        <div class="profile-image-wrapper">
+
+                            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+                                 class="profile-large-image"
+                                 id="profilePreview"
+                                 alt="Profile Photo" />
+
+
+                            <button type="button"
+                                    class="camera-btn"
+                                    id="changePhotoBtn"
+                                    title="Change Photo">
+
+                                <i class="bi bi-camera-fill"></i>
+
+                            </button>
+
+
+                            <input type="file"
+                                   id="profilePhotoInput"
+                                   accept="image/*"
+                                   hidden />
+
+                        </div>
 
 
                         <button type="button"
-                                class="camera-btn"
-                                id="changePhotoBtn"
-                                title="Change Photo">
+                                class="btn-change-photo"
+                                id="changePhotoTextBtn">
 
-                            <i class="bi bi-camera-fill"></i>
+                            Change Photo
 
                         </button>
-
-
-                        <input type="file"
-                               id="profilePhotoInput"
-                               accept="image/*"
-                               hidden />
 
                     </div>
 
 
-                    <button type="button"
-                            class="btn-change-photo"
-                            id="changePhotoTextBtn">
+                    <!-- APPLICANT ID -->
 
-                        Change Photo
+                    <div class="profile-details">
+
+                        <label>
+                            Applicant ID
+                        </label>
+
+                        <div class="applicant-id">
+                            AP-0001
+                        </div>
+
+                        <span class="id-note">
+                            (Cannot be changed)
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PERSONAL INFORMATION -->
+
+                <div class="row">
+
+
+                    <!-- NAME -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Name
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               value="John Cruz" />
+
+                    </div>
+
+
+                    <!-- USERNAME -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Username
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               value="john" />
+
+                    </div>
+
+
+                    <!-- BIRTHDATE -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Birthdate
+                        </label>
+
+                        <div class="date-wrapper">
+
+                            <input type="date"
+                                   class="form-control"
+                                   value="2004-01-01" />
+
+                            <i class="bi bi-calendar3 calendar-icon"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PHONE -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Phone Number
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               value="+63 963 900 0000" />
+
+                    </div>
+
+
+                    <!-- ADDRESS -->
+
+                    <div class="col-12 mb-3">
+
+                        <label class="form-label">
+                            Address
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               value="Cebu City, Cebu" />
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- SAVE PROFILE -->
+
+                <div class="mt-3">
+
+                    <button type="button"
+                            class="btn-action-save"
+                            id="saveProfileBtn">
+
+                        Save Changes
 
                     </button>
 
                 </div>
 
-
-                <!-- APPLICANT ID -->
-
-                <div class="profile-details">
-
-
-                    <label>
-                        Applicant ID
-                    </label>
-
-
-                    <div class="applicant-id">
-                        AP-0001
-                    </div>
-
-
-                    <span class="id-note">
-                        (Cannot be changed)
-                    </span>
-
-
-                </div>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 PERSONAL INFORMATION
-            ================================================== -->
-
-            <div class="row">
-
-
-                <!-- NAME -->
-
-                <div class="col-md-6 mb-3">
-
-                    <label class="form-label">
-                        Name
-                    </label>
-
-                    <input type="text"
-                           class="form-control"
-                           value="John Cruz" />
-
-                </div>
-
-
-                <!-- USERNAME -->
-
-                <div class="col-md-6 mb-3">
-
-                    <label class="form-label">
-                        Username
-                    </label>
-
-                    <input type="text"
-                           class="form-control"
-                           value="john" />
-
-                </div>
-
-
-                <!-- BIRTHDATE -->
-
-                <div class="col-md-6 mb-3">
-
-                    <label class="form-label">
-                        Birthdate
-                    </label>
-
-                    <div class="date-wrapper">
-
-                        <input type="date"
-                               class="form-control"
-                               value="2004-01-01" />
-
-                        <i class="bi bi-calendar3 calendar-icon"></i>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PHONE -->
-
-                <div class="col-md-6 mb-3">
-
-                    <label class="form-label">
-                        Phone Number
-                    </label>
-
-                    <input type="text"
-                           class="form-control"
-                           value="+63 963 900 0000" />
-
-                </div>
-
-
-                <!-- ADDRESS -->
-
-                <div class="col-12 mb-3">
-
-                    <label class="form-label">
-                        Address
-                    </label>
-
-                    <input type="text"
-                           class="form-control"
-                           value="Cebu City, Cebu" />
-
-                </div>
-
-
-            </div>
-
-
-            <!-- SAVE PROFILE -->
-
-            <div class="mt-3">
-
-                <button type="button"
-                        class="btn-action-save"
-                        id="saveProfileBtn">
-
-                    Save Changes
-
-                </button>
-
             </div>
 
         </div>
@@ -1835,109 +2006,269 @@
 
 
         <!-- =====================================================
-             SECURITY CARD
+             SECURITY TAB CONTENT
         ====================================================== -->
 
-        <div class="account-card"
-             id="security">
+        <div class="account-tab-content"
+             id="securityContent">
 
 
-            <h4 class="section-title-green">
-                Account Security
-            </h4>
+            <div class="account-card">
 
 
-            <div class="row">
+                <div class="security-grid">
 
 
-                <!-- CURRENT PASSWORD -->
+                    <!-- =================================================
+                         PASSWORD
+                    ================================================== -->
 
-                <div class="col-lg-4 mb-3">
+                    <div class="security-box">
 
-                    <label class="form-label">
-                        Current Password
-                    </label>
+                        <h4>
 
-                    <div class="password-wrapper">
+                            <i class="bi bi-lock"></i>
 
-                        <input type="password"
-                               class="form-control password-input"
-                               placeholder="Enter current password" />
+                            Password
 
-                        <i class="bi bi-eye password-toggle"></i>
+                        </h4>
+
+                        <p class="security-description">
+                            Keep your account password secure.
+                        </p>
+
+
+                        <div class="password-info">
+
+                            <div class="password-last-changed">
+
+                                Last changed 3 months ago.
+
+                                <span>
+                                    For your security, update your password regularly.
+                                </span>
+
+                            </div>
+
+
+                            <button type="button"
+                                    class="btn-small"
+                                    id="changePasswordBtn">
+
+                                Change Password
+
+                            </button>
+
+                        </div>
 
                     </div>
+
+
+
+                    <!-- =================================================
+                         ACTIVE SESSIONS
+                    ================================================== -->
+
+                    <div class="security-box">
+
+                        <h4>
+
+                            <i class="bi bi-device-ssd"></i>
+
+                            Active Sessions
+
+                        </h4>
+
+                        <p class="security-description">
+                            Devices currently signed in to your account.
+                        </p>
+
+
+                        <!-- CURRENT DEVICE -->
+
+                        <div class="session-item">
+
+                            <div class="session-icon">
+
+                                <i class="bi bi-pc-display"></i>
+
+                            </div>
+
+
+                            <div class="session-info">
+
+                                <div class="session-device">
+
+                                    Chrome on Windows
+
+                                    <span>
+                                        This device
+                                    </span>
+
+                                </div>
+
+                                <div class="session-location">
+                                    City of Naga, Cebu, Philippines
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SECOND DEVICE -->
+
+                        <div class="session-item">
+
+                            <div class="session-icon">
+
+                                <i class="bi bi-phone"></i>
+
+                            </div>
+
+
+                            <div class="session-info">
+
+                                <div class="session-device">
+                                    RS4 Itel
+                                </div>
+
+                                <div class="session-location">
+                                    Cebu City, Philippines
+                                </div>
+
+                            </div>
+
+
+                            <button type="button"
+                                    class="btn-logout-session">
+
+                                Logout
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         ACCOUNT DETAILS
+                    ================================================== -->
+
+                    <div class="security-box">
+
+                        <h4>
+
+                            <i class="bi bi-shield"></i>
+
+                            Account Details
+
+                        </h4>
+
+                        <p class="security-description">
+                            Manage your account location and information.
+                        </p>
+
+
+                        <div class="security-field">
+
+                            <label class="form-label">
+                                Country / Region
+                            </label>
+
+                            <select class="form-select">
+
+                                <option selected>
+                                    Philippines
+                                </option>
+
+                                <option>
+                                    United States
+                                </option>
+
+                                <option>
+                                    Canada
+                                </option>
+
+                                <option>
+                                    Australia
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         TWO FACTOR AUTHENTICATION
+                    ================================================== -->
+
+                    <div class="security-box">
+
+                        <div class="two-factor-box">
+
+
+                            <div>
+
+                                <div class="two-factor-title">
+
+                                    <i class="bi bi-lock-fill"></i>
+
+                                    Two-factor authentication
+
+                                    <span style="
+                                        font-size:8px;
+                                        color:#94a3b8;
+                                        font-weight:500;
+                                    ">
+                                        off
+                                    </span>
+
+                                </div>
+
+                                <p class="two-factor-description">
+                                    Add an extra layer of security to your login.
+                                </p>
+
+                            </div>
+
+
+                            <label class="toggle-switch">
+
+                                <input type="checkbox"
+                                       id="twoFactorToggle">
+
+                                <span class="toggle-slider"></span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
 
                 </div>
 
 
-                <!-- NEW PASSWORD -->
 
-                <div class="col-lg-4 mb-3">
+                <!-- SAVE SECURITY -->
 
-                    <label class="form-label">
-                        New Password
-                    </label>
+                <div class="security-save-area">
 
-                    <div class="password-wrapper">
+                    <button type="button"
+                            class="btn-action-save"
+                            id="saveSecurityBtn">
 
-                        <input type="password"
-                               class="form-control password-input"
-                               placeholder="Enter new password" />
+                        Save Changes
 
-                        <i class="bi bi-eye password-toggle"></i>
-
-                    </div>
+                    </button>
 
                 </div>
-
-
-                <!-- CONFIRM PASSWORD -->
-
-                <div class="col-lg-4 mb-3">
-
-                    <label class="form-label">
-                        Confirm Password
-                    </label>
-
-                    <div class="password-wrapper">
-
-                        <input type="password"
-                               class="form-control password-input"
-                               placeholder="Confirm new password" />
-
-                        <i class="bi bi-eye password-toggle"></i>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-            <hr class="security-divider" />
-
-
-            <div class="d-flex justify-content-end gap-2">
-
-
-                <button type="button"
-                        class="btn-action-cancel"
-                        id="cancelButton">
-
-                    Cancel
-
-                </button>
-
-
-                <button type="button"
-                        class="btn-action-save"
-                        id="saveSecurityBtn">
-
-                    Save Changes
-
-                </button>
 
 
             </div>
@@ -1956,13 +2287,12 @@
     <script>
 
 
-        /* =====================================================
+        /* =========================================================
            SIDEBAR TOGGLE
-        ====================================================== */
+        ========================================================= */
 
         const toggleSidebar =
             document.getElementById("toggleSidebar");
-
 
         toggleSidebar.addEventListener("click", function () {
 
@@ -1973,9 +2303,10 @@
         });
 
 
+
         /* =========================================================
            SETTINGS DROPDOWN
-        ========================================================== */
+        ========================================================= */
 
         const settingsToggle =
             document.getElementById("settingsToggle");
@@ -1984,14 +2315,6 @@
             document.querySelector(".sidebar-settings");
 
         settingsToggle.addEventListener("click", function (e) {
-
-            /*
-             * Allow the Settings text/link
-             * to navigate normally.
-             *
-             * Clicking the arrow area toggles
-             * the submenu.
-             */
 
             if (e.target.closest("a")) {
                 return;
@@ -2005,9 +2328,10 @@
         });
 
 
-        /* =====================================================
+
+        /* =========================================================
            PROFILE DROPDOWN
-        ====================================================== */
+        ========================================================= */
 
         const profileContainer =
             document.querySelector(".profile-container");
@@ -2015,6 +2339,8 @@
         const profileToggle =
             document.getElementById("profileToggle");
 
+        const notificationContainer =
+            document.querySelector(".notification-container");
 
         profileToggle.addEventListener("click", function (e) {
 
@@ -2028,16 +2354,12 @@
 
 
 
-        /* =====================================================
+        /* =========================================================
            NOTIFICATION DROPDOWN
-        ====================================================== */
-
-        const notificationContainer =
-            document.querySelector(".notification-container");
+        ========================================================= */
 
         const notificationToggle =
             document.getElementById("notificationToggle");
-
 
         notificationToggle.addEventListener("click", function (e) {
 
@@ -2051,9 +2373,9 @@
 
 
 
-        /* =====================================================
+        /* =========================================================
            CLOSE DROPDOWNS
-        ====================================================== */
+        ========================================================= */
 
         document.addEventListener("click", function (e) {
 
@@ -2062,7 +2384,6 @@
                 profileContainer.classList.remove("open");
 
             }
-
 
             if (!notificationContainer.contains(e.target)) {
 
@@ -2074,9 +2395,139 @@
 
 
 
-        /* =====================================================
+        /* =========================================================
+           PROFILE / SECURITY TABS
+        ========================================================= */
+
+        const accountTabs =
+            document.querySelectorAll(".account-tab");
+
+        const profileContent =
+            document.getElementById("profileContent");
+
+        const securityContent =
+            document.getElementById("securityContent");
+
+
+        accountTabs.forEach(function (tab) {
+
+            tab.addEventListener("click", function (e) {
+
+                e.preventDefault();
+
+                const selectedTab =
+                    this.getAttribute("data-tab");
+
+
+                /* Remove active from all tabs */
+
+                accountTabs.forEach(function (item) {
+
+                    item.classList.remove("active");
+
+                });
+
+
+                /* Hide all content */
+
+                profileContent.classList.remove("active");
+
+                securityContent.classList.remove("active");
+
+
+                /* Activate selected tab */
+
+                this.classList.add("active");
+
+
+                if (selectedTab === "profile") {
+
+                    profileContent.classList.add("active");
+
+                    history.replaceState(
+                        null,
+                        null,
+                        "#profile"
+                    );
+
+                }
+
+
+                if (selectedTab === "security") {
+
+                    securityContent.classList.add("active");
+
+                    history.replaceState(
+                        null,
+                        null,
+                        "#security"
+                    );
+
+                }
+
+            });
+
+        });
+
+
+
+        /* =========================================================
+           OPEN TAB FROM URL HASH
+        ========================================================= */
+
+        function openTabFromHash() {
+
+            const hash =
+                window.location.hash;
+
+
+            if (hash === "#security") {
+
+                accountTabs.forEach(function (tab) {
+
+                    tab.classList.remove("active");
+
+                });
+
+                profileContent.classList.remove("active");
+
+                securityContent.classList.add("active");
+
+
+                document
+                    .querySelector('[data-tab="security"]')
+                    .classList.add("active");
+
+            }
+
+            else {
+
+                accountTabs.forEach(function (tab) {
+
+                    tab.classList.remove("active");
+
+                });
+
+                securityContent.classList.remove("active");
+
+                profileContent.classList.add("active");
+
+
+                document
+                    .querySelector('[data-tab="profile"]')
+                    .classList.add("active");
+
+            }
+
+        }
+
+        openTabFromHash();
+
+
+
+        /* =========================================================
            CHANGE PROFILE PHOTO
-        ====================================================== */
+        ========================================================= */
 
         const cameraBtn =
             document.getElementById("changePhotoBtn");
@@ -2109,17 +2560,21 @@
 
             if (this.files.length > 0) {
 
-                const reader = new FileReader();
+                const reader =
+                    new FileReader();
 
 
                 reader.onload = function (e) {
 
-                    preview.src = e.target.result;
+                    preview.src =
+                        e.target.result;
 
                 };
 
 
-                reader.readAsDataURL(this.files[0]);
+                reader.readAsDataURL(
+                    this.files[0]
+                );
 
             }
 
@@ -2127,51 +2582,9 @@
 
 
 
-        /* =====================================================
-           PASSWORD SHOW / HIDE
-        ====================================================== */
-
-        const passwordIcons =
-            document.querySelectorAll(".password-toggle");
-
-
-        passwordIcons.forEach(function (icon) {
-
-            icon.addEventListener("click", function () {
-
-                const input =
-                    this.previousElementSibling;
-
-
-                if (input.type === "password") {
-
-                    input.type = "text";
-
-                    this.classList.remove("bi-eye");
-
-                    this.classList.add("bi-eye-slash");
-
-                }
-
-                else {
-
-                    input.type = "password";
-
-                    this.classList.remove("bi-eye-slash");
-
-                    this.classList.add("bi-eye");
-
-                }
-
-            });
-
-        });
-
-
-
-        /* =====================================================
+        /* =========================================================
            SAVE PROFILE
-        ====================================================== */
+        ========================================================= */
 
         const saveProfileBtn =
             document.getElementById("saveProfileBtn");
@@ -2179,15 +2592,74 @@
 
         saveProfileBtn.addEventListener("click", function () {
 
-            alert("Profile updated successfully!");
+            alert(
+                "Profile updated successfully!"
+            );
 
         });
 
 
 
-        /* =====================================================
-           SAVE SECURITY
-        ====================================================== */
+        /* =========================================================
+           CHANGE PASSWORD
+        ========================================================= */
+
+        const changePasswordBtn =
+            document.getElementById("changePasswordBtn");
+
+
+        changePasswordBtn.addEventListener("click", function () {
+
+            alert(
+                "Change Password option selected."
+            );
+
+        });
+
+
+
+        /* =========================================================
+           TWO FACTOR
+        ========================================================= */
+
+        const twoFactorToggle =
+            document.getElementById("twoFactorToggle");
+
+
+        twoFactorToggle.addEventListener("change", function () {
+
+            const status =
+                this.checked
+                    ? "enabled"
+                    : "disabled";
+
+
+            const label =
+                this.closest(".security-box")
+                    .querySelector(
+                        ".two-factor-title span"
+                    );
+
+
+            label.textContent =
+                this.checked
+                    ? "on"
+                    : "off";
+
+
+            alert(
+                "Two-factor authentication " +
+                status +
+                "."
+            );
+
+        });
+
+
+
+        /* =========================================================
+           SECURITY SAVE
+        ========================================================= */
 
         const saveSecurityBtn =
             document.getElementById("saveSecurityBtn");
@@ -2195,34 +2667,48 @@
 
         saveSecurityBtn.addEventListener("click", function () {
 
-            alert("Security settings updated successfully!");
+            alert(
+                "Security settings updated successfully!"
+            );
 
         });
 
 
 
-        /* =====================================================
-           CANCEL
-        ====================================================== */
+        /* =========================================================
+           ACTIVE SESSION LOGOUT
+        ========================================================= */
 
-        const cancelButton =
-            document.getElementById("cancelButton");
-
-
-        cancelButton.addEventListener("click", function () {
-
-            const confirmed =
-                confirm("Discard all changes?");
+        const logoutSessionButtons =
+            document.querySelectorAll(
+                ".btn-logout-session"
+            );
 
 
-            if (confirmed) {
+        logoutSessionButtons.forEach(function (button) {
 
-                location.reload();
+            button.addEventListener(
+                "click",
+                function () {
 
-            }
+                    const confirmed =
+                        confirm(
+                            "Are you sure you want to logout this device?"
+                        );
+
+
+                    if (confirmed) {
+
+                        this.closest(
+                            ".session-item"
+                        ).remove();
+
+                    }
+
+                }
+            );
 
         });
-
 
     </script>
 
