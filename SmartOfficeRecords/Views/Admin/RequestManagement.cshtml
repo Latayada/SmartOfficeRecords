@@ -56,7 +56,6 @@
 
         /* =========================================================
                    SIDEBAR
-                   SAME AS RECORDS PAGE
                 ========================================================= */
 
         .sidebar {
@@ -71,8 +70,6 @@
             overflow-y: auto;
             overflow-x: hidden;
         }
-
-        /* Scrollbar */
 
         .sidebar {
             scrollbar-width: thin;
@@ -447,7 +444,6 @@
 
         /* =========================================================
                    CONTENT AREA
-                   SAME AS RECORDS PAGE
                 ========================================================= */
 
         .content-area {
@@ -460,7 +456,6 @@
 
         /* =========================================================
                    PAGE HEADER
-                   SAME AS RECORDS PAGE
                 ========================================================= */
 
         .page-header {
@@ -487,7 +482,6 @@
 
         /* =========================================================
                    ACTION BAR
-                   SAME AS RECORDS PAGE
                 ========================================================= */
 
         .action-bar {
@@ -556,7 +550,6 @@
 
         /* =========================================================
                    CREATE REQUEST BUTTON
-                   SAME HEIGHT AS RECORDS BUTTON
                 ========================================================= */
 
         .create-btn {
@@ -591,7 +584,6 @@
 
         /* =========================================================
                    TABLE
-                   SAME AS RECORDS PAGE
                 ========================================================= */
 
         .table-container {
@@ -675,110 +667,137 @@
 
 
         /* =========================================================
-                   ACTION ICONS
+                   ACTION BUTTONS
                 ========================================================= */
 
         .action-icons {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 4px;
         }
 
         .action-btn {
-            width: 25px;
-            height: 25px;
+            height: 18px;
             border: none;
-            border-radius: 5px;
-            background: transparent;
+            border-radius: 3px;
+            padding: 0 7px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all .2s ease;
+            font-family: 'Poppins', sans-serif;
+            font-size: 7px;
+            font-weight: 600;
         }
 
             .action-btn i {
-                font-size: 11px;
+                font-size: 8px;
+                margin-right: 3px;
             }
 
+
+        /* VIEW */
+
         .view-action {
-            color: #374151;
+            background: #FCE7F3;
+            color: #EC5CC0;
         }
 
             .view-action:hover {
-                background: #DBEAFE;
-                color: #2563EB;
+                background: #F9A8D4;
+                color: #FFFFFF;
             }
 
-        .edit-action {
-            color: #374151;
+
+        /* APPROVE */
+
+        .approve-action {
+            background: #DCFCE7;
+            color: #16A34A;
         }
 
-            .edit-action:hover {
-                background: #FEE2E2;
-                color: #B91C1C;
+            .approve-action:hover {
+                background: #16A34A;
+                color: #FFFFFF;
+            }
+
+
+        /* REJECT */
+
+        .reject-action {
+            background: #FEE2E2;
+            color: #EF4444;
+        }
+
+            .reject-action:hover {
+                background: #EF4444;
+                color: #FFFFFF;
             }
 
 
         /* =========================================================
-                   PAGINATION
-                   SAME AS RECORDS PAGE
+                   PAGINATION SECTION
                 ========================================================= */
 
         .pagination-section {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 18px;
+            width: 100%;
+        }
+
+
+        /* SHOWING TEXT */
+
+        .showing-text {
+            font-size: 9px;
+            color: #374151;
+            font-weight: 500;
+        }
+
+
+        /* PAGINATION BUTTON GROUP */
+
+        .pagination-buttons {
+            display: flex;
             align-items: center;
             gap: 5px;
-            margin-top: 18px;
         }
 
         .pagination-btn {
-            width: 28px;
-            height: 28px;
-            border: none;
+            height: 24px;
+            padding: 0 11px;
+            border: 1px solid #E5E7EB;
             background: #FFFFFF;
             border-radius: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #6B7280;
-            font-size: 9px;
+            font-size: 8px;
+            font-weight: 500;
             cursor: pointer;
+            transition: all .2s ease;
         }
 
             .pagination-btn:hover {
                 background: #FEE2E2;
                 color: #B91C1C;
+                border-color: #FECACA;
             }
 
-        .page-number {
-            width: 28px;
-            height: 28px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 9px;
-            font-weight: 600;
-            color: #374151;
-            cursor: pointer;
-        }
-
-            .page-number:hover {
-                background: #FEE2E2;
-                color: #B91C1C;
-            }
-
-        .active-page {
-            background: #B91C1C;
-            color: #FFFFFF;
-        }
-
-            .active-page:hover {
-                background: #991B1B;
+            .pagination-btn.next-btn {
+                background: #B91C1C;
                 color: #FFFFFF;
+                border-color: #B91C1C;
             }
+
+                .pagination-btn.next-btn:hover {
+                    background: #991B1B;
+                    color: #FFFFFF;
+                }
 
 
         /* =========================================================
@@ -897,6 +916,16 @@
 
             .table {
                 min-width: 850px;
+            }
+
+            .pagination-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .pagination-buttons {
+                align-self: flex-end;
             }
         }
 
@@ -1347,13 +1376,23 @@
                                                 title="View">
 
                                             <i class="bi bi-eye"></i>
+                                            View
 
                                         </button>
 
-                                        <button class="action-btn edit-action"
-                                                title="Edit">
+                                        <button class="action-btn approve-action"
+                                                title="Approve">
 
-                                            <i class="bi bi-pencil"></i>
+                                            <i class="bi bi-check-lg"></i>
+                                            Approve
+
+                                        </button>
+
+                                        <button class="action-btn reject-action"
+                                                title="Reject">
+
+                                            <i class="bi bi-x-lg"></i>
+                                            Reject
 
                                         </button>
 
@@ -1400,13 +1439,23 @@
                                                 title="View">
 
                                             <i class="bi bi-eye"></i>
+                                            View
 
                                         </button>
 
-                                        <button class="action-btn edit-action"
-                                                title="Edit">
+                                        <button class="action-btn approve-action"
+                                                title="Approve">
 
-                                            <i class="bi bi-pencil"></i>
+                                            <i class="bi bi-check-lg"></i>
+                                            Approve
+
+                                        </button>
+
+                                        <button class="action-btn reject-action"
+                                                title="Reject">
+
+                                            <i class="bi bi-x-lg"></i>
+                                            Reject
 
                                         </button>
 
@@ -1453,13 +1502,23 @@
                                                 title="View">
 
                                             <i class="bi bi-eye"></i>
+                                            View
 
                                         </button>
 
-                                        <button class="action-btn edit-action"
-                                                title="Edit">
+                                        <button class="action-btn approve-action"
+                                                title="Approve">
 
-                                            <i class="bi bi-pencil"></i>
+                                            <i class="bi bi-check-lg"></i>
+                                            Approve
+
+                                        </button>
+
+                                        <button class="action-btn reject-action"
+                                                title="Reject">
+
+                                            <i class="bi bi-x-lg"></i>
+                                            Reject
 
                                         </button>
 
@@ -1506,13 +1565,23 @@
                                                 title="View">
 
                                             <i class="bi bi-eye"></i>
+                                            View
 
                                         </button>
 
-                                        <button class="action-btn edit-action"
-                                                title="Edit">
+                                        <button class="action-btn approve-action"
+                                                title="Approve">
 
-                                            <i class="bi bi-pencil"></i>
+                                            <i class="bi bi-check-lg"></i>
+                                            Approve
+
+                                        </button>
+
+                                        <button class="action-btn reject-action"
+                                                title="Reject">
+
+                                            <i class="bi bi-x-lg"></i>
+                                            Reject
 
                                         </button>
 
@@ -1559,13 +1628,23 @@
                                                 title="View">
 
                                             <i class="bi bi-eye"></i>
+                                            View
 
                                         </button>
 
-                                        <button class="action-btn edit-action"
-                                                title="Edit">
+                                        <button class="action-btn approve-action"
+                                                title="Approve">
 
-                                            <i class="bi bi-pencil"></i>
+                                            <i class="bi bi-check-lg"></i>
+                                            Approve
+
+                                        </button>
+
+                                        <button class="action-btn reject-action"
+                                                title="Reject">
+
+                                            <i class="bi bi-x-lg"></i>
+                                            Reject
 
                                         </button>
 
@@ -1590,38 +1669,26 @@
                 <div class="pagination-section">
 
 
-                    <button class="pagination-btn">
+                    <!-- LEFT: SHOWING -->
 
-                        <i class="bi bi-chevron-left"></i>
-
-                    </button>
-
-
-                    <div class="page-number active-page">
-                        1
+                    <div class="showing-text">
+                        Showing 1 to 5 users
                     </div>
 
 
-                    <div class="page-number">
-                        2
+                    <!-- RIGHT: PREVIOUS / NEXT -->
+
+                    <div class="pagination-buttons">
+
+                        <button class="pagination-btn">
+                            Previous
+                        </button>
+
+                        <button class="pagination-btn next-btn">
+                            Next
+                        </button>
+
                     </div>
-
-
-                    <div class="page-number">
-                        3
-                    </div>
-
-
-                    <div class="page-number">
-                        4
-                    </div>
-
-
-                    <button class="pagination-btn">
-
-                        <i class="bi bi-chevron-right"></i>
-
-                    </button>
 
 
                 </div>
@@ -1674,10 +1741,6 @@
             sidebar.classList.toggle('collapsed');
 
         });
-
-
-
-
 
     </script>
 
