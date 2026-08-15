@@ -478,7 +478,7 @@
         }
 
 
-        /* =========================================================
+       /* =========================================================
                    BREADCRUMB
                 ========================================================= */
 
@@ -486,31 +486,42 @@
             display: flex;
             align-items: center;
             gap: 7px;
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 700;
-            margin-bottom: 18px;
-            color: #B91C1C;
+            margin: 0;
+            padding: 0;
+            color: #111827;
+            line-height: 1.3;
         }
 
-            .breadcrumb-title .request-link {
-                color: #9CA3AF;
-                text-decoration: none;
-                transition: color .2s ease;
+        .users-breadcrumb {
+            text-decoration: none;
+            color: #9CA3AF;
+            transition: .2s ease;
+        }
+
+            .users-breadcrumb:hover {
+                color: #B91C1C;
             }
 
-                .breadcrumb-title .request-link:hover {
-                    color: #B91C1C;
-                }
-
-        .breadcrumb-arrow {
-            color: #9CA3AF;
-            font-size: 18px;
+        .breadcrumb-title strong {
+            color: #E32626;
+            font-weight: 700;
         }
 
-        .breadcrumb-current {
-            color: #B91C1C;
-        }
 
+        /* =========================================================
+                   PAGE DESCRIPTION
+                ========================================================= */
+
+        .page-description {
+            color: #64748B;
+            font-size: 10px;
+            font-weight: 400;
+            margin: 3px 0 20px 0;
+            padding: 0;
+            line-height: 1.4;
+        }
 
         /* =========================================================
                    REQUEST CARD
@@ -1173,27 +1184,31 @@
 
             <div class="content-area">
 
-
-                <!-- BREADCRUMB -->
+                <!-- =================================================
+                              BREADCRUMB
+                ================================================== -->
 
                 <div class="breadcrumb-title">
 
                     <a href="@Url.Action("RequestManagement", "Admin")"
-                       class="request-link">
+                       class="users-breadcrumb">
 
                         Request
 
                     </a>
 
-                    <span class="breadcrumb-arrow">
+                    <span>
                         ›
                     </span>
 
-                    <span class="breadcrumb-current">
+                    <strong>
                         Create Request
-                    </span>
+                    </strong>
 
                 </div>
+                <p class="page-description">
+                    Here's what's happening with your interviews and records today.
+                </p>
 
 
                 <!-- =================================================
