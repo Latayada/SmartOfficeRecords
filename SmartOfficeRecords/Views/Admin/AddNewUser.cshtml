@@ -465,14 +465,19 @@
 
 
         /* =========================================================
-                                    BREADCRUMB
-                ========================================================= */
+           BREADCRUMB
+        ========================================================= */
 
         .breadcrumb-title {
+            display: flex;
+            align-items: center;
+            gap: 7px;
             font-size: 19px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin: 0;
+            padding: 0;
             color: #111827;
+            line-height: 1.3;
         }
 
         .users-breadcrumb {
@@ -492,28 +497,45 @@
 
 
         /* =========================================================
-                                   FORM WRAPPER
-                ========================================================= */
+           PAGE DESCRIPTION
+        ========================================================= */
+
+        .page-description {
+            color: #64748B;
+            font-size: 10px;
+            font-weight: 400;
+            margin: 3px 0 20px 0;
+            padding: 0;
+            line-height: 1.4;
+        }
+
+
+        /* =========================================================
+           FORM WRAPPER
+        ========================================================= */
 
         .form-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            column-gap: 20px;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            column-gap: 24px;
             align-items: start;
+            width: 100%;
         }
 
         .left-column,
         .right-column {
+            width: 100%;
             min-width: 0;
         }
 
 
         /* =========================================================
-                                    FORM GROUP
-                ========================================================= */
+           FORM GROUP
+        ========================================================= */
 
         .form-group {
-            margin-bottom: 14px;
+            width: 100%;
+            margin-bottom: 16px;
         }
 
             .form-group label {
@@ -522,21 +544,17 @@
                 font-weight: 600;
                 color: #111827;
                 margin-bottom: 6px;
+                line-height: 1.3;
             }
-
-        .optional {
-            font-size: 9px;
-            color: #9CA3AF;
-            font-weight: 400;
-        }
-
 
         /* =========================================================
                                     INPUT GROUP
                 ========================================================= */
 
         .input-group {
+            display: flex;
             width: 100%;
+            height: 36px;
             position: relative;
         }
 
@@ -1132,6 +1150,9 @@
                     </strong>
 
                 </div>
+                <p class="page-description">
+                    Here's what's happening with your interviews and records today.
+                </p>
 
 
                 <!-- =================================================
