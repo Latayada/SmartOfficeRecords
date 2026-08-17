@@ -356,7 +356,6 @@
 
         /* =========================================================
                    TOPBAR
-                   SAME AS ADMIN DASHBOARD / RECORDS
                 ========================================================= */
 
         .topbar {
@@ -460,7 +459,6 @@
 
         /* =========================================================
                    CONTENT AREA
-                   SAME ALIGNMENT AS RECORDS
                 ========================================================= */
 
         .content-area {
@@ -499,7 +497,6 @@
 
         /* =========================================================
                    REPORT ACTION BAR
-                   SEARCH ALIGNED WITH TITLE
                 ========================================================= */
 
         .action-bar {
@@ -551,7 +548,6 @@
 
         /* =========================================================
                    TABLE
-                   SAME ALIGNMENT AS RECORDS
                 ========================================================= */
 
         .table-container {
@@ -665,69 +661,72 @@
 
 
         /* =========================================================
-                   PAGINATION
-                   SAME STYLE AS RECORDS
-                ========================================================= */
+                           PAGINATION SECTION
+                        ========================================================= */
 
         .pagination-section {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 18px;
+            width: 100%;
+        }
+
+
+        /* =========================================================
+                           SHOWING TEXT
+                        ========================================================= */
+
+        .showing-text {
+            font-size: 9px;
+            color: #374151;
+            font-weight: 500;
+        }
+
+
+        /* =========================================================
+                           PAGINATION BUTTON GROUP
+                        ========================================================= */
+
+        .pagination-buttons {
+            display: flex;
             align-items: center;
             gap: 5px;
-            margin-top: 18px;
         }
 
         .pagination-btn {
-            width: 28px;
-            height: 28px;
-            border: none;
+            height: 24px;
+            padding: 0 11px;
+            border: 1px solid #E5E7EB;
             background: #FFFFFF;
             border-radius: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #6B7280;
-            font-size: 9px;
+            font-size: 8px;
+            font-weight: 500;
             cursor: pointer;
+            transition: all .2s ease;
         }
 
             .pagination-btn:hover {
                 background: #FEE2E2;
                 color: #B91C1C;
+                border-color: #FECACA;
             }
 
-            .pagination-btn:disabled {
-                opacity: .6;
-                cursor: default;
-            }
-
-        .page-number {
-            width: 28px;
-            height: 28px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 9px;
-            font-weight: 600;
-            color: #374151;
-            cursor: pointer;
-        }
-
-            .page-number:hover {
-                background: #FEE2E2;
-                color: #B91C1C;
-            }
-
-        .active-page {
-            background: #B91C1C;
-            color: #FFFFFF;
-        }
-
-            .active-page:hover {
-                background: #991B1B;
+            .pagination-btn.next-btn {
+                background: #B91C1C;
                 color: #FFFFFF;
+                border-color: #B91C1C;
             }
+
+                .pagination-btn.next-btn:hover {
+                    background: #991B1B;
+                    color: #FFFFFF;
+                }
+
 
 
         /* =========================================================
@@ -1422,49 +1421,33 @@
                 </div>
 
 
-                <!-- =================================================
+                 <!-- =================================================
                      PAGINATION
                 ================================================== -->
 
                 <div class="pagination-section">
 
 
-                    <button class="pagination-btn"
-                            type="button"
-                            disabled>
+                    <!-- LEFT -->
 
-                        <i class="bi bi-chevron-left"></i>
-
-                    </button>
-
-
-                    <div class="page-number active-page">
-                        1
+                    <div class="showing-text">
+                        Showing 1 to 5 users
                     </div>
 
 
-                    <div class="page-number">
-                        2
+                    <!-- RIGHT -->
+
+                    <div class="pagination-buttons">
+
+                        <button class="pagination-btn">
+                            Previous
+                        </button>
+
+                        <button class="pagination-btn next-btn">
+                            Next
+                        </button>
+
                     </div>
-
-
-                    <div class="page-number">
-                        3
-                    </div>
-
-
-                    <div class="page-number">
-                        4
-                    </div>
-
-
-                    <button class="pagination-btn"
-                            type="button">
-
-                        <i class="bi bi-chevron-right"></i>
-
-                    </button>
-
 
                 </div>
 

@@ -56,7 +56,6 @@
 
         /* =========================================================
                    SIDEBAR
-                   SAME AS RECORDS MANAGEMENT
                 ========================================================= */
 
         .sidebar {
@@ -681,15 +680,21 @@
 
 
         /* =========================================================
-                   PAGINATION
-                ========================================================= */
+                                   PAGINATION SECTION
+                                ========================================================= */
 
-        .pagination-area {
+        .pagination-section {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 8px;
+            margin-top: 18px;
+            width: 100%;
         }
+
+
+        /* =========================================================
+                                   SHOWING TEXT
+                                ========================================================= */
 
         .showing-text {
             font-size: 9px;
@@ -697,14 +702,19 @@
             font-weight: 500;
         }
 
-        .pagination-section {
+
+        /* =========================================================
+                                   PAGINATION BUTTON GROUP
+                                ========================================================= */
+
+        .pagination-buttons {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .pagination-btn {
-            height: 28px;
+            height: 24px;
             padding: 0 11px;
             border: 1px solid #E5E7EB;
             background: #FFFFFF;
@@ -714,6 +724,7 @@
             align-items: center;
             color: #6B7280;
             font-size: 8px;
+            font-weight: 500;
             cursor: pointer;
             transition: all .2s ease;
         }
@@ -724,18 +735,16 @@
                 border-color: #FECACA;
             }
 
-        .pagination-next {
-            background: #B91C1C;
-            color: #FFFFFF;
-            border-color: #B91C1C;
-            min-width: 55px;
-        }
-
-            .pagination-next:hover {
-                background: #991B1B;
+            .pagination-btn.next-btn {
+                background: #B91C1C;
                 color: #FFFFFF;
-                border-color: #991B1B;
+                border-color: #B91C1C;
             }
+
+                .pagination-btn.next-btn:hover {
+                    background: #991B1B;
+                    color: #FFFFFF;
+                }
 
 
         /* =========================================================
@@ -874,7 +883,6 @@
 
         <!-- =====================================================
              SIDEBAR
-             SAME AS RECORDS MANAGEMENT
         ====================================================== -->
 
         <aside class="sidebar">
@@ -1374,39 +1382,35 @@
 
                     </table>
 
+                </div>
 
-                    <!-- PAGINATION INSIDE TABLE CONTAINER -->
+                <!-- =================================================
+                     PAGINATION
+                ================================================== -->
 
-                    <div class="pagination-area">
-
-
-                        <div class="showing-text">
-                            Showing 1 to 5 users
-                        </div>
+                <div class="pagination-section">
 
 
-                        <div class="pagination-section">
+                    <!-- LEFT -->
 
-
-                            <button class="pagination-btn">
-
-                                Previous
-
-                            </button>
-
-
-                            <button class="pagination-btn pagination-next">
-
-                                Next
-
-                            </button>
-
-
-                        </div>
-
-
+                    <div class="showing-text">
+                        Showing 1 to 5 users
                     </div>
 
+
+                    <!-- RIGHT -->
+
+                    <div class="pagination-buttons">
+
+                        <button class="pagination-btn">
+                            Previous
+                        </button>
+
+                        <button class="pagination-btn next-btn">
+                            Next
+                        </button>
+
+                    </div>
 
                 </div>
 
