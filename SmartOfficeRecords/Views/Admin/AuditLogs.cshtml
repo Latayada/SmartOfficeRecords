@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Audit Logs</title>
+    <title>Audit Logs - SORS</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -20,8 +20,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
           rel="stylesheet" />
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet">
 
     <style>
@@ -34,12 +34,13 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
             background: #F5F6F8;
             overflow: hidden;
+            color: #111827;
         }
 
 
@@ -49,8 +50,8 @@
 
         .dashboard-container {
             display: flex;
-            height: 100vh;
             width: 100%;
+            height: 100vh;
         }
 
 
@@ -69,12 +70,6 @@
             transition: all .3s ease;
             overflow-y: auto;
             overflow-x: hidden;
-        }
-
-
-        /* Scrollbar */
-
-        .sidebar {
             scrollbar-width: thin;
             scrollbar-color: rgba(255,255,255,.25) transparent;
         }
@@ -104,9 +99,10 @@
 
                 .sidebar.collapsed .system-name {
                     display: block;
-                    font-size: 10px;
-                    font-weight: 600;
+                    font-size: 11px;
+                    font-weight: 700;
                     margin-top: 8px;
+                    letter-spacing: .2px;
                 }
 
                 .sidebar.collapsed .logo-circle {
@@ -124,12 +120,12 @@
                 }
 
                 .sidebar.collapsed .menu {
-                    padding: 15px 10px;
+                    padding: 16px 10px;
                 }
 
                     .sidebar.collapsed .menu a {
-                        width: 42px;
-                        height: 42px;
+                        width: 44px;
+                        height: 44px;
                         margin: 0 auto 10px auto;
                         padding: 0;
                         display: flex;
@@ -146,6 +142,7 @@
                         .sidebar.collapsed .menu a i,
                         .sidebar.collapsed .logout a i {
                             margin: 0;
+                            font-size: 17px;
                         }
 
                 .sidebar.collapsed .logout {
@@ -153,8 +150,8 @@
                 }
 
                     .sidebar.collapsed .logout a {
-                        width: 42px;
-                        height: 42px;
+                        width: 44px;
+                        height: 44px;
                         margin: 0 auto;
                         padding: 0;
                         display: flex;
@@ -162,19 +159,20 @@
                         align-items: center;
                     }
 
+
         /* =========================================================
-                   LOGO SECTION
+                   LOGO
                 ========================================================= */
 
         .logo-section {
             text-align: center;
-            padding: 16px 10px;
+            padding: 18px 10px;
             border-bottom: 1px solid rgba(255,255,255,.18);
         }
 
         .logo-circle {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             background: #FFFFFF;
             border-radius: 50%;
             margin: auto;
@@ -190,9 +188,10 @@
         }
 
         .system-name {
-            margin-top: 8px;
-            font-size: 12px;
-            font-weight: 600;
+            margin-top: 9px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .3px;
             color: #FFFFFF;
         }
 
@@ -202,7 +201,7 @@
                 ========================================================= */
 
         .menu {
-            padding: 14px 8px;
+            padding: 16px 9px;
         }
 
             .menu a {
@@ -210,28 +209,25 @@
                 text-decoration: none;
                 display: flex;
                 align-items: center;
-                gap: 10px;
-                padding: 8px 10px;
-                margin-bottom: 3px;
-                border-radius: 5px;
-                font-size: 11px;
+                gap: 11px;
+                padding: 10px 11px;
+                margin-bottom: 5px;
+                border-radius: 6px;
+                font-size: 13px;
                 font-weight: 500;
+                line-height: 1.2;
                 transition: all .2s ease;
             }
 
                 .menu a i {
-                    font-size: 14px;
-                    min-width: 14px;
+                    font-size: 16px;
+                    min-width: 16px;
                 }
-
-                /* HOVER - SAME AS RECORDS */
 
                 .menu a:hover {
                     background: rgba(185, 28, 28, .18);
                     color: #FFFFFF;
                 }
-
-                /* ACTIVE - SAME AS RECORDS */
 
                 .menu a.active {
                     background: #B91C1C;
@@ -239,27 +235,32 @@
                     box-shadow: 0 3px 8px rgba(185,28,28,.22);
                 }
 
+
         /* =========================================================
                    LOGOUT
                 ========================================================= */
 
         .logout {
             margin-top: auto;
-            padding: 10px 8px 12px 8px;
+            padding: 12px 9px 15px 9px;
         }
 
             .logout a {
                 color: #FFFFFF;
                 text-decoration: none;
                 display: flex;
-                gap: 10px;
                 align-items: center;
-                padding: 8px 10px;
-                font-size: 11px;
+                gap: 11px;
+                padding: 10px 11px;
+                font-size: 13px;
                 font-weight: 500;
-                border-radius: 5px;
+                border-radius: 6px;
                 transition: all .2s ease;
             }
+
+                .logout a i {
+                    font-size: 16px;
+                }
 
                 .logout a:hover {
                     background: rgba(185,28,28,.18);
@@ -282,18 +283,17 @@
 
         /* =========================================================
                    TOPBAR
-                   SAME AS RECORDS MANAGEMENT
                 ========================================================= */
 
         .topbar {
-            height: 52px;
-            min-height: 52px;
+            height: 56px;
+            min-height: 56px;
             flex-shrink: 0;
             border-bottom: 1px solid #E5E7EB;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0 16px;
+            justify-content: space-between;
+            padding: 0 20px;
             background: #FFFFFF;
         }
 
@@ -307,9 +307,9 @@
             background: none;
             border: none;
             color: #B91C1C;
-            font-size: 16px;
+            font-size: 19px;
             cursor: pointer;
-            padding: 4px;
+            padding: 5px;
         }
 
 
@@ -320,12 +320,12 @@
         .topbar-right {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
             margin-left: auto;
         }
 
         .notification-icon {
-            font-size: 17px;
+            font-size: 19px;
             color: #374151;
             cursor: pointer;
             transition: color .2s ease;
@@ -343,14 +343,14 @@
         .profile {
             display: flex;
             align-items: center;
-            gap: 7px;
-            padding-left: 8px;
+            gap: 9px;
+            padding-left: 12px;
             border-left: 1px solid #E5E7EB;
         }
 
             .profile img {
-                width: 30px;
-                height: 30px;
+                width: 34px;
+                height: 34px;
                 border-radius: 50%;
                 object-fit: cover;
             }
@@ -358,38 +358,54 @@
         .profile-info {
             display: flex;
             flex-direction: column;
-            line-height: 1.15;
+            line-height: 1.25;
         }
 
             .profile-info h5 {
                 margin: 0;
-                font-size: 10px;
+                font-size: 12px;
                 font-weight: 600;
                 color: #111827;
             }
 
             .profile-info span {
-                font-size: 8px;
+                font-size: 10px;
                 color: #6B7280;
+                margin-top: 2px;
             }
 
         .profile-arrow {
             color: #6B7280;
-            font-size: 9px;
-            margin-left: 2px;
+            font-size: 10px;
+            margin-left: 3px;
         }
 
 
         /* =========================================================
-                   AUDIT CONTENT
+                   CONTENT AREA
                 ========================================================= */
 
         .content-area {
             flex: 1;
-            padding: 18px 28px;
+            padding: 22px 30px;
             overflow-y: auto;
             overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: #C7CBD1 transparent;
         }
+
+            .content-area::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .content-area::-webkit-scrollbar-thumb {
+                background: #C7CBD1;
+                border-radius: 10px;
+            }
+
+            .content-area::-webkit-scrollbar-track {
+                background: transparent;
+            }
 
 
         /* =========================================================
@@ -398,23 +414,26 @@
 
         .page-header {
             display: flex;
+            align-items: flex-start;
             justify-content: space-between;
-            align-items: center;
             margin-bottom: 18px;
         }
 
         .page-title {
             color: #B91C1C;
-            font-size: 18px;
+            font-size: 24px;
             font-weight: 700;
-            margin: 0 0 2px 0;
+            letter-spacing: -0.2px;
+            margin: 0 0 5px 0;
+            line-height: 1.2;
         }
 
         .page-description {
             color: #64748B;
-            font-size: 9px;
-            font-weight: 500;
+            font-size: 13px;
+            font-weight: 400;
             margin: 0;
+            line-height: 1.5;
         }
 
 
@@ -424,44 +443,51 @@
 
         .action-bar {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             gap: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         .search-filter {
             display: flex;
             align-items: center;
             gap: 12px;
-            flex: 1;
+            width: 100%;
         }
 
+
+        /* =========================================================
+                   SEARCH
+                ========================================================= */
+
         .search-box {
-            height: 34px;
+            height: 36px;
             flex: 1;
-            max-width: 560px;
+            max-width: 540px;
             background: #FFFFFF;
             border-radius: 20px;
-            box-shadow: 0 3px 12px rgba(0,0,0,.07);
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 3px 12px rgba(0,0,0,.05);
             display: flex;
             align-items: center;
-            padding: 0 12px;
-            gap: 8px;
+            padding: 0 13px;
+            gap: 9px;
         }
 
             .search-box i {
                 color: #6B7280;
-                font-size: 12px;
+                font-size: 13px;
             }
 
             .search-box input {
                 width: 100%;
                 border: none;
                 outline: none;
-                font-size: 10px;
-                color: #374151;
                 background: transparent;
+                font-size: 11px;
+                font-weight: 400;
+                color: #374151;
             }
 
                 .search-box input::placeholder {
@@ -470,98 +496,251 @@
 
 
         /* =========================================================
-                   AUDIT FILTERS
+                   FILTERS
                 ========================================================= */
 
         .audit-filter {
             width: 120px;
-            height: 34px;
+            height: 36px;
             background: #FFFFFF;
-            border: 1px solid #D1D5DB;
+            border: 1px solid #E5E7EB;
             border-radius: 6px;
             padding: 0 10px;
-            font-size: 10px;
-            font-weight: 600;
+            font-size: 11px;
+            font-weight: 500;
             color: #374151;
             outline: none;
+            cursor: pointer;
         }
 
             .audit-filter:focus {
                 border-color: #B91C1C;
+                box-shadow: 0 0 0 2px rgba(185,28,28,.08);
             }
 
 
         /* =========================================================
-                   TABLE
+                   TABLE CONTAINER
                 ========================================================= */
 
         .table-container {
+            width: 100%;
             background: #FFFFFF;
             border: 1px solid #D9DDE3;
-            border-radius: 6px;
-            overflow: hidden;
+            border-radius: 8px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,.02);
         }
+
+            .table-container::-webkit-scrollbar {
+                height: 6px;
+            }
+
+            .table-container::-webkit-scrollbar-thumb {
+                background: #C7CBD1;
+                border-radius: 10px;
+            }
+
+            .table-container::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+
+        /* =========================================================
+                   AUDIT TABLE
+                ========================================================= */
 
         .audit-table {
             width: 100%;
+            min-width: 1000px;
             border-collapse: collapse;
+            border-spacing: 0;
             margin: 0;
+            table-layout: fixed;
         }
 
-            /* BLACK HEADER LIKE IMAGE */
+
+            /* =========================================================
+                   COLUMN WIDTHS
+                ========================================================= */
+
+            /* DATE & TIME */
+            .audit-table th:nth-child(1),
+            .audit-table td:nth-child(1) {
+                width: 18%;
+            }
+
+            /* USERS */
+            .audit-table th:nth-child(2),
+            .audit-table td:nth-child(2) {
+                width: 15%;
+            }
+
+            /* ROLE */
+            .audit-table th:nth-child(3),
+            .audit-table td:nth-child(3) {
+                width: 12%;
+            }
+
+            /* ACTIVITY */
+            .audit-table th:nth-child(4),
+            .audit-table td:nth-child(4) {
+                width: 27%;
+            }
+
+            /* MODULE */
+            .audit-table th:nth-child(5),
+            .audit-table td:nth-child(5) {
+                width: 13%;
+            }
+
+            /* STATUS */
+            .audit-table th:nth-child(6),
+            .audit-table td:nth-child(6) {
+                width: 15%;
+            }
+
+
+            /* =========================================================
+                   TABLE HEADER
+                ========================================================= */
 
             .audit-table thead {
                 background: #111111;
             }
 
             .audit-table th {
-                height: 38px;
-                padding: 0 12px;
-                font-size: 9px;
-                font-weight: 700;
+                height: 40px;
+                padding: 0 14px;
+                background: #111111;
                 color: #FFFFFF;
                 border-bottom: 1px solid #111111;
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: .15px;
+                vertical-align: middle;
                 white-space: nowrap;
-                text-align: left;
             }
+
+
+                /* =========================================================
+                   HEADER ALIGNMENT
+                   DATE & TIME SAME AS REPORTS DATE GENERATED
+                ========================================================= */
+
+                .audit-table th:nth-child(1) {
+                    text-align: center;
+                }
+
+                .audit-table th:nth-child(2),
+                .audit-table th:nth-child(3),
+                .audit-table th:nth-child(4) {
+                    text-align: left;
+                }
+
+                .audit-table th:nth-child(5),
+                .audit-table th:nth-child(6) {
+                    text-align: center;
+                }
+
+
+            /* =========================================================
+                   TABLE BODY
+                ========================================================= */
 
             .audit-table td {
-                height: 36px;
-                padding: 0 12px;
-                font-size: 8px;
+                height: 42px;
+                padding: 0 14px;
+                background: #FFFFFF;
                 color: #374151;
                 border-bottom: 1px solid #E5E7EB;
-                white-space: nowrap;
+                font-size: 10px;
+                font-weight: 500;
                 vertical-align: middle;
+                white-space: nowrap;
             }
 
-            .audit-table tbody tr:hover {
-                background: #FEF2F2;
+
+                /* =========================================================
+                   BODY ALIGNMENT
+                   DATE & TIME SAME AS REPORTS DATE GENERATED
+                ========================================================= */
+
+                .audit-table td:nth-child(1) {
+                    text-align: center;
+                    color: #4B5563;
+                    font-weight: 500;
+                }
+
+                .audit-table td:nth-child(2),
+                .audit-table td:nth-child(3),
+                .audit-table td:nth-child(4) {
+                    text-align: left;
+                }
+
+                .audit-table td:nth-child(5),
+                .audit-table td:nth-child(6) {
+                    text-align: center;
+                }
+
+
+        /* =========================================================
+                   DATE & TIME COLUMN
+                ========================================================= */
+
+        .date-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 42px;
+            line-height: 1.25;
+            text-align: center;
+        }
+
+            .date-column > span:first-child {
+                display: block;
+                text-align: center;
             }
 
-            .audit-table tbody tr:last-child td {
-                border-bottom: none;
+            .date-column .time {
+                display: block;
+                margin-top: 3px;
+                color: #6B7280;
+                font-size: 9px;
+                font-weight: 400;
+                text-align: center;
             }
 
 
         /* =========================================================
-                   ROLE BADGES
+                   ROLE COLUMN
                 ========================================================= */
+
+        .audit-table td:nth-child(3) {
+            vertical-align: middle;
+        }
 
         .role-badge {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 45px;
-            padding: 3px 8px;
-            border-radius: 8px;
-            font-size: 7px;
+            width: 70px;
+            min-width: 70px;
+            height: 23px;
+            padding: 0 9px;
+            border-radius: 5px;
+            font-size: 9px;
             font-weight: 600;
+            line-height: 1;
+            white-space: nowrap;
         }
 
         .role-admin {
-            background: #FECACA;
-            color: #DC2626;
+            background: #FEE2E2;
+            color: #B91C1C;
         }
 
         .role-staff {
@@ -571,89 +750,125 @@
 
 
         /* =========================================================
-                   STATUS BADGE
+                   STATUS COLUMN
+                ========================================================= */
+
+        .audit-table td:nth-child(6) {
+            vertical-align: middle;
+        }
+
+        .success-badge,
+        .failed-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            width: 70px;
+            min-width: 70px;
+            height: 23px;
+            padding: 0 9px;
+            border-radius: 5px;
+            font-size: 9px;
+            font-weight: 600;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+
+        /* =========================================================
+                   SUCCESS
                 ========================================================= */
 
         .success-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 4px 9px;
-            border-radius: 10px;
-            background: #D1FAE5;
-            color: #10B981;
-            font-size: 7px;
-            font-weight: 600;
+            background: #DCFCE7;
+            color: #15803D;
         }
 
             .success-badge::before {
                 content: "";
-                width: 4px;
-                height: 4px;
-                background: #10B981;
+                width: 5px;
+                height: 5px;
+                background: #15803D;
                 border-radius: 50%;
             }
 
 
         /* =========================================================
-                   DATE COLUMN
+                   FAILED
                 ========================================================= */
 
-        .date-column {
-            line-height: 1.35;
+        .failed-badge {
+            background: #FEE2E2;
+            color: #B91C1C;
         }
 
-            .date-column .time {
-                display: block;
-                margin-left: 8px;
+            .failed-badge::before {
+                content: "";
+                width: 5px;
+                height: 5px;
+                background: #B91C1C;
+                border-radius: 50%;
             }
 
 
         /* =========================================================
-                                   PAGINATION SECTION
-                                ========================================================= */
+                   ACTIVITY COLUMN
+                ========================================================= */
 
-        .pagination-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 18px;
-            width: 100%;
+        .audit-table td:nth-child(4) {
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
 
         /* =========================================================
-                                   SHOWING TEXT
-                                ========================================================= */
+                   HOVER
+                ========================================================= */
+
+        .audit-table tbody tr:hover td {
+            background: #FEF2F2;
+        }
+
+        .audit-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        /* =========================================================
+                   PAGINATION
+                ========================================================= */
+
+        .pagination-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 18px;
+        }
 
         .showing-text {
-            font-size: 9px;
+            font-size: 10px;
             color: #374151;
             font-weight: 500;
         }
 
-
-        /* =========================================================
-                                   PAGINATION BUTTON GROUP
-                                ========================================================= */
-
         .pagination-buttons {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
 
         .pagination-btn {
-            height: 24px;
-            padding: 0 11px;
+            height: 28px;
+            padding: 0 12px;
             border: 1px solid #E5E7EB;
             background: #FFFFFF;
             border-radius: 5px;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             color: #6B7280;
-            font-size: 8px;
+            font-size: 9px;
             font-weight: 500;
             cursor: pointer;
             transition: all .2s ease;
@@ -714,47 +929,46 @@
 
             .system-name,
             .menu a span,
-            .dropdown-toggle-menu span,
             .logout a span {
                 display: none;
             }
 
             .logo-section {
-                padding: 18px 10px;
+                padding: 15px 8px;
             }
 
             .logo-circle {
-                width: 42px;
-                height: 42px;
+                width: 40px;
+                height: 40px;
             }
 
             .menu {
-                padding: 15px 10px;
+                padding: 15px 8px;
             }
 
                 .menu a {
-                    width: 42px;
-                    height: 42px;
-                    margin: 0 auto 10px auto;
-                    padding: 0;
                     justify-content: center;
+                    padding: 10px;
                 }
-
-            .dropdown-toggle-menu {
-                justify-content: center;
-                padding: 10px;
-            }
-
-            .small-arrow {
-                display: none;
-            }
 
             .logout a {
                 justify-content: center;
             }
 
             .content-area {
-                padding: 14px;
+                padding: 16px;
+            }
+
+            .page-title {
+                font-size: 21px;
+            }
+
+            .page-description {
+                font-size: 12px;
+            }
+
+            .page-header {
+                margin-bottom: 16px;
             }
 
             .action-bar {
@@ -777,11 +991,22 @@
             }
 
             .table-container {
+                width: 100%;
                 overflow-x: auto;
             }
 
             .audit-table {
-                min-width: 800px;
+                min-width: 1000px;
+            }
+
+            .pagination-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .pagination-buttons {
+                align-self: flex-end;
             }
         }
 
@@ -805,20 +1030,15 @@
 
 </head>
 
-
 <body>
 
     <div class="dashboard-container">
-
 
         <!-- =====================================================
              SIDEBAR
         ====================================================== -->
 
         <aside class="sidebar">
-
-
-            <!-- LOGO -->
 
             <div class="logo-section">
 
@@ -837,12 +1057,7 @@
             </div>
 
 
-            <!-- MENU -->
-
             <div class="menu">
-
-
-                <!-- DASHBOARD -->
 
                 <a href="@Url.Action("Dashboard", "Admin")">
 
@@ -855,8 +1070,6 @@
                 </a>
 
 
-                <!-- REQUEST -->
-
                 <a href="@Url.Action("RequestManagement", "Admin")">
 
                     <i class="bi bi-file-earmark-text"></i>
@@ -867,8 +1080,6 @@
 
                 </a>
 
-
-                <!-- RECORDS -->
 
                 <a href="@Url.Action("RecordsManagement", "Admin")">
 
@@ -881,8 +1092,6 @@
                 </a>
 
 
-                <!-- REPORTS -->
-
                 <a href="@Url.Action("ReportsManagement", "Admin")">
 
                     <i class="bi bi-file-earmark-bar-graph"></i>
@@ -893,8 +1102,6 @@
 
                 </a>
 
-
-                <!-- AUDIT LOGS - ACTIVE -->
 
                 <a href="@Url.Action("AuditLogs", "Admin")"
                    class="active">
@@ -908,8 +1115,6 @@
                 </a>
 
 
-                <!-- USERS -->
-
                 <a href="@Url.Action("UsersManagement", "Admin")">
 
                     <i class="bi bi-people-fill"></i>
@@ -921,8 +1126,6 @@
                 </a>
 
 
-                <!-- SETTINGS -->
-
                 <a href="@Url.Action("Settings", "Admin")">
 
                     <i class="bi bi-gear-fill"></i>
@@ -933,11 +1136,8 @@
 
                 </a>
 
-
             </div>
 
-
-            <!-- LOGOUT -->
 
             <div class="logout">
 
@@ -953,7 +1153,6 @@
 
             </div>
 
-
         </aside>
 
 
@@ -966,18 +1165,15 @@
 
             <!-- =================================================
                  TOPBAR
-                 SAME AS RECORDS MANAGEMENT
             ================================================== -->
 
             <div class="topbar">
 
-
-                <!-- LEFT -->
-
                 <div class="topbar-left">
 
                     <button class="menu-toggle"
-                            id="menuToggle">
+                            id="menuToggle"
+                            type="button">
 
                         <i class="bi bi-list"></i>
 
@@ -986,17 +1182,10 @@
                 </div>
 
 
-                <!-- RIGHT -->
-
                 <div class="topbar-right">
-
-
-                    <!-- NOTIFICATION -->
 
                     <i class="bi bi-bell notification-icon"></i>
 
-
-                    <!-- PROFILE -->
 
                     <div class="profile">
 
@@ -1025,7 +1214,7 @@
 
 
             <!-- =================================================
-                 CONTENT
+                 CONTENT AREA
             ================================================== -->
 
             <div class="content-area">
@@ -1042,7 +1231,7 @@
                         </h2>
 
                         <p class="page-description">
-                            View a records of activities performed by users in the system.
+                            View a record of activities performed by users in the system.
                         </p>
 
                     </div>
@@ -1056,74 +1245,67 @@
 
                 <div class="action-bar">
 
-
                     <div class="search-filter">
-
-
-                        <!-- SEARCH -->
 
                         <div class="search-box">
 
                             <i class="bi bi-search"></i>
 
                             <input type="text"
+                                   id="auditSearch"
                                    placeholder="Search users or activity..." />
 
                         </div>
 
 
-                        <!-- MODULE FILTER -->
+                        <select class="audit-filter"
+                                id="moduleFilter">
 
-                        <select class="audit-filter">
-
-                            <option>
+                            <option value="">
                                 All Modules
                             </option>
 
-                            <option>
+                            <option value="Login">
                                 Login
                             </option>
 
-                            <option>
+                            <option value="Request">
                                 Request
                             </option>
 
-                            <option>
+                            <option value="Records">
                                 Records
                             </option>
 
-                            <option>
+                            <option value="Reports">
                                 Reports
                             </option>
 
-                            <option>
+                            <option value="Users">
                                 Users
                             </option>
 
                         </select>
 
 
-                        <!-- STATUS FILTER -->
+                        <select class="audit-filter"
+                                id="statusFilter">
 
-                        <select class="audit-filter">
-
-                            <option>
+                            <option value="">
                                 All Status
                             </option>
 
-                            <option>
+                            <option value="Success">
                                 Success
                             </option>
 
-                            <option>
+                            <option value="Failed">
                                 Failed
                             </option>
 
                         </select>
 
-
                     </div>
-
 
                 </div>
 
@@ -1134,9 +1316,7 @@
 
                 <div class="table-container">
 
-
                     <table class="audit-table">
-
 
                         <thead>
 
@@ -1171,7 +1351,7 @@
                         </thead>
 
 
-                        <tbody>
+                        <tbody id="auditTableBody">
 
 
                             <!-- ROW 1 -->
@@ -1182,7 +1362,9 @@
 
                                     <div class="date-column">
 
-                                        August 01, 2026
+                                        <span>
+                                            August 01, 2026
+                                        </span>
 
                                         <span class="time">
                                             09:00:15 AM
@@ -1231,10 +1413,12 @@
 
                                     <div class="date-column">
 
-                                        August 01, 2026
+                                        <span>
+                                            August 01, 2026
+                                        </span>
 
                                         <span class="time">
-                                            09:00:15 AM
+                                            09:15:25 AM
                                         </span>
 
                                     </div>
@@ -1272,14 +1456,63 @@
                             </tr>
 
 
+                            <!-- ROW 3 -->
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="date-column">
+
+                                        <span>
+                                            August 01, 2026
+                                        </span>
+
+                                        <span class="time">
+                                            10:20:10 AM
+                                        </span>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    Admin User
+                                </td>
+
+                                <td>
+
+                                    <span class="role-badge role-admin">
+                                        Admin
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Uploaded office record.
+                                </td>
+
+                                <td>
+                                    Records
+                                </td>
+
+                                <td>
+
+                                    <span class="success-badge">
+                                        Success
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
                         </tbody>
-
-
-
 
                     </table>
 
                 </div>
+
 
                 <!-- =================================================
                      PAGINATION
@@ -1287,24 +1520,30 @@
 
                 <div class="pagination-section">
 
+                    <div class="showing-text"
+                         id="showingText">
 
-                    <!-- LEFT -->
+                        Showing 1 to 3 logs
 
-                    <div class="showing-text">
-                        Showing 1 to 5 users
                     </div>
 
 
-                    <!-- RIGHT -->
-
                     <div class="pagination-buttons">
 
-                        <button class="pagination-btn">
+                        <button class="pagination-btn"
+                                id="previousBtn"
+                                type="button">
+
                             Previous
+
                         </button>
 
-                        <button class="pagination-btn next-btn">
+                        <button class="pagination-btn next-btn"
+                                id="nextBtn"
+                                type="button">
+
                             Next
+
                         </button>
 
                     </div>
@@ -1325,28 +1564,9 @@
 
     <script>
 
-
-        /* =========================================
-           SETTINGS DROPDOWN
-        ========================================= */
-
-        const dropdown =
-            document.querySelector('.sidebar-dropdown');
-
-        const dropdownToggle =
-            document.querySelector('.dropdown-toggle-menu');
-
-
-        dropdownToggle.addEventListener('click', function () {
-
-            dropdown.classList.toggle('open');
-
-        });
-
-
-        /* =========================================
+        /* =========================================================
            SIDEBAR COLLAPSE
-        ========================================= */
+        ========================================================= */
 
         const sidebar =
             document.querySelector('.sidebar');
@@ -1362,8 +1582,147 @@
         });
 
 
-    </script>
+        /* =========================================================
+           AUDIT SEARCH + FILTER
+        ========================================================= */
 
+        const auditSearch =
+            document.getElementById('auditSearch');
+
+        const moduleFilter =
+            document.getElementById('moduleFilter');
+
+        const statusFilter =
+            document.getElementById('statusFilter');
+
+        const auditTableBody =
+            document.getElementById('auditTableBody');
+
+        const showingText =
+            document.getElementById('showingText');
+
+
+        function filterAuditLogs() {
+
+            const searchValue =
+                auditSearch.value.toLowerCase().trim();
+
+            const selectedModule =
+                moduleFilter.value.toLowerCase();
+
+            const selectedStatus =
+                statusFilter.value.toLowerCase();
+
+            const rows =
+                auditTableBody.querySelectorAll('tr');
+
+            let visibleCount = 0;
+
+
+            rows.forEach(function (row) {
+
+                const rowText =
+                    row.textContent.toLowerCase();
+
+                const module =
+                    row.children[4]
+                        .textContent
+                        .toLowerCase()
+                        .trim();
+
+                const status =
+                    row.children[5]
+                        .textContent
+                        .toLowerCase()
+                        .trim();
+
+
+                const matchesSearch =
+                    rowText.includes(searchValue);
+
+                const matchesModule =
+                    selectedModule === '' ||
+                    module === selectedModule;
+
+                const matchesStatus =
+                    selectedStatus === '' ||
+                    status.includes(selectedStatus);
+
+
+                if (
+                    matchesSearch &&
+                    matchesModule &&
+                    matchesStatus
+                ) {
+
+                    row.style.display = '';
+
+                    visibleCount++;
+
+                }
+                else {
+
+                    row.style.display = 'none';
+
+                }
+
+            });
+
+
+            if (
+                searchValue === '' &&
+                selectedModule === '' &&
+                selectedStatus === ''
+            ) {
+
+                showingText.textContent =
+                    'Showing 1 to ' +
+                    rows.length +
+                    ' logs';
+
+            }
+            else {
+
+                showingText.textContent =
+                    'Showing ' +
+                    visibleCount +
+                    ' logs';
+
+            }
+
+        }
+
+
+        /* =========================================================
+           SEARCH EVENT
+        ========================================================= */
+
+        auditSearch.addEventListener(
+            'input',
+            filterAuditLogs
+        );
+
+
+        /* =========================================================
+           MODULE EVENT
+        ========================================================= */
+
+        moduleFilter.addEventListener(
+            'change',
+            filterAuditLogs
+        );
+
+
+        /* =========================================================
+           STATUS EVENT
+        ========================================================= */
+
+        statusFilter.addEventListener(
+            'change',
+            filterAuditLogs
+        );
+
+    </script>
 
 </body>
 </html>

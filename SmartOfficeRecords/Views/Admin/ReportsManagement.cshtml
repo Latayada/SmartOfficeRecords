@@ -20,8 +20,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
           rel="stylesheet" />
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <!-- Inter Font - SAME AS RECORDS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet">
 
     <style>
@@ -34,12 +34,13 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
             background: #F5F6F8;
             overflow: hidden;
+            color: #111827;
         }
 
 
@@ -56,7 +57,6 @@
 
         /* =========================================================
                    SIDEBAR
-                   SAME AS ADMIN DASHBOARD / RECORDS
                 ========================================================= */
 
         .sidebar {
@@ -70,14 +70,6 @@
             transition: all .3s ease;
             overflow-y: auto;
             overflow-x: hidden;
-        }
-
-
-        /* =========================================================
-                   SIDEBAR SCROLLBAR
-                ========================================================= */
-
-        .sidebar {
             scrollbar-width: thin;
             scrollbar-color: rgba(255,255,255,.25) transparent;
         }
@@ -107,9 +99,10 @@
 
                 .sidebar.collapsed .system-name {
                     display: block;
-                    font-size: 10px;
-                    font-weight: 600;
+                    font-size: 11px;
+                    font-weight: 700;
                     margin-top: 8px;
+                    letter-spacing: .2px;
                 }
 
                 .sidebar.collapsed .logo-circle {
@@ -127,12 +120,12 @@
                 }
 
                 .sidebar.collapsed .menu {
-                    padding: 15px 10px;
+                    padding: 16px 10px;
                 }
 
                     .sidebar.collapsed .menu a {
-                        width: 42px;
-                        height: 42px;
+                        width: 44px;
+                        height: 44px;
                         margin: 0 auto 10px auto;
                         padding: 0;
                         display: flex;
@@ -149,6 +142,7 @@
                         .sidebar.collapsed .menu a i,
                         .sidebar.collapsed .logout a i {
                             margin: 0;
+                            font-size: 17px;
                         }
 
                 .sidebar.collapsed .logout {
@@ -156,8 +150,8 @@
                 }
 
                     .sidebar.collapsed .logout a {
-                        width: 42px;
-                        height: 42px;
+                        width: 44px;
+                        height: 44px;
                         margin: 0 auto;
                         padding: 0;
                         display: flex;
@@ -165,20 +159,20 @@
                         align-items: center;
                     }
 
-              
+
         /* =========================================================
                    LOGO SECTION
                 ========================================================= */
 
         .logo-section {
             text-align: center;
-            padding: 16px 10px;
+            padding: 18px 10px;
             border-bottom: 1px solid rgba(255,255,255,.18);
         }
 
         .logo-circle {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             background: #FFFFFF;
             border-radius: 50%;
             margin: auto;
@@ -194,9 +188,10 @@
         }
 
         .system-name {
-            margin-top: 8px;
-            font-size: 12px;
-            font-weight: 600;
+            margin-top: 9px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .3px;
             color: #FFFFFF;
         }
 
@@ -206,7 +201,7 @@
                 ========================================================= */
 
         .menu {
-            padding: 14px 8px;
+            padding: 16px 9px;
         }
 
             .menu a {
@@ -214,28 +209,25 @@
                 text-decoration: none;
                 display: flex;
                 align-items: center;
-                gap: 10px;
-                padding: 8px 10px;
-                margin-bottom: 3px;
-                border-radius: 5px;
-                font-size: 11px;
+                gap: 11px;
+                padding: 10px 11px;
+                margin-bottom: 5px;
+                border-radius: 6px;
+                font-size: 13px;
                 font-weight: 500;
+                line-height: 1.2;
                 transition: all .2s ease;
             }
 
                 .menu a i {
-                    font-size: 14px;
-                    min-width: 14px;
+                    font-size: 16px;
+                    min-width: 16px;
                 }
-
-                /* HOVER */
 
                 .menu a:hover {
                     background: rgba(185, 28, 28, .18);
                     color: #FFFFFF;
                 }
-
-                /* ACTIVE */
 
                 .menu a.active {
                     background: #B91C1C;
@@ -243,27 +235,32 @@
                     box-shadow: 0 3px 8px rgba(185,28,28,.22);
                 }
 
+
         /* =========================================================
                    LOGOUT
                 ========================================================= */
 
         .logout {
             margin-top: auto;
-            padding: 10px 8px 12px 8px;
+            padding: 12px 9px 15px 9px;
         }
 
             .logout a {
                 color: #FFFFFF;
                 text-decoration: none;
                 display: flex;
-                gap: 10px;
+                gap: 11px;
                 align-items: center;
-                padding: 8px 10px;
-                font-size: 11px;
+                padding: 10px 11px;
+                font-size: 13px;
                 font-weight: 500;
-                border-radius: 5px;
+                border-radius: 6px;
                 transition: all .2s ease;
             }
+
+                .logout a i {
+                    font-size: 16px;
+                }
 
                 .logout a:hover {
                     background: rgba(185,28,28,.18);
@@ -290,14 +287,14 @@
                 ========================================================= */
 
         .topbar {
-            height: 52px;
-            min-height: 52px;
+            height: 56px;
+            min-height: 56px;
             flex-shrink: 0;
             border-bottom: 1px solid #E5E7EB;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 16px;
+            padding: 0 20px;
             background: #FFFFFF;
         }
 
@@ -311,9 +308,9 @@
             background: none;
             border: none;
             color: #B91C1C;
-            font-size: 16px;
+            font-size: 19px;
             cursor: pointer;
-            padding: 4px;
+            padding: 5px;
         }
 
             .menu-toggle:hover {
@@ -328,12 +325,12 @@
         .topbar-right {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
             margin-left: auto;
         }
 
         .notification-icon {
-            font-size: 17px;
+            font-size: 19px;
             color: #374151;
             cursor: pointer;
             transition: color .2s ease;
@@ -351,14 +348,14 @@
         .profile {
             display: flex;
             align-items: center;
-            gap: 7px;
-            padding-left: 8px;
+            gap: 9px;
+            padding-left: 12px;
             border-left: 1px solid #E5E7EB;
         }
 
             .profile img {
-                width: 30px;
-                height: 30px;
+                width: 34px;
+                height: 34px;
                 border-radius: 50%;
                 object-fit: cover;
             }
@@ -366,68 +363,90 @@
         .profile-info {
             display: flex;
             flex-direction: column;
-            line-height: 1.15;
+            line-height: 1.25;
         }
 
             .profile-info h5 {
                 margin: 0;
-                font-size: 10px;
+                font-size: 12px;
                 font-weight: 600;
                 color: #111827;
             }
 
             .profile-info span {
-                font-size: 8px;
+                font-size: 10px;
                 color: #6B7280;
+                margin-top: 2px;
             }
 
         .profile-arrow {
             color: #6B7280;
-            font-size: 9px;
-            margin-left: 2px;
+            font-size: 10px;
+            margin-left: 3px;
         }
 
 
         /* =========================================================
                    CONTENT AREA
+                   SAME AS RECORDS
                 ========================================================= */
 
         .content-area {
             flex: 1;
-            padding: 18px 28px;
+            padding: 22px 30px;
             overflow-y: auto;
             overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: #C7CBD1 transparent;
         }
+
+            .content-area::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .content-area::-webkit-scrollbar-thumb {
+                background: #C7CBD1;
+                border-radius: 10px;
+            }
+
+            .content-area::-webkit-scrollbar-track {
+                background: transparent;
+            }
 
 
         /* =========================================================
                    PAGE HEADER
+                   SAME AS RECORDS
                 ========================================================= */
 
         .page-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 18px;
         }
 
         .page-title {
             color: #B91C1C;
-            font-size: 18px;
+            font-size: 24px;
             font-weight: 700;
-            margin: 0 0 2px 0;
+            letter-spacing: -0.2px;
+            margin: 0 0 5px 0;
+            line-height: 1.2;
         }
 
         .page-description {
             color: #64748B;
-            font-size: 9px;
-            font-weight: 500;
+            font-size: 13px;
+            font-weight: 400;
             margin: 0;
+            line-height: 1.5;
         }
 
 
         /* =========================================================
-                   REPORT ACTION BAR
+                   ACTION BAR
+                   SAME AS RECORDS
                 ========================================================= */
 
         .action-bar {
@@ -435,7 +454,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         .search-filter {
@@ -445,31 +464,39 @@
             flex: 1;
         }
 
+
+        /* =========================================================
+                   SEARCH BOX
+                   SAME AS RECORDS
+                ========================================================= */
+
         .search-box {
-            height: 34px;
+            height: 36px;
             flex: 1;
             max-width: 540px;
             background: #FFFFFF;
             border-radius: 20px;
-            box-shadow: 0 3px 12px rgba(0,0,0,.07);
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 3px 12px rgba(0,0,0,.05);
             display: flex;
             align-items: center;
-            padding: 0 12px;
-            gap: 8px;
+            padding: 0 13px;
+            gap: 9px;
         }
 
             .search-box i {
                 color: #6B7280;
-                font-size: 12px;
+                font-size: 13px;
             }
 
             .search-box input {
                 width: 100%;
                 border: none;
                 outline: none;
-                font-size: 10px;
+                font-size: 11px;
                 color: #374151;
                 background: transparent;
+                font-weight: 400;
             }
 
                 .search-box input::placeholder {
@@ -478,49 +505,167 @@
 
 
         /* =========================================================
-                   TABLE
+                   TABLE CONTAINER
+                   SAME AS RECORDS
                 ========================================================= */
 
         .table-container {
-            width: 100%;
             background: #FFFFFF;
             border: 1px solid #D9DDE3;
-            border-radius: 6px;
-            overflow: hidden;
+            border-radius: 8px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,.02);
         }
+
+            .table-container::-webkit-scrollbar {
+                height: 6px;
+            }
+
+            .table-container::-webkit-scrollbar-thumb {
+                background: #C7CBD1;
+                border-radius: 10px;
+            }
+
+            .table-container::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+
+        /* =========================================================
+                   REPORT TABLE
+                   SAME WIDTH / SIZE / ALIGNMENT AS RECORDS
+                ========================================================= */
 
         .report-table {
             width: 100%;
+            min-width: 900px;
             border-collapse: collapse;
             margin: 0;
+            table-layout: fixed;
         }
+
+
+            /* =========================================================
+                   COLUMN WIDTHS
+                   SAME PROPORTION STYLE AS RECORDS
+                ========================================================= */
+
+            .report-table th:nth-child(1),
+            .report-table td:nth-child(1) {
+                width: 10%;
+            }
+
+            .report-table th:nth-child(2),
+            .report-table td:nth-child(2) {
+                width: 21%;
+            }
+
+            .report-table th:nth-child(3),
+            .report-table td:nth-child(3) {
+                width: 23%;
+            }
+
+            .report-table th:nth-child(4),
+            .report-table td:nth-child(4) {
+                width: 15%;
+            }
+
+            .report-table th:nth-child(5),
+            .report-table td:nth-child(5) {
+                width: 31%;
+            }
+
+
+            /* =========================================================
+                   TABLE HEADER
+                   SAME AS RECORDS
+                ========================================================= */
 
             .report-table thead {
                 background: #111111;
             }
 
             .report-table th {
-                height: 38px;
+                height: 40px;
                 padding: 0 12px;
-                font-size: 9px;
+                font-size: 10px;
                 font-weight: 700;
-                color: #ffffff;
+                color: #FFFFFF;
+                background: #111111;
                 border-bottom: 1px solid #111111;
                 white-space: nowrap;
-                text-align: left;
+                letter-spacing: .15px;
+                vertical-align: middle;
             }
 
+
+                /* =========================================================
+                   HEADER ALIGNMENT
+                   SAME AS RECORDS
+                ========================================================= */
+
+                .report-table th:nth-child(1) {
+                    text-align: center;
+                }
+
+                .report-table th:nth-child(2),
+                .report-table th:nth-child(3) {
+                    text-align: left;
+                }
+
+                .report-table th:nth-child(4),
+                .report-table th:nth-child(5) {
+                    text-align: center;
+                }
+
+
+            /* =========================================================
+                   TABLE BODY
+                   SAME AS RECORDS
+                ========================================================= */
+
             .report-table td {
-                height: 36px;
+                height: 42px;
                 padding: 0 12px;
-                font-size: 8px;
+                font-size: 10px;
+                font-weight: 500;
                 color: #374151;
+                background: #FFFFFF;
                 border-bottom: 1px solid #E5E7EB;
                 white-space: nowrap;
                 vertical-align: middle;
             }
 
-            .report-table tbody tr:hover {
+
+                /* =========================================================
+                   BODY ALIGNMENT
+                   SAME AS RECORDS
+                ========================================================= */
+
+                .report-table td:nth-child(1) {
+                    text-align: center;
+                    font-weight: 600;
+                    color: #4B5563;
+                }
+
+                .report-table td:nth-child(2),
+                .report-table td:nth-child(3) {
+                    text-align: left;
+                }
+
+                .report-table td:nth-child(4),
+                .report-table td:nth-child(5) {
+                    text-align: center;
+                }
+
+
+            /* =========================================================
+                   HOVER
+                   SAME AS RECORDS
+                ========================================================= */
+
+            .report-table tbody tr:hover td {
                 background: #FEF2F2;
             }
 
@@ -530,25 +675,30 @@
 
 
         /* =========================================================
-                   STATUS
+                   STATUS BADGES
+                   SAME SCALE AS RECORDS
                 ========================================================= */
 
         .status-badge {
-            display: inline-block;
-            padding: 3px 7px;
-            border-radius: 4px;
-            font-size: 7px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 70px;
+            padding: 5px 9px;
+            border-radius: 5px;
+            font-size: 9px;
             font-weight: 600;
+            line-height: 1;
         }
 
         .status-completed {
-            background: #DBEAFE;
-            color: #2563EB;
+            background: #DCFCE7;
+            color: #15803D;
         }
 
         .status-approved {
-            background: #DCFCE7;
-            color: #15803D;
+            background: #DBEAFE;
+            color: #2563EB;
         }
 
         .status-pending {
@@ -558,18 +708,21 @@
 
 
         /* =========================================================
-                   VIEW ACTION
+                   REPORT ACTIONS
+                   SAME ALIGNMENT AS RECORDS ACTIONS
                 ========================================================= */
 
         .report-actions {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 5px;
+            width: 100%;
         }
 
         .view-action {
-            width: 25px;
-            height: 25px;
+            width: 28px;
+            height: 28px;
             border: none;
             border-radius: 5px;
             background: transparent;
@@ -582,7 +735,7 @@
         }
 
             .view-action i {
-                font-size: 11px;
+                font-size: 12px;
             }
 
             .view-action:hover {
@@ -592,8 +745,9 @@
 
 
         /* =========================================================
-                           PAGINATION SECTION
-                        ========================================================= */
+                   PAGINATION
+                   SAME AS RECORDS
+                ========================================================= */
 
         .pagination-section {
             display: flex;
@@ -603,31 +757,21 @@
             width: 100%;
         }
 
-
-        /* =========================================================
-                           SHOWING TEXT
-                        ========================================================= */
-
         .showing-text {
-            font-size: 9px;
+            font-size: 10px;
             color: #374151;
             font-weight: 500;
         }
 
-
-        /* =========================================================
-                           PAGINATION BUTTON GROUP
-                        ========================================================= */
-
         .pagination-buttons {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
 
         .pagination-btn {
-            height: 24px;
-            padding: 0 11px;
+            height: 28px;
+            padding: 0 12px;
             border: 1px solid #E5E7EB;
             background: #FFFFFF;
             border-radius: 5px;
@@ -635,7 +779,7 @@
             justify-content: center;
             align-items: center;
             color: #6B7280;
-            font-size: 8px;
+            font-size: 9px;
             font-weight: 500;
             cursor: pointer;
             transition: all .2s ease;
@@ -657,7 +801,6 @@
                     background: #991B1B;
                     color: #FFFFFF;
                 }
-
 
 
         /* =========================================================
@@ -693,53 +836,46 @@
 
             .system-name,
             .menu a span,
-            .dropdown-toggle-menu span,
             .logout a span {
                 display: none;
             }
 
             .logo-section {
-                padding: 18px 10px;
+                padding: 15px 8px;
             }
 
             .logo-circle {
-                width: 42px;
-                height: 42px;
+                width: 40px;
+                height: 40px;
             }
 
             .menu {
-                padding: 15px 10px;
+                padding: 15px 8px;
             }
 
                 .menu a {
-                    width: 42px;
-                    height: 42px;
-                    margin: 0 auto 10px auto;
-                    padding: 0;
                     justify-content: center;
+                    padding: 10px;
                 }
-
-            .dropdown-toggle-menu {
-                justify-content: center;
-                padding: 10px;
-            }
-
-            .small-arrow {
-                display: none;
-            }
 
             .logout a {
                 justify-content: center;
             }
 
             .content-area {
-                padding: 14px;
+                padding: 16px;
+            }
+
+            .page-title {
+                font-size: 21px;
+            }
+
+            .page-description {
+                font-size: 12px;
             }
 
             .page-header {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 10px;
+                margin-bottom: 16px;
             }
 
             .action-bar {
@@ -749,6 +885,7 @@
 
             .search-filter {
                 width: 100%;
+                flex-direction: column;
             }
 
             .search-box {
@@ -761,7 +898,17 @@
             }
 
             .report-table {
-                min-width: 700px;
+                min-width: 900px;
+            }
+
+            .pagination-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .pagination-buttons {
+                align-self: flex-end;
             }
         }
 
@@ -1061,9 +1208,7 @@
 
                 <div class="table-container">
 
-
                     <table class="report-table">
-
 
                         <thead>
 
@@ -1074,7 +1219,11 @@
                                 </th>
 
                                 <th>
-                                    REPORT TYE
+                                    REPORT TYPE
+                                </th>
+
+                                <th>
+                                    STATUS
                                 </th>
 
                                 <th>
@@ -1082,10 +1231,6 @@
                                 </th>
 
                                 <th>
-                                    GENERATED BY
-                                </th>
-
-                                <th style="text-align:center;">
                                     ACTION
                                 </th>
 
@@ -1097,7 +1242,7 @@
                         <tbody id="reportTableBody">
 
 
-                            <!-- ROW 1 -->
+                            <!-- REPORT 1 -->
 
                             <tr>
 
@@ -1140,7 +1285,7 @@
                             </tr>
 
 
-                            <!-- ROW 2 -->
+                            <!-- REPORT 2 -->
 
                             <tr>
 
@@ -1183,7 +1328,7 @@
                             </tr>
 
 
-                            <!-- ROW 3 -->
+                            <!-- REPORT 3 -->
 
                             <tr>
 
@@ -1226,7 +1371,7 @@
                             </tr>
 
 
-                            <!-- ROW 4 -->
+                            <!-- REPORT 4 -->
 
                             <tr>
 
@@ -1269,7 +1414,7 @@
                             </tr>
 
 
-                            <!-- ROW 5 -->
+                            <!-- REPORT 5 -->
 
                             <tr>
 
@@ -1319,33 +1464,39 @@
                 </div>
 
 
-                 <!-- =================================================
+                <!-- =================================================
                      PAGINATION
                 ================================================== -->
 
                 <div class="pagination-section">
 
 
-                    <!-- LEFT -->
+                    <div class="showing-text"
+                         id="showingText">
 
-                    <div class="showing-text">
-                        Showing 1 to 5 users
+                        Showing 1 to 5 reports
+
                     </div>
 
-
-                    <!-- RIGHT -->
 
                     <div class="pagination-buttons">
 
-                        <button class="pagination-btn">
+                        <button class="pagination-btn"
+                                type="button">
+
                             Previous
+
                         </button>
 
-                        <button class="pagination-btn next-btn">
+                        <button class="pagination-btn next-btn"
+                                type="button">
+
                             Next
+
                         </button>
 
                     </div>
+
 
                 </div>
 
@@ -1363,28 +1514,9 @@
 
     <script>
 
-
-        /* =========================================
-           SETTINGS DROPDOWN
-        ========================================= */
-
-        const dropdown =
-            document.querySelector('.sidebar-dropdown');
-
-        const dropdownToggle =
-            document.querySelector('.dropdown-toggle-menu');
-
-
-        dropdownToggle.addEventListener('click', function () {
-
-            dropdown.classList.toggle('open');
-
-        });
-
-
-        /* =========================================
+        /* =========================================================
            SIDEBAR COLLAPSE
-        ========================================= */
+        ========================================================= */
 
         const sidebar =
             document.querySelector('.sidebar');
@@ -1400,26 +1532,29 @@
         });
 
 
-        /* =========================================
+        /* =========================================================
            REPORT SEARCH
-        ========================================= */
+        ========================================================= */
 
-        const searchInput =
+        const reportSearch =
             document.getElementById('reportSearch');
 
-        const tableBody =
+        const reportTableBody =
             document.getElementById('reportTableBody');
 
+        const showingText =
+            document.getElementById('showingText');
 
-        searchInput.addEventListener('keyup', function () {
+
+        reportSearch.addEventListener('input', function () {
 
             const searchValue =
-                searchInput.value.toLowerCase().trim();
+                this.value.toLowerCase().trim();
 
             const rows =
-                tableBody.querySelectorAll('tr');
+                reportTableBody.querySelectorAll('tr');
 
-
+            let visibleCount = 0;
 
 
             rows.forEach(function (row) {
@@ -1431,13 +1566,30 @@
 
                     row.style.display = '';
 
-                } else {
+                    visibleCount++;
+
+                }
+                else {
 
                     row.style.display = 'none';
 
                 }
 
             });
+
+
+            if (searchValue === '') {
+
+                showingText.textContent =
+                    'Showing 1 to ' + rows.length + ' reports';
+
+            }
+            else {
+
+                showingText.textContent =
+                    'Showing ' + visibleCount + ' reports';
+
+            }
 
         });
 
