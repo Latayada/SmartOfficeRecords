@@ -159,11 +159,6 @@
                         align-items: center;
                     }
 
-                .sidebar.collapsed .small-arrow {
-                    display: none;
-                }
-
-
         /* =========================================================
                    LOGO SECTION
                 ========================================================= */
@@ -236,70 +231,6 @@
                     color: #FFFFFF;
                     box-shadow: 0 3px 8px rgba(185,28,28,.22);
                 }
-
-
-        /* =========================================================
-                   SETTINGS DROPDOWN
-                ========================================================= */
-
-        .sidebar-dropdown {
-            margin-bottom: 3px;
-        }
-
-        .dropdown-toggle-menu {
-            color: #FFFFFF;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 11px;
-            font-weight: 500;
-            transition: all .2s ease;
-        }
-
-            .dropdown-toggle-menu:hover {
-                background: rgba(185,28,28,.18);
-                color: #FFFFFF;
-            }
-
-        .small-arrow {
-            font-size: 8px;
-            transition: transform .3s ease;
-        }
-
-        .dropdown-submenu {
-            display: none;
-            flex-direction: column;
-            padding-left: 14px;
-            margin-top: 3px;
-        }
-
-            .dropdown-submenu a {
-                color: #FFFFFF;
-                text-decoration: none;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                padding: 7px 9px;
-                font-size: 10px;
-                border-radius: 5px;
-            }
-
-                .dropdown-submenu a:hover {
-                    background: rgba(185,28,28,.18);
-                    color: #FFFFFF;
-                }
-
-        .sidebar-dropdown.open .dropdown-submenu {
-            display: flex;
-        }
-
-        .sidebar-dropdown.open .small-arrow {
-            transform: rotate(90deg);
-        }
 
 
         /* =========================================================
@@ -1163,48 +1094,15 @@
 
                 <!-- SETTINGS -->
 
-                <div class="sidebar-dropdown">
+                <a href="@Url.Action("Settings", "Admin")">
 
-                    <a href="javascript:void(0)"
-                       class="dropdown-toggle-menu">
+                    <i class="bi bi-gear-fill"></i>
 
-                        <i class="bi bi-gear-fill"></i>
+                    <span>
+                        Settings
+                    </span>
 
-                        <span>
-                            Settings
-                        </span>
-
-                        <i class="bi bi-chevron-right ms-auto small-arrow"></i>
-
-                    </a>
-
-
-                    <div class="dropdown-submenu">
-
-                        <a href="@Url.Action("Settings", "Admin")">
-
-                            <i class="bi bi-sliders"></i>
-
-                            <span>
-                                General Settings
-                            </span>
-
-                        </a>
-
-
-                        <a href="@Url.Action("SAccountSettings", "Admin")">
-
-                            <i class="bi bi-person-gear"></i>
-
-                            <span>
-                                Account & Security
-                            </span>
-
-                        </a>
-
-                    </div>
-
-                </div>
+                </a>
 
 
             </div>
@@ -1405,7 +1303,7 @@
                             <tr>
 
                                 <th>
-                                    ID
+                                    REQUEST ID
                                 </th>
 
                                 <th>
@@ -1441,7 +1339,7 @@
                             <tr>
 
                                 <td>
-                                    AP001
+                                    RQ001
                                 </td>
 
                                 <td>
@@ -1504,7 +1402,7 @@
                             <tr>
 
                                 <td>
-                                    AP002
+                                    RQ002
                                 </td>
 
                                 <td>
@@ -1567,7 +1465,7 @@
                             <tr>
 
                                 <td>
-                                    AP003
+                                    RQ003
                                 </td>
 
                                 <td>
@@ -1630,7 +1528,7 @@
                             <tr>
 
                                 <td>
-                                    AP004
+                                    RQ004
                                 </td>
 
                                 <td>
@@ -1693,7 +1591,7 @@
                             <tr>
 
                                 <td>
-                                    AP005
+                                    RQ005
                                 </td>
 
                                 <td>
