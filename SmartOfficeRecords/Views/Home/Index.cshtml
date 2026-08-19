@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -26,10 +25,6 @@
 
     <style>
 
-        /* =========================================================
-                   GLOBAL
-                ========================================================= */
-
         * {
             margin: 0;
             padding: 0;
@@ -41,8 +36,6 @@
         body {
             width: 100%;
             min-height: 100%;
-            margin: 0;
-            padding: 0;
             background: #ffffff;
             color: #111827;
         }
@@ -51,32 +44,29 @@
             overflow-x: hidden;
         }
 
-
         /* =========================================================
-                   MAIN WRAPPER
+                   MAIN
                 ========================================================= */
 
         .landing-page {
+            width: 100%;
             min-height: 100vh;
             background: #ffffff;
-            display: flex;
-            flex-direction: column;
         }
 
 
         /* =========================================================
-                   TOP HEADER
+                   HEADER
                 ========================================================= */
 
         .top-header {
-            height: 82px;
             width: 100%;
+            height: 78px;
             display: flex;
             align-items: center;
-            padding: 0 34px;
+            padding: 0 27px;
             background: #ffffff;
-            border-bottom: 4px solid #e5222a;
-            flex-shrink: 0;
+            border-bottom: 4px solid #ed2028;
         }
 
         .brand {
@@ -86,8 +76,8 @@
         }
 
         .brand-logo {
-            width: 48px;
-            height: 48px;
+            width: 29px;
+            height: 29px;
             object-fit: contain;
             display: block;
         }
@@ -95,9 +85,9 @@
         .brand-name {
             margin: 0;
             color: #2864d7;
-            font-size: 23px;
+            font-size: 22px;
             font-weight: 700;
-            letter-spacing: 0.1px;
+            letter-spacing: 0;
             line-height: 1;
         }
 
@@ -107,17 +97,16 @@
                 ========================================================= */
 
         .main-content {
-            flex: 1;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 56px 30px 60px;
+            padding: 56px 30px 50px;
         }
 
 
         /* =========================================================
-                   INTRO / HEADER
+                   INTRO
                 ========================================================= */
 
         .intro-section {
@@ -145,30 +134,30 @@
 
             .section-label span {
                 color: #e5222a;
-                font-size: 13px;
+                font-size: 12px;
                 font-weight: 700;
-                letter-spacing: 0.3px;
+                letter-spacing: 0.2px;
             }
 
         .intro-title {
-            margin: 0 0 4px;
+            margin: 0 0 3px;
             color: #172033;
-            font-size: 21px;
+            font-size: 17px;
             font-weight: 700;
-            line-height: 1.35;
+            line-height: 1.4;
         }
 
         .intro-subtitle {
             margin: 0;
             color: #929292;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 400;
             line-height: 1.6;
         }
 
 
         /* =========================================================
-                   LOGIN CARDS CONTAINER
+                   LOGIN CONTAINER
                 ========================================================= */
 
         .login-container {
@@ -187,19 +176,14 @@
 
         .login-card {
             position: relative;
+            width: 100%;
+            height: 437px;
             background: #ffffff;
             border: 1px solid #dedede;
             border-radius: 3px;
             overflow: hidden;
-            min-height: 365px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05), 0 10px 20px rgba(0, 0, 0, 0.025);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05), 0 8px 12px rgba(0, 0, 0, 0.025);
         }
-
-            .login-card:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 7px 15px rgba(0, 0, 0, 0.08), 0 18px 30px rgba(0, 0, 0, 0.035);
-            }
 
 
         /* =========================================================
@@ -231,16 +215,16 @@
                 ========================================================= */
 
         .card-content {
+            width: 100%;
             height: 100%;
-            min-height: 365px;
-            padding: 30px 26px 20px;
+            padding: 27px 26px 22px;
             display: flex;
             flex-direction: column;
         }
 
 
         /* =========================================================
-                   CARD TOP ROW
+                   CARD TOP
                 ========================================================= */
 
         .card-top {
@@ -248,29 +232,29 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 19px;
         }
 
         .card-category {
             color: #202020;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.2px;
+            letter-spacing: 0.15px;
         }
 
         .access-badge {
+            min-width: 82px;
+            height: 20px;
+            padding: 0 11px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 83px;
-            height: 24px;
-            padding: 0 12px;
-            border: 1px solid #e1e1e1;
+            border: 1px solid #dedede;
             border-radius: 7px;
-            color: #4b4b4b;
             background: #ffffff;
-            font-size: 10px;
+            color: #4b4b4b;
+            font-size: 9px;
             font-weight: 500;
             text-transform: uppercase;
         }
@@ -281,8 +265,8 @@
                 ========================================================= */
 
         .card-icon {
-            width: 44px;
-            height: 44px;
+            width: 43px;
+            height: 43px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -291,17 +275,17 @@
         }
 
         .admin-card .card-icon {
-            background: #0c0c0c;
+            background: #0b0b0b;
             color: #ffffff;
         }
 
         .applicant-card .card-icon {
-            background: #fde1e3;
+            background: #fde0e2;
             color: #e5222a;
         }
 
         .card-icon i {
-            font-size: 20px;
+            font-size: 19px;
         }
 
 
@@ -310,144 +294,157 @@
                 ========================================================= */
 
         .card-title {
-            margin: 0 0 6px;
+            margin: 0 0 5px;
             color: #171717;
-            font-size: 15px;
-            font-weight: 600;
+            font-size: 17px;
+            font-weight: 700;
             line-height: 1.4;
         }
 
 
         /* =========================================================
-                   CARD DESCRIPTION
+                   DESCRIPTION
                 ========================================================= */
 
         .card-description {
             margin: 0;
             max-width: 410px;
             color: #222222;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 400;
-            line-height: 1.65;
+            line-height: 1.6;
         }
 
 
         /* =========================================================
-                   CARD FORM / ACTION AREA
+                   FEATURE LIST
+                ========================================================= */
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+
+            .feature-list li {
+                position: relative;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 7px;
+                color: #2b2b2b;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 1.5;
+            }
+
+                .feature-list li:last-child {
+                    margin-bottom: 0;
+                }
+
+                .feature-list li i {
+                    color: #171717;
+                    font-size: 11px;
+                    font-weight: 700;
+                    flex-shrink: 0;
+                }
+
+
+        /* =========================================================
+                   ACTION AREA
                 ========================================================= */
 
         .card-action {
             margin-top: auto;
-            padding-top: 25px;
+            padding-top: 20px;
         }
 
         .signing-label {
             display: block;
             margin-bottom: 7px;
             color: #303030;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
             text-transform: uppercase;
         }
 
 
         /* =========================================================
-                   ADMIN DROPDOWN
+                   ADMIN SELECT
                 ========================================================= */
 
         .admin-select {
             width: 100%;
-            height: 38px;
+            height: 37px;
             padding: 0 13px;
             border: 1px solid #dddddd;
             border-radius: 4px;
-            background-color: #f9f9f9;
+            background: #f9f9f9;
             color: #252525;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 400;
             outline: none;
-            cursor: pointer;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
             .admin-select:focus {
-                border-color: #9d9d9d;
-                box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+                border-color: #aaaaaa;
+                box-shadow: none;
             }
-
-
-        /* =========================================================
-                   BUTTONS
-                ========================================================= */
-
-        .login-button {
-            width: 100%;
-            height: 37px;
-            margin-top: 25px;
-            border: none;
-            border-radius: 3px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-            .login-button i {
-                font-size: 14px;
-            }
-
-        .admin-button {
-            background: #101725;
-            color: #ffffff;
-        }
-
-            .admin-button:hover {
-                background: #060a12;
-                color: #ffffff;
-                box-shadow: 0 4px 10px rgba(16, 23, 37, 0.18);
-            }
-
-        .applicant-button {
-            background: #ed2028;
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-            .applicant-button:hover {
-                background: #d71921;
-                color: #ffffff;
-                box-shadow: 0 4px 10px rgba(237, 32, 40, 0.20);
-            }
-
-        .button-arrow {
-            font-size: 14px;
-            margin-left: 1px;
-        }
 
 
         /* =========================================================
                    DROPDOWN
                 ========================================================= */
 
+        .admin-dropdown {
+            width: 100%;
+        }
+
+            .admin-dropdown .dropdown-toggle {
+                width: 100%;
+                height: 37px;
+                padding: 0 13px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border: 1px solid #dddddd;
+                border-radius: 4px;
+                background: #f9f9f9;
+                color: #252525;
+                font-size: 12px;
+                font-weight: 400;
+                text-align: left;
+                box-shadow: none;
+            }
+
+                .admin-dropdown .dropdown-toggle::after {
+                    margin-left: auto;
+                }
+
+                .admin-dropdown .dropdown-toggle:hover,
+                .admin-dropdown .dropdown-toggle:focus,
+                .admin-dropdown .dropdown-toggle:active {
+                    background: #f9f9f9;
+                    color: #252525;
+                    border-color: #cccccc;
+                    box-shadow: none;
+                }
+
         .dropdown-menu {
             width: 100%;
-            margin-top: 5px !important;
-            padding: 5px;
+            margin-top: 4px !important;
+            padding: 4px;
             border: 1px solid #dedede;
-            border-radius: 5px;
+            border-radius: 4px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             background: #ffffff;
         }
 
         .dropdown-item {
-            padding: 9px 11px;
+            padding: 8px 10px;
             border-radius: 3px;
             color: #303030;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
             display: flex;
             align-items: center;
@@ -460,56 +457,58 @@
             }
 
             .dropdown-item i {
-                font-size: 14px;
-            }
-
-
-        /* =========================================================
-                   BOTTOM INFO
-                ========================================================= */
-
-        .bottom-info {
-            width: 100%;
-            max-width: 930px;
-            margin-top: 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0;
-            color: #8b8b8b;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 7px;
-            padding: 0 22px;
-            font-size: 11px;
-            font-weight: 400;
-        }
-
-            .info-item:not(:last-child) {
-                border-right: 1px solid #dedede;
-            }
-
-            .info-item i {
-                color: #e5222a;
                 font-size: 13px;
             }
 
 
         /* =========================================================
-                   FOOTER
+                   BUTTONS
                 ========================================================= */
 
-        .page-footer {
+        .login-button {
             width: 100%;
-            text-align: center;
-            padding: 0 20px 20px;
-            color: #a0a0a0;
-            font-size: 10px;
-            font-weight: 400;
+            height: 36px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+            .login-button i {
+                font-size: 13px;
+            }
+
+        .admin-button {
+            background: #101725;
+            color: #ffffff;
+        }
+
+            .admin-button:hover {
+                background: #060a12;
+                color: #ffffff;
+            }
+
+        .applicant-button {
+            background: #ed2028;
+            color: #ffffff;
+        }
+
+            .applicant-button:hover {
+                background: #d71921;
+                color: #ffffff;
+            }
+
+        .button-arrow {
+            font-size: 13px;
+            margin-left: 1px;
         }
 
 
@@ -521,12 +520,12 @@
 
             .top-header {
                 height: 76px;
-                padding: 0 25px;
+                padding: 0 24px;
             }
 
             .brand-logo {
-                width: 43px;
-                height: 43px;
+                width: 29px;
+                height: 29px;
             }
 
             .brand-name {
@@ -534,12 +533,16 @@
             }
 
             .main-content {
-                padding: 45px 25px 40px;
+                padding: 48px 24px 45px;
             }
 
             .login-container {
                 max-width: 760px;
                 gap: 15px;
+            }
+
+            .login-card {
+                height: 430px;
             }
         }
 
@@ -557,8 +560,8 @@
             }
 
             .brand-logo {
-                width: 38px;
-                height: 38px;
+                width: 30px;
+                height: 30px;
             }
 
             .brand-name {
@@ -567,7 +570,7 @@
             }
 
             .main-content {
-                padding: 38px 18px 35px;
+                padding: 40px 18px 35px;
             }
 
             .intro-section {
@@ -575,7 +578,7 @@
             }
 
             .intro-title {
-                font-size: 19px;
+                font-size: 17px;
             }
 
             .intro-subtitle {
@@ -587,27 +590,8 @@
                 max-width: 450px;
             }
 
-            .login-card,
-            .card-content {
-                min-height: 350px;
-            }
-
-            .bottom-info {
-                flex-direction: column;
-                gap: 10px;
-                margin-top: 22px;
-            }
-
-            .info-item {
-                padding: 0;
-            }
-
-                .info-item:not(:last-child) {
-                    border-right: none;
-                }
-
-            .page-footer {
-                padding-bottom: 15px;
+            .login-card {
+                height: 425px;
             }
         }
 
@@ -626,6 +610,10 @@
             .card-content {
                 padding-left: 21px;
                 padding-right: 21px;
+            }
+
+            .login-card {
+                height: 425px;
             }
         }
 
@@ -665,7 +653,6 @@
 
         <main class="main-content">
 
-
             <!-- =================================================
                  INTRO
             ================================================== -->
@@ -693,7 +680,6 @@
 
             <section class="login-container">
 
-
                 <!-- =============================================
                      ADMIN / STAFF CARD
                 ============================================== -->
@@ -705,18 +691,18 @@
                         <div class="card-top">
 
                             <span class="card-category">
-                                Staff &amp; Admin File
+                                STAFF &amp; ADMIN FILE
                             </span>
 
                             <span class="access-badge">
-                                Internal
+                                INTERNAL
                             </span>
 
                         </div>
 
 
                         <div class="card-icon">
-                            <i class="bi bi-person-badge-fill"></i>
+                            <i class="bi bi-file-earmark-text"></i>
                         </div>
 
 
@@ -730,15 +716,35 @@
                         </p>
 
 
+                        <ul class="feature-list">
+
+                            <li>
+                                <i class="bi bi-check-lg"></i>
+                                <span>User and role management</span>
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-lg"></i>
+                                <span>Full records database access</span>
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-lg"></i>
+                                <span>Audit logs and reporting</span>
+                            </li>
+
+                        </ul>
+
+
                         <div class="card-action">
 
                             <label class="signing-label">
-                                Signing in as
+                                SIGNING IN AS
                             </label>
 
-                            <div class="dropdown">
+                            <div class="dropdown admin-dropdown">
 
-                                <button class="login-button admin-button dropdown-toggle"
+                                <button class="dropdown-toggle"
                                         type="button"
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false">
@@ -780,7 +786,7 @@
 
                             <a href="@Url.Action("Login", "Admin")"
                                id="adminLoginButton"
-                               class="login-button admin-button text-decoration-none">
+                               class="login-button admin-button">
 
                                 <span>
                                     Log in as Admin
@@ -808,11 +814,11 @@
                         <div class="card-top">
 
                             <span class="card-category">
-                                Applicant File
+                                APPLICANT FILE
                             </span>
 
                             <span class="access-badge">
-                                Public
+                                PUBLIC
                             </span>
 
                         </div>
@@ -833,6 +839,26 @@
                         <p class="card-description">
                             Submit request, track their status and manage your own records.
                         </p>
+
+
+                        <ul class="feature-list">
+
+                            <li>
+                                <i class="bi bi-check-lg"></i>
+                                <span>Submit new document request</span>
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-lg"></i>
+                                <span>Track Application status</span>
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-lg"></i>
+                                <span>Download issued records</span>
+                            </li>
+
+                        </ul>
 
 
                         <div class="card-action">
@@ -856,70 +882,7 @@
 
             </section>
 
-
-            <!-- =================================================
-                 INFORMATION
-            ================================================== -->
-
-            <div class="bottom-info">
-
-                <div class="info-item">
-
-                    <i class="bi bi-shield-check"></i>
-
-                    <span>
-                        Secure Access
-                    </span>
-
-                </div>
-
-
-                <div class="info-item">
-
-                    <i class="bi bi-file-earmark-check"></i>
-
-                    <span>
-                        Centralized Records
-                    </span>
-
-                </div>
-
-
-                <div class="info-item">
-
-                    <i class="bi bi-clock-history"></i>
-
-                    <span>
-                        Efficient Workflow
-                    </span>
-
-                </div>
-
-
-                <div class="info-item">
-
-                    <i class="bi bi-graph-up-arrow"></i>
-
-                    <span>
-                        Reliable Management
-                    </span>
-
-                </div>
-
-            </div>
-
         </main>
-
-
-        <!-- =====================================================
-             FOOTER
-        ====================================================== -->
-
-        <footer class="page-footer">
-
-            Smart Office Records System &nbsp;•&nbsp; Secure Records Management
-
-        </footer>
 
     </div>
 
@@ -949,7 +912,7 @@
 
             dropdownItems.forEach(function (item) {
 
-                item.addEventListener("click", function (event) {
+                item.addEventListener("click", function () {
 
                     const selectedText =
                         this.textContent.trim();
