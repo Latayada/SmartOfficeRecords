@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin Dashboard</title>
+    <title>Staff Dashboard</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -20,8 +20,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
           rel="stylesheet" />
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <!-- Professional Sans Serif Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet">
 
     <style>
@@ -34,12 +34,13 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
             background: #F5F6F8;
             overflow: hidden;
+            color: #111827;
         }
 
 
@@ -72,7 +73,9 @@
         }
 
 
-        /* Scrollbar */
+        /* =========================================================
+                           SIDEBAR SCROLLBAR
+                        ========================================================= */
 
         .sidebar {
             scrollbar-width: thin;
@@ -104,9 +107,10 @@
 
                 .sidebar.collapsed .system-name {
                     display: block;
-                    font-size: 10px;
-                    font-weight: 600;
+                    font-size: 11px;
+                    font-weight: 700;
                     margin-top: 8px;
+                    letter-spacing: .2px;
                 }
 
                 .sidebar.collapsed .logo-circle {
@@ -124,12 +128,12 @@
                 }
 
                 .sidebar.collapsed .menu {
-                    padding: 15px 10px;
+                    padding: 16px 10px;
                 }
 
                     .sidebar.collapsed .menu a {
-                        width: 42px;
-                        height: 42px;
+                        width: 44px;
+                        height: 44px;
                         margin: 0 auto 10px auto;
                         padding: 0;
                         display: flex;
@@ -146,6 +150,7 @@
                         .sidebar.collapsed .menu a i,
                         .sidebar.collapsed .logout a i {
                             margin: 0;
+                            font-size: 17px;
                         }
 
                 .sidebar.collapsed .logout {
@@ -153,18 +158,14 @@
                 }
 
                     .sidebar.collapsed .logout a {
-                        width: 42px;
-                        height: 42px;
+                        width: 44px;
+                        height: 44px;
                         margin: 0 auto;
                         padding: 0;
                         display: flex;
                         justify-content: center;
                         align-items: center;
                     }
-
-                .sidebar.collapsed .small-arrow {
-                    display: none;
-                }
 
 
         /* =========================================================
@@ -173,13 +174,13 @@
 
         .logo-section {
             text-align: center;
-            padding: 16px 10px;
+            padding: 18px 10px;
             border-bottom: 1px solid rgba(255,255,255,.18);
         }
 
         .logo-circle {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             background: #FFFFFF;
             border-radius: 50%;
             margin: auto;
@@ -195,9 +196,10 @@
         }
 
         .system-name {
-            margin-top: 8px;
-            font-size: 12px;
-            font-weight: 600;
+            margin-top: 9px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .3px;
             color: #FFFFFF;
         }
 
@@ -207,7 +209,7 @@
                         ========================================================= */
 
         .menu {
-            padding: 14px 8px;
+            padding: 16px 9px;
         }
 
             .menu a {
@@ -215,18 +217,19 @@
                 text-decoration: none;
                 display: flex;
                 align-items: center;
-                gap: 10px;
-                padding: 8px 10px;
-                margin-bottom: 3px;
-                border-radius: 5px;
-                font-size: 11px;
+                gap: 11px;
+                padding: 10px 11px;
+                margin-bottom: 5px;
+                border-radius: 6px;
+                font-size: 13px;
                 font-weight: 500;
+                line-height: 1.2;
                 transition: all .2s ease;
             }
 
                 .menu a i {
-                    font-size: 14px;
-                    min-width: 14px;
+                    font-size: 16px;
+                    min-width: 16px;
                 }
 
                 .menu a:hover {
@@ -242,90 +245,30 @@
 
 
         /* =========================================================
-                           SETTINGS DROPDOWN
-                        ========================================================= */
-
-        .sidebar-dropdown {
-            margin-bottom: 3px;
-        }
-
-        .dropdown-toggle-menu {
-            color: #FFFFFF;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 11px;
-            font-weight: 500;
-            transition: all .2s ease;
-        }
-
-            .dropdown-toggle-menu:hover {
-                background: rgba(185,28,28,.18);
-                color: #FFFFFF;
-            }
-
-        .small-arrow {
-            font-size: 8px;
-            transition: transform .3s ease;
-        }
-
-        .dropdown-submenu {
-            display: none;
-            flex-direction: column;
-            padding-left: 14px;
-            margin-top: 3px;
-        }
-
-            .dropdown-submenu a {
-                color: #FFFFFF;
-                text-decoration: none;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                padding: 7px 9px;
-                font-size: 10px;
-                border-radius: 5px;
-            }
-
-                .dropdown-submenu a:hover {
-                    background: rgba(185,28,28,.18);
-                    color: #FFFFFF;
-                }
-
-        .sidebar-dropdown.open .dropdown-submenu {
-            display: flex;
-        }
-
-        .sidebar-dropdown.open .small-arrow {
-            transform: rotate(180deg);
-        }
-
-
-        /* =========================================================
                            LOGOUT
                         ========================================================= */
 
         .logout {
             margin-top: auto;
-            padding: 10px 8px 12px 8px;
+            padding: 12px 9px 15px 9px;
         }
 
             .logout a {
                 color: #FFFFFF;
                 text-decoration: none;
                 display: flex;
-                gap: 10px;
+                gap: 11px;
                 align-items: center;
-                padding: 8px 10px;
-                font-size: 11px;
+                padding: 10px 11px;
+                font-size: 13px;
                 font-weight: 500;
-                border-radius: 5px;
+                border-radius: 6px;
                 transition: all .2s ease;
             }
+
+                .logout a i {
+                    font-size: 16px;
+                }
 
                 .logout a:hover {
                     background: rgba(185,28,28,.18);
@@ -351,14 +294,14 @@
                         ========================================================= */
 
         .topbar {
-            height: 52px;
-            min-height: 52px;
+            height: 56px;
+            min-height: 56px;
             flex-shrink: 0;
             border-bottom: 1px solid #E5E7EB;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 16px;
+            padding: 0 20px;
             background: #FFFFFF;
         }
 
@@ -372,9 +315,9 @@
             background: none;
             border: none;
             color: #B91C1C;
-            font-size: 16px;
+            font-size: 19px;
             cursor: pointer;
-            padding: 4px;
+            padding: 5px;
         }
 
 
@@ -385,12 +328,12 @@
         .topbar-right {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
             margin-left: auto;
         }
 
         .notification-icon {
-            font-size: 17px;
+            font-size: 19px;
             color: #374151;
             cursor: pointer;
             transition: color .2s ease;
@@ -408,14 +351,14 @@
         .profile {
             display: flex;
             align-items: center;
-            gap: 7px;
-            padding-left: 8px;
+            gap: 9px;
+            padding-left: 12px;
             border-left: 1px solid #E5E7EB;
         }
 
             .profile img {
-                width: 30px;
-                height: 30px;
+                width: 34px;
+                height: 34px;
                 border-radius: 50%;
                 object-fit: cover;
             }
@@ -423,25 +366,26 @@
         .profile-info {
             display: flex;
             flex-direction: column;
-            line-height: 1.15;
+            line-height: 1.25;
         }
 
             .profile-info h5 {
                 margin: 0;
-                font-size: 10px;
+                font-size: 12px;
                 font-weight: 600;
                 color: #111827;
             }
 
             .profile-info span {
-                font-size: 8px;
+                font-size: 10px;
                 color: #6B7280;
+                margin-top: 2px;
             }
 
         .profile-arrow {
             color: #6B7280;
-            font-size: 9px;
-            margin-left: 2px;
+            font-size: 10px;
+            margin-left: 3px;
         }
 
 
@@ -451,71 +395,57 @@
 
         .content-area {
             flex: 1;
-            padding: 18px 28px;
+            padding: 22px 30px;
             overflow-y: auto;
             overflow-x: hidden;
         }
 
 
         /* =========================================================
-                           WELCOME
+                           WELCOME SECTION
                         ========================================================= */
 
         .welcome-section {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 13px;
+            align-items: flex-start;
+            margin-bottom: 18px;
         }
 
         .welcome-text h2 {
-            font-size: 18px;
+            font-size: 24px;
             font-weight: 700;
             color: #B91C1C;
-            margin: 0 0 2px 0;
+            margin: 0 0 5px 0;
+            line-height: 1.2;
         }
 
         .welcome-text p {
-            font-size: 9px;
+            font-size: 13px;
             color: #64748B;
-            font-weight: 500;
+            font-weight: 400;
             margin: 0;
+            line-height: 1.5;
         }
 
 
         /* =========================================================
-                           SEARCH
+                           CURRENT DATE
                         ========================================================= */
 
-        .search-box {
-            width: 255px;
-            height: 34px;
-            background: #FFFFFF;
-            border-radius: 20px;
-            box-shadow: 0 3px 12px rgba(0,0,0,.07);
+        .dashboard-date {
             display: flex;
             align-items: center;
-            padding: 0 12px;
-            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 5px;
+            margin-right: 12px;
         }
 
-            .search-box i {
-                color: #6B7280;
+            .dashboard-date .date-value {
                 font-size: 12px;
-            }
-
-            .search-box input {
-                width: 100%;
-                border: none;
-                outline: none;
-                font-size: 10px;
+                font-weight: 600;
                 color: #374151;
-                background: transparent;
             }
-
-                .search-box input::placeholder {
-                    color: #9CA3AF;
-                }
 
 
         /* =========================================================
@@ -524,22 +454,22 @@
 
         .cards-container {
             display: flex;
-            gap: 12px;
+            gap: 14px;
             width: 100%;
-            margin-bottom: 18px;
+            margin-bottom: 22px;
         }
 
         .dashboard-card {
             flex: 1;
             min-width: 150px;
-            height: 86px;
+            height: 94px;
             background: #FFFFFF;
             border: 1px solid #E5E7EB;
-            border-radius: 6px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
-            padding: 13px;
-            gap: 12px;
+            padding: 15px;
+            gap: 13px;
             transition: all .2s ease;
         }
 
@@ -549,15 +479,15 @@
             }
 
         .card-icon {
-            width: 43px;
-            height: 43px;
-            min-width: 43px;
+            width: 46px;
+            height: 46px;
+            min-width: 46px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #FFFFFF;
-            font-size: 18px;
+            font-size: 19px;
         }
 
         .purple {
@@ -582,14 +512,17 @@
 
         .card-info h2 {
             margin: 0;
-            font-size: 21px;
+            font-size: 24px;
             font-weight: 700;
             color: #111827;
+            line-height: 1.1;
         }
 
         .card-info span {
-            font-size: 9px;
+            font-size: 12px;
             font-weight: 600;
+            display: block;
+            margin-top: 5px;
         }
 
 
@@ -600,7 +533,7 @@
         .lower-content {
             display: grid;
             grid-template-columns: 1.65fr .95fr;
-            gap: 10px;
+            gap: 16px;
         }
 
 
@@ -611,7 +544,7 @@
         .dashboard-panel {
             background: #FFFFFF;
             border: 1px solid #D9DDE3;
-            border-radius: 6px;
+            border-radius: 8px;
             overflow: hidden;
         }
 
@@ -621,15 +554,15 @@
                         ========================================================= */
 
         .panel-header {
-            height: 38px;
+            height: 46px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 15px;
+            padding: 0 17px;
         }
 
             .panel-header h4 {
-                font-size: 11px;
+                font-size: 14px;
                 font-weight: 700;
                 color: #111827;
                 margin: 0;
@@ -641,13 +574,13 @@
                         ========================================================= */
 
         .filter-btn {
-            height: 27px;
-            min-width: 115px;
+            height: 30px;
+            min-width: 120px;
             border: 1px solid #D1D5DB;
             background: #FFFFFF;
-            padding: 0 10px;
+            padding: 0 11px;
             border-radius: 6px;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 600;
             color: #374151;
             display: flex;
@@ -667,8 +600,8 @@
                         ========================================================= */
 
         .graph-panel {
-            height: 232px;
-            padding: 0 15px 15px 15px;
+            height: 270px;
+            padding: 0 17px 17px 17px;
         }
 
         .graph-area {
@@ -681,37 +614,118 @@
 
         .graph-y-labels {
             position: absolute;
-            left: -33px;
+            left: -35px;
             top: 0;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            font-size: 8px;
+            font-size: 10px;
             font-weight: 600;
             color: #374151;
         }
 
         .days {
             position: absolute;
-            bottom: -25px;
+            bottom: -27px;
             left: 0;
             width: 100%;
             display: flex;
             justify-content: space-around;
-            font-size: 8px;
+            font-size: 10px;
             font-weight: 600;
             color: #374151;
         }
 
 
         /* =========================================================
-                           TABLE
+                           RECENT APPLICANTS
                         ========================================================= */
 
         .table-panel {
-            height: 232px;
+            height: 270px;
+            padding: 13px 12px 0 12px;
+            overflow: hidden;
         }
+
+            .table-panel .panel-title {
+                font-size: 14px;
+                font-weight: 700;
+                color: #111827;
+                margin-bottom: 10px;
+            }
+
+
+        /* =========================================================
+                           TABLE SEARCH
+                        ========================================================= */
+
+        .table-search {
+            width: 100%;
+            height: 36px;
+            background: #FFFFFF;
+            border-radius: 18px;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 3px 12px rgba(0,0,0,.05);
+            display: flex;
+            align-items: center;
+            padding: 0 13px;
+            gap: 9px;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+
+            .table-search i {
+                color: #6B7280;
+                font-size: 13px;
+            }
+
+            .table-search input {
+                width: 100%;
+                border: none;
+                outline: none;
+                font-size: 11px;
+                color: #374151;
+                background: transparent;
+            }
+
+                .table-search input::placeholder {
+                    color: #9CA3AF;
+                }
+
+
+        /* =========================================================
+                           TABLE SCROLL
+                        ========================================================= */
+
+        .table-scroll {
+            height: 185px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .table-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: #C7CBD1 transparent;
+        }
+
+            .table-scroll::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            .table-scroll::-webkit-scrollbar-thumb {
+                background: #C7CBD1;
+                border-radius: 10px;
+            }
+
+            .table-scroll::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+
+        /* =========================================================
+                           APPLICANT TABLE
+                        ========================================================= */
 
         .applicant-table {
             width: 100%;
@@ -720,23 +734,25 @@
         }
 
             .applicant-table thead {
-                background: #D1D1D1;
+                background: #111111;
             }
 
             .applicant-table th {
                 height: 36px;
-                padding: 0 8px;
-                font-size: 9px;
+                padding: 0 9px;
+                font-size: 10px;
                 font-weight: 700;
-                color: #111827;
+                color: #FFFFFF;
                 border-bottom: 1px solid #D1D5DB;
                 white-space: nowrap;
+                letter-spacing: .2px;
             }
 
             .applicant-table td {
-                height: 34px;
-                padding: 0 8px;
-                font-size: 8px;
+                height: 35px;
+                padding: 0 9px;
+                font-size: 10px;
+                font-weight: 500;
                 color: #374151;
                 border-bottom: 1px solid #E5E7EB;
                 white-space: nowrap;
@@ -751,22 +767,23 @@
                            STATUS
                         ========================================================= */
 
+        .status-completed,
+        .status-pending {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 600;
+        }
+
         .status-completed {
             background: #DBEAFE;
             color: #2563EB;
-            padding: 3px 6px;
-            border-radius: 3px;
-            font-size: 7px;
-            font-weight: 600;
         }
 
         .status-pending {
             background: #FEF3C7;
             color: #D97706;
-            padding: 3px 6px;
-            border-radius: 3px;
-            font-size: 7px;
-            font-weight: 600;
         }
 
 
@@ -782,12 +799,12 @@
         }
 
         .action-btn {
-            height: 26px;
+            height: 28px;
             border: none;
             border-radius: 5px;
-            font-size: 8px;
+            font-size: 10px;
             font-weight: 600;
-            padding: 0 8px;
+            padding: 0 9px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -797,7 +814,7 @@
         }
 
             .action-btn i {
-                font-size: 10px;
+                font-size: 11px;
             }
 
         .btn-view {
@@ -833,7 +850,6 @@
                         ========================================================= */
 
         @@media (max-width: 1000px) {
-
             .cards-container {
                 flex-wrap: wrap;
             }
@@ -845,15 +861,10 @@
             .lower-content {
                 grid-template-columns: 1fr;
             }
-
-            .search-box {
-                width: 200px;
-            }
         }
 
 
         @@media (max-width: 768px) {
-
             body {
                 overflow-y: auto;
             }
@@ -865,7 +876,6 @@
 
             .system-name,
             .menu a span,
-            .dropdown-toggle-menu span,
             .logout a span {
                 display: none;
             }
@@ -888,31 +898,20 @@
                     padding: 10px;
                 }
 
-            .dropdown-toggle-menu {
-                justify-content: center;
-                padding: 10px;
-            }
-
-            .small-arrow {
-                display: none;
-            }
-
             .logout a {
                 justify-content: center;
             }
 
             .content-area {
-                padding: 12px;
+                padding: 16px;
             }
 
-            .welcome-section {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 12px;
+            .welcome-text h2 {
+                font-size: 21px;
             }
 
-            .search-box {
-                width: 100%;
+            .welcome-text p {
+                font-size: 12px;
             }
 
             .cards-container {
@@ -927,7 +926,6 @@
 
 
         @@media (max-width: 500px) {
-
             .cards-container {
                 grid-template-columns: 1fr;
             }
@@ -943,8 +941,11 @@
             .dashboard-panel {
                 margin-bottom: 15px;
             }
-        }
 
+            .dashboard-date {
+                margin-top: 5px;
+            }
+        }
     </style>
 
 </head>
@@ -1002,7 +1003,7 @@
 
                 <!-- REQUEST -->
 
-                <a href="@Url.Action("StaffRequest", "Staff")">
+                <a href="@Url.Action("RequestManagement", "Staff")">
 
                     <i class="bi bi-file-earmark-text"></i>
 
@@ -1015,7 +1016,7 @@
 
                 <!-- RECORDS -->
 
-                <a href="@Url.Action("StaffRecords", "Staff")">
+                <a href="@Url.Action("RecordsManagement", "Staff")">
 
                     <i class="bi bi-folder2-open"></i>
 
@@ -1028,7 +1029,7 @@
 
                 <!-- REPORTS -->
 
-                <a href="@Url.Action("StaffReports", "Staff")">
+                <a href="@Url.Action("ReportsManagement", "Staff")">
 
                     <i class="bi bi-file-earmark-bar-graph"></i>
 
@@ -1040,48 +1041,15 @@
 
                 <!-- SETTINGS -->
 
-                <div class="sidebar-dropdown">
+                <a href="@Url.Action("Settings", "Staff")">
 
-                    <a href="javascript:void(0)"
-                       class="dropdown-toggle-menu">
+                    <i class="bi bi-gear-fill"></i>
 
-                        <i class="bi bi-gear-fill"></i>
+                    <span>
+                        Settings
+                    </span>
 
-                        <span>
-                            Settings
-                        </span>
-
-                        <i class="bi bi-chevron-right ms-auto small-arrow"></i>
-
-                    </a>
-
-
-                    <div class="dropdown-submenu">
-
-                        <a href="@Url.Action("StaffSettings", "Staff")">
-
-                            <i class="bi bi-sliders"></i>
-
-                            <span>
-                                General Settings
-                            </span>
-
-                        </a>
-
-
-                        <a href="@Url.Action("SAccountSettings", "Staff")">
-
-                            <i class="bi bi-person-gear"></i>
-
-                            <span>
-                                Account & Security
-                            </span>
-
-                        </a>
-
-                    </div>
-
-                </div>
+                </a>
 
 
             </div>
@@ -1091,7 +1059,7 @@
 
             <div class="logout">
 
-                <a href="@Url.Action("StaffLogin", "Staff")">
+                <a href="@Url.Action("Login", "Staff")">
 
                     <i class="bi bi-box-arrow-right"></i>
 
@@ -1126,7 +1094,8 @@
                 <div class="topbar-left">
 
                     <button class="menu-toggle"
-                            id="menuToggle">
+                            id="menuToggle"
+                            type="button">
 
                         <i class="bi bi-list"></i>
 
@@ -1159,7 +1128,7 @@
                             </h5>
 
                             <span>
-                                Staff
+                                Administrator
                             </span>
 
                         </div>
@@ -1180,10 +1149,14 @@
             <div class="content-area">
 
 
-                <!-- WELCOME + SEARCH -->
+                <!-- =================================================
+                     WELCOME + DATE
+                ================================================== -->
 
                 <div class="welcome-section">
 
+
+                    <!-- WELCOME -->
 
                     <div class="welcome-text">
 
@@ -1198,14 +1171,13 @@
                     </div>
 
 
-                    <!-- SEARCH -->
+                    <!-- CURRENT DATE -->
 
-                    <div class="search-box">
+                    <div class="dashboard-date">
 
-                        <i class="bi bi-search"></i>
-
-                        <input type="text"
-                               placeholder="Search here..." />
+                        <span class="date-value"
+                              id="currentDate">
+                        </span>
 
                     </div>
 
@@ -1348,7 +1320,7 @@
 
 
                 <!-- =================================================
-                     GRAPH + TABLE
+                     GRAPH + RECENT APPLICANTS
                 ================================================== -->
 
                 <div class="lower-content">
@@ -1368,9 +1340,12 @@
                             </h4>
 
 
-                            <button class="filter-btn">
+                            <button class="filter-btn"
+                                    type="button">
 
-                                This Week
+                                <span>
+                                    This Week
+                                </span>
 
                                 <i class="bi bi-chevron-down"></i>
 
@@ -1416,135 +1391,257 @@
 
 
                     <!-- =================================================
-                         APPLICANT TABLE
+                         RECENT APPLICANTS
                     ================================================== -->
 
                     <div class="dashboard-panel table-panel">
 
 
-                        <table class="applicant-table">
+                        <div class="panel-title">
+                            Recent Applicants
+                        </div>
 
 
-                            <thead>
+                        <!-- SEARCH -->
 
-                                <tr>
+                        <div class="table-search">
 
-                                    <th>
-                                        ID
-                                    </th>
+                            <i class="bi bi-search"></i>
 
-                                    <th>
-                                        APPLICANT NAME
-                                    </th>
+                            <input type="text"
+                                   id="applicantSearch"
+                                   placeholder="Search applicant..." />
 
-                                    <th>
-                                        STATUS
-                                    </th>
-
-                                </tr>
-
-                            </thead>
+                        </div>
 
 
-                            <tbody>
+                        <!-- TABLE SCROLL -->
+
+                        <div class="table-scroll">
+
+                            <table class="applicant-table">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            APPLICANT ID
+                                        </th>
+
+                                        <th>
+                                            APPLICANT NAME
+                                        </th>
+
+                                        <th>
+                                            STATUS
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
 
 
-                                <tr>
-
-                                    <td>
-                                        AP001
-                                    </td>
-
-                                    <td>
-                                        Cris Alin Zobrado
-                                    </td>
-
-                                    <td>
-
-                                        <span class="status-completed">
-                                            Completed
-                                        </span>
-
-                                    </td>
-
-                                </tr>
+                                <tbody id="applicantTableBody">
 
 
-                                <tr>
+                                    <tr>
 
-                                    <td>
-                                        AP002
-                                    </td>
+                                        <td>
+                                            AP001
+                                        </td>
 
-                                    <td>
-                                        Hannah Cabasan
-                                    </td>
+                                        <td>
+                                            Cris Alin Zobrado
+                                        </td>
 
-                                    <td>
-                                        —
-                                    </td>
+                                        <td>
 
-                                </tr>
+                                            <span class="status-completed">
+                                                Completed
+                                            </span>
 
+                                        </td>
 
-                                <tr>
-
-                                    <td>
-                                        3
-                                    </td>
-
-                                    <td>
-                                        John Mark Guladerama
-                                    </td>
-
-                                    <td>
-                                        —
-                                    </td>
-
-                                </tr>
+                                    </tr>
 
 
-                                <tr>
+                                    <tr>
 
-                                    <td>
-                                        4
-                                    </td>
+                                        <td>
+                                            AP002
+                                        </td>
 
-                                    <td>
-                                        Juan Dela Cruz
-                                    </td>
+                                        <td>
+                                            Hannah Cabasan
+                                        </td>
 
-                                    <td>
-                                        —
-                                    </td>
+                                        <td>
+                                            —
+                                        </td>
 
-                                </tr>
-
-
-                                <tr>
-
-                                    <td>
-                                        5
-                                    </td>
-
-                                    <td>
-                                        John Michael Aninon
-                                    </td>
-
-                                    <td>
-                                        —
-                                    </td>
-
-                                </tr>
+                                    </tr>
 
 
-                            </tbody>
+                                    <tr>
 
-                        </table>
+                                        <td>
+                                            3
+                                        </td>
+
+                                        <td>
+                                            John Mark Guladerama
+                                        </td>
+
+                                        <td>
+                                            —
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            4
+                                        </td>
+
+                                        <td>
+                                            Juan Dela Cruz
+                                        </td>
+
+                                        <td>
+                                            —
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            5
+                                        </td>
+
+                                        <td>
+                                            John Michael Aninon
+                                        </td>
+
+                                        <td>
+                                            —
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            6
+                                        </td>
+
+                                        <td>
+                                            Maria Santos
+                                        </td>
+
+                                        <td>
+
+                                            <span class="status-pending">
+                                                Pending
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            7
+                                        </td>
+
+                                        <td>
+                                            Pedro Garcia
+                                        </td>
+
+                                        <td>
+                                            Approved
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            8
+                                        </td>
+
+                                        <td>
+                                            Anna Mae Cruz
+                                        </td>
+
+                                        <td>
+
+                                            <span class="status-completed">
+                                                Completed
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            9
+                                        </td>
+
+                                        <td>
+                                            Mark Anthony Reyes
+                                        </td>
+
+                                        <td>
+
+                                            <span class="status-pending">
+                                                Pending
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            10
+                                        </td>
+
+                                        <td>
+                                            Sarah Jane Flores
+                                        </td>
+
+                                        <td>
+                                            Approved
+                                        </td>
+
+                                    </tr>
+
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
 
                     </div>
 
+
                 </div>
+
 
             </div>
 
@@ -1559,27 +1656,10 @@
 
     <script>
 
-        /* =========================================
-           SETTINGS DROPDOWN
-        ========================================= */
 
-        const dropdown =
-            document.querySelector('.sidebar-dropdown');
-
-        const dropdownToggle =
-            document.querySelector('.dropdown-toggle-menu');
-
-
-        dropdownToggle.addEventListener('click', function () {
-
-            dropdown.classList.toggle('open');
-
-        });
-
-
-        /* =========================================
+        /* =========================================================
            SIDEBAR COLLAPSE
-        ========================================= */
+        ========================================================= */
 
         const sidebar =
             document.querySelector('.sidebar');
@@ -1593,6 +1673,77 @@
             sidebar.classList.toggle('collapsed');
 
         });
+
+
+        /* =========================================================
+           CURRENT DATE
+        ========================================================= */
+
+        const currentDate =
+            document.getElementById('currentDate');
+
+        const today =
+            new Date();
+
+
+        const options = {
+
+            weekday: 'short',
+
+            month: 'short',
+
+            day: 'numeric',
+
+            year: 'numeric'
+
+        };
+
+
+        currentDate.textContent =
+            today.toLocaleDateString('en-US', options);
+
+
+        /* =========================================================
+           APPLICANT SEARCH
+        ========================================================= */
+
+        const searchInput =
+            document.getElementById('applicantSearch');
+
+        const tableBody =
+            document.getElementById('applicantTableBody');
+
+
+        searchInput.addEventListener('input', function () {
+
+            const searchValue =
+                this.value.toLowerCase().trim();
+
+
+            const rows =
+                tableBody.querySelectorAll('tr');
+
+
+            rows.forEach(function (row) {
+
+                const rowText =
+                    row.textContent.toLowerCase();
+
+
+                if (rowText.includes(searchValue)) {
+
+                    row.style.display = '';
+
+                } else {
+
+                    row.style.display = 'none';
+
+                }
+
+            });
+
+        });
+
 
     </script>
 

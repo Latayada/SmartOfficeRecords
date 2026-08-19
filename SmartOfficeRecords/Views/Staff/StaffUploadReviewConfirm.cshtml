@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Upload Review Confirm";
+    ViewBag.Title = "Staff Upload Review Confirm";
     Layout = null;
 }
 
@@ -10,29 +10,37 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Upload Review Confirm - SORS</title>
+    <title>Staff Upload Review Confirm - SORS</title>
 
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
           rel="stylesheet" />
 
+    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
           rel="stylesheet" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <!-- SAME FONT AS CREATE REQUEST -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet">
 
     <style>
+
+        /* =========================================================
+                           GLOBAL
+                        ========================================================= */
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
             background: #F5F6F8;
             overflow: hidden;
+            color: #111827;
         }
 
         .dashboard-container {
@@ -41,7 +49,10 @@
             width: 100%;
         }
 
-        /* ================= SIDEBAR ================= */
+
+        /* =========================================================
+                           SIDEBAR
+                        ========================================================= */
 
         .sidebar {
             width: 158px;
@@ -54,6 +65,8 @@
             transition: all .3s ease;
             overflow-y: auto;
             overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,.25) transparent;
         }
 
             .sidebar::-webkit-scrollbar {
@@ -69,6 +82,11 @@
                 background: transparent;
             }
 
+
+            /* =========================================================
+                           COLLAPSED SIDEBAR
+                        ========================================================= */
+
             .sidebar.collapsed {
                 width: 78px;
                 min-width: 78px;
@@ -76,9 +94,10 @@
 
                 .sidebar.collapsed .system-name {
                     display: block;
-                    font-size: 10px;
-                    font-weight: 600;
+                    font-size: 11px;
+                    font-weight: 700;
                     margin-top: 8px;
+                    letter-spacing: .2px;
                 }
 
                 .sidebar.collapsed .logo-circle {
@@ -97,12 +116,12 @@
                 }
 
                 .sidebar.collapsed .menu {
-                    padding: 15px 10px;
+                    padding: 16px 10px;
                 }
 
                     .sidebar.collapsed .menu a {
-                        width: 42px;
-                        height: 42px;
+                        width: 44px;
+                        height: 44px;
                         margin: 0 auto 10px auto;
                         padding: 0;
                         display: flex;
@@ -119,11 +138,12 @@
                         .sidebar.collapsed .menu a i,
                         .sidebar.collapsed .logout a i {
                             margin: 0;
+                            font-size: 17px;
                         }
 
                 .sidebar.collapsed .dropdown-toggle-menu {
-                    width: 42px;
-                    height: 42px;
+                    width: 44px;
+                    height: 44px;
                     margin: 0 auto 10px auto;
                     padding: 0;
                     justify-content: center;
@@ -144,8 +164,8 @@
                 }
 
                     .sidebar.collapsed .logout a {
-                        width: 42px;
-                        height: 42px;
+                        width: 44px;
+                        height: 44px;
                         margin: 0 auto;
                         padding: 0;
                         display: flex;
@@ -153,17 +173,20 @@
                         align-items: center;
                     }
 
-        /* ================= LOGO ================= */
+
+        /* =========================================================
+                           LOGO
+                        ========================================================= */
 
         .logo-section {
             text-align: center;
-            padding: 16px 10px;
+            padding: 18px 10px;
             border-bottom: 1px solid rgba(255,255,255,.18);
         }
 
         .logo-circle {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             background: #FFFFFF;
             border-radius: 50%;
             margin: auto;
@@ -179,16 +202,20 @@
         }
 
         .system-name {
-            margin-top: 8px;
-            font-size: 12px;
-            font-weight: 600;
+            margin-top: 9px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .3px;
             color: #FFFFFF;
         }
 
-        /* ================= MENU ================= */
+
+        /* =========================================================
+                           MENU
+                        ========================================================= */
 
         .menu {
-            padding: 14px 8px;
+            padding: 16px 9px;
         }
 
             .menu a {
@@ -196,24 +223,24 @@
                 text-decoration: none;
                 display: flex;
                 align-items: center;
-                gap: 10px;
-                padding: 8px 10px;
-                margin-bottom: 3px;
-                border-radius: 5px;
-                font-size: 11px;
+                gap: 11px;
+                padding: 10px 11px;
+                margin-bottom: 5px;
+                border-radius: 6px;
+                font-size: 13px;
                 font-weight: 500;
+                line-height: 1.2;
                 transition: all .2s ease;
             }
 
                 .menu a i {
-                    font-size: 14px;
-                    min-width: 14px;
+                    font-size: 16px;
+                    min-width: 16px;
                 }
 
                 .menu a:hover {
-                    background: rgba(185, 28, 28, .18);
+                    background: rgba(185,28,28,.18);
                     color: #FFFFFF;
-                    text-decoration: none;
                 }
 
                 .menu a.active {
@@ -222,12 +249,13 @@
                     box-shadow: 0 3px 8px rgba(185,28,28,.22);
                 }
 
-        /* =================
-            DROPDOWN
-        ================= */
+
+        /* =========================================================
+                           SETTINGS DROPDOWN
+                        ========================================================= */
 
         .sidebar-dropdown {
-            margin-bottom: 3px;
+            margin-bottom: 5px;
         }
 
         .dropdown-toggle-menu {
@@ -235,22 +263,23 @@
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 8px 10px;
-            border-radius: 5px;
+            gap: 11px;
+            padding: 10px 11px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 500;
+            line-height: 1.2;
+            transition: all .2s ease;
         }
 
             .dropdown-toggle-menu:hover {
                 background: rgba(185,28,28,.18);
                 color: #FFFFFF;
-                text-decoration: none;
             }
 
         .small-arrow {
-            font-size: 8px;
+            font-size: 9px;
             transition: transform .3s ease;
         }
 
@@ -267,15 +296,14 @@
                 display: flex;
                 align-items: center;
                 gap: 8px;
-                padding: 7px 9px;
-                font-size: 10px;
+                padding: 8px 9px;
+                font-size: 11px;
                 border-radius: 5px;
             }
 
                 .dropdown-submenu a:hover {
                     background: rgba(185,28,28,.18);
                     color: #FFFFFF;
-                    text-decoration: none;
                 }
 
         .sidebar-dropdown.open .dropdown-submenu {
@@ -286,32 +314,42 @@
             transform: rotate(90deg);
         }
 
-        /* ================= LOGOUT ================= */
+
+        /* =========================================================
+                           LOGOUT
+                        ========================================================= */
 
         .logout {
             margin-top: auto;
-            padding: 10px 8px 12px 8px;
+            padding: 12px 9px 15px 9px;
         }
 
             .logout a {
                 color: #FFFFFF;
                 text-decoration: none;
                 display: flex;
-                gap: 10px;
+                gap: 11px;
                 align-items: center;
-                padding: 8px 10px;
-                font-size: 11px;
+                padding: 10px 11px;
+                font-size: 13px;
                 font-weight: 500;
-                border-radius: 5px;
+                border-radius: 6px;
+                transition: all .2s ease;
             }
+
+                .logout a i {
+                    font-size: 16px;
+                }
 
                 .logout a:hover {
                     background: rgba(185,28,28,.18);
                     color: #FFFFFF;
-                    text-decoration: none;
                 }
 
-        /* ================= MAIN ================= */
+
+        /* =========================================================
+                           MAIN CONTENT
+                        ========================================================= */
 
         .main-content {
             flex: 1;
@@ -322,17 +360,20 @@
             overflow: hidden;
         }
 
-        /* ================= TOPBAR ================= */
+
+        /* =========================================================
+                           TOPBAR
+                        ========================================================= */
 
         .topbar {
-            height: 52px;
-            min-height: 52px;
+            height: 56px;
+            min-height: 56px;
             flex-shrink: 0;
             border-bottom: 1px solid #E5E7EB;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 16px;
+            padding: 0 20px;
             background: #FFFFFF;
         }
 
@@ -346,34 +387,50 @@
             background: none;
             border: none;
             color: #B91C1C;
-            font-size: 16px;
+            font-size: 19px;
             cursor: pointer;
-            padding: 4px;
+            padding: 5px;
         }
+
+
+        /* =========================================================
+                           TOPBAR RIGHT
+                        ========================================================= */
 
         .topbar-right {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
             margin-left: auto;
         }
 
         .notification-icon {
-            font-size: 17px;
+            font-size: 19px;
             color: #374151;
+            cursor: pointer;
+            transition: color .2s ease;
         }
+
+            .notification-icon:hover {
+                color: #B91C1C;
+            }
+
+
+        /* =========================================================
+                           PROFILE
+                        ========================================================= */
 
         .profile {
             display: flex;
             align-items: center;
-            gap: 7px;
-            padding-left: 8px;
+            gap: 9px;
+            padding-left: 12px;
             border-left: 1px solid #E5E7EB;
         }
 
             .profile img {
-                width: 30px;
-                height: 30px;
+                width: 34px;
+                height: 34px;
                 border-radius: 50%;
                 object-fit: cover;
             }
@@ -381,49 +438,56 @@
         .profile-info {
             display: flex;
             flex-direction: column;
-            line-height: 1.15;
+            line-height: 1.25;
         }
 
             .profile-info h5 {
                 margin: 0;
-                font-size: 10px;
+                font-size: 12px;
                 font-weight: 600;
                 color: #111827;
             }
 
             .profile-info span {
-                font-size: 8px;
+                font-size: 10px;
                 color: #6B7280;
+                margin-top: 2px;
             }
 
         .profile-arrow {
             color: #6B7280;
-            font-size: 9px;
+            font-size: 10px;
+            margin-left: 3px;
         }
 
-        /* ================= CONTENT ================= */
+
+        /* =========================================================
+                           CONTENT AREA
+                        ========================================================= */
 
         .content-area {
             flex: 1;
-            padding: 18px 28px;
+            padding: 22px 30px;
             overflow-y: auto;
             overflow-x: hidden;
         }
 
+
         /* =========================================================
                            BREADCRUMB
+                           SAME SIZE AS CREATE REQUEST
                         ========================================================= */
 
         .breadcrumb-title {
             display: flex;
             align-items: center;
             gap: 7px;
-            font-size: 19px;
+            font-size: 24px;
             font-weight: 700;
             margin: 0;
             padding: 0;
             color: #111827;
-            line-height: 1.3;
+            line-height: 1.2;
         }
 
         .review-breadcrumb {
@@ -437,7 +501,7 @@
             }
 
         .breadcrumb-title strong {
-            color: #E32626;
+            color: #B91C1C;
             font-weight: 700;
         }
 
@@ -448,22 +512,25 @@
 
         .page-description {
             color: #64748B;
-            font-size: 10px;
+            font-size: 13px;
             font-weight: 400;
-            margin: 3px 0 20px 0;
+            margin: 5px 0 18px 0;
             padding: 0;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        /* ================= STEPPER ================= */
+
+        /* =========================================================
+                           STEPPER
+                        ========================================================= */
 
         .stepper-card {
             width: 100%;
             background: #FFFFFF;
             border: 1px solid #E5E7EB;
-            border-radius: 9px;
-            padding: 18px 22px;
-            margin-bottom: 14px;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
             box-shadow: 0 3px 12px rgba(0,0,0,.04);
         }
 
@@ -476,21 +543,22 @@
         .step {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 9px;
             white-space: nowrap;
         }
 
         .step-number {
-            width: 27px;
-            height: 27px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 9px;
+            font-size: 11px;
             font-weight: 700;
             background: #E5E7EB;
             color: #6B7280;
+            flex-shrink: 0;
         }
 
         .step.completed .step-number,
@@ -500,7 +568,7 @@
         }
 
         .step-label {
-            font-size: 9px;
+            font-size: 11px;
             font-weight: 600;
             color: #6B7280;
         }
@@ -514,20 +582,23 @@
             flex: 1;
             height: 1px;
             background: #D1D5DB;
-            margin: 0 15px;
+            margin: 0 16px;
         }
 
             .step-line.completed {
                 background: #EF1C24;
             }
 
-        /* ================= REVIEW CARD ================= */
+
+        /* =========================================================
+                           REVIEW CARD
+                        ========================================================= */
 
         .review-card {
             width: 100%;
             background: #FFFFFF;
             border: 1px solid #E5E7EB;
-            border-radius: 9px;
+            border-radius: 8px;
             padding: 18px;
             box-shadow: 0 3px 12px rgba(0,0,0,.04);
         }
@@ -536,17 +607,20 @@
             font-size: 14px;
             font-weight: 700;
             color: #111827;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
 
         .review-subtitle {
-            font-size: 10px;
+            font-size: 12px;
             color: #9CA3AF;
-            font-weight: 500;
+            font-weight: 400;
             margin-bottom: 18px;
         }
 
-        /* ================= UPLOADED FILES ================= */
+
+        /* =========================================================
+                           SECTION BOX
+                        ========================================================= */
 
         .section-box {
             border: 1px solid #E5E7EB;
@@ -557,31 +631,39 @@
         }
 
         .section-header {
-            padding: 10px 11px;
+            padding: 10px 12px;
             border-bottom: 1px solid #E5E7EB;
             font-size: 12px;
             font-weight: 700;
             color: #111827;
         }
 
+
+        /* =========================================================
+                           FILE AREA
+                        ========================================================= */
+
         .file-area {
             min-height: 65px;
-            padding: 10px 11px;
+            padding: 12px;
         }
 
         .no-files {
-            font-size: 9px;
+            font-size: 11px;
             color: #9CA3AF;
         }
 
         .total-size {
             border-top: 1px solid #E5E7EB;
-            padding: 6px 11px;
-            font-size: 8px;
+            padding: 7px 12px;
+            font-size: 10px;
             color: #9CA3AF;
         }
 
-        /* ================= DETAILS SUMMARY ================= */
+
+        /* =========================================================
+                           DETAILS SUMMARY
+                        ========================================================= */
 
         .summary-table {
             width: 100%;
@@ -597,8 +679,8 @@
                 }
 
             .summary-table td {
-                padding: 5px 11px;
-                font-size: 8px;
+                padding: 7px 12px;
+                font-size: 11px;
             }
 
         .summary-label {
@@ -612,27 +694,35 @@
             font-weight: 500;
         }
 
-        /* ================= FOOTER ================= */
+
+        /* =========================================================
+                           FOOTER
+                        ========================================================= */
 
         .review-footer {
             display: flex;
             justify-content: flex-end;
             align-items: center;
             gap: 10px;
-            margin-top: 15px;
+            margin-top: 18px;
         }
 
         .cancel-btn,
         .back-btn {
-            width: 90px;
-            height: 34px;
-            border: 1px solid #D1D5DB;
-            border-radius: 5px;
-            background: #FFFFFF;
-            color: #374151;
-            font-size: 9px;
+            width: 180px;
+            height: 40px;
+            border-radius: 6px;
+            font-size: 12px;
             font-weight: 600;
             cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .cancel-btn,
+        .back-btn {
+            border: 1px solid #D1D5DB;
+            background: #FFFFFF;
+            color: #374151;
         }
 
             .cancel-btn:hover,
@@ -641,22 +731,46 @@
             }
 
         .upload-btn {
-            height: 34px;
-            padding: 0 16px;
+            width: 180px;
+            height: 40px;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             background: #EF1C24;
             color: #FFFFFF;
-            font-size: 9px;
+            font-size: 12px;
             font-weight: 600;
             cursor: pointer;
+            transition: all .2s ease;
+            box-shadow: 0 3px 8px rgba(239,28,36,.20);
         }
 
             .upload-btn:hover {
                 background: #B91C1C;
+                transform: translateY(-1px);
+                box-shadow: 0 5px 12px rgba(185,28,28,.25);
             }
 
-        /* ================= RESPONSIVE ================= */
+
+        /* =========================================================
+                           RESPONSIVE
+                        ========================================================= */
+
+        @@media (max-width: 1000px) {
+
+            .stepper {
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+
+            .step-line {
+                min-width: 50px;
+            }
+
+            .review-footer {
+                margin-top: 30px;
+            }
+        }
+
 
         @@media (max-width: 768px) {
 
@@ -676,21 +790,58 @@
                 display: none;
             }
 
+            .logo-section {
+                padding: 18px 10px;
+            }
+
+            .logo-circle {
+                width: 42px;
+                height: 42px;
+            }
+
+            .menu {
+                padding: 15px 10px;
+            }
+
+                .menu a {
+                    width: 44px;
+                    height: 44px;
+                    margin: 0 auto 10px auto;
+                    padding: 0;
+                    justify-content: center;
+                }
+
+            .dropdown-toggle-menu {
+                width: 44px;
+                height: 44px;
+                margin: 0 auto 10px auto;
+                padding: 0;
+                justify-content: center;
+            }
+
+            .small-arrow {
+                display: none;
+            }
+
+            .logout a {
+                width: 44px;
+                height: 44px;
+                margin: 0 auto;
+                padding: 0;
+                justify-content: center;
+            }
+
             .content-area {
-                padding: 14px;
+                padding: 16px;
             }
 
             .breadcrumb-title {
-                font-size: 16px;
+                font-size: 21px;
             }
 
             .stepper-card,
             .review-card {
-                padding: 14px;
-            }
-
-            .stepper {
-                overflow-x: auto;
+                padding: 16px;
             }
 
             .review-footer {
@@ -698,9 +849,13 @@
             }
         }
 
+
         @@media (max-width: 500px) {
 
-            .profile-info,
+            .profile-info {
+                display: none;
+            }
+
             .profile-arrow {
                 display: none;
             }
@@ -711,6 +866,10 @@
 
             .content-area {
                 padding: 12px;
+            }
+
+            .breadcrumb-title {
+                font-size: 19px;
             }
 
             .review-footer {
@@ -726,14 +885,20 @@
         }
 
     </style>
+
 </head>
 
 <body>
 
     <div class="dashboard-container">
 
-        <!-- SIDEBAR -->
+        <!-- =====================================================
+             SIDEBAR
+        ====================================================== -->
+
         <aside class="sidebar">
+
+            <!-- LOGO -->
 
             <div class="logo-section">
 
@@ -751,28 +916,91 @@
 
             </div>
 
+
+            <!-- MENU -->
+
             <div class="menu">
 
-                <a href="@Url.Action("StaffDashboard", "Staff")">
+                <!-- DASHBOARD -->
+
+                <a href="@Url.Action("Dashboard", "Admin")">
+
                     <i class="bi bi-grid-fill"></i>
-                    <span>Dashboard</span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
                 </a>
 
-                <a href="@Url.Action("StaffRequest", "Staff")">
+
+                <!-- REQUEST -->
+
+                <a href="@Url.Action("RequestManagement", "Admin")">
+
                     <i class="bi bi-file-earmark-text"></i>
-                    <span>Request</span>
+
+                    <span>
+                        Request
+                    </span>
+
                 </a>
 
-                <a href="@Url.Action("StaffRecords", "Staff")"
+
+                <!-- RECORDS -->
+
+                <a href="@Url.Action("RecordsManagement", "Admin")"
                    class="active">
+
                     <i class="bi bi-folder2-open"></i>
-                    <span>Records</span>
+
+                    <span>
+                        Records
+                    </span>
+
                 </a>
 
-                <a href="@Url.Action("StaffReports", "Staff")">
+
+                <!-- REPORTS -->
+
+                <a href="@Url.Action("ReportsManagement", "Admin")">
+
                     <i class="bi bi-file-earmark-bar-graph"></i>
-                    <span>Reports</span>
+
+                    <span>
+                        Reports
+                    </span>
+
                 </a>
+
+
+                <!-- AUDIT LOGS -->
+
+                <a href="@Url.Action("AuditLogs", "Admin")">
+
+                    <i class="bi bi-clock-history"></i>
+
+                    <span>
+                        Audit Logs
+                    </span>
+
+                </a>
+
+
+                <!-- USERS -->
+
+                <a href="@Url.Action("UsersManagement", "Admin")">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <span>
+                        Users
+                    </span>
+
+                </a>
+
+
+                <!-- SETTINGS -->
 
                 <div class="sidebar-dropdown">
 
@@ -781,22 +1009,36 @@
 
                         <i class="bi bi-gear-fill"></i>
 
-                        <span>Settings</span>
+                        <span>
+                            Settings
+                        </span>
 
                         <i class="bi bi-chevron-right ms-auto small-arrow"></i>
 
                     </a>
 
+
                     <div class="dropdown-submenu">
 
-                        <a href="@Url.Action("StaffSettings", "Staff")">
+                        <a href="@Url.Action("Settings", "Admin")">
+
                             <i class="bi bi-sliders"></i>
-                            <span>General Settings</span>
+
+                            <span>
+                                General Settings
+                            </span>
+
                         </a>
 
-                        <a href="@Url.Action("SAccountSettings", "Staff")">
+
+                        <a href="@Url.Action("SAccountSettings", "Admin")">
+
                             <i class="bi bi-person-gear"></i>
-                            <span>Account & Security</span>
+
+                            <span>
+                                Account & Security
+                            </span>
+
                         </a>
 
                     </div>
@@ -805,13 +1047,18 @@
 
             </div>
 
+
+            <!-- LOGOUT -->
+
             <div class="logout">
 
-                <a href="@Url.Action("StaffLogin", "Staff")">
+                <a href="@Url.Action("Login", "Admin")">
 
                     <i class="bi bi-box-arrow-right"></i>
 
-                    <span>Logout</span>
+                    <span>
+                        Logout
+                    </span>
 
                 </a>
 
@@ -819,16 +1066,23 @@
 
         </aside>
 
-        <!-- MAIN -->
+
+        <!-- =====================================================
+             MAIN CONTENT
+        ====================================================== -->
+
         <div class="main-content">
 
+
             <!-- TOPBAR -->
+
             <div class="topbar">
 
                 <div class="topbar-left">
 
                     <button class="menu-toggle"
-                            id="menuToggle">
+                            id="menuToggle"
+                            type="button">
 
                         <i class="bi bi-list"></i>
 
@@ -836,9 +1090,11 @@
 
                 </div>
 
+
                 <div class="topbar-right">
 
                     <i class="bi bi-bell notification-icon"></i>
+
 
                     <div class="profile">
 
@@ -847,9 +1103,13 @@
 
                         <div class="profile-info">
 
-                            <h5>John Cruz</h5>
+                            <h5>
+                                John Cruz
+                            </h5>
 
-                            <span>Administrator</span>
+                            <span>
+                                Administrator
+                            </span>
 
                         </div>
 
@@ -861,16 +1121,19 @@
 
             </div>
 
-            <!-- CONTENT -->
+
+            <!-- =================================================
+                 CONTENT
+            ================================================== -->
+
             <div class="content-area">
 
-                <!-- =================================================
-                               BREADCRUMB
-                 ================================================== -->
+
+                <!-- BREADCRUMB -->
 
                 <div class="breadcrumb-title">
 
-                    <a href="@Url.Action("StaffRecords", "Staff")"
+                    <a href="@Url.Action("RecordsManagement", "Admin")"
                        class="review-breadcrumb">
 
                         Records
@@ -886,19 +1149,32 @@
                     </strong>
 
                 </div>
+
+
+                <!-- DESCRIPTION -->
+
                 <p class="page-description">
                     Review the record details and confirm the information before saving.
                 </p>
 
-                <!-- STEPPER -->
+
+                <!-- =================================================
+                     STEPPER
+                ================================================== -->
+
                 <div class="stepper-card">
 
                     <div class="stepper">
 
+
+                        <!-- STEP 1 -->
+
                         <div class="step completed">
 
                             <div class="step-number">
+
                                 <i class="bi bi-check"></i>
+
                             </div>
 
                             <div class="step-label">
@@ -907,12 +1183,18 @@
 
                         </div>
 
+
                         <div class="step-line completed"></div>
+
+
+                        <!-- STEP 2 -->
 
                         <div class="step completed">
 
                             <div class="step-number">
+
                                 <i class="bi bi-check"></i>
+
                             </div>
 
                             <div class="step-label">
@@ -921,12 +1203,16 @@
 
                         </div>
 
+
                         <div class="step-line completed"></div>
+
+
+                        <!-- STEP 3 -->
 
                         <div class="step active">
 
                             <div class="step-number">
-                                <i class="bi bi-check"></i>
+                                3
                             </div>
 
                             <div class="step-label">
@@ -939,8 +1225,13 @@
 
                 </div>
 
-                <!-- REVIEW CARD -->
+
+                <!-- =================================================
+                     REVIEW CARD
+                ================================================== -->
+
                 <div class="review-card">
+
 
                     <div class="review-title">
                         Review your Upload file
@@ -950,12 +1241,20 @@
                         Please review all the details before uploading the records.
                     </div>
 
-                    <!-- UPLOADED FILES -->
+
+                    <!-- =================================================
+                         UPLOADED FILES
+                    ================================================== -->
+
                     <div class="section-box">
 
                         <div class="section-header">
-                            Uploaded files (<span id="fileCount">0</span>)
+
+                            Uploaded files
+                            (<span id="fileCount">0</span>)
+
                         </div>
+
 
                         <div class="file-area">
 
@@ -970,20 +1269,29 @@
 
                         </div>
 
+
                         <div class="total-size">
 
-                            Total size: <span id="totalSize">0</span>
+                            Total size:
+                            <span id="totalSize">
+                                0
+                            </span>
 
                         </div>
 
                     </div>
 
-                    <!-- DETAILS SUMMARY -->
+
+                    <!-- =================================================
+                         DETAILS SUMMARY
+                    ================================================== -->
+
                     <div class="section-box">
 
                         <div class="section-header">
                             Details Summary
                         </div>
+
 
                         <table class="summary-table">
 
@@ -995,10 +1303,13 @@
 
                                 <td class="summary-value"
                                     id="summaryName">
+
                                     Juan Dela Paz
+
                                 </td>
 
                             </tr>
+
 
                             <tr>
 
@@ -1008,10 +1319,13 @@
 
                                 <td class="summary-value"
                                     id="summaryCategory">
+
                                     Send-Off
+
                                 </td>
 
                             </tr>
+
 
                             <tr>
 
@@ -1021,10 +1335,13 @@
 
                                 <td class="summary-value"
                                     id="summaryDate">
+
                                     May 08, 2026
+
                                 </td>
 
                             </tr>
+
 
                             <tr>
 
@@ -1034,7 +1351,9 @@
 
                                 <td class="summary-value"
                                     id="summaryDescription">
+
                                     Description
+
                                 </td>
 
                             </tr>
@@ -1045,24 +1364,31 @@
 
                 </div>
 
-                <!-- FOOTER -->
+
+                <!-- =================================================
+                     FOOTER BUTTONS
+                ================================================== -->
+
                 <div class="review-footer">
+
 
                     <button type="button"
                             class="cancel-btn"
-                            onclick="window.location.href='@Url.Action("StaffRecords", "Staff")'">
+                            onclick="window.location.href='@Url.Action("RecordsManagement", "Admin")'">
 
                         Cancel
 
                     </button>
 
+
                     <button type="button"
                             class="back-btn"
-                            onclick="window.location.href='@Url.Action("UploadRecordDetails", "Staff")'">
+                            onclick="window.location.href='@Url.Action("UploadRecordDetails", "Admin")'">
 
                         Back
 
                     </button>
+
 
                     <button type="button"
                             class="upload-btn"
@@ -1082,9 +1408,16 @@
 
     </div>
 
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
     <script>
 
-        /* SETTINGS */
+        /* =====================================================
+           SETTINGS DROPDOWN
+        ===================================================== */
 
         const dropdown =
             document.querySelector('.sidebar-dropdown');
@@ -1099,7 +1432,9 @@
         });
 
 
-        /* SIDEBAR */
+        /* =====================================================
+           SIDEBAR COLLAPSE
+        ===================================================== */
 
         const sidebar =
             document.querySelector('.sidebar');
@@ -1114,7 +1449,9 @@
         });
 
 
-        /* SAMPLE REVIEW DATA */
+        /* =====================================================
+           REVIEW DATA
+        ===================================================== */
 
         const storedName =
             localStorage.getItem("uploadFullName");
@@ -1136,6 +1473,7 @@
 
         }
 
+
         if (storedCategory) {
 
             document.getElementById("summaryCategory")
@@ -1143,12 +1481,14 @@
 
         }
 
+
         if (storedDate) {
 
             document.getElementById("summaryDate")
                 .textContent = storedDate;
 
         }
+
 
         if (storedDescription) {
 
@@ -1158,7 +1498,9 @@
         }
 
 
-        /* UPLOAD */
+        /* =====================================================
+           UPLOAD
+        ===================================================== */
 
         document.getElementById("uploadBtn")
             .addEventListener("click", function () {
@@ -1166,7 +1508,7 @@
                 alert("Records uploaded successfully.");
 
                 window.location.href =
-                    '@Url.Action("StaffRecords", "Staff")';
+                    '@Url.Action("RecordsManagement", "Admin")';
 
             });
 

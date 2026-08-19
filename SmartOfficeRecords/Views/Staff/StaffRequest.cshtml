@@ -1,5 +1,1873 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewBag.Title = "Staff Request Management";
+    Layout = null;
 }
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Request Management - SORS</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          rel="stylesheet" />
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        /* =========================================================
+                           GLOBAL
+                        ========================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #F5F6F8;
+            overflow: hidden;
+            color: #111827;
+        }
+
+
+        /* =========================================================
+                           MAIN CONTAINER
+                        ========================================================== */
+
+        .dashboard-container {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+        }
+
+
+        /* =========================================================
+                           SIDEBAR
+                        ========================================================== */
+
+        .sidebar {
+            width: 158px;
+            min-width: 158px;
+            height: 100vh;
+            background: #1F2933;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            transition: all .3s ease;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,.25) transparent;
+        }
+
+            .sidebar::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            .sidebar::-webkit-scrollbar-thumb {
+                background: rgba(255,255,255,.25);
+                border-radius: 10px;
+            }
+
+            .sidebar::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+
+            /* =========================================================
+                           COLLAPSED SIDEBAR
+                        ========================================================== */
+
+            .sidebar.collapsed {
+                width: 78px;
+                min-width: 78px;
+            }
+
+                .sidebar.collapsed .system-name {
+                    display: block;
+                    font-size: 11px;
+                    font-weight: 700;
+                    margin-top: 8px;
+                    letter-spacing: .2px;
+                }
+
+                .sidebar.collapsed .logo-circle {
+                    width: 42px;
+                    height: 42px;
+                }
+
+                .sidebar.collapsed .logo-section {
+                    padding: 18px 10px;
+                }
+
+                .sidebar.collapsed .menu a span,
+                .sidebar.collapsed .logout a span {
+                    display: none;
+                }
+
+                .sidebar.collapsed .menu {
+                    padding: 16px 10px;
+                }
+
+                    .sidebar.collapsed .menu a {
+                        width: 44px;
+                        height: 44px;
+                        margin: 0 auto 10px auto;
+                        padding: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 6px;
+                    }
+
+                        .sidebar.collapsed .menu a.active {
+                            background: #B91C1C;
+                            box-shadow: 0 4px 10px rgba(0,0,0,.15);
+                        }
+
+                        .sidebar.collapsed .menu a i,
+                        .sidebar.collapsed .logout a i {
+                            margin: 0;
+                            font-size: 17px;
+                        }
+
+                .sidebar.collapsed .logout {
+                    padding-bottom: 15px;
+                }
+
+                    .sidebar.collapsed .logout a {
+                        width: 44px;
+                        height: 44px;
+                        margin: 0 auto;
+                        padding: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+
+        /* =========================================================
+                           LOGO SECTION
+                        ========================================================== */
+
+        .logo-section {
+            text-align: center;
+            padding: 18px 10px;
+            border-bottom: 1px solid rgba(255,255,255,.18);
+        }
+
+        .logo-circle {
+            width: 42px;
+            height: 42px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .system-name {
+            margin-top: 9px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .3px;
+            color: #FFFFFF;
+        }
+
+
+        /* =========================================================
+                           MENU
+                        ========================================================== */
+
+        .menu {
+            padding: 16px 9px;
+        }
+
+            .menu a {
+                color: #FFFFFF;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 11px;
+                padding: 10px 11px;
+                margin-bottom: 5px;
+                border-radius: 6px;
+                font-size: 13px;
+                font-weight: 500;
+                line-height: 1.2;
+                transition: all .2s ease;
+            }
+
+                .menu a i {
+                    font-size: 16px;
+                    min-width: 16px;
+                }
+
+                .menu a:hover {
+                    background: rgba(185, 28, 28, .18);
+                    color: #FFFFFF;
+                }
+
+                .menu a.active {
+                    background: #B91C1C;
+                    color: #FFFFFF;
+                    box-shadow: 0 3px 8px rgba(185,28,28,.22);
+                }
+
+
+        /* =========================================================
+                           LOGOUT
+                        ========================================================== */
+
+        .logout {
+            margin-top: auto;
+            padding: 12px 9px 15px 9px;
+        }
+
+            .logout a {
+                color: #FFFFFF;
+                text-decoration: none;
+                display: flex;
+                gap: 11px;
+                align-items: center;
+                padding: 10px 11px;
+                font-size: 13px;
+                font-weight: 500;
+                border-radius: 6px;
+                transition: all .2s ease;
+            }
+
+                .logout a i {
+                    font-size: 16px;
+                }
+
+                .logout a:hover {
+                    background: rgba(185,28,28,.18);
+                }
+
+
+        /* =========================================================
+                           MAIN CONTENT
+                        ========================================================== */
+
+        .main-content {
+            flex: 1;
+            background: #F5F6F8;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+
+        /* =========================================================
+                           TOPBAR
+                        ========================================================== */
+
+        .topbar {
+            height: 56px;
+            min-height: 56px;
+            flex-shrink: 0;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background: #FFFFFF;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: #B91C1C;
+            font-size: 19px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+
+        /* =========================================================
+                           TOPBAR RIGHT
+                        ========================================================== */
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-left: auto;
+        }
+
+        .notification-icon {
+            font-size: 19px;
+            color: #374151;
+            cursor: pointer;
+            transition: color .2s ease;
+        }
+
+            .notification-icon:hover {
+                color: #B91C1C;
+            }
+
+
+        /* =========================================================
+                           PROFILE
+                        ========================================================== */
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding-left: 12px;
+            border-left: 1px solid #E5E7EB;
+        }
+
+            .profile img {
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.25;
+        }
+
+            .profile-info h5 {
+                margin: 0;
+                font-size: 12px;
+                font-weight: 600;
+                color: #111827;
+            }
+
+            .profile-info span {
+                font-size: 10px;
+                color: #6B7280;
+                margin-top: 2px;
+            }
+
+        .profile-arrow {
+            color: #6B7280;
+            font-size: 10px;
+            margin-left: 3px;
+        }
+
+
+        /* =========================================================
+                           CONTENT AREA
+                        ========================================================== */
+
+        .content-area {
+            flex: 1;
+            padding: 22px 30px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .content-area {
+            scrollbar-width: thin;
+            scrollbar-color: #C7CBD1 transparent;
+        }
+
+            .content-area::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .content-area::-webkit-scrollbar-thumb {
+                background: #C7CBD1;
+                border-radius: 10px;
+            }
+
+            .content-area::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+
+        /* =========================================================
+                           PAGE HEADER
+                           SAME SIZE AS DASHBOARD "Hi!"
+                        ========================================================== */
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+
+        .page-title {
+            color: #B91C1C;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin: 0 0 5px 0;
+            line-height: 1.2;
+        }
+
+        .page-subtitle {
+            color: #64748B;
+            font-size: 13px;
+            font-weight: 400;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+                           ACTION BAR
+                        ========================================================== */
+
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .search-filter {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+
+        /* =========================================================
+                           SEARCH BOX
+                        ========================================================== */
+
+        .search-box {
+            height: 36px;
+            flex: 1;
+            max-width: 540px;
+            background: #FFFFFF;
+            border-radius: 20px;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 3px 12px rgba(0,0,0,.05);
+            display: flex;
+            align-items: center;
+            padding: 0 13px;
+            gap: 9px;
+        }
+
+            .search-box i {
+                color: #6B7280;
+                font-size: 13px;
+            }
+
+            .search-box input {
+                width: 100%;
+                border: none;
+                outline: none;
+                font-size: 11px;
+                color: #374151;
+                background: transparent;
+                font-weight: 400;
+            }
+
+                .search-box input::placeholder {
+                    color: #9CA3AF;
+                }
+
+
+        /* =========================================================
+                           STATUS FILTER
+                        ========================================================== */
+
+        .status-filter {
+            width: 190px;
+            height: 36px;
+            background: #FFFFFF;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            padding: 0 11px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #374151;
+            outline: none;
+        }
+
+            .status-filter:focus {
+                border-color: #B91C1C;
+                box-shadow: 0 0 0 2px rgba(185,28,28,.08);
+            }
+
+
+        /* =========================================================
+                           CREATE REQUEST
+                        ========================================================== */
+
+        .create-btn {
+            height: 36px;
+            border: none;
+            border-radius: 6px;
+            background: #B91C1C;
+            color: #FFFFFF;
+            padding: 0 16px;
+            font-size: 11px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            transition: all .2s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+            .create-btn:hover {
+                background: #991B1B;
+                color: #FFFFFF;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 10px rgba(185,28,28,.20);
+            }
+
+            .create-btn i {
+                font-size: 13px;
+            }
+
+
+        /* =========================================================
+                           TABLE CONTAINER
+                        ========================================================== */
+
+        .table-container {
+            background: #FFFFFF;
+            border: 1px solid #D9DDE3;
+            border-radius: 8px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,.02);
+        }
+
+            .table-container::-webkit-scrollbar {
+                height: 6px;
+            }
+
+            .table-container::-webkit-scrollbar-thumb {
+                background: #C7CBD1;
+                border-radius: 10px;
+            }
+
+
+        /* =========================================================
+                           TABLE
+                        ========================================================== */
+
+        .request-table {
+            width: 100%;
+            min-width: 900px;
+            border-collapse: collapse;
+            margin: 0;
+            table-layout: fixed;
+        }
+
+
+            /* =========================================================
+                           COLUMN WIDTHS
+                        ========================================================== */
+
+            .request-table th:nth-child(1),
+            .request-table td:nth-child(1) {
+                width: 10%;
+            }
+
+            .request-table th:nth-child(2),
+            .request-table td:nth-child(2) {
+                width: 21%;
+            }
+
+            .request-table th:nth-child(3),
+            .request-table td:nth-child(3) {
+                width: 23%;
+            }
+
+            .request-table th:nth-child(4),
+            .request-table td:nth-child(4) {
+                width: 15%;
+            }
+
+            .request-table th:nth-child(5),
+            .request-table td:nth-child(5) {
+                width: 12%;
+            }
+
+            .request-table th:nth-child(6),
+            .request-table td:nth-child(6) {
+                width: 19%;
+            }
+
+
+            /* =========================================================
+                           TABLE HEADER
+                        ========================================================== */
+
+            .request-table thead {
+                background: #111111;
+            }
+
+                .request-table thead th {
+                    height: 40px;
+                    padding: 0 12px;
+                    font-size: 10px;
+                    font-weight: 700;
+                    letter-spacing: .15px;
+                    color: #FFFFFF;
+                    background: #111111;
+                    border-bottom: 1px solid #111111;
+                    white-space: nowrap;
+                    vertical-align: middle;
+                }
+
+                    .request-table thead th:nth-child(1) {
+                        text-align: center;
+                    }
+
+                    .request-table thead th:nth-child(2),
+                    .request-table thead th:nth-child(3) {
+                        text-align: left;
+                    }
+
+                    .request-table thead th:nth-child(4),
+                    .request-table thead th:nth-child(5),
+                    .request-table thead th:nth-child(6) {
+                        text-align: center;
+                    }
+
+
+            /* =========================================================
+                           TABLE BODY
+                        ========================================================== */
+
+            .request-table tbody td {
+                height: 42px;
+                padding: 0 12px;
+                font-size: 10px;
+                font-weight: 500;
+                color: #374151;
+                background: #FFFFFF;
+                border-bottom: 1px solid #E5E7EB;
+                white-space: nowrap;
+                vertical-align: middle;
+            }
+
+                .request-table tbody td:nth-child(1) {
+                    text-align: center;
+                    font-weight: 600;
+                    color: #4B5563;
+                }
+
+                .request-table tbody td:nth-child(2),
+                .request-table tbody td:nth-child(3) {
+                    text-align: left;
+                }
+
+                .request-table tbody td:nth-child(4),
+                .request-table tbody td:nth-child(5),
+                .request-table tbody td:nth-child(6) {
+                    text-align: center;
+                }
+
+            .request-table tbody tr:hover td {
+                background: #FEF2F2;
+            }
+
+            .request-table tbody tr:last-child td {
+                border-bottom: none;
+            }
+
+
+        /* =========================================================
+                           STATUS BADGES
+                        ========================================================== */
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 70px;
+            padding: 5px 9px;
+            border-radius: 5px;
+            font-size: 9px;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .status-pending {
+            background: #FEF3C7;
+            color: #D97706;
+        }
+
+        .status-approved {
+            background: #DCFCE7;
+            color: #15803D;
+        }
+
+        .status-rejected {
+            background: #FEE2E2;
+            color: #B91C1C;
+        }
+
+        .status-completed {
+            background: #DBEAFE;
+            color: #2563EB;
+        }
+
+
+        /* =========================================================
+                           ACTION BUTTONS
+                        ========================================================== */
+
+        .action-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            width: 100%;
+        }
+
+        .action-btn {
+            height: 28px;
+            border: none;
+            border-radius: 5px;
+            padding: 0 9px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all .2s ease;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+            .action-btn i {
+                font-size: 11px;
+            }
+
+
+        /* =========================================================
+                           VIEW
+                        ========================================================== */
+
+        .view-action {
+            background: #2563EB;
+            color: #FFFFFF;
+        }
+
+            .view-action:hover {
+                background: #1D4ED8;
+                color: #FFFFFF;
+                transform: translateY(-1px);
+            }
+
+
+        /* =========================================================
+                           APPROVE
+                        ========================================================== */
+
+        .approve-action {
+            background: #16A34A;
+            color: #FFFFFF;
+        }
+
+            .approve-action:hover {
+                background: #15803D;
+                color: #FFFFFF;
+                transform: translateY(-1px);
+            }
+
+
+        /* =========================================================
+                           REJECT
+                        ========================================================== */
+
+        .reject-action {
+            background: #B91C1C;
+            color: #FFFFFF;
+        }
+
+            .reject-action:hover {
+                background: #991B1B;
+                color: #FFFFFF;
+                transform: translateY(-1px);
+            }
+
+
+        /* =========================================================
+                           PAGINATION
+                        ========================================================== */
+
+        .pagination-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 18px;
+            width: 100%;
+        }
+
+        .showing-text {
+            font-size: 10px;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .pagination-buttons {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pagination-btn {
+            height: 28px;
+            padding: 0 12px;
+            border: 1px solid #E5E7EB;
+            background: #FFFFFF;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #6B7280;
+            font-size: 9px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+            .pagination-btn:hover {
+                background: #FEE2E2;
+                color: #B91C1C;
+                border-color: #FECACA;
+            }
+
+            .pagination-btn.next-btn {
+                background: #B91C1C;
+                color: #FFFFFF;
+                border-color: #B91C1C;
+            }
+
+                .pagination-btn.next-btn:hover {
+                    background: #991B1B;
+                    color: #FFFFFF;
+                }
+
+
+        /* =========================================================
+                           RESPONSIVE
+                        ========================================================== */
+
+        @@media (max-width: 1000px) {
+
+            .action-bar {
+                flex-wrap: wrap;
+            }
+
+            .search-filter {
+                width: 100%;
+            }
+
+            .search-box {
+                max-width: none;
+            }
+
+            .create-btn {
+                margin-left: auto;
+            }
+        }
+
+
+        @@media (max-width: 768px) {
+
+            body {
+                overflow-y: auto;
+            }
+
+            .sidebar {
+                width: 78px;
+                min-width: 78px;
+            }
+
+            .system-name,
+            .menu a span,
+            .logout a span {
+                display: none;
+            }
+
+            .logo-section {
+                padding: 15px 8px;
+            }
+
+            .logo-circle {
+                width: 40px;
+                height: 40px;
+            }
+
+            .menu {
+                padding: 15px 8px;
+            }
+
+                .menu a {
+                    justify-content: center;
+                    padding: 10px;
+                }
+
+            .logout a {
+                justify-content: center;
+            }
+
+            .content-area {
+                padding: 16px;
+            }
+
+            .page-title {
+                font-size: 21px;
+            }
+
+            .page-subtitle {
+                font-size: 12px;
+            }
+
+            .page-header {
+                margin-bottom: 16px;
+            }
+
+            .action-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-filter {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .search-box {
+                width: 100%;
+                max-width: none;
+            }
+
+            .status-filter {
+                width: 100%;
+            }
+
+            .create-btn {
+                width: 100%;
+                justify-content: center;
+                margin-left: 0;
+            }
+
+            .table-container {
+                overflow-x: auto;
+            }
+
+            .request-table {
+                min-width: 900px;
+            }
+
+            .pagination-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .pagination-buttons {
+                align-self: flex-end;
+            }
+        }
+
+
+        @@media (max-width: 500px) {
+
+            .profile-info {
+                display: none;
+            }
+
+            .profile {
+                border-left: none;
+            }
+
+            .content-area {
+                padding: 12px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- =========================================================
+             SIDEBAR
+        ========================================================== -->
+
+        <aside class="sidebar">
+
+            <!-- LOGO -->
+
+            <div class="logo-section">
+
+                <div class="logo-circle">
+
+                    <img src="~/Images/newlogo.png"
+                         class="logo-img"
+                         alt="SORS Logo" />
+
+                </div>
+
+                <div class="system-name">
+                    SORS
+                </div>
+
+            </div>
+
+
+            <!-- MENU -->
+
+            <div class="menu">
+
+                <!-- DASHBOARD -->
+
+                <a href="@Url.Action("Dashboard", "Admin")">
+
+                    <i class="bi bi-grid-fill"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <!-- REQUEST ACTIVE -->
+
+                <a href="@Url.Action("RequestManagement", "Admin")"
+                   class="active">
+
+                    <i class="bi bi-file-earmark-text"></i>
+
+                    <span>
+                        Request
+                    </span>
+
+                </a>
+
+
+                <!-- RECORDS -->
+
+                <a href="@Url.Action("RecordsManagement", "Admin")">
+
+                    <i class="bi bi-folder2-open"></i>
+
+                    <span>
+                        Records
+                    </span>
+
+                </a>
+
+
+                <!-- REPORTS -->
+
+                <a href="@Url.Action("ReportsManagement", "Admin")">
+
+                    <i class="bi bi-file-earmark-bar-graph"></i>
+
+                    <span>
+                        Reports
+                    </span>
+
+                </a>
+
+
+                <!-- AUDIT LOGS -->
+
+                <a href="@Url.Action("AuditLogs", "Admin")">
+
+                    <i class="bi bi-clock-history"></i>
+
+                    <span>
+                        Audit Logs
+                    </span>
+
+                </a>
+
+
+                <!-- USERS -->
+
+                <a href="@Url.Action("UsersManagement", "Admin")">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <span>
+                        Users
+                    </span>
+
+                </a>
+
+
+                <!-- SETTINGS -->
+
+                <a href="@Url.Action("Settings", "Admin")">
+
+                    <i class="bi bi-gear-fill"></i>
+
+                    <span>
+                        Settings
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- LOGOUT -->
+
+            <div class="logout">
+
+                <a href="@Url.Action("Login", "Admin")">
+
+                    <i class="bi bi-box-arrow-right"></i>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================================================
+             MAIN CONTENT
+        ========================================================== -->
+
+        <div class="main-content">
+
+
+            <!-- =====================================================
+                 TOPBAR
+            ====================================================== -->
+
+            <div class="topbar">
+
+                <!-- LEFT -->
+
+                <div class="topbar-left">
+
+                    <button class="menu-toggle"
+                            id="menuToggle"
+                            type="button">
+
+                        <i class="bi bi-list"></i>
+
+                    </button>
+
+                </div>
+
+
+                <!-- RIGHT -->
+
+                <div class="topbar-right">
+
+                    <!-- NOTIFICATION -->
+
+                    <i class="bi bi-bell notification-icon"></i>
+
+
+                    <!-- PROFILE -->
+
+                    <div class="profile">
+
+                        <img src="~/Images/adminpic.jpg"
+                             alt="Profile" />
+
+                        <div class="profile-info">
+
+                            <h5>
+                                John Cruz
+                            </h5>
+
+                            <span>
+                                Administrator
+                            </span>
+
+                        </div>
+
+                        <i class="bi bi-chevron-down profile-arrow"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================================
+                 CONTENT
+            ====================================================== -->
+
+            <div class="content-area">
+
+
+                <!-- =================================================
+                     PAGE HEADER
+                ================================================== -->
+
+                <div class="page-header">
+
+                    <div>
+
+                        <h2 class="page-title">
+                            Request
+                        </h2>
+
+                        <p class="page-subtitle">
+                            Manage and track submitted requests efficiently.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     ACTION BAR
+                ================================================== -->
+
+                <div class="action-bar">
+
+                    <div class="search-filter">
+
+                        <!-- SEARCH -->
+
+                        <div class="search-box">
+
+                            <i class="bi bi-search"></i>
+
+                            <input type="text"
+                                   id="requestSearch"
+                                   placeholder="Search here..." />
+
+                        </div>
+
+
+                        <!-- STATUS FILTER -->
+
+                        <select class="status-filter"
+                                id="statusFilter">
+
+                            <option value="all">
+                                All Status
+                            </option>
+
+                            <option value="pending">
+                                Pending
+                            </option>
+
+                            <option value="approved">
+                                Approved
+                            </option>
+
+                            <option value="rejected">
+                                Rejected
+                            </option>
+
+                            <option value="completed">
+                                Completed
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- CREATE REQUEST -->
+
+                    <a href="@Url.Action("RCreateRequest", "Admin")"
+                       class="create-btn">
+
+                        <i class="bi bi-plus-lg"></i>
+
+                        Create Request
+
+                    </a>
+
+                </div>
+
+
+                <!-- =================================================
+                     TABLE
+                ================================================== -->
+
+                <div class="table-container">
+
+                    <table class="request-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    REQUEST ID
+                                </th>
+
+                                <th>
+                                    APPLICANT NAME
+                                </th>
+
+                                <th>
+                                    EMAIL ADDRESS
+                                </th>
+
+                                <th>
+                                    DATE APPLIED
+                                </th>
+
+                                <th>
+                                    STATUS
+                                </th>
+
+                                <th>
+                                    ACTION
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="requestTableBody">
+
+
+                            <!-- ROW 1 -->
+
+                            <tr data-status="pending">
+
+                                <td>
+                                    RQ001
+                                </td>
+
+                                <td>
+                                    Cris Alin Zobrado
+                                </td>
+
+                                <td>
+                                    @@gmail.com
+                                </td>
+
+                                <td>
+                                    Apr 24, 2026
+                                </td>
+
+                                <td>
+
+                                    <span class="status-badge status-pending">
+                                        Pending
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <div class="action-icons">
+
+                                        <button class="action-btn view-action"
+                                                type="button"
+                                                title="View">
+
+                                            <i class="bi bi-eye"></i>
+                                            View
+
+                                        </button>
+
+                                        <button class="action-btn approve-action"
+                                                type="button"
+                                                title="Approve">
+
+                                            <i class="bi bi-check-lg"></i>
+                                            Approve
+
+                                        </button>
+
+                                        <button class="action-btn reject-action"
+                                                type="button"
+                                                title="Reject">
+
+                                            <i class="bi bi-x-lg"></i>
+                                            Reject
+
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 2 -->
+
+                            <tr data-status="pending">
+
+                                <td>
+                                    RQ002
+                                </td>
+
+                                <td>
+                                    Hannah Cabasan
+                                </td>
+
+                                <td>
+                                    Back Office
+                                </td>
+
+                                <td>
+                                    Apr 24, 2026
+                                </td>
+
+                                <td>
+
+                                    <span class="status-badge status-pending">
+                                        Pending
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <div class="action-icons">
+
+                                        <button class="action-btn view-action"
+                                                type="button"
+                                                title="View">
+
+                                            <i class="bi bi-eye"></i>
+                                            View
+
+                                        </button>
+
+                                        <button class="action-btn approve-action"
+                                                type="button"
+                                                title="Approve">
+
+                                            <i class="bi bi-check-lg"></i>
+                                            Approve
+
+                                        </button>
+
+                                        <button class="action-btn reject-action"
+                                                type="button"
+                                                title="Reject">
+
+                                            <i class="bi bi-x-lg"></i>
+                                            Reject
+
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 3 -->
+
+                            <tr data-status="pending">
+
+                                <td>
+                                    RQ003
+                                </td>
+
+                                <td>
+                                    John Mark Gualderama
+                                </td>
+
+                                <td>
+                                    Office Staff
+                                </td>
+
+                                <td>
+                                    Apr 24, 2026
+                                </td>
+
+                                <td>
+
+                                    <span class="status-badge status-pending">
+                                        Pending
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <div class="action-icons">
+
+                                        <button class="action-btn view-action"
+                                                type="button"
+                                                title="View">
+
+                                            <i class="bi bi-eye"></i>
+                                            View
+
+                                        </button>
+
+                                        <button class="action-btn approve-action"
+                                                type="button"
+                                                title="Approve">
+
+                                            <i class="bi bi-check-lg"></i>
+                                            Approve
+
+                                        </button>
+
+                                        <button class="action-btn reject-action"
+                                                type="button"
+                                                title="Reject">
+
+                                            <i class="bi bi-x-lg"></i>
+                                            Reject
+
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 4 -->
+
+                            <tr data-status="pending">
+
+                                <td>
+                                    RQ004
+                                </td>
+
+                                <td>
+                                    Juan Dela Cruz
+                                </td>
+
+                                <td>
+                                    Customer Service
+                                </td>
+
+                                <td>
+                                    Apr 24, 2026
+                                </td>
+
+                                <td>
+
+                                    <span class="status-badge status-pending">
+                                        Pending
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <div class="action-icons">
+
+                                        <button class="action-btn view-action"
+                                                type="button"
+                                                title="View">
+
+                                            <i class="bi bi-eye"></i>
+                                            View
+
+                                        </button>
+
+                                        <button class="action-btn approve-action"
+                                                type="button"
+                                                title="Approve">
+
+                                            <i class="bi bi-check-lg"></i>
+                                            Approve
+
+                                        </button>
+
+                                        <button class="action-btn reject-action"
+                                                type="button"
+                                                title="Reject">
+
+                                            <i class="bi bi-x-lg"></i>
+                                            Reject
+
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 5 -->
+
+                            <tr data-status="pending">
+
+                                <td>
+                                    RQ005
+                                </td>
+
+                                <td>
+                                    John Michael Aninon
+                                </td>
+
+                                <td>
+                                    Data Entry Specialist
+                                </td>
+
+                                <td>
+                                    Apr 24, 2026
+                                </td>
+
+                                <td>
+
+                                    <span class="status-badge status-pending">
+                                        Pending
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <div class="action-icons">
+
+                                        <button class="action-btn view-action"
+                                                type="button"
+                                                title="View">
+
+                                            <i class="bi bi-eye"></i>
+                                            View
+
+                                        </button>
+
+                                        <button class="action-btn approve-action"
+                                                type="button"
+                                                title="Approve">
+
+                                            <i class="bi bi-check-lg"></i>
+                                            Approve
+
+                                        </button>
+
+                                        <button class="action-btn reject-action"
+                                                type="button"
+                                                title="Reject">
+
+                                            <i class="bi bi-x-lg"></i>
+                                            Reject
+
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- =================================================
+                     PAGINATION
+                ================================================== -->
+
+                <div class="pagination-section">
+
+                    <div class="showing-text"
+                         id="showingText">
+
+                        Showing 1 to 5 requests
+
+                    </div>
+
+
+                    <div class="pagination-buttons">
+
+                        <button class="pagination-btn"
+                                type="button">
+
+                            Previous
+
+                        </button>
+
+                        <button class="pagination-btn next-btn"
+                                type="button">
+
+                            Next
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =========================================================
+           SIDEBAR COLLAPSE
+        ========================================================== */
+
+        const sidebar =
+            document.querySelector('.sidebar');
+
+        const menuToggle =
+            document.getElementById('menuToggle');
+
+        menuToggle.addEventListener('click', function () {
+
+            sidebar.classList.toggle('collapsed');
+
+        });
+
+
+        /* =========================================================
+           REQUEST SEARCH + STATUS FILTER
+        ========================================================== */
+
+        const requestSearch =
+            document.getElementById('requestSearch');
+
+        const statusFilter =
+            document.getElementById('statusFilter');
+
+        const requestTableBody =
+            document.getElementById('requestTableBody');
+
+        const showingText =
+            document.getElementById('showingText');
+
+
+        function filterRequests() {
+
+            const searchValue =
+                requestSearch.value.toLowerCase().trim();
+
+            const selectedStatus =
+                statusFilter.value.toLowerCase();
+
+            const rows =
+                requestTableBody.querySelectorAll('tr');
+
+            let visibleCount = 0;
+
+            rows.forEach(function (row) {
+
+                const rowText =
+                    row.textContent.toLowerCase();
+
+                const rowStatus =
+                    row.getAttribute('data-status');
+
+                const matchesSearch =
+                    rowText.includes(searchValue);
+
+                const matchesStatus =
+                    selectedStatus === 'all' ||
+                    rowStatus === selectedStatus;
+
+
+                if (matchesSearch && matchesStatus) {
+
+                    row.style.display = '';
+
+                    visibleCount++;
+
+                }
+                else {
+
+                    row.style.display = 'none';
+
+                }
+
+            });
+
+
+            if (visibleCount === 0) {
+
+                showingText.textContent =
+                    'Showing 0 requests';
+
+            }
+            else {
+
+                showingText.textContent =
+                    'Showing 1 to ' +
+                    visibleCount +
+                    ' requests';
+
+            }
+
+        }
+
+
+        requestSearch.addEventListener(
+            'input',
+            filterRequests
+        );
+
+
+        statusFilter.addEventListener(
+            'change',
+            filterRequests
+        );
+
+    </script>
+
+</body>
+</html>
