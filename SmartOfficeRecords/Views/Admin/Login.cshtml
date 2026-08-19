@@ -4,21 +4,33 @@
 }
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Admin Login</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
 
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- Google Font - Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
 
+
     <style>
+
+        /* =========================================================
+                   GLOBAL
+                ========================================================= */
 
         * {
             margin: 0;
@@ -28,21 +40,20 @@
         }
 
         body {
-            background: #F3F4F6;
+            background: #DCDCDC;
             min-height: 100vh;
             overflow: hidden;
         }
 
-        /* =========================================
+
+        /* =========================================================
                    MAIN CONTAINER
-                   ========================================= */
+                ========================================================= */
 
         .main-container {
             width: 100%;
             height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 0;
         }
 
         .login-wrapper {
@@ -54,136 +65,129 @@
         }
 
 
-        /* =========================================
+        /* =========================================================
                    LEFT SIDE
-                   ========================================= */
+                ========================================================= */
 
         .left-side {
             width: 41%;
             height: 100vh;
             background: #111827;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding-top: 72px;
-            position: relative;
+            flex-direction: column;
         }
 
 
-        /* =========================================
-                   LOGO
-                   ========================================= */
+        /* =========================================================
+                   LOGO + SYSTEM NAME
+                ========================================================= */
 
         .top-content {
             width: 100%;
             text-align: center;
+            padding-top: 70px;
         }
 
             .top-content img {
-                width: 120px;
-                height: 120px;
+                width: 124px;
+                height: 124px;
                 object-fit: contain;
                 background: #FFFFFF;
-                padding: 8px;
                 border-radius: 50%;
-                margin-bottom: 32px;
+                padding: 8px;
+                display: block;
+                margin: 0 auto 32px auto;
             }
-
-
-            /* =========================================
-                   SYSTEM NAME
-                   ========================================= */
 
             .top-content h1 {
                 color: #FFFFFF;
-                font-size: 30px;
+                font-size: 29px;
                 font-weight: 700;
-                line-height: 1.35;
-                letter-spacing: 0.2px;
+                line-height: 1.45;
+                letter-spacing: 0;
                 margin: 0;
             }
 
 
-        /* =========================================
+        /* =========================================================
                    RIGHT SIDE
-                   ========================================= */
+                ========================================================= */
 
         .right-side {
             width: 59%;
             height: 100vh;
-            background: #FFFFFF;
+            background: #F8F8F8;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 40px;
+            padding: 20px;
         }
 
 
-        /* =========================================
+        /* =========================================================
                    LOGIN CARD
-                   ========================================= */
+                ========================================================= */
 
         .login-card {
-            width: 100%;
-            max-width: 430px;
+            width: 450px;
             background: #FFFFFF;
-            padding: 52px 45px 55px 45px;
+            border: 1px solid #D7DCE2;
             border-radius: 8px;
-            border: none;
-            box-shadow: 0 8px 25px rgba(17, 24, 39, 0.07);
-            animation: fadeIn 0.6s ease forwards;
+            padding: 48px 45px 35px 45px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            animation: fadeIn 0.5s ease forwards;
         }
 
 
-            /* =========================================
-                   TITLE
-                   ========================================= */
+            /* =========================================================
+                   LOGIN TITLE
+                ========================================================= */
 
             .login-card h2 {
                 text-align: center;
-                font-size: 27px;
+                font-size: 25px;
                 font-weight: 700;
-                color: #111827;
-                margin-bottom: 5px;
+                color: #172033;
+                margin: 0 0 5px 0;
             }
 
         .subtitle {
             text-align: center;
-            color: #6B7280;
-            font-size: 13px;
-            margin-bottom: 40px;
+            color: #4B5563;
+            font-size: 12px;
+            font-weight: 400;
+            margin: 0 0 42px 0;
         }
 
 
-
-        /* =========================================
-                   LABEL
-                   ========================================= */
+        /* =========================================================
+                   FORM LABEL
+                ========================================================= */
 
         .form-label {
-            font-size: 13px;
+            display: block;
             font-weight: 600;
             color: #111827;
-            margin-bottom: 7px;
+            margin: 0 0 8px 0;
+            font-size: 13px;
         }
 
 
-        /* =========================================
+        /* =========================================================
                    INPUT GROUP
-                   ========================================= */
+                ========================================================= */
 
         .input-group-custom {
             position: relative;
-            margin-bottom: 25px;
+            width: 100%;
+            margin-bottom: 32px;
         }
-
-
-            /* LEFT ICON */
 
             .input-group-custom .left-icon {
                 position: absolute;
-                left: 14px;
+                left: 13px;
                 top: 50%;
                 transform: translateY(-50%);
                 color: #9CA3AF;
@@ -192,15 +196,12 @@
                 transition: 0.2s ease;
             }
 
-
-            /* RIGHT ICON */
-
             .input-group-custom .right-icon {
                 position: absolute;
-                right: 14px;
+                right: 13px;
                 top: 50%;
                 transform: translateY(-50%);
-                color: #6B7280;
+                color: #9CA3AF;
                 font-size: 16px;
                 cursor: pointer;
                 z-index: 2;
@@ -208,30 +209,31 @@
             }
 
                 .input-group-custom .right-icon:hover {
-                    color: #991B1B;
+                    color: #B91C1C;
                 }
 
 
-        /* =========================================
+        /* =========================================================
                    INPUT
-                   ========================================= */
+                ========================================================= */
 
         .form-control-custom {
             width: 100%;
-            height: 48px;
+            height: 50px;
+            border: 1px solid #AEB7C2;
+            border-radius: 5px;
             background: #FFFFFF;
-            border: 1px solid #D1D5DB;
-            border-radius: 6px;
-            padding-left: 44px;
-            padding-right: 44px;
-            color: #111827;
-            font-size: 14px;
+            padding: 0 42px;
             outline: none;
-            transition: all 0.2s ease;
+            color: #374151;
+            font-size: 12px;
+            font-weight: 400;
+            transition: all .2s ease;
         }
 
             .form-control-custom::placeholder {
-                color: #9CA3AF;
+                color: #B5BBC3;
+                font-size: 12px;
             }
 
             .form-control-custom:hover {
@@ -240,7 +242,7 @@
 
             .form-control-custom:focus {
                 border-color: #B91C1C;
-                box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.10);
+                box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.08);
                 background: #FFFFFF;
             }
 
@@ -249,32 +251,30 @@
         }
 
 
-        /* =========================================
+        /* =========================================================
                    LOGIN BUTTON
-                   ========================================= */
+                ========================================================= */
 
         .btn-login {
             width: 100%;
             height: 58px;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             background: #B91C1C;
             color: #FFFFFF;
-            font-size: 17px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
-            margin-top: 10px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(185, 28, 28, 0.18);
+            margin-top: 2px;
+            transition: all .2s ease;
+            box-shadow: 0 4px 10px rgba(185, 28, 28, 0.15);
         }
-
 
             .btn-login:hover {
                 background: #991B1B;
                 transform: translateY(-1px);
-                box-shadow: 0 6px 15px rgba(153, 27, 27, 0.25);
+                box-shadow: 0 6px 15px rgba(153, 27, 27, 0.20);
             }
-
 
             .btn-login:active {
                 background: #7F1D1D;
@@ -282,32 +282,32 @@
             }
 
 
-        /* =========================================
+        /* =========================================================
                    ERROR MESSAGE
-                   ========================================= */
+                ========================================================= */
 
         .error-message {
-            background: #FEF2F2;
+            background-color: #FEF2F2;
             border: 1px solid #FECACA;
-            color: #B91C1C;
+            color: #DC2626;
             text-align: center;
-            padding: 10px;
-            border-radius: 6px;
+            padding: 9px;
+            border-radius: 5px;
             margin-bottom: 18px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
         }
 
 
-        /* =========================================
+        /* =========================================================
                    ANIMATION
-                   ========================================= */
+                ========================================================= */
 
         @@keyframes fadeIn {
 
             from {
                 opacity: 0;
-                transform: translateY(15px);
+                transform: translateY(12px);
             }
 
             to {
@@ -317,28 +317,41 @@
         }
 
 
-        /* =========================================
-                   RESPONSIVE
-                   ========================================= */
+        /* =========================================================
+                   TABLET
+                ========================================================= */
 
-        @@media (max-width: 991px) {
+        @@media (max-width: 900px) {
 
             body {
                 overflow-y: auto;
             }
 
             .login-wrapper {
-                flex-direction: column;
-                height: auto;
                 min-height: 100vh;
+                height: auto;
+                flex-direction: column;
             }
 
             .left-side {
                 width: 100%;
                 height: auto;
-                min-height: 420px;
-                padding-top: 50px;
+                min-height: 330px;
             }
+
+            .top-content {
+                padding: 40px 20px;
+            }
+
+                .top-content img {
+                    width: 100px;
+                    height: 100px;
+                    margin-bottom: 20px;
+                }
+
+                .top-content h1 {
+                    font-size: 24px;
+                }
 
             .right-side {
                 width: 100%;
@@ -347,61 +360,93 @@
                 padding: 35px 20px;
             }
 
-            .top-content img {
-                width: 105px;
-                height: 105px;
-                margin-bottom: 25px;
-            }
-
-            .top-content h1 {
-                font-size: 26px;
-            }
-
             .login-card {
-                max-width: 420px;
+                width: 100%;
+                max-width: 450px;
+                padding: 45px 35px 35px 35px;
+            }
+
+                .login-card h2 {
+                    font-size: 22px;
+                }
+
+            .subtitle {
+                font-size: 12px;
+            }
+
+            .form-label {
+                font-size: 13px;
+            }
+
+            .form-control-custom {
+                font-size: 12px;
+            }
+
+            .btn-login {
+                font-size: 16px;
             }
         }
 
 
-        /* =========================================
+        /* =========================================================
                    MOBILE
-                   ========================================= */
+                ========================================================= */
 
         @@media (max-width: 576px) {
 
             .left-side {
                 min-height: 350px;
+            }
+
+            .top-content {
                 padding-top: 40px;
             }
 
-            .top-content img {
-                width: 90px;
-                height: 90px;
-                margin-bottom: 20px;
-            }
+                .top-content img {
+                    width: 90px;
+                    height: 90px;
+                    margin-bottom: 20px;
+                }
 
-            .top-content h1 {
-                font-size: 22px;
-            }
+                .top-content h1 {
+                    font-size: 22px;
+                }
 
             .right-side {
                 padding: 25px 15px;
             }
 
             .login-card {
-                padding: 35px 25px 40px 25px;
+                width: 100%;
+                padding: 38px 25px 32px 25px;
             }
 
                 .login-card h2 {
-                    text-align: center;
-                    font-size: 29px;
-                    font-weight: 700;
-                    color: #111827;
-                    margin-bottom: 6px;
+                    font-size: 22px;
                 }
+
+            .subtitle {
+                font-size: 12px;
+                margin-bottom: 35px;
+            }
+
+            .form-label {
+                font-size: 13px;
+            }
+
+            .form-control-custom {
+                height: 48px;
+                font-size: 12px;
+            }
+
+            .btn-login {
+                height: 56px;
+                font-size: 16px;
+            }
         }
 
     </style>
+
 </head>
 
 
@@ -412,9 +457,9 @@
         <div class="login-wrapper">
 
 
-            <!-- =====================================
+            <!-- =====================================================
                  LEFT SIDE
-                 ===================================== -->
+            ====================================================== -->
 
             <div class="left-side">
 
@@ -434,9 +479,9 @@
             </div>
 
 
-            <!-- =====================================
+            <!-- =====================================================
                  RIGHT SIDE
-                 ===================================== -->
+            ====================================================== -->
 
             <div class="right-side">
 
@@ -450,11 +495,11 @@
                     </h2>
 
                     <p class="subtitle">
-                        Please sign in to continue.
+                        Please sign in with your admin credentials to continue.
                     </p>
 
 
-                    <!-- ERROR -->
+                    <!-- ERROR MESSAGE -->
                     @if (ViewBag.Error != null)
                     {
                         <div class="error-message">
@@ -471,10 +516,9 @@
                     @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
                     {
 
-
                         <!-- USERNAME -->
 
-                        <div class="mb-1">
+                        <div>
 
                             <label class="form-label">
                                 Username
@@ -497,7 +541,7 @@
 
                         <!-- PASSWORD -->
 
-                        <div class="mb-1">
+                        <div>
 
                             <label class="form-label">
                                 Password
@@ -542,9 +586,9 @@
     </div>
 
 
-    <!-- =========================================
+    <!-- =========================================================
          PASSWORD TOGGLE
-         ========================================= -->
+    ========================================================== -->
 
     <script>
 
@@ -564,7 +608,6 @@
 
             password.setAttribute("type", type);
 
-
             this.classList.toggle("bi-eye");
 
             this.classList.toggle("bi-eye-slash");
@@ -574,4 +617,5 @@
     </script>
 
 </body>
+
 </html>
