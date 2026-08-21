@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Staff Request Management";
+    ViewBag.Title = "Reports Management";
     Layout = null;
 }
 
@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Staff Request Management - SORS</title>
+    <title>Reports Management</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -20,7 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
           rel="stylesheet" />
 
-    <!-- Inter Font -->
+    <!-- Inter Font - SAME AS RECORDS -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet">
 
@@ -28,7 +28,7 @@
 
         /* =========================================================
                            GLOBAL
-                        ========================================================== */
+                        ========================================================= */
 
         * {
             margin: 0;
@@ -46,7 +46,7 @@
 
         /* =========================================================
                            MAIN CONTAINER
-                        ========================================================== */
+                        ========================================================= */
 
         .dashboard-container {
             display: flex;
@@ -57,7 +57,7 @@
 
         /* =========================================================
                            SIDEBAR
-                        ========================================================== */
+                        ========================================================= */
 
         .sidebar {
             width: 158px;
@@ -90,7 +90,7 @@
 
             /* =========================================================
                            COLLAPSED SIDEBAR
-                        ========================================================== */
+                        ========================================================= */
 
             .sidebar.collapsed {
                 width: 78px;
@@ -162,7 +162,7 @@
 
         /* =========================================================
                            LOGO SECTION
-                        ========================================================== */
+                        ========================================================= */
 
         .logo-section {
             text-align: center;
@@ -198,7 +198,7 @@
 
         /* =========================================================
                            MENU
-                        ========================================================== */
+                        ========================================================= */
 
         .menu {
             padding: 16px 9px;
@@ -238,7 +238,7 @@
 
         /* =========================================================
                            LOGOUT
-                        ========================================================== */
+                        ========================================================= */
 
         .logout {
             margin-top: auto;
@@ -264,12 +264,13 @@
 
                 .logout a:hover {
                     background: rgba(185,28,28,.18);
+                    color: #FFFFFF;
                 }
 
 
         /* =========================================================
                            MAIN CONTENT
-                        ========================================================== */
+                        ========================================================= */
 
         .main-content {
             flex: 1;
@@ -283,7 +284,7 @@
 
         /* =========================================================
                            TOPBAR
-                        ========================================================== */
+                        ========================================================= */
 
         .topbar {
             height: 56px;
@@ -312,10 +313,14 @@
             padding: 5px;
         }
 
+            .menu-toggle:hover {
+                color: #991B1B;
+            }
+
 
         /* =========================================================
                            TOPBAR RIGHT
-                        ========================================================== */
+                        ========================================================= */
 
         .topbar-right {
             display: flex;
@@ -338,7 +343,7 @@
 
         /* =========================================================
                            PROFILE
-                        ========================================================== */
+                        ========================================================= */
 
         .profile {
             display: flex;
@@ -383,16 +388,14 @@
 
         /* =========================================================
                            CONTENT AREA
-                        ========================================================== */
+                           SAME AS RECORDS
+                        ========================================================= */
 
         .content-area {
             flex: 1;
             padding: 22px 30px;
             overflow-y: auto;
             overflow-x: hidden;
-        }
-
-        .content-area {
             scrollbar-width: thin;
             scrollbar-color: #C7CBD1 transparent;
         }
@@ -413,7 +416,8 @@
 
         /* =========================================================
                            PAGE HEADER
-                        ========================================================== */
+                           SAME AS RECORDS
+                        ========================================================= */
 
         .page-header {
             display: flex;
@@ -431,7 +435,7 @@
             line-height: 1.2;
         }
 
-        .page-subtitle {
+        .page-description {
             color: #64748B;
             font-size: 13px;
             font-weight: 400;
@@ -442,7 +446,8 @@
 
         /* =========================================================
                            ACTION BAR
-                        ========================================================== */
+                           SAME AS RECORDS
+                        ========================================================= */
 
         .action-bar {
             display: flex;
@@ -462,7 +467,8 @@
 
         /* =========================================================
                            SEARCH BOX
-                        ========================================================== */
+                           SAME AS RECORDS
+                        ========================================================= */
 
         .search-box {
             height: 36px;
@@ -499,65 +505,9 @@
 
 
         /* =========================================================
-                           STATUS FILTER
-                        ========================================================== */
-
-        .status-filter {
-            width: 190px;
-            height: 36px;
-            background: #FFFFFF;
-            border: 1px solid #D1D5DB;
-            border-radius: 6px;
-            padding: 0 11px;
-            font-size: 11px;
-            font-weight: 600;
-            color: #374151;
-            outline: none;
-        }
-
-            .status-filter:focus {
-                border-color: #B91C1C;
-                box-shadow: 0 0 0 2px rgba(185,28,28,.08);
-            }
-
-
-        /* =========================================================
-                           CREATE REQUEST
-                        ========================================================== */
-
-        .create-btn {
-            height: 36px;
-            border: none;
-            border-radius: 6px;
-            background: #B91C1C;
-            color: #FFFFFF;
-            padding: 0 16px;
-            font-size: 11px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            cursor: pointer;
-            transition: all .2s ease;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-            .create-btn:hover {
-                background: #991B1B;
-                color: #FFFFFF;
-                transform: translateY(-1px);
-                box-shadow: 0 4px 10px rgba(185,28,28,.20);
-            }
-
-            .create-btn i {
-                font-size: 13px;
-            }
-
-
-        /* =========================================================
                            TABLE CONTAINER
-                        ========================================================== */
+                           SAME AS RECORDS
+                        ========================================================= */
 
         .table-container {
             background: #FFFFFF;
@@ -577,12 +527,17 @@
                 border-radius: 10px;
             }
 
+            .table-container::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
 
         /* =========================================================
-                           TABLE
-                        ========================================================== */
+                           REPORT TABLE
+                           SAME WIDTH / SIZE / ALIGNMENT AS RECORDS
+                        ========================================================= */
 
-        .request-table {
+        .report-table {
             width: 100%;
             min-width: 900px;
             border-collapse: collapse;
@@ -593,81 +548,84 @@
 
             /* =========================================================
                            COLUMN WIDTHS
-                        ========================================================== */
+                           SAME PROPORTION STYLE AS RECORDS
+                        ========================================================= */
 
-            .request-table th:nth-child(1),
-            .request-table td:nth-child(1) {
+            .report-table th:nth-child(1),
+            .report-table td:nth-child(1) {
                 width: 10%;
             }
 
-            .request-table th:nth-child(2),
-            .request-table td:nth-child(2) {
+            .report-table th:nth-child(2),
+            .report-table td:nth-child(2) {
                 width: 21%;
             }
 
-            .request-table th:nth-child(3),
-            .request-table td:nth-child(3) {
+            .report-table th:nth-child(3),
+            .report-table td:nth-child(3) {
                 width: 23%;
             }
 
-            .request-table th:nth-child(4),
-            .request-table td:nth-child(4) {
+            .report-table th:nth-child(4),
+            .report-table td:nth-child(4) {
                 width: 15%;
             }
 
-            .request-table th:nth-child(5),
-            .request-table td:nth-child(5) {
-                width: 12%;
-            }
-
-            .request-table th:nth-child(6),
-            .request-table td:nth-child(6) {
-                width: 19%;
+            .report-table th:nth-child(5),
+            .report-table td:nth-child(5) {
+                width: 31%;
             }
 
 
             /* =========================================================
                            TABLE HEADER
-                        ========================================================== */
+                           SAME AS RECORDS
+                        ========================================================= */
 
-            .request-table thead {
+            .report-table thead {
                 background: #111111;
             }
 
-                .request-table thead th {
-                    height: 40px;
-                    padding: 0 12px;
-                    font-size: 10px;
-                    font-weight: 700;
-                    letter-spacing: .15px;
-                    color: #FFFFFF;
-                    background: #111111;
-                    border-bottom: 1px solid #111111;
-                    white-space: nowrap;
-                    vertical-align: middle;
+            .report-table th {
+                height: 40px;
+                padding: 0 12px;
+                font-size: 10px;
+                font-weight: 700;
+                color: #FFFFFF;
+                background: #111111;
+                border-bottom: 1px solid #111111;
+                white-space: nowrap;
+                letter-spacing: .15px;
+                vertical-align: middle;
+            }
+
+
+                /* =========================================================
+                           HEADER ALIGNMENT
+                           SAME AS RECORDS
+                        ========================================================= */
+
+                .report-table th:nth-child(1) {
+                    text-align: center;
                 }
 
-                    .request-table thead th:nth-child(1) {
-                        text-align: center;
-                    }
+                .report-table th:nth-child(2),
+                .report-table th:nth-child(3) {
+                    text-align: left;
+                }
 
-                    .request-table thead th:nth-child(2),
-                    .request-table thead th:nth-child(3) {
-                        text-align: left;
-                    }
-
-                    .request-table thead th:nth-child(4),
-                    .request-table thead th:nth-child(5),
-                    .request-table thead th:nth-child(6) {
-                        text-align: center;
-                    }
+                .report-table th:nth-child(4),
+                .report-table th:nth-child(5) {
+                    text-align: center;
+                }
 
 
             /* =========================================================
                            TABLE BODY
-                        ========================================================== */
+                           SAME AS RECORDS
+                        ========================================================= */
 
-            .request-table tbody td {
+            .report-table td {
                 height: 42px;
                 padding: 0 12px;
                 font-size: 10px;
@@ -679,35 +637,47 @@
                 vertical-align: middle;
             }
 
-                .request-table tbody td:nth-child(1) {
+
+                /* =========================================================
+                           BODY ALIGNMENT
+                           SAME AS RECORDS
+                        ========================================================= */
+
+                .report-table td:nth-child(1) {
                     text-align: center;
                     font-weight: 600;
                     color: #4B5563;
                 }
 
-                .request-table tbody td:nth-child(2),
-                .request-table tbody td:nth-child(3) {
+                .report-table td:nth-child(2),
+                .report-table td:nth-child(3) {
                     text-align: left;
                 }
 
-                .request-table tbody td:nth-child(4),
-                .request-table tbody td:nth-child(5),
-                .request-table tbody td:nth-child(6) {
+                .report-table td:nth-child(4),
+                .report-table td:nth-child(5) {
                     text-align: center;
                 }
 
-            .request-table tbody tr:hover td {
+
+            /* =========================================================
+                           HOVER
+                           SAME AS RECORDS
+                        ========================================================= */
+
+            .report-table tbody tr:hover td {
                 background: #FEF2F2;
             }
 
-            .request-table tbody tr:last-child td {
+            .report-table tbody tr:last-child td {
                 border-bottom: none;
             }
 
 
         /* =========================================================
                            STATUS BADGES
-                        ========================================================== */
+                           SAME SCALE AS RECORDS
+                        ========================================================= */
 
         .status-badge {
             display: inline-flex;
@@ -721,32 +691,28 @@
             line-height: 1;
         }
 
+        .status-completed {
+            background: #DCFCE7;
+            color: #15803D;
+        }
+
+        .status-approved {
+            background: #DBEAFE;
+            color: #2563EB;
+        }
+
         .status-pending {
             background: #FEF3C7;
             color: #D97706;
         }
 
-        .status-approved {
-            background: #DCFCE7;
-            color: #15803D;
-        }
-
-        .status-rejected {
-            background: #FEE2E2;
-            color: #B91C1C;
-        }
-
-        .status-completed {
-            background: #DBEAFE;
-            color: #2563EB;
-        }
-
 
         /* =========================================================
-                           ACTION BUTTONS
-                        ========================================================== */
+                           REPORT ACTIONS
+                           SAME ALIGNMENT AS RECORDS ACTIONS
+                        ========================================================= */
 
-        .action-icons {
+        .report-actions {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -754,79 +720,34 @@
             width: 100%;
         }
 
-        .action-btn {
+        .view-action {
+            width: 28px;
             height: 28px;
             border: none;
             border-radius: 5px;
-            padding: 0 9px;
-            display: inline-flex;
+            background: transparent;
+            color: #374151;
+            display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all .2s ease;
-            font-family: 'Inter', sans-serif;
-            font-size: 10px;
-            font-weight: 600;
-            gap: 4px;
-            white-space: nowrap;
         }
 
-            .action-btn i {
-                font-size: 11px;
+            .view-action i {
+                font-size: 12px;
             }
-
-
-        /* =========================================================
-                           VIEW
-                        ========================================================== */
-
-        .view-action {
-            background: #2563EB;
-            color: #FFFFFF;
-        }
 
             .view-action:hover {
-                background: #1D4ED8;
-                color: #FFFFFF;
-                transform: translateY(-1px);
-            }
-
-
-        /* =========================================================
-                           APPROVE
-                        ========================================================== */
-
-        .approve-action {
-            background: #16A34A;
-            color: #FFFFFF;
-        }
-
-            .approve-action:hover {
-                background: #15803D;
-                color: #FFFFFF;
-                transform: translateY(-1px);
-            }
-
-
-        /* =========================================================
-                           REJECT
-                        ========================================================== */
-
-        .reject-action {
-            background: #B91C1C;
-            color: #FFFFFF;
-        }
-
-            .reject-action:hover {
-                background: #991B1B;
-                color: #FFFFFF;
-                transform: translateY(-1px);
+                background: #DBEAFE;
+                color: #2563EB;
             }
 
 
         /* =========================================================
                            PAGINATION
-                        ========================================================== */
+                           SAME AS RECORDS
+                        ========================================================= */
 
         .pagination-section {
             display: flex;
@@ -884,7 +805,7 @@
 
         /* =========================================================
                            RESPONSIVE
-                        ========================================================== */
+                        ========================================================= */
 
         @@media (max-width: 1000px) {
 
@@ -898,10 +819,6 @@
 
             .search-box {
                 max-width: none;
-            }
-
-            .create-btn {
-                margin-left: auto;
             }
         }
 
@@ -953,7 +870,7 @@
                 font-size: 21px;
             }
 
-            .page-subtitle {
+            .page-description {
                 font-size: 12px;
             }
 
@@ -976,21 +893,11 @@
                 max-width: none;
             }
 
-            .status-filter {
-                width: 100%;
-            }
-
-            .create-btn {
-                width: 100%;
-                justify-content: center;
-                margin-left: 0;
-            }
-
             .table-container {
                 overflow-x: auto;
             }
 
-            .request-table {
+            .report-table {
                 min-width: 900px;
             }
 
@@ -1025,15 +932,18 @@
 
 </head>
 
+
 <body>
 
     <div class="dashboard-container">
 
-        <!-- =========================================================
+
+        <!-- =====================================================
              SIDEBAR
-        ========================================================== -->
+        ====================================================== -->
 
         <aside class="sidebar">
+
 
             <!-- LOGO -->
 
@@ -1058,6 +968,7 @@
 
             <div class="menu">
 
+
                 <!-- DASHBOARD -->
 
                 <a href="@Url.Action("StaffDashboard", "Staff")">
@@ -1071,10 +982,9 @@
                 </a>
 
 
-                <!-- REQUEST ACTIVE -->
+                <!-- REQUEST -->
 
-                <a href="@Url.Action("StaffRequest", "Staff")"
-                   class="active">
+                <a href="@Url.Action("StaffRequest", "Staff")">
 
                     <i class="bi bi-file-earmark-text"></i>
 
@@ -1098,9 +1008,10 @@
                 </a>
 
 
-                <!-- REPORTS -->
+                <!-- REPORTS - ACTIVE -->
 
-                <a href="@Url.Action("StaffReports", "Staff")">
+                <a href="@Url.Action("StaffReports", "Staff")"
+                   class="active">
 
                     <i class="bi bi-file-earmark-bar-graph"></i>
 
@@ -1112,7 +1023,7 @@
 
                 <!-- SETTINGS -->
 
-                <a href="@Url.Action("StaffSettings", "Admin")">
+                <a href="@Url.Action("StaffSettings", "Staff    ")">
 
                     <i class="bi bi-gear-fill"></i>
 
@@ -1122,13 +1033,15 @@
 
                 </a>
 
+
             </div>
+
 
             <!-- LOGOUT -->
 
             <div class="logout">
 
-                <a href="@Url.Action("StaffLogin", "Admin")">
+                <a href="@Url.Action("StaffLogin", "Staff")">
 
                     <i class="bi bi-box-arrow-right"></i>
 
@@ -1140,20 +1053,23 @@
 
             </div>
 
+
         </aside>
 
-        <!-- =========================================================
+
+        <!-- =====================================================
              MAIN CONTENT
-        ========================================================== -->
+        ====================================================== -->
 
         <div class="main-content">
 
 
-            <!-- =====================================================
+            <!-- =================================================
                  TOPBAR
-            ====================================================== -->
+            ================================================== -->
 
             <div class="topbar">
+
 
                 <!-- LEFT -->
 
@@ -1173,6 +1089,7 @@
                 <!-- RIGHT -->
 
                 <div class="topbar-right">
+
 
                     <!-- NOTIFICATION -->
 
@@ -1207,9 +1124,9 @@
             </div>
 
 
-            <!-- =====================================================
+            <!-- =================================================
                  CONTENT
-            ====================================================== -->
+            ================================================== -->
 
             <div class="content-area">
 
@@ -1223,11 +1140,11 @@
                     <div>
 
                         <h2 class="page-title">
-                            Request
+                            Reports
                         </h2>
 
-                        <p class="page-subtitle">
-                            Manage and track submitted requests efficiently.
+                        <p class="page-description">
+                            Generate and manage reports from office records and requests.
                         </p>
 
                     </div>
@@ -1236,100 +1153,54 @@
 
 
                 <!-- =================================================
-                     ACTION BAR
+                     SEARCH
                 ================================================== -->
 
                 <div class="action-bar">
 
                     <div class="search-filter">
 
-                        <!-- SEARCH -->
-
                         <div class="search-box">
 
                             <i class="bi bi-search"></i>
 
                             <input type="text"
-                                   id="requestSearch"
+                                   id="reportSearch"
                                    placeholder="Search here..." />
 
                         </div>
 
-
-                        <!-- STATUS FILTER -->
-
-                        <select class="status-filter"
-                                id="statusFilter">
-
-                            <option value="all">
-                                All Status
-                            </option>
-
-                            <option value="pending">
-                                Pending
-                            </option>
-
-                            <option value="approved">
-                                Approved
-                            </option>
-
-                            <option value="rejected">
-                                Rejected
-                            </option>
-
-                            <option value="completed">
-                                Completed
-                            </option>
-
-                        </select>
-
                     </div>
-
-
-                    <!-- CREATE REQUEST -->
-
-                    <a href="@Url.Action("RCreateRequest", "Admin")"
-                       class="create-btn">
-
-                        <i class="bi bi-plus-lg"></i>
-
-                        Create Request
-
-                    </a>
 
                 </div>
 
 
                 <!-- =================================================
-                     TABLE
+                     REPORT TABLE
                 ================================================== -->
 
                 <div class="table-container">
 
-                    <table class="request-table">
+                    <table class="report-table">
 
                         <thead>
 
                             <tr>
 
                                 <th>
-                                    REQUEST ID
+                                    REPORT ID
                                 </th>
 
                                 <th>
-                                    APPLICANT NAME
-                                </th>
-
-                                <th>
-                                    EMAIL ADDRESS
-                                </th>
-
-                                <th>
-                                    DATE APPLIED
+                                    REPORT TYPE
                                 </th>
 
                                 <th>
                                     STATUS
+                                </th>
+
+                                <th>
+                                    DATE GENERATED
                                 </th>
 
                                 <th>
@@ -1341,23 +1212,27 @@
                         </thead>
 
 
-                        <tbody id="requestTableBody">
+                        <tbody id="reportTableBody">
 
 
-                            <!-- ROW 1 -->
+                            <!-- REPORT 1 -->
 
-                            <tr data-status="pending">
+                            <tr>
 
                                 <td>
-                                    RQ001
+                                    RP0001
                                 </td>
 
                                 <td>
-                                    Cris Alin Zobrado
+                                    Interview
                                 </td>
 
                                 <td>
-                                    @@gmail.com
+
+                                    <span class="status-badge status-completed">
+                                        Completed
+                                    </span>
+
                                 </td>
 
                                 <td>
@@ -1366,40 +1241,13 @@
 
                                 <td>
 
-                                    <span class="status-badge status-pending">
-                                        Pending
-                                    </span>
+                                    <div class="report-actions">
 
-                                </td>
-
-                                <td>
-
-                                    <div class="action-icons">
-
-                                        <button class="action-btn view-action"
+                                        <button class="view-action"
                                                 type="button"
-                                                title="View">
+                                                title="View Report">
 
                                             <i class="bi bi-eye"></i>
-                                            View
-
-                                        </button>
-
-                                        <button class="action-btn approve-action"
-                                                type="button"
-                                                title="Approve">
-
-                                            <i class="bi bi-check-lg"></i>
-                                            Approve
-
-                                        </button>
-
-                                        <button class="action-btn reject-action"
-                                                type="button"
-                                                title="Reject">
-
-                                            <i class="bi bi-x-lg"></i>
-                                            Reject
 
                                         </button>
 
@@ -1410,20 +1258,24 @@
                             </tr>
 
 
-                            <!-- ROW 2 -->
+                            <!-- REPORT 2 -->
 
-                            <tr data-status="pending">
+                            <tr>
 
                                 <td>
-                                    RQ002
+                                    RP0002
                                 </td>
 
                                 <td>
-                                    Hannah Cabasan
+                                    Interview
                                 </td>
 
                                 <td>
-                                    Back Office
+
+                                    <span class="status-badge status-approved">
+                                        Approved
+                                    </span>
+
                                 </td>
 
                                 <td>
@@ -1432,40 +1284,13 @@
 
                                 <td>
 
-                                    <span class="status-badge status-pending">
-                                        Pending
-                                    </span>
+                                    <div class="report-actions">
 
-                                </td>
-
-                                <td>
-
-                                    <div class="action-icons">
-
-                                        <button class="action-btn view-action"
+                                        <button class="view-action"
                                                 type="button"
-                                                title="View">
+                                                title="View Report">
 
                                             <i class="bi bi-eye"></i>
-                                            View
-
-                                        </button>
-
-                                        <button class="action-btn approve-action"
-                                                type="button"
-                                                title="Approve">
-
-                                            <i class="bi bi-check-lg"></i>
-                                            Approve
-
-                                        </button>
-
-                                        <button class="action-btn reject-action"
-                                                type="button"
-                                                title="Reject">
-
-                                            <i class="bi bi-x-lg"></i>
-                                            Reject
 
                                         </button>
 
@@ -1476,20 +1301,24 @@
                             </tr>
 
 
-                            <!-- ROW 3 -->
+                            <!-- REPORT 3 -->
 
-                            <tr data-status="pending">
+                            <tr>
 
                                 <td>
-                                    RQ003
+                                    RP0003
                                 </td>
 
                                 <td>
-                                    John Mark Gualderama
+                                    Interview
                                 </td>
 
                                 <td>
-                                    Office Staff
+
+                                    <span class="status-badge status-completed">
+                                        Completed
+                                    </span>
+
                                 </td>
 
                                 <td>
@@ -1498,40 +1327,13 @@
 
                                 <td>
 
-                                    <span class="status-badge status-pending">
-                                        Pending
-                                    </span>
+                                    <div class="report-actions">
 
-                                </td>
-
-                                <td>
-
-                                    <div class="action-icons">
-
-                                        <button class="action-btn view-action"
+                                        <button class="view-action"
                                                 type="button"
-                                                title="View">
+                                                title="View Report">
 
                                             <i class="bi bi-eye"></i>
-                                            View
-
-                                        </button>
-
-                                        <button class="action-btn approve-action"
-                                                type="button"
-                                                title="Approve">
-
-                                            <i class="bi bi-check-lg"></i>
-                                            Approve
-
-                                        </button>
-
-                                        <button class="action-btn reject-action"
-                                                type="button"
-                                                title="Reject">
-
-                                            <i class="bi bi-x-lg"></i>
-                                            Reject
 
                                         </button>
 
@@ -1542,20 +1344,24 @@
                             </tr>
 
 
-                            <!-- ROW 4 -->
+                            <!-- REPORT 4 -->
 
-                            <tr data-status="pending">
+                            <tr>
 
                                 <td>
-                                    RQ004
+                                    RP0004
                                 </td>
 
                                 <td>
-                                    Juan Dela Cruz
+                                    Document
                                 </td>
 
                                 <td>
-                                    Customer Service
+
+                                    <span class="status-badge status-approved">
+                                        Approved
+                                    </span>
+
                                 </td>
 
                                 <td>
@@ -1564,40 +1370,13 @@
 
                                 <td>
 
-                                    <span class="status-badge status-pending">
-                                        Pending
-                                    </span>
+                                    <div class="report-actions">
 
-                                </td>
-
-                                <td>
-
-                                    <div class="action-icons">
-
-                                        <button class="action-btn view-action"
+                                        <button class="view-action"
                                                 type="button"
-                                                title="View">
+                                                title="View Report">
 
                                             <i class="bi bi-eye"></i>
-                                            View
-
-                                        </button>
-
-                                        <button class="action-btn approve-action"
-                                                type="button"
-                                                title="Approve">
-
-                                            <i class="bi bi-check-lg"></i>
-                                            Approve
-
-                                        </button>
-
-                                        <button class="action-btn reject-action"
-                                                type="button"
-                                                title="Reject">
-
-                                            <i class="bi bi-x-lg"></i>
-                                            Reject
 
                                         </button>
 
@@ -1608,20 +1387,24 @@
                             </tr>
 
 
-                            <!-- ROW 5 -->
+                            <!-- REPORT 5 -->
 
-                            <tr data-status="pending">
+                            <tr>
 
                                 <td>
-                                    RQ005
+                                    RP0005
                                 </td>
 
                                 <td>
-                                    John Michael Aninon
+                                    Document
                                 </td>
 
                                 <td>
-                                    Data Entry Specialist
+
+                                    <span class="status-badge status-completed">
+                                        Completed
+                                    </span>
+
                                 </td>
 
                                 <td>
@@ -1630,40 +1413,13 @@
 
                                 <td>
 
-                                    <span class="status-badge status-pending">
-                                        Pending
-                                    </span>
+                                    <div class="report-actions">
 
-                                </td>
-
-                                <td>
-
-                                    <div class="action-icons">
-
-                                        <button class="action-btn view-action"
+                                        <button class="view-action"
                                                 type="button"
-                                                title="View">
+                                                title="View Report">
 
                                             <i class="bi bi-eye"></i>
-                                            View
-
-                                        </button>
-
-                                        <button class="action-btn approve-action"
-                                                type="button"
-                                                title="Approve">
-
-                                            <i class="bi bi-check-lg"></i>
-                                            Approve
-
-                                        </button>
-
-                                        <button class="action-btn reject-action"
-                                                type="button"
-                                                title="Reject">
-
-                                            <i class="bi bi-x-lg"></i>
-                                            Reject
 
                                         </button>
 
@@ -1687,10 +1443,11 @@
 
                 <div class="pagination-section">
 
+
                     <div class="showing-text"
                          id="showingText">
 
-                        Showing 1 to 5 requests
+                        Showing 1 to 5 reports
 
                     </div>
 
@@ -1713,6 +1470,7 @@
 
                     </div>
 
+
                 </div>
 
 
@@ -1731,13 +1489,14 @@
 
         /* =========================================================
            SIDEBAR COLLAPSE
-        ========================================================== */
+        ========================================================= */
 
         const sidebar =
             document.querySelector('.sidebar');
 
         const menuToggle =
             document.getElementById('menuToggle');
+
 
         menuToggle.addEventListener('click', function () {
 
@@ -1747,52 +1506,36 @@
 
 
         /* =========================================================
-           REQUEST SEARCH + STATUS FILTER
-        ========================================================== */
+           REPORT SEARCH
+        ========================================================= */
 
-        const requestSearch =
-            document.getElementById('requestSearch');
+        const reportSearch =
+            document.getElementById('reportSearch');
 
-        const statusFilter =
-            document.getElementById('statusFilter');
-
-        const requestTableBody =
-            document.getElementById('requestTableBody');
+        const reportTableBody =
+            document.getElementById('reportTableBody');
 
         const showingText =
             document.getElementById('showingText');
 
 
-        function filterRequests() {
+        reportSearch.addEventListener('input', function () {
 
             const searchValue =
-                requestSearch.value.toLowerCase().trim();
-
-            const selectedStatus =
-                statusFilter.value.toLowerCase();
+                this.value.toLowerCase().trim();
 
             const rows =
-                requestTableBody.querySelectorAll('tr');
+                reportTableBody.querySelectorAll('tr');
 
             let visibleCount = 0;
+
 
             rows.forEach(function (row) {
 
                 const rowText =
                     row.textContent.toLowerCase();
 
-                const rowStatus =
-                    row.getAttribute('data-status');
-
-                const matchesSearch =
-                    rowText.includes(searchValue);
-
-                const matchesStatus =
-                    selectedStatus === 'all' ||
-                    rowStatus === selectedStatus;
-
-
-                if (matchesSearch && matchesStatus) {
+                if (rowText.includes(searchValue)) {
 
                     row.style.display = '';
 
@@ -1808,36 +1551,23 @@
             });
 
 
-            if (visibleCount === 0) {
+            if (searchValue === '') {
 
                 showingText.textContent =
-                    'Showing 0 requests';
+                    'Showing 1 to ' + rows.length + ' reports';
 
             }
             else {
 
                 showingText.textContent =
-                    'Showing 1 to ' +
-                    visibleCount +
-                    ' requests';
+                    'Showing ' + visibleCount + ' reports';
 
             }
 
-        }
-
-
-        requestSearch.addEventListener(
-            'input',
-            filterRequests
-        );
-
-
-        statusFilter.addEventListener(
-            'change',
-            filterRequests
-        );
+        });
 
     </script>
+
 
 </body>
 </html>

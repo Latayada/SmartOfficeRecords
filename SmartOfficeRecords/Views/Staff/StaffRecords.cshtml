@@ -383,7 +383,6 @@
 
         /* =========================================================
                            CONTENT AREA
-                           SAME AS REQUEST
                         ========================================================= */
 
         .content-area {
@@ -411,7 +410,6 @@
 
         /* =========================================================
                            PAGE HEADER
-                           SAME AS REQUEST
                         ========================================================= */
 
         .page-header {
@@ -441,7 +439,6 @@
 
         /* =========================================================
                            ACTION BAR
-                           SAME SPACING AS REQUEST
                         ========================================================= */
 
         .action-bar {
@@ -462,7 +459,6 @@
 
         /* =========================================================
                            SEARCH BOX
-                           SAME AS REQUEST
                         ========================================================= */
 
         .search-box {
@@ -501,7 +497,6 @@
 
         /* =========================================================
                            UPLOAD BUTTON
-                           SAME AS REQUEST CREATE BUTTON
                         ========================================================= */
 
         .upload-btn {
@@ -536,7 +531,6 @@
 
         /* =========================================================
                            TABLE CONTAINER
-                           SAME AS REQUEST
                         ========================================================= */
 
         .table-container {
@@ -564,7 +558,6 @@
 
         /* =========================================================
                            RECORDS TABLE
-                           SAME SIZE / ALIGNMENT AS REQUEST TABLE
                         ========================================================= */
 
         .records-table {
@@ -578,7 +571,6 @@
 
             /* =========================================================
                            COLUMN WIDTHS
-                           MATCHING REQUEST TABLE STRUCTURE
                         ========================================================= */
 
             .records-table th:nth-child(1),
@@ -609,7 +601,6 @@
 
             /* =========================================================
                            TABLE HEADER
-                           SAME AS REQUEST
                         ========================================================= */
 
             .records-table thead {
@@ -1019,7 +1010,7 @@
 
                 <!-- DASHBOARD -->
 
-                <a href="@Url.Action("Dashboard", "Admin")">
+                <a href="@Url.Action("StaffDashboard", "Staff")">
 
                     <i class="bi bi-grid-fill"></i>
 
@@ -1032,7 +1023,7 @@
 
                 <!-- REQUEST -->
 
-                <a href="@Url.Action("RequestManagement", "Admin")">
+                <a href="@Url.Action("StaffRequest", "Staff")">
 
                     <i class="bi bi-file-earmark-text"></i>
 
@@ -1045,7 +1036,7 @@
 
                 <!-- RECORDS - ACTIVE -->
 
-                <a href="@Url.Action("RecordsManagement", "Admin")"
+                <a href="@Url.Action("StaffRecords", "Staff")"
                    class="active">
 
                     <i class="bi bi-folder2-open"></i>
@@ -1059,7 +1050,7 @@
 
                 <!-- REPORTS -->
 
-                <a href="@Url.Action("ReportsManagement", "Admin")">
+                <a href="@Url.Action("StaffReports", "Staff")">
 
                     <i class="bi bi-file-earmark-bar-graph"></i>
 
@@ -1069,36 +1060,9 @@
 
                 </a>
 
-
-                <!-- AUDIT LOGS -->
-
-                <a href="@Url.Action("AuditLogs", "Admin")">
-
-                    <i class="bi bi-clock-history"></i>
-
-                    <span>
-                        Audit Logs
-                    </span>
-
-                </a>
-
-
-                <!-- USERS -->
-
-                <a href="@Url.Action("UsersManagement", "Admin")">
-
-                    <i class="bi bi-people-fill"></i>
-
-                    <span>
-                        Users
-                    </span>
-
-                </a>
-
-
                 <!-- SETTINGS -->
 
-                <a href="@Url.Action("Settings", "Admin")">
+                <a href="@Url.Action("StaffSettings", "Staff")">
 
                     <i class="bi bi-gear-fill"></i>
 
@@ -1116,7 +1080,7 @@
 
             <div class="logout">
 
-                <a href="@Url.Action("Login", "Admin")">
+                <a href="@Url.Action("StaffLogin", "Staff")">
 
                     <i class="bi bi-box-arrow-right"></i>
 
