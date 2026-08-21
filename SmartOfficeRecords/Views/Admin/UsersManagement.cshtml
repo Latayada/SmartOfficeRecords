@@ -237,13 +237,17 @@
                 }
 
 
+
         /* =========================================================
-                   LOGOUT
-                ========================================================= */
+                           SETTINGS + LOGOUT
+                        ========================================================= */
 
         .logout {
             margin-top: auto;
             padding: 12px 9px 15px 9px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
 
             .logout a {
@@ -261,13 +265,18 @@
 
                 .logout a i {
                     font-size: 16px;
+                    min-width: 16px;
                 }
 
-                .logout a:hover {
-                    background: rgba(185,28,28,.18);
-                    color: #FFFFFF;
-                }
+        .settings-link:hover {
+            background: rgba(185, 28, 28, .18);
+            color: #FFFFFF;
+        }
 
+        .logout-link:hover {
+            background: rgba(185,28,28,.25);
+            color: #FFFFFF;
+        }
 
         /* =========================================================
                    MAIN CONTENT
@@ -417,7 +426,6 @@
 
         /* =========================================================
                    PAGE HEADER
-                   SAME SIZE AS RECORDS
                 ========================================================= */
 
         .page-header {
@@ -447,7 +455,6 @@
 
         /* =========================================================
                    ACTION BAR
-                   SAME SIZE AS RECORDS
                 ========================================================= */
 
         .action-bar {
@@ -530,7 +537,6 @@
 
         /* =========================================================
                    ADD USER BUTTON
-                   SAME SIZE AS RECORDS UPLOAD BUTTON
                 ========================================================= */
 
         .create-btn {
@@ -566,7 +572,6 @@
 
         /* =========================================================
                    TABLE CONTAINER
-                   SAME AS RECORDS
                 ========================================================= */
 
         .table-container {
@@ -648,7 +653,6 @@
 
             /* =========================================================
                    TABLE HEADER
-                   SAME SIZE AS RECORDS
                 ========================================================= */
 
             .user-table thead {
@@ -693,7 +697,6 @@
 
             /* =========================================================
                    TABLE BODY
-                   SAME SIZE AS RECORDS
                 ========================================================= */
 
             .user-table td {
@@ -747,7 +750,6 @@
 
         /* =========================================================
                    ROLE BADGES
-                   MATCH RECORDS BADGE SCALE
                 ========================================================= */
 
         .role-badge {
@@ -775,7 +777,6 @@
 
         /* =========================================================
                    STATUS BADGES
-                   MATCH RECORDS BADGE SCALE
                 ========================================================= */
 
         .active-badge,
@@ -1140,39 +1141,34 @@
 
                 </a>
 
-
-                <!-- SETTINGS -->
-
-                <a href="@Url.Action("Settings", "Admin")">
-
-                    <i class="bi bi-gear-fill"></i>
-
-                    <span>
-                        Settings
-                    </span>
-
-                </a>
-
-
             </div>
 
-
-            <!-- LOGOUT -->
+            <!-- SETTINGS + LOGOUT AT THE BOTTOM -->
 
             <div class="logout">
 
-                <a href="@Url.Action("Login", "Admin")">
+                <!-- SETTINGS -->
+
+                <a href="@Url.Action("Settings", "Admin")"
+                   class="settings-link">
+
+                    <i class="bi bi-gear-fill"></i>
+                    <span>Settings</span>
+
+                </a>
+
+
+                <!-- LOGOUT -->
+
+                <a href="@Url.Action("Login", "Admin")"
+                   class="logout-link">
 
                     <i class="bi bi-box-arrow-right"></i>
-
-                    <span>
-                        Logout
-                    </span>
+                    <span>Logout</span>
 
                 </a>
 
             </div>
-
 
         </aside>
 

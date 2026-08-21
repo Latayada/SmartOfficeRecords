@@ -20,7 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
           rel="stylesheet" />
 
-    <!-- Professional Sans Serif Font -->
+    <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet">
 
@@ -71,11 +71,6 @@
             overflow-y: auto;
             overflow-x: hidden;
         }
-
-
-        /* =========================================================
-                   SIDEBAR SCROLLBAR
-                ========================================================= */
 
         .sidebar {
             scrollbar-width: thin;
@@ -155,6 +150,7 @@
 
                 .sidebar.collapsed .logout {
                     padding-bottom: 15px;
+                    gap: 8px;
                 }
 
                     .sidebar.collapsed .logout a {
@@ -245,12 +241,15 @@
 
 
         /* =========================================================
-                   LOGOUT
+                   SETTINGS + LOGOUT
                 ========================================================= */
 
         .logout {
             margin-top: auto;
             padding: 12px 9px 15px 9px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
 
             .logout a {
@@ -268,11 +267,18 @@
 
                 .logout a i {
                     font-size: 16px;
+                    min-width: 16px;
                 }
 
-                .logout a:hover {
-                    background: rgba(185,28,28,.18);
-                }
+        .settings-link:hover {
+            background: rgba(185, 28, 28, .18);
+            color: #FFFFFF;
+        }
+
+        .logout-link:hover {
+            background: rgba(185,28,28,.25);
+            color: #FFFFFF;
+        }
 
 
         /* =========================================================
@@ -536,11 +542,6 @@
             gap: 16px;
         }
 
-
-        /* =========================================================
-                   PANEL
-                ========================================================= */
-
         .dashboard-panel {
             background: #FFFFFF;
             border: 1px solid #D9DDE3;
@@ -702,9 +703,6 @@
             height: 185px;
             overflow-y: auto;
             overflow-x: hidden;
-        }
-
-        .table-scroll {
             scrollbar-width: thin;
             scrollbar-color: #C7CBD1 transparent;
         }
@@ -788,173 +786,110 @@
 
 
         /* =========================================================
-                   ACTION BUTTONS
-                ========================================================= */
-
-        .action-buttons {
-            display: flex;
-            gap: 5px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .action-btn {
-            height: 28px;
-            border: none;
-            border-radius: 5px;
-            font-size: 10px;
-            font-weight: 600;
-            padding: 0 9px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            color: #FFFFFF;
-            transition: all .2s ease;
-        }
-
-            .action-btn i {
-                font-size: 11px;
-            }
-
-        .btn-view {
-            background: #2563EB;
-        }
-
-            .btn-view:hover {
-                background: #1D4ED8;
-                transform: translateY(-1px);
-            }
-
-        .btn-approve {
-            background: #16A34A;
-        }
-
-            .btn-approve:hover {
-                background: #15803D;
-                transform: translateY(-1px);
-            }
-
-        .btn-reject {
-            background: #B91C1C;
-        }
-
-            .btn-reject:hover {
-                background: #991B1B;
-                transform: translateY(-1px);
-            }
-
-
-        /* =========================================================
                    RESPONSIVE
                 ========================================================= */
 
         @@media (max-width: 1000px) {
-            .cards-container
 
-        {
-            flex-wrap: wrap;
-        }
+            .cards-container {
+                flex-wrap: wrap;
+            }
 
-        .dashboard-card {
-            min-width: 180px;
-        }
+            .dashboard-card {
+                min-width: 180px;
+            }
 
-        .lower-content {
-            grid-template-columns: 1fr;
-        }
-
+            .lower-content {
+                grid-template-columns: 1fr;
+            }
         }
 
 
         @@media (max-width: 768px) {
-            body
 
-        {
-            overflow-y: auto;
-        }
-
-        .sidebar {
-            width: 70px;
-            min-width: 70px;
-        }
-
-        .system-name,
-        .menu a span,
-        .logout a span {
-            display: none;
-        }
-
-        .logo-section {
-            padding: 15px 8px;
-        }
-
-        .logo-circle {
-            width: 40px;
-            height: 40px;
-        }
-
-        .menu {
-            padding: 15px 8px;
-        }
-
-            .menu a {
-                justify-content: center;
-                padding: 10px;
+            body {
+                overflow-y: auto;
             }
 
-        .logout a {
-            justify-content: center;
-        }
+            .sidebar {
+                width: 70px;
+                min-width: 70px;
+            }
 
-        .content-area {
-            padding: 16px;
-        }
+            .system-name,
+            .menu a span,
+            .logout a span {
+                display: none;
+            }
 
-        .welcome-text h2 {
-            font-size: 21px;
-        }
+            .logo-section {
+                padding: 15px 8px;
+            }
 
-        .welcome-text p {
-            font-size: 12px;
-        }
+            .logo-circle {
+                width: 40px;
+                height: 40px;
+            }
 
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-        }
+            .menu {
+                padding: 15px 8px;
+            }
 
-        .dashboard-card {
-            width: 100%;
-        }
+                .menu a {
+                    justify-content: center;
+                    padding: 10px;
+                }
 
+            .logout a {
+                justify-content: center;
+            }
+
+            .content-area {
+                padding: 16px;
+            }
+
+            .welcome-text h2 {
+                font-size: 21px;
+            }
+
+            .welcome-text p {
+                font-size: 12px;
+            }
+
+            .cards-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .dashboard-card {
+                width: 100%;
+            }
         }
 
 
         @@media (max-width: 500px) {
-            .cards-container
 
-        {
-            grid-template-columns: 1fr;
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-info {
+                display: none;
+            }
+
+            .lower-content {
+                display: block;
+            }
+
+            .dashboard-panel {
+                margin-bottom: 15px;
+            }
+
+            .dashboard-date {
+                margin-top: 5px;
+            }
         }
 
-        .profile-info {
-            display: none;
-        }
-
-        .lower-content {
-            display: block;
-        }
-
-        .dashboard-panel {
-            margin-bottom: 15px;
-        }
-
-        .dashboard-date {
-            margin-top: 5px;
-        }
-
-        }
     </style>
 
 </head>
@@ -964,13 +899,9 @@
 
     <div class="dashboard-container">
 
-
-        <!-- =====================================================
-             SIDEBAR
-        ====================================================== -->
+        <!-- SIDEBAR -->
 
         <aside class="sidebar">
-
 
             <!-- LOGO -->
 
@@ -991,141 +922,98 @@
             </div>
 
 
-            <!-- MENU -->
+            <!-- MAIN MENU -->
 
             <div class="menu">
-
-
-                <!-- DASHBOARD -->
 
                 <a href="@Url.Action("Dashboard", "Admin")"
                    class="active">
 
                     <i class="bi bi-grid-fill"></i>
-
-                    <span>
-                        Dashboard
-                    </span>
+                    <span>Dashboard</span>
 
                 </a>
 
-
-                <!-- REQUEST -->
 
                 <a href="@Url.Action("RequestManagement", "Admin")">
 
                     <i class="bi bi-file-earmark-text"></i>
-
-                    <span>
-                        Request
-                    </span>
+                    <span>Request</span>
 
                 </a>
 
-
-                <!-- RECORDS -->
 
                 <a href="@Url.Action("RecordsManagement", "Admin")">
 
                     <i class="bi bi-folder2-open"></i>
-
-                    <span>
-                        Records
-                    </span>
+                    <span>Records</span>
 
                 </a>
 
-
-                <!-- REPORTS -->
 
                 <a href="@Url.Action("ReportsManagement", "Admin")">
 
                     <i class="bi bi-file-earmark-bar-graph"></i>
-
-                    <span>
-                        Reports
-                    </span>
+                    <span>Reports</span>
 
                 </a>
 
-
-                <!-- AUDIT LOGS -->
 
                 <a href="@Url.Action("AuditLogs", "Admin")">
 
                     <i class="bi bi-clock-history"></i>
-
-                    <span>
-                        Audit Logs
-                    </span>
+                    <span>Audit Logs</span>
 
                 </a>
 
-
-                <!-- USERS -->
 
                 <a href="@Url.Action("UsersManagement", "Admin")">
 
                     <i class="bi bi-people-fill"></i>
-
-                    <span>
-                        Users
-                    </span>
+                    <span>Users</span>
 
                 </a>
-
-
-                <!-- SETTINGS -->
-
-                <a href="@Url.Action("Settings", "Admin")">
-
-                    <i class="bi bi-gear-fill"></i>
-
-                    <span>
-                        Settings
-                    </span>
-
-                </a>
-
 
             </div>
 
 
-            <!-- LOGOUT -->
+            <!-- SETTINGS + LOGOUT AT THE BOTTOM -->
 
             <div class="logout">
 
-                <a href="@Url.Action("Login", "Admin")">
+                <!-- SETTINGS -->
+
+                <a href="@Url.Action("Settings", "Admin")"
+                   class="settings-link">
+
+                    <i class="bi bi-gear-fill"></i>
+                    <span>Settings</span>
+
+                </a>
+
+
+                <!-- LOGOUT -->
+
+                <a href="@Url.Action("Login", "Admin")"
+                   class="logout-link">
 
                     <i class="bi bi-box-arrow-right"></i>
-
-                    <span>
-                        Logout
-                    </span>
+                    <span>Logout</span>
 
                 </a>
 
             </div>
-
 
         </aside>
 
 
-        <!-- =====================================================
-             MAIN CONTENT
-        ====================================================== -->
+        <!-- MAIN CONTENT -->
 
         <div class="main-content">
 
-
-            <!-- =================================================
-                 TOPBAR
-            ================================================== -->
+            <!-- TOPBAR -->
 
             <div class="topbar">
-
-
-                <!-- LEFT -->
 
                 <div class="topbar-left">
 
@@ -1140,17 +1028,10 @@
                 </div>
 
 
-                <!-- RIGHT -->
-
                 <div class="topbar-right">
-
-
-                    <!-- NOTIFICATION -->
 
                     <i class="bi bi-bell notification-icon"></i>
 
-
-                    <!-- PROFILE -->
 
                     <div class="profile">
 
@@ -1159,13 +1040,9 @@
 
                         <div class="profile-info">
 
-                            <h5>
-                                John Cruz
-                            </h5>
+                            <h5>John Cruz</h5>
 
-                            <span>
-                                Administrator
-                            </span>
+                            <span>Administrator</span>
 
                         </div>
 
@@ -1178,27 +1055,17 @@
             </div>
 
 
-            <!-- =================================================
-                 CONTENT
-            ================================================== -->
+            <!-- CONTENT -->
 
             <div class="content-area">
 
-
-                <!-- =================================================
-                     WELCOME + DATE
-                ================================================== -->
+                <!-- WELCOME -->
 
                 <div class="welcome-section">
 
-
-                    <!-- WELCOME -->
-
                     <div class="welcome-text">
 
-                        <h2>
-                            Hi!
-                        </h2>
+                        <h2>Hi!</h2>
 
                         <p>
                             Here's what's happening with your interviews and records today.
@@ -1207,27 +1074,19 @@
                     </div>
 
 
-                    <!-- CURRENT DATE -->
-
                     <div class="dashboard-date">
 
                         <span class="date-value"
-                              id="currentDate">
-                        </span>
+                              id="currentDate"></span>
 
                     </div>
 
                 </div>
 
 
-                <!-- =================================================
-                     SUMMARY CARDS
-                ================================================== -->
+                <!-- SUMMARY CARDS -->
 
                 <div class="cards-container">
-
-
-                    <!-- TOTAL REQUEST -->
 
                     <div class="dashboard-card">
 
@@ -1239,9 +1098,7 @@
 
                         <div class="card-info">
 
-                            <h2>
-                                0
-                            </h2>
+                            <h2>0</h2>
 
                             <span style="color:#7C3AED;">
                                 Total Request
@@ -1251,8 +1108,6 @@
 
                     </div>
 
-
-                    <!-- PENDING -->
 
                     <div class="dashboard-card">
 
@@ -1264,9 +1119,7 @@
 
                         <div class="card-info">
 
-                            <h2>
-                                0
-                            </h2>
+                            <h2>0</h2>
 
                             <span style="color:#F59E0B;">
                                 Pendings
@@ -1276,8 +1129,6 @@
 
                     </div>
 
-
-                    <!-- APPROVED -->
 
                     <div class="dashboard-card">
 
@@ -1289,9 +1140,7 @@
 
                         <div class="card-info">
 
-                            <h2>
-                                0
-                            </h2>
+                            <h2>0</h2>
 
                             <span style="color:#10B981;">
                                 Approved
@@ -1301,8 +1150,6 @@
 
                     </div>
 
-
-                    <!-- COMPLETED -->
 
                     <div class="dashboard-card">
 
@@ -1314,9 +1161,7 @@
 
                         <div class="card-info">
 
-                            <h2>
-                                0
-                            </h2>
+                            <h2>0</h2>
 
                             <span style="color:#3B82F6;">
                                 Completed
@@ -1326,8 +1171,6 @@
 
                     </div>
 
-
-                    <!-- REJECTED -->
 
                     <div class="dashboard-card">
 
@@ -1339,9 +1182,7 @@
 
                         <div class="card-info">
 
-                            <h2>
-                                0
-                            </h2>
+                            <h2>0</h2>
 
                             <span style="color:#B91C1C;">
                                 Rejected
@@ -1351,37 +1192,25 @@
 
                     </div>
 
-
                 </div>
 
 
-                <!-- =================================================
-                     GRAPH + RECENT APPLICANTS
-                ================================================== -->
+                <!-- LOWER CONTENT -->
 
                 <div class="lower-content">
 
-
-                    <!-- =================================================
-                         REQUEST OVERVIEW
-                    ================================================== -->
+                    <!-- REQUEST OVERVIEW -->
 
                     <div class="dashboard-panel graph-panel">
 
-
                         <div class="panel-header">
 
-                            <h4>
-                                Request Overview
-                            </h4>
-
+                            <h4>Request Overview</h4>
 
                             <button class="filter-btn"
                                     type="button">
 
-                                <span>
-                                    This Week
-                                </span>
+                                <span>This Week</span>
 
                                 <i class="bi bi-chevron-down"></i>
 
@@ -1391,9 +1220,6 @@
 
 
                         <div class="graph-area">
-
-
-                            <!-- Y LABELS -->
 
                             <div class="graph-y-labels">
 
@@ -1406,8 +1232,6 @@
 
                             </div>
 
-
-                            <!-- DAYS -->
 
                             <div class="days">
 
@@ -1426,19 +1250,14 @@
                     </div>
 
 
-                    <!-- =================================================
-                         RECENT APPLICANTS
-                    ================================================== -->
+                    <!-- RECENT APPLICANTS -->
 
                     <div class="dashboard-panel table-panel">
-
 
                         <div class="panel-title">
                             Recent Applicants
                         </div>
 
-
-                        <!-- SEARCH -->
 
                         <div class="table-search">
 
@@ -1451,8 +1270,6 @@
                         </div>
 
 
-                        <!-- TABLE SCROLL -->
-
                         <div class="table-scroll">
 
                             <table class="applicant-table">
@@ -1461,17 +1278,11 @@
 
                                     <tr>
 
-                                        <th>
-                                            APPLICANT ID
-                                        </th>
+                                        <th>APPLICANT ID</th>
 
-                                        <th>
-                                            APPLICANT NAME
-                                        </th>
+                                        <th>APPLICANT NAME</th>
 
-                                        <th>
-                                            STATUS
-                                        </th>
+                                        <th>STATUS</th>
 
                                     </tr>
 
@@ -1480,16 +1291,11 @@
 
                                 <tbody id="applicantTableBody">
 
-
                                     <tr>
 
-                                        <td>
-                                            AP001
-                                        </td>
+                                        <td>AP001</td>
 
-                                        <td>
-                                            Cris Alin Zobrado
-                                        </td>
+                                        <td>Cris Alin Zobrado</td>
 
                                         <td>
 
@@ -1504,81 +1310,53 @@
 
                                     <tr>
 
-                                        <td>
-                                            AP002
-                                        </td>
+                                        <td>AP002</td>
 
-                                        <td>
-                                            Hannah Cabasan
-                                        </td>
+                                        <td>Hannah Cabasan</td>
 
-                                        <td>
-                                            —
-                                        </td>
+                                        <td>—</td>
 
                                     </tr>
 
 
                                     <tr>
 
-                                        <td>
-                                            3
-                                        </td>
+                                        <td>3</td>
 
-                                        <td>
-                                            John Mark Guladerama
-                                        </td>
+                                        <td>John Mark Guladerama</td>
 
-                                        <td>
-                                            —
-                                        </td>
+                                        <td>—</td>
 
                                     </tr>
 
 
                                     <tr>
 
-                                        <td>
-                                            4
-                                        </td>
+                                        <td>4</td>
 
-                                        <td>
-                                            Juan Dela Cruz
-                                        </td>
+                                        <td>Juan Dela Cruz</td>
 
-                                        <td>
-                                            —
-                                        </td>
+                                        <td>—</td>
 
                                     </tr>
 
 
                                     <tr>
 
-                                        <td>
-                                            5
-                                        </td>
+                                        <td>5</td>
 
-                                        <td>
-                                            John Michael Aninon
-                                        </td>
+                                        <td>John Michael Aninon</td>
 
-                                        <td>
-                                            —
-                                        </td>
+                                        <td>—</td>
 
                                     </tr>
 
 
                                     <tr>
 
-                                        <td>
-                                            6
-                                        </td>
+                                        <td>6</td>
 
-                                        <td>
-                                            Maria Santos
-                                        </td>
+                                        <td>Maria Santos</td>
 
                                         <td>
 
@@ -1593,30 +1371,20 @@
 
                                     <tr>
 
-                                        <td>
-                                            7
-                                        </td>
+                                        <td>7</td>
 
-                                        <td>
-                                            Pedro Garcia
-                                        </td>
+                                        <td>Pedro Garcia</td>
 
-                                        <td>
-                                            Approved
-                                        </td>
+                                        <td>Approved</td>
 
                                     </tr>
 
 
                                     <tr>
 
-                                        <td>
-                                            8
-                                        </td>
+                                        <td>8</td>
 
-                                        <td>
-                                            Anna Mae Cruz
-                                        </td>
+                                        <td>Anna Mae Cruz</td>
 
                                         <td>
 
@@ -1631,13 +1399,9 @@
 
                                     <tr>
 
-                                        <td>
-                                            9
-                                        </td>
+                                        <td>9</td>
 
-                                        <td>
-                                            Mark Anthony Reyes
-                                        </td>
+                                        <td>Mark Anthony Reyes</td>
 
                                         <td>
 
@@ -1652,20 +1416,13 @@
 
                                     <tr>
 
-                                        <td>
-                                            10
-                                        </td>
+                                        <td>10</td>
 
-                                        <td>
-                                            Sarah Jane Flores
-                                        </td>
+                                        <td>Sarah Jane Flores</td>
 
-                                        <td>
-                                            Approved
-                                        </td>
+                                        <td>Approved</td>
 
                                     </tr>
-
 
                                 </tbody>
 
@@ -1675,9 +1432,7 @@
 
                     </div>
 
-
                 </div>
-
 
             </div>
 
@@ -1686,12 +1441,9 @@
     </div>
 
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
+    <!-- JAVASCRIPT -->
 
     <script>
-
 
         /* =========================================================
            SIDEBAR COLLAPSE
@@ -1721,19 +1473,14 @@
         const today =
             new Date();
 
-
         const options = {
 
             weekday: 'short',
-
             month: 'short',
-
             day: 'numeric',
-
             year: 'numeric'
 
         };
-
 
         currentDate.textContent =
             today.toLocaleDateString('en-US', options);
@@ -1754,7 +1501,6 @@
 
             const searchValue =
                 this.value.toLowerCase().trim();
-
 
             const rows =
                 tableBody.querySelectorAll('tr');
@@ -1780,9 +1526,7 @@
 
         });
 
-
     </script>
-
 
 </body>
 </html>
