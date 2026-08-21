@@ -1,0 +1,1519 @@
+﻿@{
+    ViewBag.Title = "Create Request";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Request - SORS</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          rel="stylesheet" />
+
+    <!-- Same Font as Dashboard -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        /* =========================================================
+                           GLOBAL
+                        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #F5F6F8;
+            overflow: hidden;
+            color: #111827;
+        }
+
+
+        /* =========================================================
+                           MAIN CONTAINER
+                        ========================================================= */
+
+        .dashboard-container {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+        }
+
+
+        /* =========================================================
+                           SIDEBAR
+                        ========================================================= */
+
+        .sidebar {
+            width: 158px;
+            min-width: 158px;
+            height: 100vh;
+            background: #1F2933;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            transition: all .3s ease;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,.25) transparent;
+        }
+
+            .sidebar::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            .sidebar::-webkit-scrollbar-thumb {
+                background: rgba(255,255,255,.25);
+                border-radius: 10px;
+            }
+
+            .sidebar::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+
+            /* =========================================================
+                           COLLAPSED SIDEBAR
+                        ========================================================= */
+
+            .sidebar.collapsed {
+                width: 78px;
+                min-width: 78px;
+            }
+
+                .sidebar.collapsed .system-name {
+                    display: block;
+                    font-size: 11px;
+                    font-weight: 700;
+                    margin-top: 8px;
+                    letter-spacing: .2px;
+                }
+
+                .sidebar.collapsed .logo-circle {
+                    width: 42px;
+                    height: 42px;
+                }
+
+                .sidebar.collapsed .logo-section {
+                    padding: 18px 10px;
+                }
+
+                .sidebar.collapsed .menu a span,
+                .sidebar.collapsed .dropdown-toggle-menu span,
+                .sidebar.collapsed .logout a span {
+                    display: none;
+                }
+
+                .sidebar.collapsed .menu {
+                    padding: 16px 10px;
+                }
+
+                    .sidebar.collapsed .menu a {
+                        width: 44px;
+                        height: 44px;
+                        margin: 0 auto 10px auto;
+                        padding: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 6px;
+                    }
+
+                        .sidebar.collapsed .menu a.active {
+                            background: #B91C1C;
+                            box-shadow: 0 4px 10px rgba(0,0,0,.15);
+                        }
+
+                        .sidebar.collapsed .menu a i,
+                        .sidebar.collapsed .logout a i {
+                            margin: 0;
+                            font-size: 17px;
+                        }
+
+                .sidebar.collapsed .dropdown-toggle-menu {
+                    width: 44px;
+                    height: 44px;
+                    margin: 0 auto 10px auto;
+                    padding: 0;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 6px;
+                }
+
+                .sidebar.collapsed .small-arrow {
+                    display: none;
+                }
+
+                .sidebar.collapsed .dropdown-submenu {
+                    display: none !important;
+                }
+
+                .sidebar.collapsed .logout {
+                    padding-bottom: 15px;
+                }
+
+                    .sidebar.collapsed .logout a {
+                        width: 44px;
+                        height: 44px;
+                        margin: 0 auto;
+                        padding: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+
+        /* =========================================================
+                           LOGO SECTION
+                        ========================================================= */
+
+        .logo-section {
+            text-align: center;
+            padding: 18px 10px;
+            border-bottom: 1px solid rgba(255,255,255,.18);
+        }
+
+        .logo-circle {
+            width: 42px;
+            height: 42px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .system-name {
+            margin-top: 9px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .3px;
+            color: #FFFFFF;
+        }
+
+
+        /* =========================================================
+                           MENU
+                        ========================================================= */
+
+        .menu {
+            padding: 16px 9px;
+        }
+
+            .menu a {
+                color: #FFFFFF;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 11px;
+                padding: 10px 11px;
+                margin-bottom: 5px;
+                border-radius: 6px;
+                font-size: 13px;
+                font-weight: 500;
+                line-height: 1.2;
+                transition: all .2s ease;
+            }
+
+                .menu a i {
+                    font-size: 16px;
+                    min-width: 16px;
+                }
+
+                .menu a:hover {
+                    background: rgba(185,28,28,.18);
+                    color: #FFFFFF;
+                }
+
+                .menu a.active {
+                    background: #B91C1C;
+                    color: #FFFFFF;
+                    box-shadow: 0 3px 8px rgba(185,28,28,.22);
+                }
+
+
+        /* =========================================================
+                           SETTINGS DROPDOWN
+                        ========================================================= */
+
+        .sidebar-dropdown {
+            margin-bottom: 5px;
+        }
+
+        .dropdown-toggle-menu {
+            color: #FFFFFF;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            padding: 10px 11px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1.2;
+            transition: all .2s ease;
+        }
+
+            .dropdown-toggle-menu:hover {
+                background: rgba(185,28,28,.18);
+                color: #FFFFFF;
+            }
+
+        .small-arrow {
+            font-size: 9px;
+            transition: transform .3s ease;
+        }
+
+        .dropdown-submenu {
+            display: none;
+            flex-direction: column;
+            padding-left: 14px;
+            margin-top: 3px;
+        }
+
+            .dropdown-submenu a {
+                color: #FFFFFF;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 9px;
+                font-size: 11px;
+                border-radius: 5px;
+            }
+
+                .dropdown-submenu a:hover {
+                    background: rgba(185,28,28,.18);
+                    color: #FFFFFF;
+                }
+
+        .sidebar-dropdown.open .dropdown-submenu {
+            display: flex;
+        }
+
+        .sidebar-dropdown.open .small-arrow {
+            transform: rotate(90deg);
+        }
+
+
+        /* =========================================================
+                           LOGOUT
+                        ========================================================= */
+
+        .logout {
+            margin-top: auto;
+            padding: 12px 9px 15px 9px;
+        }
+
+            .logout a {
+                color: #FFFFFF;
+                text-decoration: none;
+                display: flex;
+                gap: 11px;
+                align-items: center;
+                padding: 10px 11px;
+                font-size: 13px;
+                font-weight: 500;
+                border-radius: 6px;
+                transition: all .2s ease;
+            }
+
+                .logout a i {
+                    font-size: 16px;
+                }
+
+                .logout a:hover {
+                    background: rgba(185,28,28,.18);
+                    color: #FFFFFF;
+                }
+
+
+        /* =========================================================
+                           MAIN CONTENT
+                        ========================================================= */
+
+        .main-content {
+            flex: 1;
+            background: #F5F6F8;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+
+        /* =========================================================
+                           TOPBAR
+                        ========================================================= */
+
+        .topbar {
+            height: 56px;
+            min-height: 56px;
+            flex-shrink: 0;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background: #FFFFFF;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: #B91C1C;
+            font-size: 19px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+
+        /* =========================================================
+                           TOPBAR RIGHT
+                        ========================================================= */
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-left: auto;
+        }
+
+        .notification-icon {
+            font-size: 19px;
+            color: #374151;
+            cursor: pointer;
+            transition: color .2s ease;
+        }
+
+            .notification-icon:hover {
+                color: #B91C1C;
+            }
+
+
+        /* =========================================================
+                           PROFILE
+                        ========================================================= */
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding-left: 12px;
+            border-left: 1px solid #E5E7EB;
+        }
+
+            .profile img {
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.25;
+        }
+
+            .profile-info h5 {
+                margin: 0;
+                font-size: 12px;
+                font-weight: 600;
+                color: #111827;
+            }
+
+            .profile-info span {
+                font-size: 10px;
+                color: #6B7280;
+                margin-top: 2px;
+            }
+
+        .profile-arrow {
+            color: #6B7280;
+            font-size: 10px;
+            margin-left: 3px;
+        }
+
+
+        /* =========================================================
+                           CONTENT AREA
+                        ========================================================= */
+
+        .content-area {
+            flex: 1;
+            padding: 22px 30px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================================
+                           BREADCRUMB
+                           SAME MAIN SIZE AS DASHBOARD "Hi!"
+                        ========================================================= */
+
+        .breadcrumb-title {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+            padding: 0;
+            color: #111827;
+            line-height: 1.2;
+        }
+
+        .rcreate-breadcrumb {
+            text-decoration: none;
+            color: #9CA3AF;
+            transition: .2s ease;
+        }
+
+            .rcreate-breadcrumb:hover {
+                color: #B91C1C;
+            }
+
+        .breadcrumb-title strong {
+            color: #B91C1C;
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+                           PAGE DESCRIPTION
+                        ========================================================= */
+
+        .page-description {
+            color: #64748B;
+            font-size: 13px;
+            font-weight: 400;
+            margin: 5px 0 18px 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+                           REQUEST CARD
+                        ========================================================= */
+
+        .request-card {
+            width: 100%;
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 18px 17px 20px 17px;
+            min-height: 520px;
+            box-shadow: 0 3px 12px rgba(0,0,0,.04);
+        }
+
+
+        /* =========================================================
+                           FORM HEADER
+                        ========================================================= */
+
+        .form-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 13px;
+            border-bottom: 1px solid #E5E7EB;
+            margin-bottom: 12px;
+        }
+
+        .form-header-icon {
+            width: 28px;
+            height: 28px;
+            border: 2px solid #374151;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #374151;
+            font-size: 15px;
+        }
+
+        .form-header h3 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 700;
+            color: #374151;
+        }
+
+
+        /* =========================================================
+                           SECTION TITLE
+                        ========================================================= */
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #EF4444;
+            margin: 9px 0 15px 0;
+        }
+
+
+        /* =========================================================
+                           FORM GRID
+                        ========================================================= */
+
+        .request-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 38px;
+            row-gap: 15px;
+        }
+
+
+        /* =========================================================
+                           FORM GROUP
+                        ========================================================= */
+
+        .form-group {
+            width: 100%;
+        }
+
+            .form-group label {
+                display: block;
+                font-size: 12px;
+                font-weight: 600;
+                color: #374151;
+                margin-bottom: 7px;
+            }
+
+
+        /* =========================================================
+                           INPUT WRAPPER
+                        ========================================================= */
+
+        .input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9CA3AF;
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+                           INPUT
+                        ========================================================= */
+
+        .form-control-custom {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            padding: 0 12px 0 37px;
+            outline: none;
+            font-size: 12px;
+            color: #374151;
+            background: #FFFFFF;
+            transition: all .2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,.08);
+        }
+
+            .form-control-custom:focus {
+                border-color: #B91C1C;
+                box-shadow: 0 0 0 2px rgba(185,28,28,.08);
+            }
+
+            .form-control-custom::placeholder {
+                color: #9CA3AF;
+            }
+
+
+        /* =========================================================
+                           FILE INPUT
+                        ========================================================= */
+
+        .file-input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+            .file-input-wrapper input[type="file"] {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+        .file-display {
+            height: 40px;
+            width: 100%;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,.08);
+        }
+
+        .file-name-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-left: 12px;
+            min-width: 0;
+        }
+
+            .file-name-area i {
+                color: #9CA3AF;
+                font-size: 14px;
+            }
+
+        .file-name {
+            font-size: 12px;
+            color: #9CA3AF;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .browse-btn {
+            height: 100%;
+            min-width: 70px;
+            padding: 0 14px;
+            border: none;
+            background: #EF1C24;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background .2s ease;
+        }
+
+            .browse-btn:hover {
+                background: #B91C1C;
+            }
+
+
+        /* =========================================================
+                           DESCRIPTION
+                        ========================================================= */
+
+        .description-group {
+            grid-column: 2;
+        }
+
+        .description-box {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #9CA3AF;
+            border-radius: 6px;
+            padding: 10px 12px;
+            resize: none;
+            outline: none;
+            font-size: 12px;
+            color: #374151;
+            font-family: 'Inter', sans-serif;
+        }
+
+            .description-box:focus {
+                border-color: #B91C1C;
+                box-shadow: 0 0 0 2px rgba(185,28,28,.08);
+            }
+
+            .description-box::placeholder {
+                color: #9CA3AF;
+            }
+
+
+        /* =========================================================
+                           BUTTON SECTION
+                        ========================================================= */
+
+        .button-section {
+            margin-top: 145px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cancel-btn,
+        .submit-btn {
+            width: 180px;
+            height: 40px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .cancel-btn {
+            border: 1px solid #EF4444;
+            background: #FFFFFF;
+            color: #EF1C24;
+        }
+
+            .cancel-btn:hover {
+                background: #FEF2F2;
+            }
+
+        .submit-btn {
+            border: none;
+            background: #EF1C24;
+            color: #FFFFFF;
+            box-shadow: 0 3px 8px rgba(239,28,36,.20);
+        }
+
+            .submit-btn:hover {
+                background: #B91C1C;
+                transform: translateY(-1px);
+                box-shadow: 0 5px 12px rgba(185,28,28,.25);
+            }
+
+
+        /* =========================================================
+                           RESPONSIVE
+                        ========================================================= */
+
+        @@media (max-width: 1000px) {
+
+            .request-form {
+                grid-template-columns: 1fr;
+            }
+
+            .description-group {
+                grid-column: 1;
+            }
+
+            .button-section {
+                margin-top: 40px;
+            }
+        }
+
+
+        @@media (max-width: 768px) {
+
+            body {
+                overflow-y: auto;
+            }
+
+            .sidebar {
+                width: 78px;
+                min-width: 78px;
+            }
+
+            .system-name,
+            .menu a span,
+            .dropdown-toggle-menu span,
+            .logout a span {
+                display: none;
+            }
+
+            .logo-section {
+                padding: 18px 10px;
+            }
+
+            .logo-circle {
+                width: 42px;
+                height: 42px;
+            }
+
+            .menu {
+                padding: 15px 10px;
+            }
+
+                .menu a {
+                    width: 44px;
+                    height: 44px;
+                    margin: 0 auto 10px auto;
+                    padding: 0;
+                    justify-content: center;
+                }
+
+            .dropdown-toggle-menu {
+                width: 44px;
+                height: 44px;
+                margin: 0 auto 10px auto;
+                padding: 0;
+                justify-content: center;
+            }
+
+            .small-arrow {
+                display: none;
+            }
+
+            .logout a {
+                width: 44px;
+                height: 44px;
+                margin: 0 auto;
+                padding: 0;
+                justify-content: center;
+            }
+
+            .content-area {
+                padding: 16px;
+            }
+
+            .request-card {
+                padding: 16px;
+            }
+
+            .button-section {
+                justify-content: center;
+            }
+        }
+
+
+        @@media (max-width: 500px) {
+
+            .profile-info {
+                display: none;
+            }
+
+            .profile-arrow {
+                display: none;
+            }
+
+            .breadcrumb-title {
+                font-size: 21px;
+            }
+
+            .button-section {
+                flex-direction: column;
+            }
+
+            .cancel-btn,
+            .submit-btn {
+                width: 100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- =====================================================
+             SIDEBAR
+        ====================================================== -->
+
+        <aside class="sidebar">
+
+            <!-- LOGO -->
+
+            <div class="logo-section">
+
+                <div class="logo-circle">
+
+                    <img src="~/Images/newlogo.png"
+                         class="logo-img"
+                         alt="SORS Logo" />
+
+                </div>
+
+                <div class="system-name">
+                    SORS
+                </div>
+
+            </div>
+
+
+            <!-- MENU -->
+
+            <div class="menu">
+
+                <!-- DASHBOARD -->
+
+                <a href="@Url.Action("StaffDashboard", "Staff")">
+
+                    <i class="bi bi-grid-fill"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <!-- REQUEST -->
+
+                <a href="@Url.Action("StaffRequest", "Staff")"
+                   class="active">
+
+                    <i class="bi bi-file-earmark-text"></i>
+
+                    <span>
+                        Request
+                    </span>
+
+                </a>
+
+
+                <!-- RECORDS -->
+
+                <a href="@Url.Action("StaffRecords", "Staff")">
+
+                    <i class="bi bi-folder2-open"></i>
+
+                    <span>
+                        Records
+                    </span>
+
+                </a>
+
+
+                <!-- REPORTS -->
+
+                <a href="@Url.Action("StaffReports", "Staff")">
+
+                    <i class="bi bi-file-earmark-bar-graph"></i>
+
+                    <span>
+                        Reports
+                    </span>
+
+                </a>
+
+                <!-- SETTINGS -->
+
+                <div class="sidebar-dropdown">
+
+                    <a href="javascript:void(0)"
+                       class="dropdown-toggle-menu">
+
+                        <i class="bi bi-gear-fill"></i>
+
+                        <span>
+                            Settings
+                        </span>
+
+                        <i class="bi bi-chevron-right ms-auto small-arrow"></i>
+
+                    </a>
+
+
+                    <div class="dropdown-submenu">
+
+                        <a href="@Url.Action("StaffSettings", "Staff")">
+
+                            <i class="bi bi-sliders"></i>
+
+                            <span>
+                                General Settings
+                            </span>
+
+                        </a>
+
+
+                        <a href="@Url.Action("SAccountSettings", "Admin")">
+
+                            <i class="bi bi-person-gear"></i>
+
+                            <span>
+                                Account & Security
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOGOUT -->
+
+            <div class="logout">
+
+                <a href="@Url.Action("StaffLogin", "Staff")">
+
+                    <i class="bi bi-box-arrow-right"></i>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+        ====================================================== -->
+
+        <div class="main-content">
+
+
+            <!-- =================================================
+                 TOPBAR
+            ================================================== -->
+
+            <div class="topbar">
+
+                <!-- LEFT -->
+
+                <div class="topbar-left">
+
+                    <button class="menu-toggle"
+                            id="menuToggle"
+                            type="button">
+
+                        <i class="bi bi-list"></i>
+
+                    </button>
+
+                </div>
+
+
+                <!-- RIGHT -->
+
+                <div class="topbar-right">
+
+                    <!-- NOTIFICATION -->
+
+                    <i class="bi bi-bell notification-icon"></i>
+
+
+                    <!-- PROFILE -->
+
+                    <div class="profile">
+
+                        <img src="~/Images/adminpic.jpg"
+                             alt="Profile" />
+
+                        <div class="profile-info">
+
+                            <h5>
+                                John Cruz
+                            </h5>
+
+                            <span>
+                                Administrator
+                            </span>
+
+                        </div>
+
+                        <i class="bi bi-chevron-down profile-arrow"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONTENT
+            ================================================== -->
+
+            <div class="content-area">
+
+
+                <!-- =================================================
+                     BREADCRUMB
+                ================================================== -->
+
+                <div class="breadcrumb-title">
+
+                    <a href="@Url.Action("StaffRequest", "Staff")"
+                       class="rcreate-breadcrumb">
+
+                        Request
+
+                    </a>
+
+                    <span>
+                        ›
+                    </span>
+
+                    <strong>
+                        Create Request
+                    </strong>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <p class="page-description">
+                    Submit a new request and provide the necessary details.
+                </p>
+
+
+                <!-- =================================================
+                     REQUEST CARD
+                ================================================= -->
+
+                <div class="request-card">
+
+
+                    <!-- FORM HEADER -->
+
+                    <div class="form-header">
+
+                        <div class="form-header-icon">
+
+                            <i class="bi bi-list-check"></i>
+
+                        </div>
+
+                        <h3>
+                            Request Form
+                        </h3>
+
+                    </div>
+
+
+                    <!-- SECTION -->
+
+                    <div class="section-title">
+                        Personal Information
+                    </div>
+
+
+                    <!-- FORM -->
+
+                    <form>
+
+                        <div class="request-form">
+
+
+                            <!-- FULL NAME -->
+
+                            <div class="form-group">
+
+                                <label>
+                                    Full name
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <i class="bi bi-person input-icon"></i>
+
+                                    <input type="text"
+                                           class="form-control-custom"
+                                           placeholder="Enter full name" />
+
+                                </div>
+
+                            </div>
+
+                            <!-- VALID ID -->
+
+                            <div class="form-group">
+
+                                <label>
+                                    Upload Valid ID (JPG, JPEG, PNG)
+                                </label>
+
+                                <div class="file-input-wrapper">
+
+                                    <input type="file"
+                                           id="validIdFile"
+                                           accept=".jpg,.jpeg,.png" />
+
+                                    <div class="file-display">
+
+                                        <div class="file-name-area">
+
+                                            <i class="bi bi-file-earmark"></i>
+
+                                            <span class="file-name"
+                                                  id="validIdFileName">
+                                                Choose File
+                                            </span>
+
+                                        </div>
+
+                                        <button type="button"
+                                                class="browse-btn"
+                                                onclick="document.getElementById('validIdFile').click()">
+
+                                            Browse
+
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- EMAIL -->
+
+                            <div class="form-group">
+
+                                <label>
+                                    Email Address
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <i class="bi bi-envelope input-icon"></i>
+
+                                    <input type="email"
+                                           class="form-control-custom"
+                                           placeholder="Enter your email address" />
+
+                                </div>
+
+                            </div>
+
+                            <!-- RESUME -->
+
+                            <div class="form-group">
+
+                                <label>
+                                    Upload Resume (PDF, DOC, DOCX)
+                                </label>
+
+                                <div class="file-input-wrapper">
+
+                                    <input type="file"
+                                           id="resumeFile"
+                                           accept=".pdf,.doc,.docx" />
+
+                                    <div class="file-display">
+
+                                        <div class="file-name-area">
+
+                                            <i class="bi bi-file-earmark"></i>
+
+                                            <span class="file-name"
+                                                  id="resumeFileName">
+                                                Choose File
+                                            </span>
+
+                                        </div>
+
+                                        <button type="button"
+                                                class="browse-btn"
+                                                onclick="document.getElementById('resumeFile').click()">
+
+                                            Browse
+
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- CONTACT NUMBER -->
+
+                            <div class="form-group">
+
+                                <label>
+                                    Contact Number
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <i class="bi bi-telephone input-icon"></i>
+
+                                    <input type="text"
+                                           class="form-control-custom"
+                                           placeholder="Enter Contact Number" />
+
+                                </div>
+
+                            </div>
+
+                            <!-- DESCRIPTION -->
+
+                            <div class="form-group description-group">
+
+                                <label>
+                                    Description
+                                    <span style="color:#9CA3AF;">
+                                        (Optional)
+                                    </span>
+                                </label>
+
+                                <textarea class="description-box"
+                                          placeholder="Add description..."></textarea>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- =================================================
+                             BUTTONS
+                        ================================================== -->
+
+                        <div class="button-section">
+
+                            <button type="button"
+                                    class="cancel-btn">
+
+                                Cancel
+
+                            </button>
+
+                            <button type="submit"
+                                    class="submit-btn">
+
+                                Submit Request
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =====================================================
+           SETTINGS DROPDOWN
+        ===================================================== */
+
+        const dropdown =
+            document.querySelector('.sidebar-dropdown');
+
+        const dropdownToggle =
+            document.querySelector('.dropdown-toggle-menu');
+
+        dropdownToggle.addEventListener('click', function () {
+
+            dropdown.classList.toggle('open');
+
+        });
+
+
+        /* =====================================================
+           SIDEBAR COLLAPSE
+        ===================================================== */
+
+        const sidebar =
+            document.querySelector('.sidebar');
+
+        const menuToggle =
+            document.getElementById('menuToggle');
+
+        menuToggle.addEventListener('click', function () {
+
+            sidebar.classList.toggle('collapsed');
+
+        });
+
+
+        /* =====================================================
+           RESUME FILE NAME
+        ===================================================== */
+
+        const resumeFile =
+            document.getElementById('resumeFile');
+
+        const resumeFileName =
+            document.getElementById('resumeFileName');
+
+        resumeFile.addEventListener('change', function () {
+
+            if (resumeFile.files.length > 0) {
+
+                resumeFileName.textContent =
+                    resumeFile.files[0].name;
+
+            }
+            else {
+
+                resumeFileName.textContent =
+                    "Choose File";
+
+            }
+
+        });
+
+
+        /* =====================================================
+           VALID ID FILE NAME
+        ===================================================== */
+
+        const validIdFile =
+            document.getElementById('validIdFile');
+
+        const validIdFileName =
+            document.getElementById('validIdFileName');
+
+        validIdFile.addEventListener('change', function () {
+
+            if (validIdFile.files.length > 0) {
+
+                validIdFileName.textContent =
+                    validIdFile.files[0].name;
+
+            }
+            else {
+
+                validIdFileName.textContent =
+                    "Choose File";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

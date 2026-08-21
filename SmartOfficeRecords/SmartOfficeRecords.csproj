@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\Staff\StaffRequest.cshtml~RFe8ed239.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\Images\ad.png" />
     <None Include="wwwroot\Images\staffl.png" />
     <None Include="wwwroot\Images\ap.png" />

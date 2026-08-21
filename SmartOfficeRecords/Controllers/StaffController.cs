@@ -54,5 +54,15 @@ namespace SmartOfficeRecords.Controllers
         {
             return View();
         }
+
+        public ActionResult StaffCreate()
+        {
+            return View();
+        }
+
+        public ActionResult StaffReports()
+        {
+            return View();
+        }
     }
 }
