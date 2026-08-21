@@ -249,79 +249,16 @@
                     box-shadow: 0 3px 8px rgba(185,28,28,.22);
                 }
 
-
         /* =========================================================
-                           SETTINGS DROPDOWN
-                        ========================================================= */
-
-        .sidebar-dropdown {
-            margin-bottom: 5px;
-        }
-
-        .dropdown-toggle-menu {
-            color: #FFFFFF;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 11px;
-            padding: 10px 11px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            line-height: 1.2;
-            transition: all .2s ease;
-        }
-
-            .dropdown-toggle-menu:hover {
-                background: rgba(185,28,28,.18);
-                color: #FFFFFF;
-            }
-
-        .small-arrow {
-            font-size: 9px;
-            transition: transform .3s ease;
-        }
-
-        .dropdown-submenu {
-            display: none;
-            flex-direction: column;
-            padding-left: 14px;
-            margin-top: 3px;
-        }
-
-            .dropdown-submenu a {
-                color: #FFFFFF;
-                text-decoration: none;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                padding: 8px 9px;
-                font-size: 11px;
-                border-radius: 5px;
-            }
-
-                .dropdown-submenu a:hover {
-                    background: rgba(185,28,28,.18);
-                    color: #FFFFFF;
-                }
-
-        .sidebar-dropdown.open .dropdown-submenu {
-            display: flex;
-        }
-
-        .sidebar-dropdown.open .small-arrow {
-            transform: rotate(90deg);
-        }
-
-
-        /* =========================================================
-                           LOGOUT
+                           SETTINGS + LOGOUT
                         ========================================================= */
 
         .logout {
             margin-top: auto;
             padding: 12px 9px 15px 9px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
 
             .logout a {
@@ -339,13 +276,18 @@
 
                 .logout a i {
                     font-size: 16px;
+                    min-width: 16px;
                 }
 
-                .logout a:hover {
-                    background: rgba(185,28,28,.18);
-                    color: #FFFFFF;
-                }
+        .settings-link:hover {
+            background: rgba(185, 28, 28, .18);
+            color: #FFFFFF;
+        }
 
+        .logout-link:hover {
+            background: rgba(185,28,28,.25);
+            color: #FFFFFF;
+        }
 
         /* =========================================================
                            MAIN CONTENT
@@ -974,91 +916,30 @@
                 </a>
 
 
-                <!-- AUDIT LOGS -->
-
-                <a href="@Url.Action("AuditLogs", "Admin")">
-
-                    <i class="bi bi-clock-history"></i>
-
-                    <span>
-                        Audit Logs
-                    </span>
-
-                </a>
-
-
-                <!-- USERS -->
-
-                <a href="@Url.Action("UsersManagement", "Admin")">
-
-                    <i class="bi bi-people-fill"></i>
-
-                    <span>
-                        Users
-                    </span>
-
-                </a>
-
-
-                <!-- SETTINGS -->
-
-                <div class="sidebar-dropdown">
-
-                    <a href="javascript:void(0)"
-                       class="dropdown-toggle-menu">
-
-                        <i class="bi bi-gear-fill"></i>
-
-                        <span>
-                            Settings
-                        </span>
-
-                        <i class="bi bi-chevron-right ms-auto small-arrow"></i>
-
-                    </a>
-
-
-                    <div class="dropdown-submenu">
-
-                        <a href="@Url.Action("Settings", "Admin")">
-
-                            <i class="bi bi-sliders"></i>
-
-                            <span>
-                                General Settings
-                            </span>
-
-                        </a>
-
-
-                        <a href="@Url.Action("SAccountSettings", "Admin")">
-
-                            <i class="bi bi-person-gear"></i>
-
-                            <span>
-                                Account & Security
-                            </span>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
             </div>
 
-
-            <!-- LOGOUT -->
+            <!-- SETTINGS + LOGOUT AT THE BOTTOM -->
 
             <div class="logout">
 
-                <a href="@Url.Action("Login", "Admin")">
+                <!-- SETTINGS -->
+
+                <a href="@Url.Action("StaffSettings", "Staff")"
+                   class="settings-link">
+
+                    <i class="bi bi-gear-fill"></i>
+                    <span>Settings</span>
+
+                </a>
+
+
+                <!-- LOGOUT -->
+
+                <a href="@Url.Action("StaffLogin", "Staff")"
+                   class="logout-link">
 
                     <i class="bi bi-box-arrow-right"></i>
-
-                    <span>
-                        Logout
-                    </span>
+                    <span>Logout</span>
 
                 </a>
 

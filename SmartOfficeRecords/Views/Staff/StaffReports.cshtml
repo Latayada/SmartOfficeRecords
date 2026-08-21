@@ -235,14 +235,16 @@
                     box-shadow: 0 3px 8px rgba(185,28,28,.22);
                 }
 
-
         /* =========================================================
-                           LOGOUT
+                           SETTINGS + LOGOUT
                         ========================================================= */
 
         .logout {
             margin-top: auto;
             padding: 12px 9px 15px 9px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
 
             .logout a {
@@ -260,13 +262,18 @@
 
                 .logout a i {
                     font-size: 16px;
+                    min-width: 16px;
                 }
 
-                .logout a:hover {
-                    background: rgba(185,28,28,.18);
-                    color: #FFFFFF;
-                }
+        .settings-link:hover {
+            background: rgba(185, 28, 28, .18);
+            color: #FFFFFF;
+        }
 
+        .logout-link:hover {
+            background: rgba(185,28,28,.25);
+            color: #FFFFFF;
+        }
 
         /* =========================================================
                            MAIN CONTENT
@@ -388,7 +395,6 @@
 
         /* =========================================================
                            CONTENT AREA
-                           SAME AS RECORDS
                         ========================================================= */
 
         .content-area {
@@ -416,7 +422,6 @@
 
         /* =========================================================
                            PAGE HEADER
-                           SAME AS RECORDS
                         ========================================================= */
 
         .page-header {
@@ -446,7 +451,6 @@
 
         /* =========================================================
                            ACTION BAR
-                           SAME AS RECORDS
                         ========================================================= */
 
         .action-bar {
@@ -467,7 +471,6 @@
 
         /* =========================================================
                            SEARCH BOX
-                           SAME AS RECORDS
                         ========================================================= */
 
         .search-box {
@@ -534,7 +537,6 @@
 
         /* =========================================================
                            REPORT TABLE
-                           SAME WIDTH / SIZE / ALIGNMENT AS RECORDS
                         ========================================================= */
 
         .report-table {
@@ -548,7 +550,6 @@
 
             /* =========================================================
                            COLUMN WIDTHS
-                           SAME PROPORTION STYLE AS RECORDS
                         ========================================================= */
 
             .report-table th:nth-child(1),
@@ -579,7 +580,6 @@
 
             /* =========================================================
                            TABLE HEADER
-                           SAME AS RECORDS
                         ========================================================= */
 
             .report-table thead {
@@ -602,7 +602,6 @@
 
                 /* =========================================================
                            HEADER ALIGNMENT
-                           SAME AS RECORDS
                         ========================================================= */
 
                 .report-table th:nth-child(1) {
@@ -622,7 +621,6 @@
 
             /* =========================================================
                            TABLE BODY
-                           SAME AS RECORDS
                         ========================================================= */
 
             .report-table td {
@@ -640,7 +638,6 @@
 
                 /* =========================================================
                            BODY ALIGNMENT
-                           SAME AS RECORDS
                         ========================================================= */
 
                 .report-table td:nth-child(1) {
@@ -662,7 +659,6 @@
 
             /* =========================================================
                            HOVER
-                           SAME AS RECORDS
                         ========================================================= */
 
             .report-table tbody tr:hover td {
@@ -676,7 +672,6 @@
 
         /* =========================================================
                            STATUS BADGES
-                           SAME SCALE AS RECORDS
                         ========================================================= */
 
         .status-badge {
@@ -709,7 +704,6 @@
 
         /* =========================================================
                            REPORT ACTIONS
-                           SAME ALIGNMENT AS RECORDS ACTIONS
                         ========================================================= */
 
         .report-actions {
@@ -746,7 +740,6 @@
 
         /* =========================================================
                            PAGINATION
-                           SAME AS RECORDS
                         ========================================================= */
 
         .pagination-section {
@@ -1021,37 +1014,36 @@
 
                 </a>
 
-                <!-- SETTINGS -->
-
-                <a href="@Url.Action("StaffSettings", "Staff")">
-
-                    <i class="bi bi-gear-fill"></i>
-
-                    <span>
-                        Settings
-                    </span>
-
-                </a>
-
 
             </div>
 
-
-            <!-- LOGOUT -->
+            <!-- SETTINGS + LOGOUT AT THE BOTTOM -->
 
             <div class="logout">
 
-                <a href="@Url.Action("StaffLogin", "Staff")">
+                <!-- SETTINGS -->
+
+                <a href="@Url.Action("StaffSettings", "Staff")"
+                   class="settings-link">
+
+                    <i class="bi bi-gear-fill"></i>
+                    <span>Settings</span>
+
+                </a>
+
+
+                <!-- LOGOUT -->
+
+                <a href="@Url.Action("StaffLogin", "Staff")"
+                   class="logout-link">
 
                     <i class="bi bi-box-arrow-right"></i>
-
-                    <span>
-                        Logout
-                    </span>
+                    <span>Logout</span>
 
                 </a>
 
             </div>
+
 
 
         </aside>
