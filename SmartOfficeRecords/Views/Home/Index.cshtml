@@ -6,53 +6,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Smart Office Records System</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Inter - SAME FONT AS DASHBOARD -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
 
-        /* =========================================================
-                   COLOR PALETTE
-                ========================================================= */
-
-        :root {
-            --black-gray: #202328;
-            --dark-gray: #292d32;
-            --gray: #343940;
-            --medium-gray: #4a4f56;
-            --white: #ffffff;
-            --off-white: #f7f7f7;
-            --text-dark: #17191c;
-            --text-gray: #555b62;
-            --red: #e5222a;
-            --red-dark: #c91820;
-            --red-soft: #fff0f1;
-            --border: #dedfe1;
-        }
-
-
-        /* =========================================================
-                   GLOBAL
-                ========================================================= */
-
-        *,
-        *::before,
-        *::after {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -63,774 +32,747 @@
         body {
             width: 100%;
             height: 100%;
-            margin: 0;
-            padding: 0;
             overflow: hidden;
-        }
-
-        body {
-            background: var(--black-gray);
-            color: var(--white);
-        }
-
-
-        /* =========================================================
-                   MAIN
-                ========================================================= */
-
-        .landing-page {
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            background: radial-gradient( circle at 50% 30%, rgba(229, 34, 42, 0.08) 0%, rgba(229, 34, 42, 0.025) 28%, transparent 55% ), linear-gradient( 135deg, #202328 0%, #292d32 50%, #202328 100% );
-        }
-
-
-        /* =========================================================
-                   HEADER
-                ========================================================= */
-
-        .top-header {
-            width: 100%;
-            height: 78px;
-            display: flex;
-            align-items: center;
-            padding: 0 30px;
-            background: #202328;
-            border-bottom: 3px solid var(--red);
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .brand-logo {
-            width: 31px;
-            height: 31px;
-            object-fit: contain;
-            display: block;
-            flex-shrink: 0;
-        }
-
-        .brand-name {
-            margin: 0;
-            color: #ffffff;
-            font-size: 21px;
-            font-weight: 700;
-            letter-spacing: 0.1px;
-            line-height: 1.2;
-        }
-
-
-        /* =========================================================
-                   MAIN CONTENT
-                ========================================================= */
-
-        .main-content {
-            width: 100%;
-            height: calc(100vh - 78px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 43px 30px 30px;
-            overflow: hidden;
-        }
-
-
-        /* =========================================================
-                   INTRO
-                ========================================================= */
-
-        .intro-section {
-            width: 100%;
-            max-width: 850px;
-            text-align: center;
-            margin-bottom: 36px;
-        }
-
-        .section-label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 11px;
-            margin-bottom: 15px;
-        }
-
-            .section-label::before,
-            .section-label::after {
-                content: "";
-                width: 34px;
-                height: 1px;
-                background: var(--red);
-            }
-
-            .section-label span {
-                color: #ff4b52;
-                font-size: 13px;
-                font-weight: 700;
-                letter-spacing: 0.4px;
-            }
-
-        .intro-title {
-            margin: 0 0 7px;
-            color: #ffffff;
-            font-size: 22px;
-            font-weight: 700;
-            line-height: 1.35;
-        }
-
-        .intro-subtitle {
-            margin: 0;
-            color: #d0d3d6;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 1.6;
-        }
-
-
-        /* =========================================================
-                   LOGIN CONTAINER
-                ========================================================= */
-
-        .login-container {
-            width: 100%;
-            max-width: 930px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            align-items: stretch;
-        }
-
-
-        /* =========================================================
-                   LOGIN CARD
-                ========================================================= */
-
-        .login-card {
-            position: relative;
-            width: 100%;
-            height: 437px;
             background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18), 0 12px 30px rgba(0, 0, 0, 0.12);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
         }
 
-            .login-card:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22), 0 18px 35px rgba(0, 0, 0, 0.15);
+            /* =========================
+                   BACKGROUND
+                ========================== */
+
+            body::before {
+                content: "";
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 50vw;
+                height: 40vh;
+                background: radial-gradient( circle at bottom left, rgba(35, 38, 45, 0.10) 0%, rgba(35, 38, 45, 0.03) 50%, transparent 70% );
+                z-index: 0;
+                pointer-events: none;
             }
 
+            body::after {
+                content: "";
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                width: 50vw;
+                height: 40vh;
+                background: radial-gradient( circle at bottom right, rgba(229, 34, 42, 0.10) 0%, rgba(229, 34, 42, 0.03) 50%, transparent 70% );
+                z-index: 0;
+                pointer-events: none;
+            }
 
-        /* =========================================================
-                   CARD TOP ACCENT
-                ========================================================= */
-
-        .admin-card::before,
-        .applicant-card::before {
-            content: "";
-            position: absolute;
+        .bg-glow-top-left {
+            position: fixed;
             top: 0;
             left: 0;
+            width: 50vw;
+            height: 45vh;
+            background: radial-gradient( circle at top left, rgba(35, 38, 45, 0.04) 0%, transparent 60% );
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bg-glow-top-right {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 40vw;
+            height: 40vh;
+            background: radial-gradient( circle at top right, rgba(229, 34, 42, 0.04) 0%, transparent 60% );
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .center-gradient-circle {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient( circle, rgba(35, 38, 45, 0.05) 0%, rgba(229, 34, 42, 0.04) 45%, transparent 70% );
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+            border-radius: 50%;
+            filter: blur(20px);
+        }
+
+        /* =========================
+                   MAIN WRAPPER
+                ========================== */
+
+        .landing-wrapper {
             width: 100%;
-            height: 5px;
-            z-index: 2;
-        }
-
-        .admin-card::before {
-            background: #343940;
-        }
-
-        .applicant-card::before {
-            background: var(--red);
-        }
-
-
-        /* =========================================================
-                   CARD CONTENT
-                ========================================================= */
-
-        .card-content {
-            width: 100%;
-            height: 100%;
-            padding: 28px 27px 23px;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
 
+        /* =========================
+                   HEADER
+                ========================== */
 
-        /* =========================================================
-                   CARD TOP
-                ========================================================= */
-
-        .card-top {
-            width: 100%;
+        .top-header {
+            height: 62px;
+            min-height: 62px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 0 55px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(220, 220, 220, 0.7);
+            flex-shrink: 0;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .logo-section img {
+                width: 36px;
+                height: 36px;
+                object-fit: contain;
+            }
+
+            .logo-section h4 {
+                color: #202328;
+                font-size: 16px;
+                font-weight: 700;
+                margin: 0;
+                letter-spacing: 0.3px;
+            }
+
+        .top-secure-badge {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            background: #f7f7f7;
+            padding: 6px 14px;
+            border-radius: 9px;
+            border: 1px solid #e2e2e2;
+        }
+
+            .top-secure-badge i {
+                color: #e5222a;
+                font-size: 16px;
+            }
+
+            .top-secure-badge div {
+                font-size: 10px;
+                color: #555;
+                line-height: 1.35;
+            }
+
+            .top-secure-badge strong {
+                color: #202328;
+                display: block;
+                font-weight: 600;
+            }
+
+        /* =========================
+                   CONTENT AREA
+                ========================== */
+
+        .content-area {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px 18px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* =========================
+                   HEADER TEXT
+                ========================== */
+
+        .header-text {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+            .header-text p {
+                font-size: 14px;
+                color: #555;
+                font-weight: 500;
+                margin-bottom: 2px;
+            }
+
+            .header-text h1 {
+                font-size: 34px;
+                font-weight: 800;
+                margin-bottom: 3px;
+            }
+
+                .header-text h1 span {
+                    background: linear-gradient( to right, #202328 40%, #e5222a 100% );
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+
+            .header-text .sub-txt {
+                font-size: 13px;
+                color: #777;
+                font-weight: 400;
+            }
+
+        /* =========================
+                   CARDS CONTAINER
+                ========================== */
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 32px;
+            width: 100%;
+            position: relative;
+            z-index: 5;
+            flex-shrink: 1;
+        }
+
+        /* =========================
+                   LOGIN CARD
+                ========================== */
+
+        .login-card {
+            width: 450px;
+            height: 455px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .login-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .admin-card:hover {
+            box-shadow: 0 20px 35px rgba(32, 35, 40, 0.16);
+        }
+
+        .applicant-card:hover {
+            box-shadow: 0 20px 35px rgba(229, 34, 42, 0.16);
+        }
+
+        /* =========================
+                   CARD ILLUSTRATION
+                ========================== */
+
+        .card-illustration-box {
+            height: 145px;
+            min-height: 145px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .admin-card .card-illustration-box {
+            background: linear-gradient( 135deg, #16191f 0%, #3b4049 100% );
+        }
+
+        .applicant-card .card-illustration-box {
+            background: linear-gradient( 135deg, #8f1118 0%, #e5222a 100% );
+        }
+
+        .mock-overlay-graphic {
+            position: absolute;
+            bottom: -20px;
+            width: 110%;
+            height: 55px;
+            background: #ffffff;
+            border-top-left-radius: 50% 40px;
+            border-top-right-radius: 50% 40px;
+        }
+
+        .card-user-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 9px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .admin-card .card-user-avatar i {
+            color: #202328;
+            font-size: 22px;
+        }
+
+        .applicant-card .card-user-avatar i {
+            color: #e5222a;
+            font-size: 22px;
+        }
+
+        .mock-laptop-vector {
+            width: 130px;
+            height: 76px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
             margin-bottom: 20px;
         }
 
-        .card-category {
-            color: #292d32;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.25px;
+        .mock-screen-row {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 3px;
         }
 
-        .access-badge {
-            min-width: 84px;
-            height: 22px;
-            padding: 0 12px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #d6d8db;
-            border-radius: 7px;
-            background: #f7f7f7;
-            color: #555b62;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
+        /* =========================
+                   CARD BODY
+                ========================== */
 
-
-        /* =========================================================
-                   ICON CIRCLE
-                ========================================================= */
-
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            min-width: 48px;
-            min-height: 48px;
-            border-radius: 50%;
+        .card-body-custom {
+            padding: 15px 28px 22px;
+            text-align: left;
+            flex: 1;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 14px;
-            flex-shrink: 0;
-            line-height: 1;
+            flex-direction: column;
         }
 
+        /* CENTER ONLY THE TITLES */
 
-        /* ADMIN ICON */
-
-        .admin-card .card-icon {
-            background: #343940;
-            color: #ffffff;
-        }
-
-
-        /* APPLICANT ICON */
-
-        .applicant-card .card-icon {
-            background: var(--red-soft);
-            color: var(--red);
-        }
-
-
-        /* ICON ITSELF */
-
-        .card-icon i {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            font-size: 20px;
-            line-height: 1;
-        }
-
-
-        /* =========================================================
-                   CARD TITLE
-                ========================================================= */
-
-        .card-title {
-            width: 100%;
-            margin: 0 0 7px;
-            color: var(--text-dark);
+        .admin-title,
+        .applicant-title {
+            color: #252525;
             font-size: 20px;
             font-weight: 700;
-            line-height: 1.35;
+            margin-bottom: 5px;
             text-align: center;
         }
 
-
-        /* =========================================================
-                   DESCRIPTION
-                ========================================================= */
-
-        .card-description {
-            margin: 0;
-            max-width: 410px;
-            color: #50565d;
-            font-size: 13px;
-            font-weight: 400;
-            line-height: 1.65;
+        .card-body-custom p.desc {
+            font-size: 12.5px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 12px;
         }
 
+        /* =========================
+                   CARD FEATURE LIST
+                ========================== */
 
-        /* =========================================================
-                   FEATURE LIST
-                ========================================================= */
-
-        .feature-list {
+        .card-feature-list {
             list-style: none;
             padding: 0;
-            margin: 21px 0 0;
+            margin: 0;
         }
 
-            .feature-list li {
+            .card-feature-list li {
                 display: flex;
                 align-items: center;
-                gap: 10px;
-                margin-bottom: 9px;
-                color: #454b52;
-                font-size: 13px;
-                font-weight: 400;
-                line-height: 1.5;
+                gap: 9px;
+                font-size: 12px;
+                color: #555;
+                margin-bottom: 6px;
             }
 
-                .feature-list li:last-child {
-                    margin-bottom: 0;
-                }
+            .card-feature-list i {
+                color: #202328;
+                font-size: 13px;
+            }
 
-                .feature-list li i {
-                    color: var(--red);
-                    font-size: 13px;
-                    font-weight: 700;
-                    flex-shrink: 0;
-                    width: 16px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
+        .applicant-card .card-feature-list i {
+            color: #e5222a;
+        }
 
+        /* =========================
+                   LOGIN AREA
+                ========================== */
 
-        /* =========================================================
-                   ACTION AREA
-                ========================================================= */
-
-        .card-action {
+        .login-area {
             margin-top: auto;
-            padding-top: 20px;
+        }
+
+        .applicant-card .login-area {
+            padding-top: 50px;
         }
 
         .signing-label {
             display: block;
-            margin-bottom: 8px;
-            color: #3e4349;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 600;
+            color: #555;
+            margin-bottom: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.2px;
         }
 
-
-        /* =========================================================
-                   ADMIN / STAFF SELECT
-                ========================================================= */
-
-        .role-select {
+        .login-select {
             width: 100%;
-            height: 39px;
-            padding: 0 35px 0 13px;
-            border: 1px solid #d5d8db;
-            border-radius: 6px;
-            background-color: #f5f6f7;
-            color: #25282c;
-            font-size: 13px;
-            font-weight: 400;
+            height: 38px;
+            border: 1px solid #d7d7d7;
+            border-radius: 7px;
+            padding: 0 12px;
+            color: #444;
+            font-size: 12px;
+            background: #fafafa;
             outline: none;
-            cursor: pointer;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
-            .role-select:hover {
-                border-color: #bfc3c7;
+            .login-select:focus {
+                border-color: #202328;
+                box-shadow: 0 0 0 3px rgba(32, 35, 40, 0.07);
             }
 
-            .role-select:focus {
-                border-color: var(--red);
-                box-shadow: 0 0 0 2px rgba(229, 34, 42, 0.10);
-                outline: none;
-            }
-
-            .role-select option {
-                background: #ffffff;
-                color: #252525;
-                font-size: 13px;
-                font-family: 'Inter', sans-serif;
-            }
-
-
-        /* =========================================================
+        /* =========================
                    BUTTONS
-                ========================================================= */
+                ========================== */
 
-        .login-button {
+        .btn-admin,
+        .btn-applicant {
             width: 100%;
-            height: 40px;
-            margin-top: 15px;
-            border: none;
-            border-radius: 6px;
+            height: 44px;
+            min-height: 44px;
+            padding: 10px;
+            border-radius: 7px;
+            font-weight: 600;
+            font-size: 13px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 9px;
-            font-size: 13px;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
+            gap: 8px;
+            transition: background 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .btn-admin {
+            background: #202633;
+            color: #ffffff;
+            border: none;
+        }
+
+            .btn-admin:hover {
+                background: #101319;
+                color: #ffffff;
+            }
+
+        .btn-applicant {
+            background: #e5222a;
+            color: #ffffff;
+            border: none;
             text-decoration: none;
-            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-            .login-button i {
-                font-size: 14px;
-            }
-
-
-        /* =========================================================
-                   ADMIN / STAFF BUTTON
-                ========================================================= */
-
-        .admin-button {
-            background: #343940;
-            color: #ffffff;
-            border: 1px solid #343940;
-        }
-
-            .admin-button:hover {
-                background: #292d32;
+            .btn-applicant:hover {
+                background: #c91820;
                 color: #ffffff;
-                box-shadow: 0 5px 12px rgba(0, 0, 0, 0.18);
             }
 
+        /* =========================
+                   BOTTOM FEATURES
+                ========================== */
 
-        /* =========================================================
-                   APPLICANT BUTTON
-                ========================================================= */
-
-        .applicant-button {
-            background: var(--red);
-            color: #ffffff;
-            border: 1px solid var(--red);
+        .bottom-features {
+            background: #ffffff;
+            border: 1px solid rgba(229, 231, 235, 0.8);
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 15px;
+            width: 100%;
+            max-width: 1100px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            position: relative;
+            z-index: 5;
+            flex-shrink: 0;
         }
 
-            .applicant-button:hover {
-                background: var(--red-dark);
-                color: #ffffff;
-                box-shadow: 0 5px 12px rgba(229, 34, 42, 0.20);
-            }
-
-        .button-arrow {
-            font-size: 14px;
-            margin-left: 1px;
+        .feature-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 16px;
+            flex: 1;
         }
 
-
-        /* =========================================================
-                   RESPONSIVE - TABLET
-                ========================================================= */
-
-        @@media (max-width: 900px) {
-
-            .top-header {
-                height: 76px;
-                padding: 0 24px;
+            .feature-box:not(:last-child) {
+                border-right: 1px solid #e5e7eb;
             }
 
-            .brand-logo {
-                width: 29px;
-                height: 29px;
-            }
-
-            .brand-name {
-                font-size: 19px;
-            }
-
-            .main-content {
-                height: calc(100vh - 76px);
-                padding: 36px 24px 25px;
-            }
-
-            .intro-section {
-                margin-bottom: 30px;
-            }
-
-            .intro-title {
-                font-size: 20px;
-            }
-
-            .login-container {
-                max-width: 760px;
-                gap: 15px;
-            }
-
-            .login-card {
-                height: 430px;
-                border-radius: 15px;
-            }
+        .feature-icon-wrapper {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            flex-shrink: 0;
         }
 
+        .f-blue,
+        .f-orange {
+            background: #f0f0f0;
+            color: #202328;
+        }
 
-        /* =========================================================
-                   RESPONSIVE - MOBILE
-                ========================================================= */
+        .f-green,
+        .f-purple {
+            background: #fce8e9;
+            color: #e5222a;
+        }
 
-        @@media (max-width: 700px) {
+        .feature-details h6 {
+            margin: 0 0 2px 0;
+            font-size: 12px;
+            font-weight: 700;
+            color: #202328;
+        }
+
+        .feature-details p {
+            margin: 0;
+            font-size: 10px;
+            color: #777;
+            line-height: 1.35;
+        }
+
+        /* =========================
+                   RESPONSIVE
+                ========================== */
+
+        @@media (max-width: 1100px) {
 
             html,
             body {
                 overflow-y: auto;
             }
 
-            .landing-page {
-                min-height: 100vh;
+            .landing-wrapper {
                 height: auto;
+                min-height: 100vh;
                 overflow: visible;
             }
 
-            .top-header {
-                height: auto;
-                min-height: 75px;
-                padding: 16px 20px;
-            }
-
-            .brand {
-                gap: 10px;
-            }
-
-            .brand-logo {
-                width: 30px;
-                height: 30px;
-            }
-
-            .brand-name {
-                font-size: 16px;
-                line-height: 1.3;
-            }
-
-            .main-content {
-                height: auto;
-                padding: 38px 18px 35px;
-            }
-
-            .intro-section {
-                margin-bottom: 30px;
-            }
-
-            .intro-title {
-                font-size: 20px;
-            }
-
-            .intro-subtitle {
-                font-size: 14px;
-            }
-
-            .login-container {
-                grid-template-columns: 1fr;
-                max-width: 450px;
+            .content-area {
+                overflow: visible;
+                gap: 20px;
             }
 
             .login-card {
-                height: 425px;
-                border-radius: 15px;
+                width: 420px;
             }
 
-            .card-title {
-                font-size: 19px;
-            }
-
-            .card-description,
-            .feature-list li {
-                font-size: 13px;
+            .cards-container {
+                gap: 20px;
             }
         }
 
+        @@media (max-width: 900px) {
 
-        /* =========================================================
-                   RESPONSIVE - SMALL MOBILE
-                ========================================================= */
-
-        @@media (max-width: 400px) {
-
-            .brand-name {
-                font-size: 14px;
+            .top-header {
+                padding: 0 30px;
             }
 
-            .main-content {
-                padding-left: 14px;
-                padding-right: 14px;
-            }
-
-            .card-content {
-                padding-left: 21px;
-                padding-right: 21px;
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
             }
 
             .login-card {
-                height: 425px;
-                border-radius: 14px;
+                width: 100%;
+                max-width: 450px;
+            }
+
+            .bottom-features {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .feature-box:not(:last-child) {
+                border-right: none;
+                border-bottom: 1px solid #e5e7eb;
+                padding-bottom: 10px;
+            }
+        }
+
+        @@media (max-width: 600px) {
+
+            .top-header {
+                padding: 0 20px;
+            }
+
+            .top-secure-badge {
+                display: none;
+            }
+
+            .logo-section h4 {
+                font-size: 13px;
+            }
+
+            .header-text h1 {
+                font-size: 30px;
+            }
+
+            .content-area {
+                padding: 20px 15px 30px;
+            }
+
+            .card-body-custom {
+                padding: 18px 20px;
+            }
+
+            .applicant-card .login-area {
+                padding-top: 50px;
             }
         }
 
     </style>
-
 </head>
 
 <body>
 
-    <div class="landing-page">
+    <div class="bg-glow-top-left"></div>
+    <div class="bg-glow-top-right"></div>
+    <div class="center-gradient-circle"></div>
 
-        <!-- =====================================================
-             HEADER
-        ====================================================== -->
+    <div class="landing-wrapper">
 
-        <header class="top-header">
+        <!-- HEADER -->
+        <div class="top-header">
 
-            <div class="brand">
+            <div class="logo-section">
 
                 <img src="~/Images/newlogo.png"
-                     class="brand-logo"
-                     alt="SORS Logo"
-                     onerror="this.src='https://cdn-icons-png.flaticon.com/512/3652/3652191.png';">
+                     onerror="this.src='https://cdn-icons-png.flaticon.com/512/3652/3652191.png'"
+                     alt="Logo">
 
-                <h1 class="brand-name">
-                    SMART OFFICE RECORDS SYSTEM
-                </h1>
+                <h4>SMART OFFICE RECORDS SYSTEM</h4>
 
             </div>
 
-        </header>
+            <div class="top-secure-badge">
 
+                <i class="bi bi-shield-check"></i>
 
-        <!-- =====================================================
-             MAIN CONTENT
-        ====================================================== -->
-
-        <main class="main-content">
-
-            <!-- =================================================
-                 INTRO
-            ================================================== -->
-
-            <section class="intro-section">
-
-                <div class="section-label">
-                    <span>GET STARTED</span>
+                <div>
+                    <strong>Secure. Reliable. Efficient.</strong>
+                    Your records, our priority.
                 </div>
 
-                <h2 class="intro-title">
-                    Choose your login type
-                </h2>
+            </div>
 
-                <p class="intro-subtitle">
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="content-area">
+
+            <div class="header-text">
+
+                <p>Welcome! 👋</p>
+
+                <h1>
+                    <span>Get Started</span>
+                </h1>
+
+                <p class="sub-txt">
                     Select the portal that matches how you'll use the system.
                 </p>
 
-            </section>
+            </div>
 
+            <!-- LOGIN CARDS -->
+            <div class="cards-container">
 
-            <!-- =================================================
-                 LOGIN CARDS
-            ================================================== -->
-
-            <section class="login-container">
-
-
-                <!-- =============================================
-                     ADMIN / STAFF CARD
-                ============================================== -->
-
+                <!-- ADMIN & STAFF CARD -->
                 <div class="login-card admin-card">
 
-                    <div class="card-content">
+                    <div class="card-illustration-box">
 
-                        <div class="card-top">
+                        <div class="mock-laptop-vector">
 
-                            <span class="card-category">
-                                STAFF &amp; ADMIN
-                            </span>
+                            <div class="mock-screen-row"
+                                 style="width: 40%; background: #ffffff;">
+                            </div>
 
-                            <span class="access-badge">
-                                INTERNAL
-                            </span>
+                            <div class="mock-screen-row"
+                                 style="width: 85%;">
+                            </div>
 
-                        </div>
-
-
-                        <!-- ADMIN ICON CIRCLE -->
-
-                        <div class="card-icon">
-
-                            <i class="bi bi-file-earmark-text"></i>
+                            <div class="mock-screen-row"
+                                 style="width: 60%;">
+                            </div>
 
                         </div>
 
+                        <div class="mock-overlay-graphic"></div>
 
-                        <!-- TITLE -->
+                        <div class="card-user-avatar">
+                            <i class="bi bi-building"></i>
+                        </div>
 
-                        <h3 class="card-title">
-                            Admin &amp; Staff
-                        </h3>
+                    </div>
 
+                    <div class="card-body-custom">
 
-                        <p class="card-description">
+                        <h5 class="admin-title">
+                            Admin & Staff
+                        </h5>
+
+                        <p class="desc">
                             Open dashboard to manage users, records and system settings.
                         </p>
 
-
-                        <ul class="feature-list">
+                        <ul class="card-feature-list">
 
                             <li>
                                 <i class="bi bi-check-lg"></i>
-
-                                <span>
-                                    User and role management
-                                </span>
+                                User and role management
                             </li>
 
                             <li>
                                 <i class="bi bi-check-lg"></i>
-
-                                <span>
-                                    Full records database access
-                                </span>
+                                Full records database access
                             </li>
 
                             <li>
                                 <i class="bi bi-check-lg"></i>
-
-                                <span>
-                                    Audit logs and reporting
-                                </span>
+                                Audit logs and reporting
                             </li>
 
                         </ul>
 
+                        <!-- LOGIN AREA -->
+                        <div class="login-area">
 
-                        <div class="card-action">
-
-                            <label for="loginRole"
-                                   class="signing-label">
+                            <label class="signing-label">
                                 SIGNING IN AS
                             </label>
 
-
-                            <!-- ADMIN / STAFF SELECT -->
-
-                            <select id="loginRole"
-                                    class="role-select">
+                            <select class="login-select" id="loginType">
 
                                 <option value="admin" selected>
                                     Admin
@@ -842,20 +784,17 @@
 
                             </select>
 
+                            <button type="button"
+                                    class="btn btn-admin"
+                                    id="loginButton">
 
-                            <!-- LOGIN BUTTON -->
-
-                            <a href="@Url.Action("Login", "Admin")"
-                               id="roleLoginButton"
-                               class="login-button admin-button">
-
-                                <span id="roleLoginText">
+                                <span id="loginButtonText">
                                     Log in as Admin
                                 </span>
 
-                                <i class="bi bi-arrow-right button-arrow"></i>
+                                <i class="bi bi-arrow-right"></i>
 
-                            </a>
+                            </button>
 
                         </div>
 
@@ -863,88 +802,66 @@
 
                 </div>
 
-
-                <!-- =============================================
-                     APPLICANT CARD
-                ============================================== -->
-
+                <!-- APPLICANT CARD -->
                 <div class="login-card applicant-card">
 
-                    <div class="card-content">
+                    <div class="card-illustration-box">
 
-                        <div class="card-top">
+                        <div class="mock-laptop-vector"
+                             style="align-items: center; justify-content: center;">
 
-                            <span class="card-category">
-                                APPLICANT
-                            </span>
-
-                            <span class="access-badge">
-                                PUBLIC
-                            </span>
+                            <i class="bi bi-file-person"
+                               style="font-size: 32px; color: rgba(255,255,255,0.7);">
+                            </i>
 
                         </div>
 
+                        <div class="mock-overlay-graphic"></div>
 
-                        <!-- APPLICANT ICON CIRCLE -->
-
-                        <div class="card-icon">
-
+                        <div class="card-user-avatar">
                             <i class="bi bi-person"></i>
-
                         </div>
 
+                    </div>
 
-                        <!-- TITLE -->
+                    <div class="card-body-custom">
 
-                        <h3 class="card-title">
+                        <h5 class="applicant-title">
                             Applicant
-                        </h3>
+                        </h5>
 
-
-                        <p class="card-description">
+                        <p class="desc">
                             Submit request, track their status and manage your own records.
                         </p>
 
-
-                        <ul class="feature-list">
+                        <ul class="card-feature-list">
 
                             <li>
                                 <i class="bi bi-check-lg"></i>
-
-                                <span>
-                                    Submit new document request
-                                </span>
+                                Submit new document request
                             </li>
 
                             <li>
                                 <i class="bi bi-check-lg"></i>
-
-                                <span>
-                                    Track Application status
-                                </span>
+                                Track Application Status
                             </li>
 
                             <li>
                                 <i class="bi bi-check-lg"></i>
-
-                                <span>
-                                    Download issued records
-                                </span>
+                                Download issued records
                             </li>
 
                         </ul>
 
-
-                        <div class="card-action">
+                        <!-- LOGIN AREA -->
+                        <div class="login-area">
 
                             <a href="@Url.Action("ApplicantLand", "Applicant")"
-                               class="login-button applicant-button">
+                               class="btn btn-applicant">
 
-                                <span>
-                                    Continue as Applicant
-                                </span>
+                                Continue as Applicant
 
-                                <i class="bi bi-arrow-right button-arrow"></i>
+                                <i class="bi bi-arrow-right"></i>
 
                             </a>
 
@@ -954,54 +871,97 @@
 
                 </div>
 
+            </div>
 
-            </section>
+            <!-- BOTTOM FEATURES -->
+            <div class="bottom-features">
 
-        </main>
+                <div class="feature-box">
+
+                    <div class="feature-icon-wrapper f-blue">
+                        <i class="bi bi-shield-lock-fill"></i>
+                    </div>
+
+                    <div class="feature-details">
+                        <h6>Secure Access</h6>
+                        <p>Role-based authentication keeps data safe.</p>
+                    </div>
+
+                </div>
+
+                <div class="feature-box">
+
+                    <div class="feature-icon-wrapper f-green">
+                        <i class="bi bi-arrow-repeat"></i>
+                    </div>
+
+                    <div class="feature-details">
+                        <h6>Real-time Updates</h6>
+                        <p>Get instant updates on your requests.</p>
+                    </div>
+
+                </div>
+
+                <div class="feature-box">
+
+                    <div class="feature-icon-wrapper f-orange">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                    </div>
+
+                    <div class="feature-details">
+                        <h6>Efficient Workflow</h6>
+                        <p>Streamlined processes for productivity.</p>
+                    </div>
+
+                </div>
+
+                <div class="feature-box">
+
+                    <div class="feature-icon-wrapper f-purple">
+                        <i class="bi bi-heart-pulse-fill"></i>
+                    </div>
+
+                    <div class="feature-details">
+                        <h6>Dedicated Support</h6>
+                        <p>We're here to help you every step.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-
-    <!-- =========================================================
-         ROLE SELECTION SCRIPT
-    ========================================================== -->
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
 
-        document.addEventListener("DOMContentLoaded", function () {
+        const loginType = document.getElementById("loginType");
+        const loginButton = document.getElementById("loginButton");
+        const loginButtonText = document.getElementById("loginButtonText");
 
-            const roleSelect =
-                document.getElementById("loginRole");
+        loginType.addEventListener("change", function () {
 
-            const roleLoginButton =
-                document.getElementById("roleLoginButton");
+            if (this.value === "admin") {
+                loginButtonText.textContent = "Log in as Admin";
+            }
+            else {
+                loginButtonText.textContent = "Log in as Staff";
+            }
 
-            const roleLoginText =
-                document.getElementById("roleLoginText");
+        });
 
+        loginButton.addEventListener("click", function () {
 
-            roleSelect.addEventListener("change", function () {
-
-                if (this.value === "staff") {
-
-                    roleLoginButton.href =
-                        '@Url.Action("StaffLogin", "Staff")';
-
-                    roleLoginText.textContent =
-                        "Log in as Staff";
-
-                }
-                else {
-
-                    roleLoginButton.href =
-                        '@Url.Action("Login", "Admin")';
-
-                    roleLoginText.textContent =
-                        "Log in as Admin";
-
-                }
-
-            });
+            if (loginType.value === "admin") {
+                window.location.href = '@Url.Action("Login", "Admin")';
+            }
+            else {
+                window.location.href = '@Url.Action("StaffLogin", "Staff")';
+            }
 
         });
 
