@@ -20,7 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
           rel="stylesheet" />
 
-    <!-- Same Font as Dashboard -->
+    <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet">
 
@@ -70,27 +70,7 @@
             transition: all .3s ease;
             overflow-y: auto;
             overflow-x: hidden;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(255,255,255,.25) transparent;
         }
-
-            .sidebar::-webkit-scrollbar {
-                width: 5px;
-            }
-
-            .sidebar::-webkit-scrollbar-thumb {
-                background: rgba(255,255,255,.25);
-                border-radius: 10px;
-            }
-
-            .sidebar::-webkit-scrollbar-track {
-                background: transparent;
-            }
-
-
-            /* =========================================================
-                   COLLAPSED SIDEBAR
-                ========================================================= */
 
             .sidebar.collapsed {
                 width: 78px;
@@ -102,12 +82,6 @@
                     font-size: 11px;
                     font-weight: 700;
                     margin-top: 8px;
-                    letter-spacing: .2px;
-                }
-
-                .sidebar.collapsed .logo-circle {
-                    width: 42px;
-                    height: 42px;
                 }
 
                 .sidebar.collapsed .logo-section {
@@ -115,7 +89,6 @@
                 }
 
                 .sidebar.collapsed .menu a span,
-                .sidebar.collapsed .dropdown-toggle-menu span,
                 .sidebar.collapsed .logout a span {
                     display: none;
                 }
@@ -137,7 +110,6 @@
 
                         .sidebar.collapsed .menu a.active {
                             background: #B91C1C;
-                            box-shadow: 0 4px 10px rgba(0,0,0,.15);
                         }
 
                         .sidebar.collapsed .menu a i,
@@ -145,24 +117,6 @@
                             margin: 0;
                             font-size: 17px;
                         }
-
-                .sidebar.collapsed .dropdown-toggle-menu {
-                    width: 44px;
-                    height: 44px;
-                    margin: 0 auto 10px auto;
-                    padding: 0;
-                    justify-content: center;
-                    align-items: center;
-                    border-radius: 6px;
-                }
-
-                .sidebar.collapsed .small-arrow {
-                    display: none;
-                }
-
-                .sidebar.collapsed .dropdown-submenu {
-                    display: none !important;
-                }
 
                 .sidebar.collapsed .logout {
                     padding-bottom: 15px;
@@ -256,8 +210,8 @@
 
 
         /* =========================================================
-                           SETTINGS + LOGOUT
-                        ========================================================= */
+                   SETTINGS + LOGOUT
+                ========================================================= */
 
         .logout {
             margin-top: auto;
@@ -285,15 +239,12 @@
                     min-width: 16px;
                 }
 
-        .settings-link:hover {
-            background: rgba(185, 28, 28, .18);
+        .settings-link:hover,
+        .logout-link:hover {
+            background: rgba(185,28,28,.20);
             color: #FFFFFF;
         }
 
-        .logout-link:hover {
-            background: rgba(185,28,28,.25);
-            color: #FFFFFF;
-        }
 
         /* =========================================================
                    MAIN CONTENT
@@ -328,7 +279,6 @@
         .topbar-left {
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
         .menu-toggle {
@@ -339,11 +289,6 @@
             cursor: pointer;
             padding: 5px;
         }
-
-
-        /* =========================================================
-                   TOPBAR RIGHT
-                ========================================================= */
 
         .topbar-right {
             display: flex;
@@ -356,7 +301,6 @@
             font-size: 19px;
             color: #374151;
             cursor: pointer;
-            transition: color .2s ease;
         }
 
             .notification-icon:hover {
@@ -405,7 +349,6 @@
         .profile-arrow {
             color: #6B7280;
             font-size: 10px;
-            margin-left: 3px;
         }
 
 
@@ -423,7 +366,6 @@
 
         /* =========================================================
                    BREADCRUMB
-                   SAME MAIN SIZE AS DASHBOARD "Hi!"
                 ========================================================= */
 
         .breadcrumb-title {
@@ -433,7 +375,6 @@
             font-size: 24px;
             font-weight: 700;
             margin: 0;
-            padding: 0;
             color: #111827;
             line-height: 1.2;
         }
@@ -463,7 +404,6 @@
             font-size: 13px;
             font-weight: 400;
             margin: 5px 0 18px 0;
-            padding: 0;
             line-height: 1.5;
         }
 
@@ -558,7 +498,7 @@
 
 
         /* =========================================================
-                   INPUT WRAPPER
+                   INPUT
                 ========================================================= */
 
         .input-wrapper {
@@ -575,11 +515,6 @@
             font-size: 14px;
             pointer-events: none;
         }
-
-
-        /* =========================================================
-                   INPUT
-                ========================================================= */
 
         .form-control-custom {
             width: 100%;
@@ -685,7 +620,7 @@
         .description-box {
             width: 100%;
             height: 40px;
-            border: 1px solid #9CA3AF;
+            border: 1px solid #D1D5DB;
             border-radius: 6px;
             padding: 10px 12px;
             resize: none;
@@ -706,11 +641,72 @@
 
 
         /* =========================================================
+                   INTERVIEW DETAILS
+                ========================================================= */
+
+        .interview-section {
+            grid-column: 1 / -1;
+            margin-top: 12px;
+        }
+
+            .interview-section .section-title {
+                margin: 0 0 15px 0;
+            }
+
+        .interview-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 38px;
+        }
+
+        .interview-input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .interview-input-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9CA3AF;
+            font-size: 14px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .date-input,
+        .time-select {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            padding: 0 12px 0 37px;
+            outline: none;
+            font-size: 12px;
+            color: #374151;
+            background: #FFFFFF;
+            box-shadow: 0 2px 5px rgba(0,0,0,.08);
+            transition: all .2s ease;
+        }
+
+            .date-input:focus,
+            .time-select:focus {
+                border-color: #B91C1C;
+                box-shadow: 0 0 0 2px rgba(185,28,28,.08);
+            }
+
+        .time-select {
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
                    BUTTON SECTION
                 ========================================================= */
 
         .button-section {
-            margin-top: 145px;
+            margin-top: 32px;
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -766,8 +762,13 @@
                 grid-column: 1;
             }
 
+            .interview-form {
+                grid-template-columns: 1fr;
+                row-gap: 15px;
+            }
+
             .button-section {
-                margin-top: 40px;
+                margin-top: 30px;
             }
         }
 
@@ -785,18 +786,8 @@
 
             .system-name,
             .menu a span,
-            .dropdown-toggle-menu span,
             .logout a span {
                 display: none;
-            }
-
-            .logo-section {
-                padding: 18px 10px;
-            }
-
-            .logo-circle {
-                width: 42px;
-                height: 42px;
             }
 
             .menu {
@@ -810,18 +801,6 @@
                     padding: 0;
                     justify-content: center;
                 }
-
-            .dropdown-toggle-menu {
-                width: 44px;
-                height: 44px;
-                margin: 0 auto 10px auto;
-                padding: 0;
-                justify-content: center;
-            }
-
-            .small-arrow {
-                display: none;
-            }
 
             .logout a {
                 width: 44px;
@@ -847,10 +826,7 @@
 
         @@media (max-width: 500px) {
 
-            .profile-info {
-                display: none;
-            }
-
+            .profile-info,
             .profile-arrow {
                 display: none;
             }
@@ -883,8 +859,6 @@
 
         <aside class="sidebar">
 
-            <!-- LOGO -->
-
             <div class="logo-section">
 
                 <div class="logo-circle">
@@ -902,114 +876,54 @@
             </div>
 
 
-            <!-- MENU -->
-
             <div class="menu">
 
-                <!-- DASHBOARD -->
-
                 <a href="@Url.Action("Dashboard", "Admin")">
-
                     <i class="bi bi-grid-fill"></i>
-
-                    <span>
-                        Dashboard
-                    </span>
-
+                    <span>Dashboard</span>
                 </a>
-
-
-                <!-- REQUEST -->
 
                 <a href="@Url.Action("RequestManagement", "Admin")"
                    class="active">
-
                     <i class="bi bi-file-earmark-text"></i>
-
-                    <span>
-                        Request
-                    </span>
-
+                    <span>Request</span>
                 </a>
-
-
-                <!-- RECORDS -->
 
                 <a href="@Url.Action("RecordsManagement", "Admin")">
-
                     <i class="bi bi-folder2-open"></i>
-
-                    <span>
-                        Records
-                    </span>
-
+                    <span>Records</span>
                 </a>
-
-
-                <!-- REPORTS -->
 
                 <a href="@Url.Action("ReportsManagement", "Admin")">
-
                     <i class="bi bi-file-earmark-bar-graph"></i>
-
-                    <span>
-                        Reports
-                    </span>
-
+                    <span>Reports</span>
                 </a>
-
-
-                <!-- AUDIT LOGS -->
 
                 <a href="@Url.Action("AuditLogs", "Admin")">
-
                     <i class="bi bi-clock-history"></i>
-
-                    <span>
-                        Audit Logs
-                    </span>
-
+                    <span>Audit Logs</span>
                 </a>
 
-
-                <!-- USERS -->
-
                 <a href="@Url.Action("UsersManagement", "Admin")">
-
                     <i class="bi bi-people-fill"></i>
-
-                    <span>
-                        Users
-                    </span>
-
+                    <span>Users</span>
                 </a>
 
             </div>
 
 
-            <!-- SETTINGS + LOGOUT AT THE BOTTOM -->
-
             <div class="logout">
-
-                <!-- SETTINGS -->
 
                 <a href="@Url.Action("Settings", "Admin")"
                    class="settings-link">
-
                     <i class="bi bi-gear-fill"></i>
                     <span>Settings</span>
-
                 </a>
-
-
-                <!-- LOGOUT -->
 
                 <a href="@Url.Action("Login", "Admin")"
                    class="logout-link">
-
                     <i class="bi bi-box-arrow-right"></i>
                     <span>Logout</span>
-
                 </a>
 
             </div>
@@ -1023,14 +937,9 @@
 
         <div class="main-content">
 
-
-            <!-- =================================================
-                 TOPBAR
-            ================================================== -->
+            <!-- TOPBAR -->
 
             <div class="topbar">
-
-                <!-- LEFT -->
 
                 <div class="topbar-left">
 
@@ -1045,16 +954,9 @@
                 </div>
 
 
-                <!-- RIGHT -->
-
                 <div class="topbar-right">
 
-                    <!-- NOTIFICATION -->
-
                     <i class="bi bi-bell notification-icon"></i>
-
-
-                    <!-- PROFILE -->
 
                     <div class="profile">
 
@@ -1063,13 +965,9 @@
 
                         <div class="profile-info">
 
-                            <h5>
-                                John Cruz
-                            </h5>
+                            <h5>John Cruz</h5>
 
-                            <span>
-                                Administrator
-                            </span>
+                            <span>Administrator</span>
 
                         </div>
 
@@ -1083,15 +981,13 @@
 
 
             <!-- =================================================
-                 CONTENT
+                 CONTENT AREA
             ================================================== -->
 
             <div class="content-area">
 
 
-                <!-- =================================================
-                     BREADCRUMB
-                ================================================== -->
+                <!-- BREADCRUMB -->
 
                 <div class="breadcrumb-title">
 
@@ -1102,18 +998,14 @@
 
                     </a>
 
-                    <span>
-                        ›
-                    </span>
+                    <span>›</span>
 
-                    <strong>
-                        Create Request
-                    </strong>
+                    <strong>Create Request</strong>
 
                 </div>
 
 
-                <!-- DESCRIPTION -->
+                <!-- PAGE DESCRIPTION -->
 
                 <p class="page-description">
                     Submit a new request and provide the necessary details.
@@ -1122,7 +1014,7 @@
 
                 <!-- =================================================
                      REQUEST CARD
-                ================================================= -->
+                ================================================== -->
 
                 <div class="request-card">
 
@@ -1137,21 +1029,17 @@
 
                         </div>
 
-                        <h3>
-                            Request Form
-                        </h3>
+                        <h3>Request Form</h3>
 
                     </div>
 
 
-                    <!-- SECTION -->
+                    <!-- PERSONAL INFORMATION -->
 
                     <div class="section-title">
                         Personal Information
                     </div>
 
-
-                    <!-- FORM -->
 
                     <form>
 
@@ -1162,9 +1050,7 @@
 
                             <div class="form-group">
 
-                                <label>
-                                    Full name
-                                </label>
+                                <label>Full name</label>
 
                                 <div class="input-wrapper">
 
@@ -1177,6 +1063,7 @@
                                 </div>
 
                             </div>
+
 
                             <!-- VALID ID -->
 
@@ -1219,13 +1106,12 @@
 
                             </div>
 
+
                             <!-- EMAIL -->
 
                             <div class="form-group">
 
-                                <label>
-                                    Email Address
-                                </label>
+                                <label>Email Address</label>
 
                                 <div class="input-wrapper">
 
@@ -1238,6 +1124,7 @@
                                 </div>
 
                             </div>
+
 
                             <!-- RESUME -->
 
@@ -1280,13 +1167,12 @@
 
                             </div>
 
+
                             <!-- CONTACT NUMBER -->
 
                             <div class="form-group">
 
-                                <label>
-                                    Contact Number
-                                </label>
+                                <label>Contact Number</label>
 
                                 <div class="input-wrapper">
 
@@ -1299,7 +1185,8 @@
                                 </div>
 
                             </div>
-                            
+
+
                             <!-- DESCRIPTION -->
 
                             <div class="form-group description-group">
@@ -1317,6 +1204,106 @@
                             </div>
 
 
+                            <!-- =================================================
+                                 INTERVIEW DETAILS
+                            ================================================== -->
+
+                            <div class="interview-section">
+
+                                <div class="section-title">
+                                    Interview Details
+                                </div>
+
+
+                                <div class="interview-form">
+
+
+                                    <!-- PREFERRED INTERVIEW DATE -->
+
+                                    <div class="form-group">
+
+                                        <label>
+                                            Preferred Interview Date
+                                        </label>
+
+                                        <div class="interview-input-wrapper">
+
+                                            <i class="bi bi-calendar3 interview-input-icon"></i>
+
+                                            <input type="date"
+                                                   class="date-input" />
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- PREFERRED TIME -->
+
+                                    <div class="form-group">
+
+                                        <label>
+                                            Preferred Time
+                                        </label>
+
+                                        <div class="interview-input-wrapper">
+
+                                            <i class="bi bi-clock interview-input-icon"></i>
+
+                                            <select class="time-select">
+
+                                                <option value=""
+                                                        selected
+                                                        disabled>
+                                                    Select Time
+                                                </option>
+
+                                                <option value="08:00 AM">
+                                                    08:00 AM
+                                                </option>
+
+                                                <option value="09:00 AM">
+                                                    09:00 AM
+                                                </option>
+
+                                                <option value="10:00 AM">
+                                                    10:00 AM
+                                                </option>
+
+                                                <option value="11:00 AM">
+                                                    11:00 AM
+                                                </option>
+
+                                                <option value="01:00 PM">
+                                                    01:00 PM
+                                                </option>
+
+                                                <option value="02:00 PM">
+                                                    02:00 PM
+                                                </option>
+
+                                                <option value="03:00 PM">
+                                                    03:00 PM
+                                                </option>
+
+                                                <option value="04:00 PM">
+                                                    04:00 PM
+                                                </option>
+
+                                                <option value="05:00 PM">
+                                                    05:00 PM
+                                                </option>
+
+                                            </select>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
                         </div>
 
 
@@ -1326,17 +1313,17 @@
 
                         <div class="button-section">
 
-                            <button type="button"
-                                    class="cancel-btn">
-
-                                Cancel
-
-                            </button>
-
                             <button type="submit"
                                     class="submit-btn">
 
                                 Submit Request
+
+                            </button>
+
+                            <button type="button"
+                                    class="cancel-btn">
+
+                                Cancel
 
                             </button>
 
@@ -1360,23 +1347,6 @@
     <script>
 
         /* =====================================================
-           SETTINGS DROPDOWN
-        ===================================================== */
-
-        const dropdown =
-            document.querySelector('.sidebar-dropdown');
-
-        const dropdownToggle =
-            document.querySelector('.dropdown-toggle-menu');
-
-        dropdownToggle.addEventListener('click', function () {
-
-            dropdown.classList.toggle('open');
-
-        });
-
-
-        /* =====================================================
            SIDEBAR COLLAPSE
         ===================================================== */
 
@@ -1385,6 +1355,7 @@
 
         const menuToggle =
             document.getElementById('menuToggle');
+
 
         menuToggle.addEventListener('click', function () {
 
@@ -1402,6 +1373,7 @@
 
         const resumeFileName =
             document.getElementById('resumeFileName');
+
 
         resumeFile.addEventListener('change', function () {
 
@@ -1430,6 +1402,7 @@
 
         const validIdFileName =
             document.getElementById('validIdFileName');
+
 
         validIdFile.addEventListener('change', function () {
 
